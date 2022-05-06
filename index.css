@@ -101,9 +101,9 @@ main {
 
 #left-Option-Bar {
   height: 580px;
-  /*width: calc(calc(100vw - 580px - 327px )/2);*/ /*( (Current viewport width - graphics-Box width - menu-Bar width(plus border widths)) /2 )*/
+  width: calc(calc(100vw - 890)/2); /*( (Current viewport width - graphics-Box width - menu-Bar width) /2 )*/
   /*width: 20.48vw;*/
-  max-width: 20.48vw;
+  /*max-width: 20.48vw;*/
   flex-grow: 1;
   border: 1px solid black;
 
@@ -117,9 +117,9 @@ main {
 
 #right-Option-Bar {
   height: 580px;
-  /*width: calc(calc(100vw - 580px - 327px)/2);*/ /*( (Current viewport width - graphics-Box width - menu-Bar width) /2 )*/
+  width: calc(calc(100vw - 890)/2); /*( (Current viewport width - graphics-Box width - menu-Bar width) /2 )*/
   /*width: 20.48vw;*/
-  max-width: 20.48vw;
+  /*max-width: 20.48vw;*/
   flex-grow: 1;
   border: 1px solid black;
   border-right: 2px solid black;
