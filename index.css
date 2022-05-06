@@ -136,8 +136,13 @@ main {
 
 #text-Focus {
   align-self: center;
+  margin-bottom: 8px;
 }
 
 #text-Chat {
   align-self: center;
+  margin-top: 8px;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  margin-bottom: 8px;
 }
