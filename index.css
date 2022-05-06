@@ -1,1 +1,148 @@
 /* CSS Stuff Here */
+
+body {
+  margin: 0px;
+}
+
+h1 {
+
+}
+
+#head-Bar {
+  display: flex;
+  border: 2px solid black;
+  border-bottom: 1px solid black;
+  flex-direction: row;
+  /*align-content: space-between;*/
+
+}
+
+
+#title {
+  /*border: 2px solid black;*/
+  margin: 0px;
+  border-right: 1px solid black;
+  height: 35px;
+  width: 300px;
+}
+
+#top-Bar {
+  border-left: 1px solid black;
+}
+
+.top-Bar-Decor {
+  /*border: 2px solid black;*/
+  margin: 0px;
+
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+
+}
+
+#menu-Bar {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  /*height: calc(100vh - 35px);*/
+
+  border-top: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 1px solid black;
+  border-bottom: 2px solid black;
+
+  /*padding-bottom: 20px;*/
+}
+
+#options-Container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-top: 2px solid black;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 1px solid black;
+}
+
+#inventory-Title {
+  border: 2px solid black;
+  border-top: 1px solid black;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 2px solid black;
+  justify-content: flex-end;
+  margin: 0px;
+}
+
+#inventory-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding bottom: 20px;
+}
+
+.inventory-Item {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.game-Display-Container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: flex-end;
+}
+
+#left-Option-Bar {
+  height: 580px;
+  width: calc(calc(100vw - 890)/2); /*( (Current viewport width - graphics-Box width - menu-Bar width) /2 )*/
+  /*width: 20.48vw;*/
+  /*max-width: 20.48vw;*/
+  flex-grow: 1;
+  border: 1px solid black;
+
+}
+
+#graphics-Box {
+  height: 580px;
+  width: 580px;
+  border: 1px solid black;
+}
+
+#right-Option-Bar {
+  height: 580px;
+  width: calc(calc(100vw - 890)/2); /*( (Current viewport width - graphics-Box width - menu-Bar width) /2 )*/
+  /*width: 20.48vw;*/
+  /*max-width: 20.48vw;*/
+  flex-grow: 1;
+  border: 1px solid black;
+  border-right: 2px solid black;
+}
+
+#text-Box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  width: calc(100vw - 306px);
+}
+
+#text-Focus {
+  align-self: center;
+  margin-bottom: 8px;
+}
+
+#text-Chat {
+  align-self: center;
+  margin-top: 8px;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  margin-bottom: 8px;
+}
