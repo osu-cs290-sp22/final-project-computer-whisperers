@@ -23,6 +23,7 @@ h1 {
   /*background-color: #0d6137;*/
   background-color: white;
   height: 35px;
+  background-color: #E6E6E6;
 }
 
 
@@ -33,7 +34,7 @@ h1 {
   height: 35px;
   width: 300px;
   text-shadow: 5px 5px 15px black;
-  /*background-color: white;*/
+  /*background-color: green;*/
 }
 
 #top-Bar {
@@ -176,7 +177,7 @@ main {
   width: calc(100vw - 306px);
   /*background-color: #15a15b;*/
   /*background-color: #2fa66a;*/
-  background-color: white;
+  background-color: #E6E6E6;
 }
 
 #text-Focus {
