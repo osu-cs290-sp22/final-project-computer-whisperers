@@ -8,6 +8,8 @@ body {
   margin: 0px;
   /*background-color: #0d6137;*/
   background-color: white;
+  font-family: 'Macondo', cursive;
+  /*font-family: 'Roboto', sans-serif;*/
 }
 
 h1 {
