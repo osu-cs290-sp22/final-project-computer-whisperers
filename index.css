@@ -181,6 +181,9 @@ main {
   /*background-color: #2fa66a;*/
   background-color: #E6E6E6;
 }
+#text-Box:hover {
+  cursor: pointer;
+}
 
 #text-Focus {
   align-self: center;
