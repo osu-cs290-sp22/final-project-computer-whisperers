@@ -1,5 +1,7 @@
 // JS Stuff Here
 //Variables
+var textBoxClicked = 0;
+
 var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
 
@@ -14,7 +16,21 @@ var typewriter = new Typewriter(textChat, {
 });
 
 textBoxContainer.addEventListener('click', ()=> {
-  typewriter
-  .typeString(temporaryText)
-  .start();
+  console.log(textBoxClicked);
+  if (textBoxClicked == 0) {
+    typewriter
+    .changeDelay(25)
+    .typeString(temporaryText)
+    .start();
+    textBoxClicked = 1;
+  } else {
+    //textChat.textContent='';
+    //
+    typewriter
+    .changeDeleteSpeed(25) //Doesnt actually change delete speed for some reason?
+    .deleteAll()
+    .start();
+    //
+    textBoxClicked = 0;
+  }
 })
