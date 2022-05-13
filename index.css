@@ -197,9 +197,12 @@ main {
   cursor: pointer;
 }
 
-#text-Focus {
+#text-Focus-Container {
   align-self: center;
   margin-bottom: 8px;
+}
+
+#text-Focus {
 }
 
 #left-Option-Box, #right-Option-Box {

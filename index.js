@@ -25,7 +25,9 @@ var nameSelector = 1;
 var characterNames = [
   "",
   "Player",
-  "Grob"
+  "Grob",
+  "Wick",
+  "Witch"
 ];
 var introCounter = -1;
 var introText = [
