@@ -80,8 +80,12 @@ main {
   /*padding-bottom: 20px;*/
 }
 
-.options-title {
+#options-title {
   text-shadow: 5px 5px 15px black;
+  background-color: #6A4B1D;
+  padding-top: 19.920px;
+  padding-bottom: 19.920px;
+  margin: 0;
 }
 
 .options-item {
@@ -89,6 +93,11 @@ main {
   /*background-color: #0d6137;*/
   border: 1px solid black;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.4);
+  padding-left: 75px;
+  padding-right: 75px;
+  align-self: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #options-Container {
@@ -110,6 +119,7 @@ main {
   justify-content: flex-end;
   margin: 0px;
   text-shadow: 5px 5px 15px black;
+  background-color: #6A4B1D;
   /*background-color: white;*/
 }
 
@@ -120,6 +130,7 @@ main {
   flex-wrap: wrap;
   padding-left: 20px;
   padding bottom: 20px;
+  margin-top: 20px;
 }
 
 .inventory-Item {
@@ -180,6 +191,7 @@ main {
   /*background-color: #15a15b;*/
   /*background-color: #2fa66a;*/
   background-color: #E6E6E6;
+  min-height: 120px;
 }
 #text-Box:hover {
   cursor: pointer;
@@ -235,6 +247,7 @@ main {
 
 .modal-body {
   padding: 20px;
+  background-color: #E6E6E6;
 }
 
 #modal-backdrop {
