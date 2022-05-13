@@ -1,14 +1,29 @@
 // JS Stuff Here
 //Variables
 var textBoxClicked = 0;
+var playerName = "Player";
+var customTextSpeed = 25;
 
 var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
 var pictureDisplay = document.getElementById('graphics-Pane');
+var extraButton = document.getElementById('settings-Button');
+var characterNameDisplay = document.getElementById('text-Focus');
 
+var modalBack = document.getElementById('modal-backdrop');
+var modalCreate = document.getElementById('create-twit-modal');
+var modalExit = document.querySelector('.modal-close-button');
+var nameText = document.getElementById('name-text-input');
+var textSpeed = document.getElementById('text-speed-input');
 
 var temporaryText = document.getElementById('text-Chat').textContent;
 
+var nameSelector = 1;
+var characterNames = [
+  "",
+  "Player",
+  "Grob"
+];
 var introCounter = -1;
 var introText = [
   "Once again... Awoken in your bed on your birthday. All alone in your room.",
@@ -22,8 +37,17 @@ var villageText = [
 ];
 
 //Functions
+function removeHidden(el) {
+ el.classList.remove('hidden');
+}
+
+function addHidden(el) {
+ el.classList.add('hidden');
+}
+
   function introSequence() {
     pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
+    characterNameDisplay.textContent = characterNames[nameSelector];
     if(introCounter <= 6) {
       //Set Intro to 0 to start text if it isnt already.
 
@@ -32,7 +56,7 @@ var villageText = [
       }
       if (textBoxClicked == 0) {
         typewriter
-        .changeDelay(25)
+        .changeDelay(customTextSpeed)
         .typeString(introText[introCounter])
         .start();
         textBoxClicked = 1;
@@ -50,6 +74,7 @@ var villageText = [
   }
 
 //Code
+
 var typewriter = new Typewriter(textChat, {
   loop: false,
   deleteSpeed: 1,
@@ -60,4 +85,24 @@ var typewriter = new Typewriter(textChat, {
 textBoxContainer.addEventListener('click', ()=> {
 //Intro handling
   introSequence();
+})
+
+extraButton.addEventListener('click', ()=> {
+  removeHidden(modalBack);
+  removeHidden(modalCreate);
+})
+
+modalExit.addEventListener('click', ()=> {
+  addHidden(modalBack);
+  addHidden(modalCreate);
+  if( nameText.value != '' ) {
+    playerName = nameText.value;
+    characterNames[1] = playerName;
+    console.log('Player name set to: ', playerName);
+  }
+
+  if( textSpeed.value != '' ) {
+    customTextSpeed = textSpeed.value;
+    console.log('Text Speed set to: ', customTextSpeed);
+  }
 })
