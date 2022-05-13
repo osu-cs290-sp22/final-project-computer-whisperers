@@ -202,22 +202,26 @@ main {
   margin-bottom: 8px;
 }
 
+#left-Option-Box, #right-Option-Box {
+  position: relative;
+
+  left: 7.5vw;
+  top: 10vh;
+
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  /*align-self: center;*/
+  background-color: #E6E6E6;
+}
+
+
 #text-Chat {
   align-self: center;
   margin-top: 8px;
   margin-left: 15vw;
   margin-right: 15vw;
   margin-bottom: 8px;
-}
-
-#create-twit-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  overflow: scroll;
 }
 
 .modal-dialog {
