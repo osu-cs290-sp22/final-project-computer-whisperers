@@ -13,13 +13,14 @@ var leftBar = document.getElementById('left-Option-Bar');
 var rightBar = document.getElementById('right-Option-Bar');
 
 var modalBack = document.getElementById('modal-backdrop');
-var modalCreate = document.getElementById('create-twit-modal');
+var modalCreate = document.getElementById('modal-container');
 var modalExit = document.querySelector('.modal-close-button');
 var nameText = document.getElementById('name-text-input');
 var textSpeed = document.getElementById('text-speed-input');
 
 var temporaryText = document.getElementById('text-Chat').textContent;
 
+//Story Variables
 var nameSelector = 1;
 var characterNames = [
   "",
