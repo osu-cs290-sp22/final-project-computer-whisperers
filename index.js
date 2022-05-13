@@ -4,6 +4,7 @@ var textBoxClicked = 0;
 
 var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
+var pictureDisplay = document.getElementById('graphics-Pane');
 
 var temporaryText = document.getElementById('text-Chat').textContent;
 
@@ -19,8 +20,10 @@ var introText = [
 
 //Functions
   function introSequence() {
+    pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
     if(introCounter <= 6) {
       //Set Intro to 0 to start text if it isnt already.
+
       if(introCounter == -1) {
         introCounter = 0;
       }
@@ -39,7 +42,6 @@ var introText = [
         .start();
         //
         textBoxClicked = 0;
-
       }
     }
   }
