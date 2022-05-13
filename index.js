@@ -6,6 +6,7 @@ var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
 var pictureDisplay = document.getElementById('graphics-Pane');
 
+
 var temporaryText = document.getElementById('text-Chat').textContent;
 
 var introCounter = -1;
@@ -16,6 +17,8 @@ var introText = [
   "I must set out on a quest to make some friends...",
   "There have been reaccuring rumors about a door between realities that leads to a land of all the friends you could ever imagine!",
   "Maybe I should head out to the village nearby to procure more information of this 'door'."
+];
+var villageText = [
 ];
 
 //Functions
