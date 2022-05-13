@@ -9,6 +9,8 @@ var textBoxContainer = document.getElementById('text-Box');
 var pictureDisplay = document.getElementById('graphics-Pane');
 var extraButton = document.getElementById('settings-Button');
 var characterNameDisplay = document.getElementById('text-Focus');
+var leftBar = document.getElementById('left-Option-Bar');
+var rightBar = document.getElementById('right-Option-Bar');
 
 var modalBack = document.getElementById('modal-backdrop');
 var modalCreate = document.getElementById('create-twit-modal');
@@ -48,6 +50,8 @@ function addHidden(el) {
   function introSequence() {
     pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
     characterNameDisplay.textContent = characterNames[nameSelector];
+    leftBar.style.backgroundColor = "#4F3A2B";
+    rightBar.style.backgroundColor = "#4F3A2B";
     if(introCounter <= 6) {
       //Set Intro to 0 to start text if it isnt already.
 
