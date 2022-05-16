@@ -215,7 +215,7 @@ main {
 #text-Focus {
 }
 
-#left-Option-Box, #right-Option-Box {
+#left-Option-Box1, #right-Option-Box1 {
   position: relative;
 
   left: 7.5vw;
@@ -226,6 +226,24 @@ main {
   border: 1px solid black;
   /*align-self: center;*/
   background-color: #E6E6E6;
+}
+
+#left-Option-Box2, #right-Option-Box2 {
+  position: relative;
+
+  left: 7.5vw;
+  top: 20vh;
+
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  /*align-self: center;*/
+  background-color: #E6E6E6;
+}
+
+#left-Option-Box1:hover, #right-Option-Box1:hover, #left-Option-Box2:hover, #right-Option-Box2:hover {
+  background-color: gray;
+  cursor: pointer;
 }
 
 
