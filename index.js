@@ -38,7 +38,7 @@ var introCounter = -1; //-1 means that this sequence hasnt been started yet.
 var introText = [
   "Once again... Awoken in your bed on your birthday. All alone in your room.",
   "Will there ever be a time where this scene will have changed?",
-  "'No, I won't let this be my fate. I am determined to find some friends to call family!''",
+  "'No, I won't let this be my fate. I am determined to find some friends to call family!",
   "'I must set out on a quest to make some friends...''",
   "There have been reaccuring rumors about a door between realities that leads to a land of all the friends you could ever imagine!",
   "'Maybe I should head out to the village nearby to procure more information of this 'door'.'",
@@ -55,8 +55,46 @@ var introText = [
   "'Hmmm, what should I do?'"
   //Then the first choice happens.
 ];
-
+var introBadEndCounter = -1;
+var introBadEnd = [
+  "'What was I thinking? No one will ever become my friend if they wont even open a gate for me. Clearly they do not want company such as mine.'",
+  "With your ambitions lost and slight blindness from stepping outside, you turn around and head home.",
+  "You return to your cozy bed and fancy red balloon. Maybe this is where you are meant to be...",
+  "'Even though I failed to make friends, maybe I should try to make the best of what I have.'",
+  "You seem to become more content with your situation. You have decided that you will make the best of life with yourself and this red balloon.",
+  "With each day that passes you and the balloon become closer together.",
+  //Player:
+  "'I can't believe I thought I was alone this whole time! I was just looking for friends in the one place I didn't expect to find any friends; My home.'",
+  //Bubbly:
+  "*squeek* *scritch* *squee*",
+  //Player:
+  "'I am so glad that you agree with me Bubbly!'",
+  //Bubbly:
+  "*sqwish* *squee* *squeek*",
+  //Player:
+  "'What Bubbly? You would love to move together into a cabin in front of a lake with beautiful starry nights?'",
+  //Bubbly:
+  "*SQUEE* *SQUEE*",
+  "It took several months, but you went in search of the perfect place for you and Bubbly.",
+  "Eventually you found a location that would please Bubbly.",
+  "You spend the next several years routinely gardening, reading, and playing fetch with Bubbly.",
+  "...",
+  //Maybe I should end it here if it gets too sad...
+  "One day, when you were playing fetch with Bubbly, you noticed that they were floating a little lower than usual.",
+  "Upon further inspection it seems that Bubbly is a bit wrinkled adn soft to the touch.",
+  "...",
+  "You start to count the days as Bubbly's condition worsens.",
+  "...",
+  "Eventually, it is time to say goodbye to Bubbly.",
+  "You feel a sense of dread of losing your one and only friend in life.",
+  "But what you fear the most is what you will do being all alone again, without Bubbly.",
+  "Even though you will being losing your best friend... You will cherish the moments that made them truely the best.",
+  "*pffffffff*",
+  "[THE END]"
+];
+var sewerTextCounter = -1;
 var sewerText = [
+    "Stuff Here and stuff. Meet Grob."
 ];
 
 //Functions
@@ -74,14 +112,12 @@ function addHidden(el) {
       pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
       leftBar.style.backgroundColor = "#4F3A2B";
       rightBar.style.backgroundColor = "#4F3A2B";
-    }
-    else if ( (introCounter < 9) && (introCounter >= 6) ) {
+    } else if ( (introCounter < 9) && (introCounter >= 6) ) {
       pictureDisplay.src = './Pictures/Backgrounds/Outside1.png';
       leftBar.style.backgroundColor = "white";
       rightBar.style.backgroundColor = "white";
-    }
-    else if (introCounter <= 15) {
-      pictureDisplay.src = 'Village Picture WIP';
+    } else if (introCounter <= 15) {
+      pictureDisplay.src = './Pictures/Backgrounds/VillageGate.png';
       leftBar.style.backgroundColor = "green";
       rightBar.style.backgroundColor = "green";
     }
@@ -118,6 +154,64 @@ function addHidden(el) {
       rightChoiceBox1.textContent = "Go into the sewers.";
       removeHidden(leftChoiceBox1);
       removeHidden(rightChoiceBox1);
+      characterNameDisplay.textContent = " ";
+    }
+  }
+
+  function introBadEndSequence() {
+    if(introBadEndCounter < 28) {
+      if (introBadEndCounter < 2) {
+        pictureDisplay.src = './Pictures/Backgrounds/VillageGate.png';
+        leftBar.style.backgroundColor = "green";
+        rightBar.style.backgroundColor = "green";
+      } else if ( (introBadEndCounter < 6) && (introBadEndCounter >= 2) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
+        leftBar.style.backgroundColor = "#4F3A2B";
+        rightBar.style.backgroundColor = "#4F3A2B";
+      } else if ( (introBadEndCounter <12 ) && (introBadEndCounter >= 6) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/BlubbyBG.png';
+        leftBar.style.backgroundColor = "#4F3A2B";
+        rightBar.style.backgroundColor = "#4F3A2B";
+        //set names
+        if( (introBadEndCounter == 6) || (introBadEndCounter == 8) || (introBadEndCounter == 10) ) {
+          characterNameDisplay.textContent = playerName;
+        }
+        if( (introBadEndCounter == 7) || (introBadEndCounter == 9) || (introBadEndCounter == 11) ) {
+          characterNameDisplay.textContent = "Bubbly";
+        }
+
+      } else if ( (introBadEndCounter < 26) && (introBadEndCounter >= 12) ) {
+        characterNameDisplay.textContent = " ";
+        pictureDisplay.src = './Pictures/Backgrounds/Black.png';
+        leftBar.style.backgroundColor = "black";
+        rightBar.style.backgroundColor = "black";
+      } else if (introBadEndCounter == 26) {
+        pictureDisplay.src = './Pictures/Backgrounds/GameOver.png';
+        leftBar.style.backgroundColor = "black";
+        rightBar.style.backgroundColor = "black";
+        introBadEndCounter = -2;
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(introBadEnd[introBadEndCounter])
+        .start();
+        textBoxClicked = 1;
+        introBadEndCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    introBadEndCounter = -2; //-2 means that this sequence has been done.
     }
   }
 
@@ -136,15 +230,32 @@ textBoxContainer.addEventListener('click', ()=> {
     introSequence();
     return;
   }
-  console.log('Finished intro sequence');
+  if( (introBadEndCounter != -1) && (introBadEndCounter != -2) ) {
+    introBadEndSequence();
+  }
 });
 
 leftChoiceBox1.addEventListener('click', ()=> {
-  console.log('Option 1 chosen');
+  if( (introCounter == -2) && (introBadEndCounter == -1) ) {
+    //If intro is finished and the bad end hasn't been done, then 'start' it
+    introBadEndCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    pictureDisplay.src = '';
+    leftBar.style.backgroundColor = "black";
+    rightBar.style.backgroundColor = "black";
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
-  console.log('Option 2 chosen');
+  if( (introCounter == -2) && (sewerTextCounter == -1) ) {
+    //If intro is finished and the sewer scene hasn't been done, then 'start' it
+    sewerTextCounter = 0;
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox1);
+    leftBar.style.backgroundColor = "black";
+    rightBar.style.backgroundColor = "black";
+  }
 });
 
 extraButton.addEventListener('click', ()=> {
