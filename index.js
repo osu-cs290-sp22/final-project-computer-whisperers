@@ -110,3 +110,4 @@ modalExit.addEventListener('click', ()=> {
     console.log('Text Speed set to: ', customTextSpeed);
   }
 })
+//Heehee I did a thing
