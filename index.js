@@ -64,7 +64,7 @@ var introBadEnd = [
   "You seem to become more content with your situation. You have decided that you will make the best of life with yourself and this red balloon.",
   "With each day that passes you and the balloon become closer together.",
   //Player:
-  "'I can't believe I thought I was alone this whole time! I was just looking for friends in the one place I didn't expect to find any friends; My home.'",
+  "'I can't believe I thought I was alone this whole time! I was just looking for friends in the one place I didn't expect to find any. My home.'",
   //Bubbly:
   "*squeek* *scritch* *squee*",
   //Player:
@@ -86,7 +86,7 @@ var introBadEnd = [
   "You start to count the days as Bubbly's condition worsens.",
   "...",
   "Eventually, it is time to say goodbye to Bubbly.",
-  "You feel a sense of dread of losing your one and only friend in life.",
+  "You feel a sense of dread. Losing your one and only friend in life.",
   "But what you fear the most is what you will do being all alone again, without Bubbly.",
   "Even though you will being losing your best friend... You will cherish the moments that made them truely the best.",
   "*pffffffff*",
@@ -180,12 +180,12 @@ function addHidden(el) {
           characterNameDisplay.textContent = "Bubbly";
         }
 
-      } else if ( (introBadEndCounter < 26) && (introBadEndCounter >= 12) ) {
+      } else if ( (introBadEndCounter < 27) && (introBadEndCounter >= 12) ) {
         characterNameDisplay.textContent = " ";
         pictureDisplay.src = './Pictures/Backgrounds/Black.png';
         leftBar.style.backgroundColor = "black";
         rightBar.style.backgroundColor = "black";
-      } else if (introBadEndCounter == 26) {
+      } else if (introBadEndCounter == 27) {
         pictureDisplay.src = './Pictures/Backgrounds/GameOver.png';
         leftBar.style.backgroundColor = "black";
         rightBar.style.backgroundColor = "black";
