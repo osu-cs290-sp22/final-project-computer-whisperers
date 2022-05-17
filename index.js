@@ -7,7 +7,8 @@ var customTextSpeed = 25;
 var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
 var pictureDisplay = document.getElementById('graphics-Pane');
-var extraButton = document.getElementById('settings-Button');
+var extraButton = document.getElementById('extras-Button');
+var settingsButton = document.getElementById('settings-Button');
 var characterNameDisplay = document.getElementById('text-Focus');
 var leftBar = document.getElementById('left-Option-Bar');
 var rightBar = document.getElementById('right-Option-Bar');
@@ -18,7 +19,10 @@ var rightChoiceBox2 = document.getElementById('right-Option-Box2');
 
 var modalBack = document.getElementById('modal-backdrop');
 var modalCreate = document.getElementById('modal-container');
-var modalExit = document.querySelector('.modal-close-button');
+var modalExtrasContent = document.getElementById('extras-content');
+var modalSettingsContent = document.getElementById('settings-content');
+var modalExit1 = document.getElementById('extras-close');
+var modalExit2 = document.getElementById('settings-close');
 var nameText = document.getElementById('name-text-input');
 var textSpeed = document.getElementById('text-speed-input');
 
@@ -169,9 +173,9 @@ function addHidden(el) {
         leftBar.style.backgroundColor = "#4F3A2B";
         rightBar.style.backgroundColor = "#4F3A2B";
       } else if ( (introBadEndCounter <12 ) && (introBadEndCounter >= 6) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/BlubbyBG.png';
-        leftBar.style.backgroundColor = "#4F3A2B";
-        rightBar.style.backgroundColor = "#4F3A2B";
+        pictureDisplay.src = './Pictures/Backgrounds/BubblyBG.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
         //set names
         if( (introBadEndCounter == 6) || (introBadEndCounter == 8) || (introBadEndCounter == 10) ) {
           characterNameDisplay.textContent = playerName;
@@ -183,12 +187,12 @@ function addHidden(el) {
       } else if ( (introBadEndCounter < 27) && (introBadEndCounter >= 12) ) {
         characterNameDisplay.textContent = " ";
         pictureDisplay.src = './Pictures/Backgrounds/Black.png';
-        leftBar.style.backgroundColor = "black";
-        rightBar.style.backgroundColor = "black";
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
       } else if (introBadEndCounter == 27) {
         pictureDisplay.src = './Pictures/Backgrounds/GameOver.png';
-        leftBar.style.backgroundColor = "black";
-        rightBar.style.backgroundColor = "black";
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
         introBadEndCounter = -2;
       }
 
@@ -241,9 +245,9 @@ leftChoiceBox1.addEventListener('click', ()=> {
     introBadEndCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
-    pictureDisplay.src = '';
-    leftBar.style.backgroundColor = "black";
-    rightBar.style.backgroundColor = "black";
+    //pictureDisplay.src = '';
+    //leftBar.style.backgroundColor = "black";
+    //rightBar.style.backgroundColor = "black";
   }
 });
 
@@ -253,17 +257,35 @@ rightChoiceBox1.addEventListener('click', ()=> {
     sewerTextCounter = 0;
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox1);
-    leftBar.style.backgroundColor = "black";
-    rightBar.style.backgroundColor = "black";
+    //leftBar.style.backgroundColor = "black";
+    //rightBar.style.backgroundColor = "black";
   }
 });
 
 extraButton.addEventListener('click', ()=> {
   removeHidden(modalBack);
   removeHidden(modalCreate);
+  removeHidden(modalExtrasContent);
+  addHidden(modalSettingsContent);
 });
 
-modalExit.addEventListener('click', ()=> {
+settingsButton.addEventListener('click', ()=> {
+  removeHidden(modalBack);
+  removeHidden(modalCreate);
+  removeHidden(modalSettingsContent);
+  addHidden(modalExtrasContent);
+});
+
+
+modalExit1.addEventListener('click', ()=> {
+  addHidden(modalBack);
+  addHidden(modalCreate);
+  removeHidden(modalSettingsContent);
+  addHidden(modalExtrasContent);
+
+});
+
+modalExit2.addEventListener('click', ()=> {
   addHidden(modalBack);
   addHidden(modalCreate);
   if( nameText.value != '' ) {

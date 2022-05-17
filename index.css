@@ -100,6 +100,11 @@ main {
   margin-bottom: 5px;
 }
 
+#settings-Button {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
 .options-item:hover {
   background-color: #36B173;
   cursor: pointer;
