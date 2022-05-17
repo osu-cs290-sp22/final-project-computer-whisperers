@@ -96,9 +96,44 @@ var introBadEnd = [
   "*pffffffff*",
   "[THE END]"
 ];
-var sewerTextCounter = -1;
-var sewerText = [
-    "Stuff Here and stuff. Meet Grob."
+var sewerIntroTextCounter = -1;
+var sewerIntroText = [
+    "You decide that braving the sewers' unkown is worth the risk to potentialy find information of this 'door'.",
+    "So you lift the sewer grate and start down the steps of the ladder.",
+    "While descending the ladder darkness slowly consumes you.",  //2 - dim BG
+    "Upon reaching the bottom it is completely pitch black.",   //3 - black BG
+    "You decide to stand around for a couple of minutes to let your eyes adjust to the setting.",
+    "During your wait you hear something shift and stir in the darkness.",
+    "As your eyes slowly adjust to the darkness you can make out a faint moving shape not too far in front of you.", //5 - dimmed sewerBG
+    "It has an odd shape, similar to that of an upside down triangle...",
+    "Suddenly a bright light turns on.", //7 - bright lightBG
+    //Grob:
+    "'Suprise! Oh my Grob~, I can't beleive I have a visitor!!!", //8 - fully lit sewerBG w/GrobNormal
+    //Narrator (aka no name)
+    "To your suprise that shape was not a foe.",
+    "But instead a very strange and enthusiastic creature.",
+    //Grob:
+    "'Uhhh ohhh, I hope I didn't scare you. I only just meant to give you a good welcome.'", //11 - w/GrobUhhh
+    "...",
+    "'Oh geez, now I feel really bad. Please tell me you don't hate me like the rest of those townsfolk above!", //12 - w/GrobWorried
+    "'They put me down here because they thought I was really annoying.'",
+    //Player:
+    "'Sorry I was just a little suprised to see someone... like yourself.'",
+    "'I was actually coming into town to see if I could aquire more information about a door of interdimensional friendship.'",
+    "'Do you perhaps know anything about it?'",
+    //Grob:
+    "'Ha ha, thats really funny! Man that was so awkward. I'm really glad your not here to stab me with a pitchfork ha ha!", //17 - w/GrobHaha
+    "'I have not heard about this door of friendship. Sounds very interesting... And full of awesome nice people!'" //18 - w/GrobNormal
+    "'Where ever this door is I would love to come along and help find it!'",
+    //Player:
+    "'I guess that is fine for you to tag along, but do you have any ideas where in town we could find some information on the 'door'?",
+    //Grob:
+    "Sure, let me think...",
+    "...",  //22 - GrobThinking
+    "...",
+    "...",
+    "'Aha, how about the local tavern? Tons of traveling folk move through there. One of them ought to have heard of it!'",
+    //Choice Time!
 ];
 
 //Functions
