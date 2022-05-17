@@ -34,7 +34,7 @@
       <h2 id= "inventory-Title">Inventory?:</h2>
       <div id= "inventory-container">
         <article class= "inventory-Item">
-          <img class= "item-Picture"  src = ""/>
+          <img class= "item-Picture"  src = "./Pictures/Items/GrobItem.png"/>
         </article>
         <article class= "inventory-Item">
           <img class= "item-Picture" src = ""/>
@@ -55,13 +55,19 @@
     </div>
 
     <div class= "game-Display-Container">
-      <div class= "option-Bar" id= "left-Option-Bar"></div>
+      <div class= "option-Bar" id= "left-Option-Bar">
+          <p id="left-Option-Box1" class="hidden">Go left 1</p>
+          <p id="left-Option-Box2" class="hidden">Go left 2</p>
+      </div>
       <div id="graphics-Box">
         <img id="graphics-Pane" src= "./Pictures/Backgrounds/Start.png"/>
       </div>
-      <div class= "option-Bar" id= "right-Option-Bar"></div>
+      <div class= "option-Bar" id= "right-Option-Bar">
+        <p id="right-Option-Box1" class="hidden">Go right 1</p>
+        <p id="right-Option-Box2" class="hidden">Go right 2</p>
+      </div>
       <div id= "text-Box">
-        <p id="text-Focus"><b><em><!--(Character Name)--></em></b></p>
+        <p id="text-Focus-Container"><b><em id="text-Focus"><!--(Character Name)--></em></b></p>
         <p id='text-Chat'>Actual descriptive text that describes what is happening like how I am
           describing this prototype of a text-box that describes what is happening
           or what a character is saying etc...</p>
@@ -69,11 +75,11 @@
     </div>
   </main>
   <div id="modal-backdrop" class="hidden"></div>
-  <div id="create-twit-modal" class="hidden">
+  <div id="modal-container" class="hidden">
     <div class="modal-dialog">
 
       <div class="modal-header">
-        <h1>Extras!</h1>
+        <h1 class="modal-title">Extras!</h1>
         <button type="button" class="modal-close-button">&times;</button>
       </div>
 
