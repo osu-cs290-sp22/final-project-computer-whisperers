@@ -100,6 +100,11 @@ main {
   margin-bottom: 5px;
 }
 
+.options-item:hover {
+  background-color: #36B173;
+  cursor: pointer;
+}
+
 #options-Container {
   display: flex;
   flex-direction: column;
@@ -141,6 +146,11 @@ main {
   background-color: #148b4f;
   /*background-color: #0d6137;*/
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.inventory-Item :hover {
+  background-color: #36B173;
+  /*cursor: pointer;*/
 }
 
 .game-Display-Container {
@@ -197,10 +207,45 @@ main {
   cursor: pointer;
 }
 
-#text-Focus {
+#text-Focus-Container {
   align-self: center;
   margin-bottom: 8px;
 }
+
+#text-Focus {
+}
+
+#left-Option-Box1, #right-Option-Box1 {
+  position: relative;
+
+  left: 7.5vw;
+  top: 10vh;
+
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  /*align-self: center;*/
+  background-color: #E6E6E6;
+}
+
+#left-Option-Box2, #right-Option-Box2 {
+  position: relative;
+
+  left: 7.5vw;
+  top: 20vh;
+
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  /*align-self: center;*/
+  background-color: #E6E6E6;
+}
+
+#left-Option-Box1:hover, #right-Option-Box1:hover, #left-Option-Box2:hover, #right-Option-Box2:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
 
 #text-Chat {
   align-self: center;
@@ -210,7 +255,7 @@ main {
   margin-bottom: 8px;
 }
 
-#create-twit-modal {
+#modal-container {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -228,6 +273,14 @@ main {
   margin: 40px auto;
   background-color: #fff;
   border-radius: 15px;
+}
+
+.modal-header {
+
+}
+
+.modal-title {
+  margin-left: 25px;
 }
 
 .modal-close-button {
