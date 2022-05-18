@@ -122,9 +122,9 @@ var sewerIntroText = [
     "'I was actually coming into town to see if I could aquire more information about a door of interdimensional friendship.'",
     "'Do you perhaps know anything about it?'",
     //Grob:
-    "'Ha ha, thats really funny! Man that was so awkward. I'm really glad your not here to stab me with a pitchfork ha ha!", //19 - w/GrobHaha
+    "'Ha ha, thats really funny! Man that was so awkward. I'm incredibly glad you didn't come here to stab me with a pitchfork ha ha!", //19 - w/GrobHaha
     "'I have not heard about this door of friendship. Sounds very interesting... And full of awesome nice people!'", //20 - w/GrobNormal
-    "'Where ever this door is I would love to come along and help find it!'",
+    "'Where ever this door is I would love to come along and help find it! Not like im wanted here anyways.'",
     //Player:
     "'I guess that is fine for you to tag along, but do you have any ideas where in town we could find some information on the 'door'?",
     //Grob:
@@ -325,7 +325,7 @@ function addHidden(el) {
         leftBar.style.backgroundColor = "#1c1c1c";
         rightBar.style.backgroundColor = "#1c1c1c";
       } else if (sewerIntroCounter == 27) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobThinking.png';
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobNormal.png';
         leftBar.style.backgroundColor = "#1c1c1c";
         rightBar.style.backgroundColor = "#1c1c1c";
       }
