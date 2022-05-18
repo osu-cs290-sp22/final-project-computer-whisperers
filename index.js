@@ -85,7 +85,7 @@ var introBadEnd = [
   "...",
   //Maybe I should end it here if it gets too sad...
   "One day, when you were playing fetch with Bubbly, you noticed that they were floating a little lower than usual.",
-  "Upon further inspection it seems that Bubbly is a bit wrinkled adn soft to the touch.",
+  "Upon further inspection it is reavealed that Bubbly is starting to wrinkle and has become soft to the touch.",
   "...",
   "You start to count the days as Bubbly's condition worsens.",
   "...",
