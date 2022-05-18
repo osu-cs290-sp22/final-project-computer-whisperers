@@ -96,7 +96,7 @@ var introBadEnd = [
   "*pffffffff*",
   "[THE END]"
 ];
-var sewerIntroTextCounter = -1;
+var sewerIntroCounter = -1;
 var sewerIntroText = [
     "You decide that braving the sewers' unkown is worth the risk to potentialy find information of this 'door'.",
     "So you lift the sewer grate and start down the steps of the ladder.",
@@ -104,35 +104,35 @@ var sewerIntroText = [
     "Upon reaching the bottom it is completely pitch black.",   //3 - black BG
     "You decide to stand around for a couple of minutes to let your eyes adjust to the setting.",
     "During your wait you hear something shift and stir in the darkness.",
-    "As your eyes slowly adjust to the darkness you can make out a faint moving shape not too far in front of you.", //5 - dimmed sewerBG
+    "As your eyes slowly adjust to the darkness you can make out a faint moving shape not too far in front of you.", //6 - dimmed sewerBG
     "It has an odd shape, similar to that of an upside down triangle...",
-    "Suddenly a bright light turns on.", //7 - bright lightBG
+    "Suddenly a bright light turns on.", //8 - bright lightBG
     //Grob:
-    "'Suprise! Oh my Grob~, I can't beleive I have a visitor!!!", //8 - fully lit sewerBG w/GrobNormal
+    "'Suprise! Oh my Grob~, I can't beleive I have a visitor!!!", //9 - fully lit sewerBG w/GrobNormal
     //Narrator (aka no name)
     "To your suprise that shape was not a foe.",
     "But instead a very strange and enthusiastic creature.",
     //Grob:
-    "'Uhhh ohhh, I hope I didn't scare you. I only just meant to give you a good welcome.'", //11 - w/GrobUhhh
+    "'Uhhh ohhh, I hope I didn't scare you. I only meant to give you a good welcome.'", //12 - w/GrobUhhh
     "...",
-    "'Oh geez, now I feel really bad. Please tell me you don't hate me like the rest of those townsfolk above!", //12 - w/GrobWorried
+    "'Oh geez, now I feel really bad. Please tell me you don't hate me like the rest of those townsfolk above!", //14 - w/GrobWorried
     "'They put me down here because they thought I was really annoying.'",
     //Player:
     "'Sorry I was just a little suprised to see someone... like yourself.'",
     "'I was actually coming into town to see if I could aquire more information about a door of interdimensional friendship.'",
     "'Do you perhaps know anything about it?'",
     //Grob:
-    "'Ha ha, thats really funny! Man that was so awkward. I'm really glad your not here to stab me with a pitchfork ha ha!", //17 - w/GrobHaha
-    "'I have not heard about this door of friendship. Sounds very interesting... And full of awesome nice people!'" //18 - w/GrobNormal
+    "'Ha ha, thats really funny! Man that was so awkward. I'm really glad your not here to stab me with a pitchfork ha ha!", //19 - w/GrobHaha
+    "'I have not heard about this door of friendship. Sounds very interesting... And full of awesome nice people!'", //20 - w/GrobNormal
     "'Where ever this door is I would love to come along and help find it!'",
     //Player:
     "'I guess that is fine for you to tag along, but do you have any ideas where in town we could find some information on the 'door'?",
     //Grob:
     "Sure, let me think...",
-    "...",  //22 - GrobThinking
+    "...",  //24 - GrobThinking
     "...",
     "...",
-    "'Aha, how about the local tavern? Tons of traveling folk move through there. One of them ought to have heard of it!'",
+    "'Aha, how about the local tavern? Tons of traveling folk move through there. One of them ought to have heard of it!'", //Grob Normal
     //Choice Time!
 ];
 
@@ -254,6 +254,96 @@ function addHidden(el) {
     }
   }
 
+  function sewerIntroSequence() {
+    if(sewerIntroCounter < 28) {
+      if (sewerIntroCounter == 2) {
+        pictureDisplay.src = './Pictures/Backgrounds/DimBG.png';
+        leftBar.style.backgroundColor = "gray";
+        rightBar.style.backgroundColor = "gray";
+      } else if (sewerIntroCounter == 3) {
+        pictureDisplay.src = './Pictures/Backgrounds/Black.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+      } else if ( (sewerIntroCounter < 8) && (sewerIntroCounter >= 4) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerDim.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+      } else if (sewerIntroCounter == 8) {
+        pictureDisplay.src = './Pictures/Backgrounds/Outside1.png';
+        leftBar.style.backgroundColor = "white";
+        rightBar.style.backgroundColor = "white";
+      } else if ( (sewerIntroCounter < 11) && (sewerIntroCounter >= 9) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobNormal.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+        if(sewerIntroCounter == 9) {
+          characterNameDisplay.textContent = 'Grob';
+        } else {
+          characterNameDisplay.textContent = '';
+        }
+      } else if ( (sewerIntroCounter < 14) && (sewerIntroCounter >= 12) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobUhhh.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+        characterNameDisplay.textContent = 'Grob';
+      } else if ( (sewerIntroCounter <19 ) && (sewerIntroCounter >= 14) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobWorried.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+        if( sewerIntroCounter == 16) {
+          characterNameDisplay.textContent = playerName;
+        }
+      } else if (sewerIntroCounter == 19) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobHaha.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+        characterNameDisplay.textContent = 'Grob';
+      } else if ( (sewerIntroCounter <24 ) && (sewerIntroCounter >= 20) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobNormal.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+        if (sewerIntroCounter == 22) {
+          characterNameDisplay.textContent = playerName;
+        }
+        if (sewerIntroCounter == 23) {
+          characterNameDisplay.textContent = 'Grob';
+        }
+      }  else if ( (sewerIntroCounter <27 ) && (sewerIntroCounter >= 24) ) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobThinking.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+      } else if (sewerIntroCounter == 27) {
+        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobThinking.png';
+        leftBar.style.backgroundColor = "#1c1c1c";
+        rightBar.style.backgroundColor = "#1c1c1c";
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(sewerIntroText[sewerIntroCounter])
+        .start();
+        textBoxClicked = 1;
+        sewerIntroCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      sewerIntroCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+    }
+
+  }
+
+
 //Code
 
 var typewriter = new Typewriter(textChat, {
@@ -269,8 +359,11 @@ textBoxContainer.addEventListener('click', ()=> {
     introSequence();
     return;
   }
-  if( (introBadEndCounter != -1) && (introBadEndCounter != -2) ) {
+  if ( (introBadEndCounter != -1) && (introBadEndCounter != -2) ) {
     introBadEndSequence();
+  }
+  if ( (sewerIntroCounter != -1) && (sewerIntroCounter != -2) ) {
+    sewerIntroSequence();
   }
 });
 
@@ -287,9 +380,9 @@ leftChoiceBox1.addEventListener('click', ()=> {
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
-  if( (introCounter == -2) && (sewerTextCounter == -1) ) {
+  if( (introCounter == -2) && (sewerIntroCounter == -1) ) {
     //If intro is finished and the sewer scene hasn't been done, then 'start' it
-    sewerTextCounter = 0;
+    sewerIntroCounter = 0;
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox1);
     //leftBar.style.backgroundColor = "black";
