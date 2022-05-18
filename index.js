@@ -136,12 +136,29 @@ var sewerIntroText = [
     //Choice Time!
 ];
 var sewerGrob1Counter = -1;
-var sewerGrob1Text = [
-  "'Lorum Ipsum'"
+var sewerGrob1Text = [ //Take Grob
+  //Grob:
+  "'Thats great! Even though people don't really like me up there I'll trust you and tag along.'",
+  //Player:
+  "'Your'e not that bad, I hope we can find some nice people at the tavern whoa re willing to help.'",
+  //No Name
+  "[Grob joins your party]", //2 - Grob item added to inventory
+  "You head towards the next nearest ladder leading up.", //3 - Black Screen
+  "Your new founded party then proceeds up a ladder that leads into the inner walls of the town.",
+  "Luckly the sewer grate you chose to go up through with Grob happened to lead directly into the tavern." //5 - Tavern BG
+  //Begin Tavern Intro
 ];
 var sewerGrob2Counter = -1;
-var sewerGrob2Text = [
-  "'Lorum Ipsum'"
+var sewerGrob2Text = [ //Betray Grob
+  //Grob:
+  "'Oh ok, i'll just wait here for you to come back!'",
+  "'I trust you way more than those people up there already. Maybe I will finally be able to find a nice place to stay because of you!'",
+  //No name
+  "You head towards the next nearest ladder leading up.", //2 - Black Screen
+  "You then begin heading up the ladder that leads into what you imagine to be the inner walls of the town.",
+  "As you were heading up the ladder one of your feet slip and you fall down to your death.",
+  "Maybe if you didnt plan on being so mean to Grob this bad luck wouldn't have happened.",
+  "[GAME OVER]" //6 - Gamer over BG
 ];
 var sewerGrob3Counter = -1;
 var sewerGrob3Text = [
@@ -157,20 +174,34 @@ function addHidden(el) {
  el.classList.add('hidden');
 }
 
+function changeDisplay(source) {
+  pictureDisplay.src = source;
+}
+
+function changeBars(color) {
+  leftBar.style.backgroundColor = color;
+  rightBar.style.backgroundColor = color;
+}
+
+function changeLeftBar(color) {
+  leftBar.style.backgroundColor = color;
+}
+
+function changeRightBar(color) {
+  rightBar.style.backgroundColor = color;
+}
+
   function introSequence() {
     //Image checks.
     if (introCounter < 6) {
-      pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
-      leftBar.style.backgroundColor = "#4F3A2B";
-      rightBar.style.backgroundColor = "#4F3A2B";
+      changeDisplay('./Pictures/Backgrounds/CabinBG.png');
+      changeBars("#4F3A2B");
     } else if ( (introCounter < 9) && (introCounter >= 6) ) {
-      pictureDisplay.src = './Pictures/Backgrounds/Outside1.png';
-      leftBar.style.backgroundColor = "white";
-      rightBar.style.backgroundColor = "white";
+      changeDisplay('./Pictures/Backgrounds/Outside1.png');
+      changeBars('white');
     } else if (introCounter <= 15) {
-      pictureDisplay.src = './Pictures/Backgrounds/VillageGate.png';
-      leftBar.style.backgroundColor = "green";
-      rightBar.style.backgroundColor = "green";
+      changeDisplay('./Pictures/Backgrounds/VillageGate.png');
+      changeBars('green');
     }
 
     characterNameDisplay.textContent = characterNames[nameSelector];
@@ -212,17 +243,14 @@ function addHidden(el) {
   function introBadEndSequence() {
     if(introBadEndCounter < 28) {
       if (introBadEndCounter < 2) {
-        pictureDisplay.src = './Pictures/Backgrounds/VillageGate.png';
-        leftBar.style.backgroundColor = "green";
-        rightBar.style.backgroundColor = "green";
+        changeDisplay('./Pictures/Backgrounds/VillageGate.png');
+        changeBars("green");
       } else if ( (introBadEndCounter < 6) && (introBadEndCounter >= 2) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/CabinBG.png';
-        leftBar.style.backgroundColor = "#4F3A2B";
-        rightBar.style.backgroundColor = "#4F3A2B";
+        changeDisplay('./Pictures/Backgrounds/CabinBG.png');
+        changeBars("#4F3A2B");
       } else if ( (introBadEndCounter <12 ) && (introBadEndCounter >= 6) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/BubblyBG.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/BubblyBG.png');
+        changeBars("#1c1c1c");
         //set names
         if( (introBadEndCounter == 6) || (introBadEndCounter == 8) || (introBadEndCounter == 10) ) {
           characterNameDisplay.textContent = playerName;
@@ -233,13 +261,11 @@ function addHidden(el) {
 
       } else if ( (introBadEndCounter < 27) && (introBadEndCounter >= 12) ) {
         characterNameDisplay.textContent = " ";
-        pictureDisplay.src = './Pictures/Backgrounds/Black.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars("#1c1c1c");
       } else if (introBadEndCounter == 27) {
-        pictureDisplay.src = './Pictures/Backgrounds/GameOver.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/GameOver.png');
+        changeBars("#1c1c1c");
         introBadEndCounter = -2;
       }
 
@@ -269,51 +295,42 @@ function addHidden(el) {
   function sewerIntroSequence() {
     if(sewerIntroCounter < 28) {
       if (sewerIntroCounter == 2) {
-        pictureDisplay.src = './Pictures/Backgrounds/DimBG.png';
-        leftBar.style.backgroundColor = "gray";
-        rightBar.style.backgroundColor = "gray";
+        changeDisplay('./Pictures/Backgrounds/DimBG.png');
+        changeBars("gray");
       } else if (sewerIntroCounter == 3) {
-        pictureDisplay.src = './Pictures/Backgrounds/Black.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars("#1c1c1c");
       } else if ( (sewerIntroCounter < 8) && (sewerIntroCounter >= 4) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerDim.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerDim.png');
+        changeBars("#1c1c1c");
       } else if (sewerIntroCounter == 8) {
-        pictureDisplay.src = './Pictures/Backgrounds/Outside1.png';
-        leftBar.style.backgroundColor = "white";
-        rightBar.style.backgroundColor = "white";
+        changeDisplay('./Pictures/Backgrounds/Outside1.png');
+        changeBars("white");
       } else if ( (sewerIntroCounter < 11) && (sewerIntroCounter >= 9) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobNormal.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobNormal.png');
+        changeBars('"#1c1c1c"');
         if(sewerIntroCounter == 9) {
           characterNameDisplay.textContent = 'Grob';
         } else {
           characterNameDisplay.textContent = '';
         }
       } else if ( (sewerIntroCounter < 14) && (sewerIntroCounter >= 12) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobUhhh.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobUhhh.png');
+        changeBars("#1c1c1c");
         characterNameDisplay.textContent = 'Grob';
       } else if ( (sewerIntroCounter <19 ) && (sewerIntroCounter >= 14) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobWorried.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobWorried.png');
+        changeBars("#1c1c1c");
         if( sewerIntroCounter == 16) {
           characterNameDisplay.textContent = playerName;
         }
       } else if (sewerIntroCounter == 19) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobHaha.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobHaha.png');
+        changeBars("#1c1c1c");
         characterNameDisplay.textContent = 'Grob';
       } else if ( (sewerIntroCounter <24 ) && (sewerIntroCounter >= 20) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobNormal.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobNormal.png');
+        changeBars("#1c1c1c");
         if (sewerIntroCounter == 22) {
           characterNameDisplay.textContent = playerName;
         }
@@ -321,13 +338,11 @@ function addHidden(el) {
           characterNameDisplay.textContent = 'Grob';
         }
       }  else if ( (sewerIntroCounter <27 ) && (sewerIntroCounter >= 24) ) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobThinking.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobThinking.png');
+        changeBars("#1c1c1c");
       } else if (sewerIntroCounter == 27) {
-        pictureDisplay.src = './Pictures/Backgrounds/SewerGrobNormal.png';
-        leftBar.style.backgroundColor = "#1c1c1c";
-        rightBar.style.backgroundColor = "#1c1c1c";
+        changeDisplay('./Pictures/Backgrounds/SewerGrobNormal.png');
+        changeBars("#1c1c1c");
       }
 
       if (textBoxClicked == 0) {
