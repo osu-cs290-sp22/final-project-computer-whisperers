@@ -135,6 +135,18 @@ var sewerIntroText = [
     "'Aha, how about the local tavern? Tons of traveling folk move through there. One of them ought to have heard of it!'", //Grob Normal
     //Choice Time!
 ];
+var sewerGrob1Counter = -1;
+var sewerGrob1Text = [
+  "'Lorum Ipsum'"
+];
+var sewerGrob2Counter = -1;
+var sewerGrob2Text = [
+  "'Lorum Ipsum'"
+];
+var sewerGrob3Counter = -1;
+var sewerGrob3Text = [
+  "'Lorum Ipsum'"
+];
 
 //Functions
 function removeHidden(el) {
@@ -338,9 +350,14 @@ function addHidden(el) {
       .start();
       textBoxClicked = 0;
       sewerIntroCounter = -2; //-2 means that this sequence has been done.
+      leftChoiceBox1.textContent = "Go along with Grub to the tavern";
+      rightChoiceBox1.textContent = "Tell Grob to wait until you come back with the information (Betrayal)";
+      leftChoiceBox2.textContent = "Tell Grob that you would prefer if he didn't come along";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
       characterNameDisplay.textContent = '';
     }
-
   }
 
 
@@ -377,6 +394,13 @@ leftChoiceBox1.addEventListener('click', ()=> {
     //leftBar.style.backgroundColor = "black";
     //rightBar.style.backgroundColor = "black";
   }
+  if( (sewerIntroCounter == -2) && (sewerGrob1Counter == -1) ) {
+    //If you let grob join your party
+    sewerGrob1Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -387,6 +411,23 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     //leftBar.style.backgroundColor = "black";
     //rightBar.style.backgroundColor = "black";
+  }
+  if( (sewerIntroCounter == -2) && (sewerGrob2Counter == -1) ) {
+    //If you betray Grob
+    sewerGrob2Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+});
+
+leftChoiceBox2.addEventListener('click', ()=> {
+  if( (sewerIntroCounter == -2) && (sewerGrob3Counter == -1) ) {
+    //If you don't let grob join you
+    sewerGrob3Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
   }
 });
 
