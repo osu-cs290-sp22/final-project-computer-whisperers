@@ -3,6 +3,7 @@
 var textBoxClicked = 0;
 var playerName = "Player";
 var customTextSpeed = 25;
+var grobItem = 0;
 
 var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
@@ -25,6 +26,7 @@ var modalExit1 = document.getElementById('extras-close');
 var modalExit2 = document.getElementById('settings-close');
 var nameText = document.getElementById('name-text-input');
 var textSpeed = document.getElementById('text-speed-input');
+var grobItemContainer = document.getElementById('inv-item1');
 
 var temporaryText = document.getElementById('text-Chat').textContent;
 
@@ -140,7 +142,7 @@ var sewerGrob1Text = [ //Take Grob
   //Grob:
   "'Thats great! Even though people don't really like me up there I'll trust you and tag along.'",
   //Player:
-  "'Your'e not that bad, I hope we can find some nice people at the tavern whoa re willing to help.'",
+  "'Your'e not that bad, I hope we can find some nice people at the tavern who are willing to help.'",
   //No Name
   "[Grob joins your party]", //2 - Grob item added to inventory
   "You head towards the next nearest ladder leading up.", //3 - Black Screen
@@ -152,7 +154,7 @@ var sewerGrob2Counter = -1;
 var sewerGrob2Text = [ //Betray Grob
   //Grob:
   "'Oh ok, i'll just wait here for you to come back!'",
-  "'I trust you way more than those people up there already. Maybe I will finally be able to find a nice place to stay because of you!'",
+  "'I already trust you way more than those people up there. Maybe I will finally be able to find a nice place to stay because of you!'",
   //No name
   "You head towards the next nearest ladder leading up.", //2 - Black Screen
   "You then begin heading up the ladder that leads into what you imagine to be the inner walls of the town.",
@@ -162,34 +164,45 @@ var sewerGrob2Text = [ //Betray Grob
 ];
 var sewerGrob3Counter = -1;
 var sewerGrob3Text = [
+  //Grob:
+  "'Its ok I guess... At least I enjoyed your short company. So thank you for that!'",
+  //No name
+  "You faintly hear sobbing as you head towards the nearest ladder leading upwards.", //1 - Black Screen
+  "You then begin heading up the ladder that leads into what you imagine to be the inner walls of the town.",
+  "Luckly the sewer grate you chose to go up through with Grob happened to lead directly into the tavern." //3 - Tavern BG
+  //Begin Tavern Intro
+];
+
+var tavernIntroCounter = -1;
+var tavernIntroText = [
   "'Lorum Ipsum'"
 ];
 
 //Functions
 function removeHidden(el) {
  el.classList.remove('hidden');
-}
+};
 
 function addHidden(el) {
  el.classList.add('hidden');
-}
+};
 
 function changeDisplay(source) {
   pictureDisplay.src = source;
-}
+};
 
 function changeBars(color) {
   leftBar.style.backgroundColor = color;
   rightBar.style.backgroundColor = color;
-}
+};
 
 function changeLeftBar(color) {
   leftBar.style.backgroundColor = color;
-}
+};
 
 function changeRightBar(color) {
   rightBar.style.backgroundColor = color;
-}
+};
 
   function introSequence() {
     //Image checks.
@@ -238,7 +251,7 @@ function changeRightBar(color) {
       removeHidden(rightChoiceBox1);
       characterNameDisplay.textContent = " ";
     }
-  }
+  };
 
   function introBadEndSequence() {
     if(introBadEndCounter < 28) {
@@ -290,7 +303,7 @@ function changeRightBar(color) {
     textBoxClicked = 0;
     introBadEndCounter = -2; //-2 means that this sequence has been done.
     }
-  }
+  };
 
   function sewerIntroSequence() {
     if(sewerIntroCounter < 28) {
@@ -373,41 +386,181 @@ function changeRightBar(color) {
       removeHidden(leftChoiceBox2);
       characterNameDisplay.textContent = '';
     }
-  }
+  };
+
+  function sewerGrob1() {
+    if ( sewerGrob1Counter <= 5 ) {
+      if(sewerGrob1Counter == 0) {
+        characterNameDisplay.textContent = 'Grob';
+      }
+      if(sewerGrob1Counter == 1) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(sewerGrob1Counter == 2) {
+        characterNameDisplay.textContent = '';
+        //Set GrobItem as obtained (true)... also add to inventory.
+        grobItemContainer.src='./Pictures/Items/GrobItem.png';
+        grobItem = 1;
+      }
+      if( (sewerGrob1Counter <5 ) && (sewerGrob1Counter >= 3) ) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars("#1c1c1c");
+      } else if (sewerGrob1Counter == 5) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("brown");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(sewerGrob1Text[sewerGrob1Counter])
+        .start();
+        textBoxClicked = 1;
+        sewerGrob1Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      sewerGrob1Counter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      tavernIntroCounter = 0; //start tavern intro sequence
+    }
+  };
+
+  function sewerGrob2() {
+    if ( sewerGrob2Counter <= 6 ) {
+      if(sewerGrob2Counter == 0) {
+        characterNameDisplay.textContent = 'Grob';
+      }
+      if(sewerGrob2Counter == 2) {
+        characterNameDisplay.textContent = '';
+      }
+      if( (sewerGrob2Counter <5 ) && (sewerGrob2Counter >= 2) ) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars("#1c1c1c");
+      } else if (sewerGrob2Counter == 6) {
+        changeDisplay('./Pictures/Backgrounds/GameOver.png');
+        changeBars("black");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(sewerGrob2Text[sewerGrob2Counter])
+        .start();
+        textBoxClicked = 1;
+        sewerGrob2Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      sewerGrob2Counter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+    }
+  };
+
+  function sewerGrob3() {
+    if ( sewerGrob3Counter <= 3 ) {
+      if(sewerGrob3Counter == 0) {
+        characterNameDisplay.textContent = 'Grob';
+      }
+      if(sewerGrob3Counter == 1) {
+        characterNameDisplay.textContent = '';
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars("#1c1c1c");
+      }
+      if(sewerGrob3Counter == 3) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#1c1c1c");
+      }
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(sewerGrob3Text[sewerGrob3Counter])
+        .start();
+        textBoxClicked = 1;
+        sewerGrob3Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      sewerGrob3Counter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      tavernIntroCounter = 0; //start tavern intro sequence
+    }
+  };
 
 
 //Code
 
+//Sets up typewriting object
 var typewriter = new Typewriter(textChat, {
   loop: false,
   deleteSpeed: 1,
   delay: 75,
 });
 
+
   //Where the main stuff happens.
 textBoxContainer.addEventListener('click', ()=> {
-//Intro handling
+//Intro handling:
   if (introCounter != -2) {
     introSequence();
     return;
   }
+  //Intro bad end handling
   if ( (introBadEndCounter != -1) && (introBadEndCounter != -2) ) {
     introBadEndSequence();
   }
+//Sewer handling:
+  //sewer intro handling
   if ( (sewerIntroCounter != -1) && (sewerIntroCounter != -2) ) {
     sewerIntroSequence();
   }
+  //sewer options handling after intro.
+  if( (sewerGrob1Counter != -1) && (sewerGrob1Counter != -2) ) {
+    sewerGrob1();
+  }
+  if( (sewerGrob2Counter != -1) && (sewerGrob2Counter != -2) ) {
+    sewerGrob2();
+  }
+  if( (sewerGrob3Counter != -1) && (sewerGrob3Counter != -2) ) {
+    sewerGrob3();
+  }
 });
 
+
 leftChoiceBox1.addEventListener('click', ()=> {
-  if( (introCounter == -2) && (introBadEndCounter == -1) ) {
+  if( (introCounter == -2) && (introBadEndCounter == -1) && (sewerIntroCounter == -1 ) ) {
     //If intro is finished and the bad end hasn't been done, then 'start' it
     introBadEndCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
-    //pictureDisplay.src = '';
-    //leftBar.style.backgroundColor = "black";
-    //rightBar.style.backgroundColor = "black";
+
   }
   if( (sewerIntroCounter == -2) && (sewerGrob1Counter == -1) ) {
     //If you let grob join your party
@@ -415,6 +568,7 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
+
   }
 });
 
@@ -424,8 +578,7 @@ rightChoiceBox1.addEventListener('click', ()=> {
     sewerIntroCounter = 0;
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox1);
-    //leftBar.style.backgroundColor = "black";
-    //rightBar.style.backgroundColor = "black";
+
   }
   if( (sewerIntroCounter == -2) && (sewerGrob2Counter == -1) ) {
     //If you betray Grob
