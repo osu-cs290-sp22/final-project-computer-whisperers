@@ -178,6 +178,7 @@ var tavernIntroText = [
   "'Lorum Ipsum'"
 ];
 
+
 //Functions
 function removeHidden(el) {
  el.classList.remove('hidden');
@@ -407,7 +408,7 @@ function changeRightBar(color) {
         changeBars("#1c1c1c");
       } else if (sewerGrob1Counter == 5) {
         changeDisplay('./Pictures/Backgrounds/Tavern.png');
-        changeBars("brown");
+        changeBars("#5c4944");
       }
 
       if (textBoxClicked == 0) {
@@ -487,7 +488,7 @@ function changeRightBar(color) {
       }
       if(sewerGrob3Counter == 3) {
         changeDisplay('./Pictures/Backgrounds/Tavern.png');
-        changeBars("#1c1c1c");
+        changeBars("#5c4944");
       }
       if (textBoxClicked == 0) {
         typewriter
