@@ -17,3 +17,21 @@ final-project-computer-whisperers created by GitHub Classroom
 introCounter = -2
 sewerIntroCounter = -2
 sewerGrob3Counter = 0
+
+-TavernHub w/Grob:
+introCounter = -2
+sewerIntroCounter = -2
+sewerGrob1Counter = -2
+grobItem = 1
+tavernIntroCounter = -2
+tavernHubCounter = 0
+tavernHubAgain = 1
+
+-TavernHub w/out Grob:
+introCounter = -2
+sewerIntroCounter = -2
+sewerGrob3Counter = -2
+grobItem = 0
+tavernIntroCounter = -2
+tavernHubCounter = 0
+tavernHubAgain = 1

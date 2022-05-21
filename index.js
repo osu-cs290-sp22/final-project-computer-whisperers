@@ -4,6 +4,9 @@ var textBoxClicked = 0;
 var playerName = "Player";
 var customTextSpeed = 25;
 var grobItem = 0;
+var wickItem = 0;
+var pilzItem = 0;
+var squidItem = 0;
 
 var textChat = document.getElementById('text-Chat');
 var textBoxContainer = document.getElementById('text-Box');
@@ -40,6 +43,8 @@ var characterNames = [
   "Pilz",
   "Witch"
 ];
+
+//*****************Intro stuff starts here*************************************************************************************************************************************************************************************
 var introCounter = -1; //-1 means that this sequence hasnt been started yet.
 var introText = [
   "Once again... Awoken in your bed on your birthday. All alone in your room.",
@@ -147,7 +152,7 @@ var sewerGrob1Text = [ //Take Grob
   "[Grob joins your party]", //2 - Grob item added to inventory
   "You head towards the next nearest ladder leading up.", //3 - Black Screen
   "Your new founded party then proceeds up a ladder that leads into the inner walls of the town.",
-  "Luckly the sewer grate you chose to go up through with Grob happened to lead directly into the tavern." //5 - Tavern BG
+  "Luckily the sewer grate you chose to go up through with Grob happened to lead directly into the tavern." //5 - Tavern BG
   //Begin Tavern Intro
 ];
 var sewerGrob2Counter = -1;
@@ -206,7 +211,7 @@ var tavernIntroText = [
   "'Them are some dangerous mountains, not to mention the ruins that lay within.'",
   "'The ruins were left by the funny folk. Thousands of years ago they used to go all over the kingdoms to do their funnies. But now the ruins are all thats left of them.'",
   "'I would stay away from there if I were you.'",
-  "'Last but not least is the mushroom people of the blue forest. Don't ask me why its blue. People won't shut up about it. Especially that Grob guy. Hmph.'",
+  "'Last but not least is the mushroom people of the Blue Forest. Don't ask me why its blue. People won't shut up about it. Especially that Grob guy. Hmph.'",
   "'Ahem. Anyways the mushroom people there used to be wandering traders a few hundred back. But now they've settled in them forests.'",
   "'They've got the lifespan like no other in these lands. If anyone was to know, it'd be the mushroom people.",
   "...",
@@ -217,9 +222,44 @@ var tavernIntroText = [
 ];
 
 var tavernHubCounter = -1;
+var tavernHubAgain = 0;
 var tavernHubText = [
-  "'Lorum Ipsum.'"
+  "'Now that where show I go from the here?'" //0 - change to TaernBG
 ];
+//************Intro stuff ends here******************************************************************************************************************************************************************************************
+
+
+//************Door shenanigans start here******************************************************************************************************************************************************************************************
+var doorIntroCounter = -1;
+var doorIntroText = [
+  "'Lorum Ipsum'"
+];
+//************Door shenanigans end here******************************************************************************************************************************************************************************************
+
+
+//************Wick starts Route here******************************************************************************************************************************************************************************************
+var mountainsIntroCounter = -1;
+var mountainsIntroText = [
+  "'Lorum Ipsum'"
+];
+//************Wick route ends ends here******************************************************************************************************************************************************************************************
+
+
+//************Pilz route starts here******************************************************************************************************************************************************************************************
+var forestIntroCounter = -1;
+var forestIntroText = [
+  "'Lorum Ipsum'"
+];
+//************Pilz route ends here******************************************************************************************************************************************************************************************
+
+
+//************Octo route starts here******************************************************************************************************************************************************************************************
+var seaIntroCounter = -1;
+var seaIntroText = [
+  "'Lorum Ipsum'"
+];
+//************Octo route ends here******************************************************************************************************************************************************************************************
+
 
 
 //Functions
@@ -248,6 +288,7 @@ function changeRightBar(color) {
   rightBar.style.backgroundColor = color;
 };
 
+//*****************Intro stuff starts here*************************************************************************************************************************************************************************************
   function introSequence() {
     //Image checks.
     if (introCounter < 6) {
@@ -612,8 +653,80 @@ function changeRightBar(color) {
       tavernIntroCounter = -2; //-2 means that this sequence has been done.
       characterNameDisplay.textContent = '';
       tavernHubCounter = 0; //start tavern intro sequence
+      tavernHubAgain = 1;
     }
   };
+
+  function taverHubSequence() {
+    if(tavernHubCounter == 0) {
+      changeDisplay('./Pictures/Backgrounds/Tavern.png');
+      changeBars("#5c4944");
+      characterNameDisplay.textContent = playerName;
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(tavernHubText[tavernHubCounter])
+        .start();
+        textBoxClicked = 1;
+        tavernHubCounter++;
+
+        if ( (pilzItem == 1) || (grobItem == 1) || (wickItem == 1) || (squidItem == 1) ) {
+          let tempStr = "   'Now that I've got the help of " + (grobItem + wickItem + squidItem + pilzItem) + " people, I wonder how much more help I could get.'";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString(tempStr)
+          .start();
+        }
+
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      tavernHubCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      leftChoiceBox1.textContent = "Head out to the northern sea for the sailor";
+      rightChoiceBox1.textContent = "Search the ruins of the mountains to the east";
+      leftChoiceBox2.textContent = "Head to the Blue Forest in the south.";
+      rightChoiceBox2.textContent = "Head towards the friendship door in the ruins up north."
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+      removeHidden(rightChoiceBox2);
+      //tavernHubAgain = 0;
+    }
+  }
+//************Intro functions ends here******************************************************************************************************************************************************************************************
+
+
+//************Door functions start here******************************************************************************************************************************************************************************************
+
+//************Door functions end here******************************************************************************************************************************************************************************************
+
+
+//************Wick functions start here******************************************************************************************************************************************************************************************
+
+//************Wick functions end here******************************************************************************************************************************************************************************************
+
+
+//************Pilz functions starts here******************************************************************************************************************************************************************************************
+
+//************Pilz functions ends here******************************************************************************************************************************************************************************************
+
+
+//************Octo functions starts here******************************************************************************************************************************************************************************************
+
+//************Octo functions ends here******************************************************************************************************************************************************************************************
+
+
 
 
 //Code
@@ -643,21 +756,26 @@ textBoxContainer.addEventListener('click', ()=> {
     sewerIntroSequence();
   }
   //sewer options handling after intro.
-  if( (sewerGrob1Counter != -1) && (sewerGrob1Counter != -2) ) {
+  if( (sewerGrob1Counter != -1) && (sewerGrob1Counter != -2) && (tavernHubCounter != -2) ) {
     sewerGrob1();
   }
-  if( (sewerGrob2Counter != -1) && (sewerGrob2Counter != -2) ) {
+  if( (sewerGrob2Counter != -1) && (sewerGrob2Counter != -2) && (tavernHubCounter != -2) ) {
     sewerGrob2();
   }
-  if( (sewerGrob3Counter != -1) && (sewerGrob3Counter != -2) ) {
+  if( (sewerGrob3Counter != -1) && (sewerGrob3Counter != -2)  && (tavernHubCounter != -2) ) {
     sewerGrob3();
   }
+//Tavern stuff:
   if( (tavernIntroCounter != -1) && (tavernIntroCounter != -2) ) {
     tavernIntroSequence();
   }
+  //Tavern Hub:
+  if( (tavernHubCounter != -1) && (tavernHubCounter !=-2) ) {
+    taverHubSequence();
+  }
 });
 
-
+//Choice boxes start here
 leftChoiceBox1.addEventListener('click', ()=> {
   if( (introCounter == -2) && (introBadEndCounter == -1) && (sewerIntroCounter == -1 ) ) {
     //If intro is finished and the bad end hasn't been done, then 'start' it
@@ -673,6 +791,13 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
 
+  }
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+    doorIntroCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
   }
 });
 
@@ -691,6 +816,13 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+    mountainsIntroCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -701,7 +833,25 @@ leftChoiceBox2.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+    forestIntroCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
 });
+
+rightChoiceBox2.addEventListener('click', ()=> {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+    seaIntroCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+})
+//Choice boxes ende here
 
 extraButton.addEventListener('click', ()=> {
   removeHidden(modalBack);
