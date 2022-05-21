@@ -169,13 +169,56 @@ var sewerGrob3Text = [
   //No name
   "You faintly hear sobbing as you head towards the nearest ladder leading upwards.", //1 - Black Screen
   "You then begin heading up the ladder that leads into what you imagine to be the inner walls of the town.",
-  "Luckly the sewer grate you chose to go up through with Grob happened to lead directly into the tavern." //3 - Tavern BG
+  "Luckily the sewer grate you chose to go up through with Grob happened to lead directly into the tavern." //3 - Tavern BG
   //Begin Tavern Intro
 ];
 
 var tavernIntroCounter = -1;
 var tavernIntroText = [
-  "'Lorum Ipsum'"
+  //Player:
+  "'Wow its kind of empty here, also who has a sewer grate that leads directly into the tavern bathroom?'",
+  "'Whatever, I should ask the bar keep if they have heard anything about the door of friendship.'",
+  //No Name
+  "Looking around, you notice a lone bar keep leaning against the counter staring off into the distance", //2
+  "You slowly walk up to the bar, ready to engage in conversation with a human being for the first time in years.",
+  "But the bar keeper doesnt seem to be paying attention, despite vaguely looking your direction.",
+  //Player:
+  "'Hey bar keep, you there?' You say as you wave your hand in front of the bar keeper's face.", //5
+  //No name
+  "The bar keeper jolts back suddenly.", //6
+  //Bar Keeper:
+  "'Woah there laddeh! Didn't notice ya there. We don't get much folk around here this time of the day.", //7
+  "'How can I help ya? Need a drink? We got no shortage of those at this time of day. ", //8
+  //
+  //"'Oh, who's the one behind ya? Is that the nosey triangle looking bugger? Oh well as long as he doesnt stay for long to scare off the customers i'll let him stay.'",  //9 //If Grob is in party (grob-item = 1)
+  //
+  //Player:
+  "'Actually I was wondering if you or someone you know has information on an interdimensional door of friendship?'", //9
+  //Bar Keeper:
+  "'Hmmm. To be blunt with ya laddeh, I don't know much about it. The door is rumored to be at the ruins up north, but many a party have gone to only returned alone...'", //10
+  "'But I know some fellows who might know more about the ruins and its mysteries.'",
+  "'Now these people aren't too close by and can be dangerous to get to. So you best be prepared for the long haul. So why not buy a drink for the two of us? Heh heh.'",
+  //No name
+  "The bar keep suddenly changes to a serious expression. They stare at you waiting for confirmation that you understand the dangers about to be told. You nod at the keeper to proceed.", //13
+  //Bar Keeper:
+  "'Right. So the first one I know about is this old sailor up in the northern sea. He ain't your average sailor so you'll probably recongize 'em when ya see 'em.'", //14
+  "'The second contact I know is out on an expidition to the ancient city in the eastern mountains.'",
+  "'Them are some dangerous mountains, not to mention the ruins that lay within.'",
+  "'The ruins were left by the funny folk. Thousands of years ago they used to go all over the kingdoms to do their funnies. But now the ruins are all thats left of them.'",
+  "'I would stay away from there if I were you.'",
+  "'Last but not least is the mushroom people of the blue forest. Don't ask me why its blue. People won't shut up about it. Especially that Grob guy. Hmph.'",
+  "'Ahem. Anyways the mushroom people there used to be wandering traders a few hundred back. But now they've settled in them forests.'",
+  "'They've got the lifespan like no other in these lands. If anyone was to know, it'd be the mushroom people.",
+  "...",
+  "'QUESTIONS?' The bar keeper yells.",
+  //Player name:
+  "'Uhh, no sir. Thank you very much for the valuable information! I shall return with results hopefully. Maybe I'll buy you a beer when I'm back.'" //25
+  //Proceed to Tavern Hub Sequence.
+];
+
+var tavernHubCounter = -1;
+var tavernHubText = [
+  "'Lorum Ipsum.'"
 ];
 
 
@@ -515,6 +558,63 @@ function changeRightBar(color) {
     }
   };
 
+  function tavernIntroSequence() {
+    if (tavernIntroCounter <=25) {
+      if (tavernIntroCounter == 0) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+        characterNameDisplay.textContent = playerName;
+      } else if (tavernIntroCounter == 2) {
+        characterNameDisplay.textContent = "";
+      } else if (tavernIntroCounter == 5) {
+        characterNameDisplay.textContent = playerName;
+      } else if (tavernIntroCounter == 6) {
+        characterNameDisplay.textContent = "";
+      } else if (tavernIntroCounter == 7) {
+        characterNameDisplay.textContent = "Bar Keeper";
+      } else if (tavernIntroCounter == 9) {
+        characterNameDisplay.textContent = playerName;
+      } else if (tavernIntroCounter == 10) {
+        characterNameDisplay.textContent = "Bar Keeper";
+      } else if (tavernIntroCounter == 13) {
+        characterNameDisplay.textContent = "";
+      } else if (tavernIntroCounter == 14) {
+        characterNameDisplay.textContent = "Bar Keeper";
+      } else if (tavernIntroCounter == 24) {
+        characterNameDisplay.textContent = playerName;
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(tavernIntroText[tavernIntroCounter])
+        .start();
+        textBoxClicked = 1;
+        tavernIntroCounter++;
+        if ( (tavernIntroCounter == 9) && (grobItem == 1) ) {
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Oh, who's the one behind ya? Is that the nosey triangle looking bugger? Oh well as long as he doesnt stay for long and scare off the customers I'll let him stay.'")
+          .start();
+        }
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      tavernIntroCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      tavernHubCounter = 0; //start tavern intro sequence
+    }
+  };
+
 
 //Code
 
@@ -551,6 +651,9 @@ textBoxContainer.addEventListener('click', ()=> {
   }
   if( (sewerGrob3Counter != -1) && (sewerGrob3Counter != -2) ) {
     sewerGrob3();
+  }
+  if( (tavernIntroCounter != -1) && (tavernIntroCounter != -2) ) {
+    tavernIntroSequence();
   }
 });
 
