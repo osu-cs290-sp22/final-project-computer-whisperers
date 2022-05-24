@@ -211,7 +211,7 @@ var tavernIntroText = [
   "'Them are some dangerous mountains, not to mention the ruins that lay within.'",
   "'The ruins were left by the funny folk. Thousands of years ago they used to go all over the kingdoms to do their funnies. But now the ruins are all thats left of them.'",
   "'I would stay away from there if I were you.'",
-  "'Last but not least is the mushroom people of the Blue Forest. Don't ask me why its blue. People won't shut up about it. Especially that Grob guy. Hmph.'",
+  "'Last but not least is the mushroom people of the Blue Forest down south. Don't ask me why its blue. People won't shut up about it. Especially that Grob guy. Hmph.'",
   "'Ahem. Anyways the mushroom people there used to be wandering traders a few hundred back. But now they've settled in them forests.'",
   "'They've got the lifespan like no other in these lands. If anyone was to know, it'd be the mushroom people.",
   "...",
@@ -224,7 +224,7 @@ var tavernIntroText = [
 var tavernHubCounter = -1;
 var tavernHubAgain = 0;
 var tavernHubText = [
-  "'Now that where show I go from the here?'" //0 - change to TaernBG
+  "'Now where should I go from the here?'" //0 - change to TaernBG
 ];
 //************Intro stuff ends here******************************************************************************************************************************************************************************************
 
@@ -248,6 +248,27 @@ var mountainsIntroText = [
 //************Pilz route starts here******************************************************************************************************************************************************************************************
 var forestIntroCounter = -1;
 var forestIntroText = [
+  "You decide to go in search of the mushroom people in the Blue Forest.",
+  "...",
+  "After several tiring days of traveling south, you find your self wandering around an open field until you spot some blue grass.", //2 - change BG
+  "Following the blue grass leads you to your desitination. The Blue Forest."
+  "The strange flora is quite thick, not much sunlight breaches the canopy above.",
+  "There is a trail leading into the forest, this would be you best bet of finding the mushroom people.",
+  "Losing the trail on your journey may be a death sentence, but you decide to brave the unkown in the name of friendship.",
+  "Following the trail into darkness you find that the local flora emits its own humble light, just enough to see where you are going.",
+  "After a couple of hours you find yourelf at a fork in the road. One option seems like it lead up onto a hill.",
+  "The other trail looks to go lower in elevation towards a creek.",
+  "Which trail should you take?" //10
+  //Leads into 2 choices
+];
+
+var forestHillCounter = -1;
+var forestHillText = [
+  "'Lorum Ipsum'"
+];
+
+var forestCreekCounter = -1;
+var forestCreekText = [
   "'Lorum Ipsum'"
 ];
 //************Pilz route ends here******************************************************************************************************************************************************************************************
@@ -718,7 +739,41 @@ function changeRightBar(color) {
 
 
 //************Pilz functions starts here******************************************************************************************************************************************************************************************
+  function forestIntroSequence() {
+    if (forestIntroCounter <= 10) {
+      if (forestIntroCounter == 2) {
+        changeDisplay('./pictures/backgrounds/ForestPath.png');
+        changeBars('cyan');
+      } 
 
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestIntroText[forestIntroCounter])
+        .start();
+        textBoxClicked = 1;
+        forestIntroCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestIntroCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      leftChoiceBox1.textContent = "Lorum Ipsum";
+      rightChoiceBox1.textContent = "Lorum Ipsum";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+    }
+
+  }
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
 
