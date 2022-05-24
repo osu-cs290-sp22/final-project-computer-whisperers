@@ -723,7 +723,10 @@ function changeRightBar(color) {
 
 
 //************Octo functions starts here******************************************************************************************************************************************************************************************
+function seaIntroduction(){
 
+
+}
 //************Octo functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -772,6 +775,10 @@ textBoxContainer.addEventListener('click', ()=> {
   //Tavern Hub:
   if( (tavernHubCounter != -1) && (tavernHubCounter !=-2) ) {
     taverHubSequence();
+  }
+  //ocean stuff
+  if((seaIntroCounter != -1) && (seaIntroCounter != -2)) { //-1 for hasnt started, -2 for already done
+    seaIntroduction();
   }
 });
 
