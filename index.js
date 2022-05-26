@@ -251,8 +251,8 @@ var forestIntroText = [
   "You decide to go in search of the mushroom people in the Blue Forest.",
   "...",
   "After several tiring days of traveling south, you find your self wandering around an open field until you spot some blue grass.", //2 - change BG
-  "Following the blue grass leads you to your desitination. The Blue Forest."
-  "The strange flora is quite thick, not much sunlight breaches the canopy above.",
+  "Following the blue grass leads you to your desitination. The Blue Forest.",
+  "Upon closer inspection of the forest, you find the strange flora to be quite thick; not much sunlight breaches the canopy above.",
   "There is a trail leading into the forest, this would be you best bet of finding the mushroom people.",
   "Losing the trail on your journey may be a death sentence, but you decide to brave the unkown in the name of friendship.",
   "Following the trail into darkness you find that the local flora emits its own humble light, just enough to see where you are going.",
@@ -722,7 +722,7 @@ function changeRightBar(color) {
       removeHidden(rightChoiceBox1);
       removeHidden(leftChoiceBox2);
       removeHidden(rightChoiceBox2);
-      //tavernHubAgain = 0;
+      tavernHubAgain = 0;
     }
   }
 //************Intro functions ends here******************************************************************************************************************************************************************************************
@@ -740,11 +740,12 @@ function changeRightBar(color) {
 
 //************Pilz functions starts here******************************************************************************************************************************************************************************************
   function forestIntroSequence() {
+    console.log()
     if (forestIntroCounter <= 10) {
       if (forestIntroCounter == 2) {
-        changeDisplay('./pictures/backgrounds/ForestPath.png');
+        changeDisplay('./pictures/backgrounds/BlueForestPath.png');
         changeBars('cyan');
-      } 
+      }
 
       if (textBoxClicked == 0) {
         typewriter
@@ -798,35 +799,48 @@ var typewriter = new Typewriter(textChat, {
 textBoxContainer.addEventListener('click', ()=> {
 //Intro handling:
   if (introCounter != -2) {
+    console.log('introSequence');
     introSequence();
     return;
   }
   //Intro bad end handling
   if ( (introBadEndCounter != -1) && (introBadEndCounter != -2) ) {
+    console.log('introBadEndSequence');
     introBadEndSequence();
   }
 //Sewer handling:
   //sewer intro handling
   if ( (sewerIntroCounter != -1) && (sewerIntroCounter != -2) ) {
+    console.log('sewerIntroSequence');
     sewerIntroSequence();
   }
   //sewer options handling after intro.
   if( (sewerGrob1Counter != -1) && (sewerGrob1Counter != -2) && (tavernHubCounter != -2) ) {
+    console.log('sewerGrob1');
     sewerGrob1();
   }
   if( (sewerGrob2Counter != -1) && (sewerGrob2Counter != -2) && (tavernHubCounter != -2) ) {
+    console.log('sewerGrob2');
     sewerGrob2();
   }
   if( (sewerGrob3Counter != -1) && (sewerGrob3Counter != -2)  && (tavernHubCounter != -2) ) {
+    console.log('sewerGrob3');
     sewerGrob3();
   }
 //Tavern stuff:
   if( (tavernIntroCounter != -1) && (tavernIntroCounter != -2) ) {
+    console.log('tavernIntroSequence');
     tavernIntroSequence();
   }
   //Tavern Hub:
   if( (tavernHubCounter != -1) && (tavernHubCounter !=-2) ) {
+    console.log('taverHubSequence');
     taverHubSequence();
+  }
+//Pilz route stuff:
+  if( (forestIntroCounter != -1) && (forestIntroCounter !=-2) ) {
+    console.log('forestIntroSequence');
+    forestIntroSequence();
   }
 });
 
@@ -839,7 +853,7 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
 
   }
-  if( (sewerIntroCounter == -2) && (sewerGrob1Counter == -1) ) {
+  if( (sewerIntroCounter == -2) && (sewerGrob1Counter == -1)  && (tavernIntroCounter != -2) ) {
     //If you let grob join your party
     sewerGrob1Counter = 0;
     addHidden(leftChoiceBox1);
@@ -847,7 +861,7 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
 
   }
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
     doorIntroCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
@@ -864,14 +878,14 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
 
   }
-  if( (sewerIntroCounter == -2) && (sewerGrob2Counter == -1) ) {
+  if( (sewerIntroCounter == -2) && (sewerGrob2Counter == -1) && (tavernIntroCounter != -2) ) {
     //If you betray Grob
     sewerGrob2Counter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
     mountainsIntroCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
@@ -881,14 +895,14 @@ rightChoiceBox1.addEventListener('click', ()=> {
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
-  if( (sewerIntroCounter == -2) && (sewerGrob3Counter == -1) ) {
+  if( (sewerIntroCounter == -2) && (sewerGrob3Counter == -1) && (tavernIntroCounter != -2) ) {
     //If you don't let grob join you
     sewerGrob3Counter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
     forestIntroCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
@@ -898,7 +912,7 @@ leftChoiceBox2.addEventListener('click', ()=> {
 });
 
 rightChoiceBox2.addEventListener('click', ()=> {
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
     seaIntroCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
