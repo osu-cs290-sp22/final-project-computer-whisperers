@@ -722,7 +722,7 @@ function changeRightBar(color) {
       removeHidden(rightChoiceBox1);
       removeHidden(leftChoiceBox2);
       removeHidden(rightChoiceBox2);
-      tavernHubAgain = 0;
+      //tavernHubAgain = 0;
     }
   }
 //************Intro functions ends here******************************************************************************************************************************************************************************************
@@ -744,7 +744,7 @@ function changeRightBar(color) {
     if (forestIntroCounter <= 10) {
       if (forestIntroCounter == 2) {
         changeDisplay('./pictures/backgrounds/BlueForestPath.png');
-        changeBars('cyan');
+        changeBars('#2985cc');
       }
 
       if (textBoxClicked == 0) {
@@ -768,8 +768,8 @@ function changeRightBar(color) {
       textBoxClicked = 0;
       forestIntroCounter = -2; //-2 means that this sequence has been done.
       characterNameDisplay.textContent = '';
-      leftChoiceBox1.textContent = "Lorum Ipsum";
-      rightChoiceBox1.textContent = "Lorum Ipsum";
+      leftChoiceBox1.textContent = "Head up towards the hill";
+      rightChoiceBox1.textContent = "Head towards the creek";
       removeHidden(leftChoiceBox1);
       removeHidden(rightChoiceBox1);
     }
@@ -861,12 +861,18 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
 
   }
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
     doorIntroCounter = 0;
+    tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
+  }
+  if( (forestIntroCounter == -2) && (tavernHubAgain == 0) ) {
+    forestHillCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
   }
 });
 
@@ -885,12 +891,18 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
     mountainsIntroCounter = 0;
+    tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
+  }
+  if( (forestIntroCounter == -2) && (tavernHubAgain == 0) ) {
+    forestCreekCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
   }
 });
 
@@ -902,8 +914,9 @@ leftChoiceBox2.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
     forestIntroCounter = 0;
+    tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
@@ -912,8 +925,9 @@ leftChoiceBox2.addEventListener('click', ()=> {
 });
 
 rightChoiceBox2.addEventListener('click', ()=> {
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 0) ) {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
     seaIntroCounter = 0;
+    tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
