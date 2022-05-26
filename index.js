@@ -264,11 +264,41 @@ var forestIntroText = [
 
 var forestHillCounter = -1;
 var forestHillText = [
-  "'Lorum Ipsum'"
+  "You begin down the path towards the hill.",
+  "It takes a surprising amount of effort and time despite the top of the hill not appearing to be too high in elevation.",
+  "Each step seems to get harder and harder the further you go.",
+  "After a couple of hours of strain you decide to take a rest",
+  "During your rest you realize that you have gotten quite hungry.",
+  "Sadly you forgot to take some extra rations along with you before heading out from the tavern",
+  "You decide that you will save what you have left of your rations for more important times.",
+  "Continuing your hike back up the hill, you eventually reach the peak.", //7
+  "While you were taking time to catch your breath and get used to your surroundings, you notice a cave atop the peak.",
+  "The sky is already dark, you should find a place to rest the night."
 ];
 
 var forestCreekCounter = -1;
 var forestCreekText = [
+  "You start your hike down towards the creek.",
+  "After several minutes of following the trail you arrive at the the shore of the creek.",
+  //player:
+  "'If someone were to live in these woods, surley they would be by the creek.'", //2
+  //No Name
+  "So you decide to follow the creek in search of the mushroom people.", //3
+  "Hours pass and you eventually reach the end of the creek without any sight of the mushroom people.",
+  "You decide to rest a bit before continuing your search.",
+  "During your rest you realize that you have gotten quite hungry.",
+  "Sadly you forgot to take some extra rations along with you before heading out from the tavern",
+  "You decide that you will save what you have left of your rations for more important times.",
+  "After your short break you decide to start heading back to the fork in the path to see if you will have anymore luck up the hill."
+];
+
+var forestCaveNightCounter = -1;
+var forestCaveNightText = [
+  "'Lorum Ipsum'"
+];
+
+var forestWoodsNightCounter = -1;
+var forestWoodsNightText = [
   "'Lorum Ipsum'"
 ];
 //************Pilz route ends here******************************************************************************************************************************************************************************************
@@ -740,7 +770,6 @@ function changeRightBar(color) {
 
 //************Pilz functions starts here******************************************************************************************************************************************************************************************
   function forestIntroSequence() {
-    console.log()
     if (forestIntroCounter <= 10) {
       if (forestIntroCounter == 2) {
         changeDisplay('./pictures/backgrounds/BlueForestPath.png');
@@ -766,14 +795,82 @@ function changeRightBar(color) {
       .deleteAll(1)
       .start();
       textBoxClicked = 0;
-      forestIntroCounter = -2; //-2 means that this sequence has been done.
+      //forestIntroCounter = -2; //-2 means that this sequence has been done.
       characterNameDisplay.textContent = '';
       leftChoiceBox1.textContent = "Head up towards the hill";
       rightChoiceBox1.textContent = "Head towards the creek";
       removeHidden(leftChoiceBox1);
       removeHidden(rightChoiceBox1);
     }
+  }
 
+  function forestHillSequence() {
+    if(forestHillCounter <= 9) {
+      if(forestHillCounter == 7) {
+        changeDisplay('./pictures/backgrounds/BFCaveEntranceDark.png');
+        changeBars('blue');
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestHillText[forestHillCounter])
+        .start();
+        textBoxClicked = 1;
+        forestHillCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      //forestHillCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      leftChoiceBox1.textContent = "Seek shelter in the cave";
+      rightChoiceBox1.textContent = "Head back down the hill come back in the morning";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+    }
+  }
+
+  function forestCreekSequence() {
+    if(forestCreekCounter <= 9) {
+      if(forestCreekCounter == 2) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCreekCounter == 3) {
+        characterNameDisplay.textContent = '';
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCreekText[forestCreekCounter])
+        .start();
+        textBoxClicked = 1;
+        forestCreekCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestCreekCounter = -2; //-2 means that this sequence has been done.
+      forestWoodsNightCounter = 0;
+      characterNameDisplay.textContent = '';
+    }
   }
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
@@ -842,6 +939,14 @@ textBoxContainer.addEventListener('click', ()=> {
     console.log('forestIntroSequence');
     forestIntroSequence();
   }
+  if( (forestHillCounter != -1) && (forestHillCounter !=-2) ) {
+    console.log('forestHillSequence');
+    forestHillSequence();
+  }
+  if( (forestCreekCounter != -1) && (forestCreekCounter !=-2) ) {
+    console.log('forestCreekSequence');
+    forestCreekSequence();
+  }
 });
 
 //Choice boxes start here
@@ -869,8 +974,15 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
-  if( (forestIntroCounter == -2) && (tavernHubAgain == 0) ) {
+  if( (forestIntroCounter >=9) ) {
+    forestIntroCounter = -2;
     forestHillCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+  if( (forestHillCounter >= 9) ) {
+    forestHillCounter = -2;
+    forestCaveNightCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
@@ -899,8 +1011,16 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
-  if( (forestIntroCounter == -2) && (tavernHubAgain == 0) ) {
+  if( (forestIntroCounter >=9) ) {
+    forestIntroCounter = -2;
     forestCreekCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+
+  if( (forestHillCounter >= 9) ) {
+    forestHillCounter = -2;
+    forestWoodsNightCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
