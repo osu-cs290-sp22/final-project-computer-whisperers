@@ -256,7 +256,7 @@ var forestIntroText = [
   "There is a trail leading into the forest, this would be you best bet of finding the mushroom people.",
   "Losing the trail on your journey may be a death sentence, but you decide to brave the unkown in the name of friendship.",
   "Following the trail into darkness you find that the local flora emits its own humble light, just enough to see where you are going.",
-  "After a couple of hours you find yourelf at a fork in the road. One option seems like it lead up onto a hill.",
+  "After a couple of hours you find yourself at a fork in the road. One option seems like it lead up onto a hill.",
   "The other trail looks to go lower in elevation towards a creek.",
   "Which trail should you take?" //10
   //Leads into 2 choices
@@ -294,13 +294,97 @@ var forestCreekText = [
 
 var forestCaveNightCounter = -1;
 var forestCaveNightText = [
-  "'Lorum Ipsum'"
+  "Peering into the cave entrance you only see darkness, but you walk forwards anyways.",
+  "Soon your eyes adjust to the light levels of that cave and you continue deeper.",
+  "The cave walls get smaller and smaller the further you continue.",
+  "Eventually you find a hole you big enough to crawl through.",
+  "Once you make it to the other side you see a massive cavity with stalagmites and stalactites far off into the darkness.", //4 - change background
+  "Taken aback by the view you notice thats its also extremely quiet in the cave.",
+  "So quiet that you can hear yourself breathing.",
+  "You explore the cave a bit to get used to your surroundings before setting up camp.",
+  "As you explore the surroundings you find remnants of what look like used to be a small village.",
+  "Supports of buildings made of stone and some wood.",
+  //Player:
+  "'Could this be where the mushroom people used to live? If so what happened to them and where are they now?'", //10
+  "'I should look around some more just in case some one is still here.'",
+  //No name:
+  "Searching the ruins and the area surrounding the village you find nothing but ruins and darkness.", //12
+  "Your fatigue starts to set in from the hunger and of how late into the night it has become.",
+  "So you decide to postpone your efforts for the morning and get some rest.",
+  "You find a nice location with a nice view outside the village ruins to make camp.", //15 - change background to cave campfire
+  "The strangeness of complete silence is odd and makes it a little hard to fall asleep.", //16 - if grob is in party have special dialogue
+  "But eventually you are able to fall asleep.",
+  "...",
+  "...",
+  "...",
+  //Pilz: (Unkown for now)
+  "'Hey um, excuse me.'", //21
+  "'Oh I hope you are sleeping and not dead!'",
+  //No name
+  "You feel something poking your face which causes you to reluctantly return to consciousness.", //23
+  "You look up to find a mushroom person looking back at you.", //24 change background to pilz sigh/worried
+  //Pilz: (Unkown for now)
+  "'Oh thank goodnes you're not dead. I was worried for a second there. Anyways sorry for disrupting your nice nap there, but I request your help.'", //25
+  "'This may be a rude introduction, but my people call me Pilz and I would like to know how to get out of these caves.'",
+  //Pilz:
+  "'My people untrusted me to bring these spores to a safe location so that my people's legacy may continue.'",// 27 change background to pilz normal
+  "'Sadly I was also the only one capable of this task since our people have been dying out in these caves for hundresds of years.'",
+  "'That is why I need your help to find a way out of these caves, I havent seen you here before so I assume you know the way out!'",
+  //No name
+  "You understand that Pilz is on a tough journey, but you are also hungry and low on rations.", //30
 ];
 
 var forestWoodsNightCounter = -1;
 var forestWoodsNightText = [
+  "You find your way back to the fork and locate a good area for setting up camp.",
+  "Setting up the campfire took little effort as there was plenty of kindling around.", //1 - FOrest campfire BG
+  "You sit around the campfire cooking what little is left of your rations.",
+  "The campfire eventually simmers down and you decide that its makes for a good time to head to bed for the night.", //
+  "...",
+  "...",
+  "...",
+  "Morning rises and you break camp to explore the hill way path.", //7 - forest path
+  "It takes a surprising amount of effort and time despite the top of the hill not appearing to be too high in elevation.",
+  "Each step seems to get harder and harder the further you go.",
+  "After a couple of hours of strain you decide to take a rest",
+  "After a nice rest viewing the beautiful fauna and flora live its lives, you remember that you need to move on with your adventure.",
+  "Continuing your hike back up the hill, you eventually reach the peak.", //12 - change to cave BG DAY
+  "While you were taking time to catch your breath and get used to your surroundings, you notice a cave atop the peak.",
+  "Just as you were about to head towards the cave to check it out, two massive snails slither our of the cave entrance.",  //14
+  "You quickly take cover behind some bushes nearby.",
+  "Observering the snails, it looks like theres some weird pink stuff all over the snails' shells.",
+  "Looks like they found something to prey on in the cave.",
+  "A couple minutes pass and you are able to sneak past the snails into the cave.", //18 - change BG to normal cave entrance DAY
+  "Looking further into the cave you only see darkness, but you continue anyways.",
+  "Soon your eyes adjust to the light levels and you continue deeper.",
+  "The cave walls get smaller and smaller the further you continue.",
+  "Eventually you find a hole you big enough to crawl through.",
+  "Once you make it to the other side you see a massive cavity with stalagmites and stalactites far off into the darkness.", //23 - change background to cavecave
+  "Taken aback by the view you notice thats its also extremely quiet in the cave.",
+  "So quiet that you can hear yourself breathing.",
+  "Exploring the depths of the cave you stumble upon what looks like to be ruins of a village.",
+  "Supports of buildings made of stone and some wood.",
+  //Player:
+  "'Could this be where the mushroom people used to live? If so what happened to them and where are they now?'", //28
+  "'I should look around some more just in case some one is still here.'",
+  //No name:
+  "Searching the ruins and the area surrounding the village you find nothing but ruins and darkness.", //30
+  "Hours of searching the cave you find nothing buy rubble and darkness. Sadly it appears that what was once here has been lost to time.",
+  "Not having any luck finding the mushroom people of the Blue Forest, its time to head back to the tavern and look some where else.",
+  "So you begin your journey back to the tavern.",
+  "After a couple days of travel, you arrive back at athe tavern." //34
+];
+
+var forestCaveEat1Counter  = -1;
+var forestCaveEat1Text = [
   "'Lorum Ipsum'"
 ];
+
+var forestCaveEscapeCounter = -1;
+var forestCaveEscapeText = [
+  "'Lorum Ipsum'"
+];
+
 //************Pilz route ends here******************************************************************************************************************************************************************************************
 
 
@@ -872,6 +956,141 @@ function changeRightBar(color) {
       characterNameDisplay.textContent = '';
     }
   }
+
+  function forestCaveNightSequence() {
+    if(forestCaveNightCounter <= 30) {
+      //DO stuff here
+      if(forestCaveNightCounter == 4) {
+        changeDisplay('./pictures/backgrounds/CaveCave.png');
+        changeBars('darkblue');
+      }
+      if(forestCaveNightCounter == 10) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveNightCounter == 12) {
+        characterNameDisplay.textContent = '';
+      }
+      if(forestCaveNightCounter == 15) {
+        changeDisplay('./pictures/backgrounds/CaveCampfire.png');
+        changeDisplay('blue');
+      }
+      if(forestCaveNightCounter == 21) {
+        characterNameDisplay.textContent = '(Unkown)';
+      }
+      if(forestCaveNightCounter == 23) {
+        characterNameDisplay.textContent = '';
+      }
+      if(forestCaveNightCounter == 24) {
+        changeDisplay('./pictures/backgrounds/CaveCampfirePilzSigh.png');
+      }
+      if(forestCaveNightCounter == 25) {
+        characterNameDisplay.textContent = '(Unkown)';
+      }
+      if(forestCaveNightCounter == 27) {
+        characterNameDisplay.textContent = 'Pilz';
+        changeDisplay('./pictures/backgrounds/CaveCampfirePilzNormal.png');
+      }
+      if(forestCaveNightCounter == 30) {
+        characterNameDisplay.textContent = '';
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveNightText[forestCaveNightCounter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveNightCounter++;
+
+        if ( (grobItem == 1) && (forestCaveNightCounter == 16) ) {
+          let tempStr = " Every once in a while you hear Grob walk around and jump a couple of times for fun since he doesn't need to sleep...";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString(tempStr)
+          .start();
+        }
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      //forestCaveNightCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      leftChoiceBox1.textContent = "Sure looks tasty (Eat Pilz)";
+      rightChoiceBox1.textContent = "Agree to help Pilz out of the cave";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+    }
+
+  }
+
+  function forestWoodsNightSequence() {
+    if (forestWoodsNightCounter <= 34) {
+      if(forestWoodsNightCounter == 1) {
+        changeDisplay('./pictures/backgrounds/ForestCampfire.png');
+        changeDisplay('darkblue');
+      }
+      if (forestWoodsNightCounter == 7) {
+        changeDisplay('./pictures/backgrounds/BlueForestPath.png');
+        changeDisplay('blue');
+      }
+      if(forestWoodsNightCounter == 12) {
+        changeDisplay('./pictures/backgrounds/BFCaveEntrance.png');
+        changeDisplay('blue');
+      }
+      if(forestWoodsNightCounter == 18) {
+        changeDisplay('./pictures/backgrounds/BFCaveEntranceSnails.png');
+        changeDisplay('blue');
+      }
+      if(forestWoodsNightCounter == 23) {
+        changeDisplay('./pictures/backgrounds/CaveCave.png');
+        changeDisplay('darkblue');
+      }
+      if(forestWoodsNightCounter == 28) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestWoodsNightCounter == 30) {
+        characterNameDisplay.textContent = '';
+      }
+      if(forestWoodsNightCounter == 34) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestWoodsNightText[forestWoodsNightCounter])
+        .start();
+        textBoxClicked = 1;
+        forestWoodsNightCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestWoodsNightCounter = -2; //-2 means that this sequence has been done.
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      characterNameDisplay.textContent = '';
+    }
+
+  }
+
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -947,6 +1166,14 @@ textBoxContainer.addEventListener('click', ()=> {
     console.log('forestCreekSequence');
     forestCreekSequence();
   }
+  if( (forestCaveNightCounter != -1) && (forestCaveNightCounter !=-2) ) {
+    console.log('forestCaveNightSequence');
+    forestCaveNightSequence();
+  }
+  if( (forestWoodsNightCounter != -1) && (forestWoodsNightCounter !=-2) ) {
+    console.log('forestWoodsNightSequence');
+    forestWoodsNightSequence();
+  }
 });
 
 //Choice boxes start here
@@ -986,6 +1213,12 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
+  if( (forestCaveNightCounter >= 30) ) {
+    forestCaveNightCounter = -2;
+    forestCaveEat1Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -1021,6 +1254,12 @@ rightChoiceBox1.addEventListener('click', ()=> {
   if( (forestHillCounter >= 9) ) {
     forestHillCounter = -2;
     forestWoodsNightCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+  if( (forestCaveNightCounter >= 30) ) {
+    forestCaveNightCounter = -2;
+    forestCaveEscapeCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
