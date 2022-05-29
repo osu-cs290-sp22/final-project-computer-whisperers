@@ -100,6 +100,11 @@ main {
   margin-bottom: 5px;
 }
 
+#settings-Button {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
 .options-item:hover {
   background-color: #36B173;
   cursor: pointer;
@@ -221,8 +226,8 @@ main {
   left: 7.5vw;
   top: 10vh;
 
-  width: 100px;
-  height: 100px;
+  width: 115px;
+  height: 115px;
   border: 1px solid black;
   /*align-self: center;*/
   background-color: #E6E6E6;
@@ -234,8 +239,8 @@ main {
   left: 7.5vw;
   top: 20vh;
 
-  width: 100px;
-  height: 100px;
+  width: 115px;
+  height: 115px;
   border: 1px solid black;
   /*align-self: center;*/
   background-color: #E6E6E6;

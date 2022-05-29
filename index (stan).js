@@ -1399,6 +1399,7 @@ function wickRouteIntro()
     .deleteAll(1)
     .start();
     textBoxClicked = 0;
+    //introCounter = -2;
     leftChoiceBox1.textContent = "Hike up anyway.";
     rightChoiceBox1.textContent = "Look for shelter.";
     leftChoiceBox2.textContent = "Huddle for warmth.";
