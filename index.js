@@ -388,13 +388,13 @@ var forestCaveEat1Text = [
   //Player:
   "'Yes yes... I was thinking of hugging you heh... But I think getting closer to the campfire would warm you up better now wouldn't it?'", //5
   //Pilz:
-  "'Sure! Thats sounds great! I havent seen a campfire in a long time. You see its kind fo hard for me to start fires on my own.'", //6
-  "'OoooOoOOOoooooOOO! You know what would be fun?'", //7 - Pilz Normal BG
-  "'Roasting marshmallows on the campfire! Oh darn I don't have ingredients for that though... Would you possibly the ingrediants?'",
+  "'Sure! Thats sounds great! I havent seen a campfire in a long time. You see its kind of hard for me to start fires on my own.'", //6
+  "'OoooOoOOOoooooOOO~ You know what would be fun?'", //7 - Pilz Normal BG
+  "'Roasting marshmallows on the campfire! Oh darn I don't have ingredients for that though... Could you possibly have the ingrediants?'",
   //Player:
   "'Oh uhmm, I do not. But I have another Idea of what we could roast.'", //9
   //Pilz:
-  "'Oh my, oh good! I hope its something of your culture, my people used to love learning about other people's culture when we went on caravan runs.'", //10  - Pilz
+  "'Oh my, oh good! I hope its something of your culture, my people used to love learning about other people's culture when we used to go on caravan runs.'", //10  - Pilz
   //Player:
   "'Uhmmm, yeah sure... Uh actually why don't you lean in a little closer to the campfire? I'm already cooking it, you just need to get closer to see thats all. Heh heh.'", //11
   //Pilz:
@@ -412,7 +412,7 @@ var forestCaveEat1Text = [
   "...",
   "...",
   "...",
-  "After you are fully satiated you then leave the caves having failed to get information from the mushroom person who was carrying his dying race's legacy, you head bakc to the Tavern.",
+  "After you are fully satiated you then leave the caves having failed to get information from the mushroom person who was carrying his dying race's legacy. You head back to the Tavern.",
   "After a couple days of travel, you arrive back at athe tavern." //24 -  tavern BG
 ];
 
@@ -425,9 +425,36 @@ var forestCaveEscapeText = [
   "'Damn, I didn't know the entire future of your people rested on this decision, but I'd be glad to help out'", //2
   "'Right, so I'll lead the way back out. Hopefully I still remember the way out...'",
   //No name
-  "Breaking camp you and your new found gang start on the journey out of the cave.",
-  "There are several "
+  "Breaking camp you and your new found gang start on the journey out of the cave.", //4 - CaveCave
+  "After an hour of reorienting yourself, you remember the route back out.",
+  "Walking through the ruins of the mushroom village fills you with some sadness realizing that all thats left is Pilz.",
+  "But you are filled with hope and determination to help Pilz continue his legacy.",
+  "As you were walking just outside of the ruined village you spot something in the distance moving toward you.",
+  "Upon a closer look it looks like two hungry looking killer snails heading directyl for you!", //9 - CaveCave Snails BG
+  "You quickly take cover behind a nearby stalagmite.",
+  "What should you do?" //11
 ];
+
+var forestCaveEat2Counter = -1;
+var forestCaveEat2Counter = [
+  "'Lorum Ipsum'"
+];
+
+var forestCaveAbandonCounter = -1;
+var forestCaveAbandonText = [
+  "'Lorum Ipsum'"
+];
+
+var forestCaveDistract1Counter = -1;
+var forestCaveDistract1Text = [
+  "'Lorum Ipsum'"
+];
+
+var forestCaveDistract2Counter = -1;
+var forestCaveDistract2Text = [
+  "'Lorum Ipsum'"
+];
+
 
 //************Pilz route ends here******************************************************************************************************************************************************************************************
 
@@ -1216,6 +1243,56 @@ function changeRightBar(color) {
     }
   }
 
+  function forestCaveEscapeSequence() {
+    if (forestCaveEscapeCounter <= 11) {
+      if(forestCaveEscapeCounter == 0) {
+        characterNameDisplay.textContent = 'Pilz';
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzHappy.png');
+      }
+      if(forestCaveEscapeCounter == 1) {
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzContent.png');
+      }
+      if(forestCaveEscapeCounter == 2) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveEscapeCounter == 4) {
+        characterNameDisplay.textContent = '';
+        changeDisplay('./Pictures/Backgrounds/CaveCave.png');
+      }
+      if(forestCaveEscapeCounter == 9) {
+        changeDisplay('./Pictures/Backgrounds/CaveCaveSnails.png');
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveEscapeText[forestCaveEscapeCounter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveEscapeCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      //forestCaveEscapeCounter = -2; //-2 means that this sequence has been done.
+      characterNameDisplay.textContent = '';
+      leftChoiceBox1.textContent = "Eat Pilz to get the snails to go away";
+      rightChoiceBox1.textContent = "Give up Pilz and their legacy";
+      leftChoiceBox2.textContent = "Create a distraction";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+    }
+  }
+
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -1303,6 +1380,10 @@ textBoxContainer.addEventListener('click', ()=> {
     //console.log('forestCaveEat1Counte');
     forestCaveEat1Sequence();
   }
+  if( (forestCaveEscapeCounter != -1) && (forestCaveEscapeCounter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveEscapeSequence();
+  }
 });
 
 //Choice boxes start here
@@ -1348,6 +1429,13 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
+  if( (forestCaveEscapeCounter >= 11) ) {
+    forestCaveEscapeCounter= -2;
+    forestCaveEat2Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -1392,6 +1480,13 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
+  if( (forestCaveEscapeCounter >= 11) ) {
+    forestCaveEscapeCounter= -2;
+    forestCaveAbandonCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -1409,6 +1504,20 @@ leftChoiceBox2.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
+  }
+  if( (forestCaveEscapeCounter >= 11) ) {
+    forestCaveEscapeCounter= -2;
+
+    let friendshipCount = (grobItem + wickItem + pilzItem + squidItem);
+    if(friendshipCount == 0) {
+      forestCaveDistract1Counter = 0;
+    } else {
+      forestCaveDistract2Counter = 0;
+    }
+
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
   }
 });
 
