@@ -436,8 +436,22 @@ var forestCaveEscapeText = [
 ];
 
 var forestCaveEat2Counter = -1;
-var forestCaveEat2Counter = [
-  "'Lorum Ipsum'"
+var forestCaveEat2Text = [
+  "Observing the snails from behind cover, it looks like the snails are spore hungry and would likely go away if Pilz was also gone.",
+  "Your hunger and survival instincts fill your mind...",
+  "With the killer snails slowly surrounding you and your party, you decide you have no choice but to consume Pilz to get the snails to go away.",
+  "You quickly dive out of cover and grab Pilz.",
+  "You quickly run away with Pilz still in your hands.",
+  "Once you get to a safe spot...",
+  "*Crunch*", //6 - black BG
+  "Screams echo the cave...",
+  "Lets hope the flesh will satisfy you.",
+  "...",
+  "...",
+  "...",
+  "After you complete your meal, you look around to find that the snails have turned around to look else where...",
+  "Having failed to get information from the mushroom person who was carrying his dying race's legacy. You head back to the Tavern.",
+  "After a couple days of travel, you arrive back at athe tavern." //14 - tavern BG
 ];
 
 var forestCaveAbandonCounter = -1;
@@ -1210,6 +1224,7 @@ function changeRightBar(color) {
       }
       if(forestCaveEat1Counter == 18) {
         changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars('black');
       }
       if(forestCaveEat1Counter == 24) {
         changeDisplay('./Pictures/Backgrounds/Tavern.png');
@@ -1290,6 +1305,44 @@ function changeRightBar(color) {
       removeHidden(leftChoiceBox1);
       removeHidden(rightChoiceBox1);
       removeHidden(leftChoiceBox2);
+    }
+  }
+
+  function forestCaveEat2Sequence() {
+    if(forestCaveEat2Counter <= 14) {
+      if(forestCaveEat2Counter == 6) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars('black');
+      }
+      if(forestCaveEat2Counter == 14) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveEat2Text[forestCaveEat2Counter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveEat2Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestCaveEat2Counter = -2; //-2 means that this sequence has been done.
+      pilzRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      characterNameDisplay.textContent = '';
     }
   }
 
@@ -1383,6 +1436,10 @@ textBoxContainer.addEventListener('click', ()=> {
   if( (forestCaveEscapeCounter != -1) && (forestCaveEscapeCounter !=-2) ) {
     //console.log('forestCaveEat1Counte');
     forestCaveEscapeSequence();
+  }
+  if( (forestCaveEat2Counter != -1) && (forestCaveEat2Counter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveEat2Sequence();
   }
 });
 
