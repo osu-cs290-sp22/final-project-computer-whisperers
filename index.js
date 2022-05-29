@@ -246,6 +246,7 @@ var mountainsIntroText = [
 
 
 //************Pilz route starts here******************************************************************************************************************************************************************************************
+var pilzRoute = 0; //Wether the Pilz route has been completed.
 var forestIntroCounter = -1;
 var forestIntroText = [
   "You decide to go in search of the mushroom people in the Blue Forest.",
@@ -377,12 +378,55 @@ var forestWoodsNightText = [
 
 var forestCaveEat1Counter  = -1;
 var forestCaveEat1Text = [
-  "'Lorum Ipsum'"
+  "Your hunger takes control of you, what was viewed as a person is now your next meal.",
+  "You slowly creep towards Pilz to eventually grab hold, trying to make conversation as to hide your intent.",
+  //Player:
+  "'So uh, hows the weather? Its uh... kinda cold. Maybe I could warm you up a bit...'", //2
+  //Pilz:
+  "'Oh uh, its actually been pretty nice out lately. Although the weather never really changes down here.'", //3 Pilz Happy BG
+  "'I could use a little heating up, these caves are usually just damp and moist so it would be a nice change of pace.'",
+  //Player:
+  "'Yes yes... I was thinking of hugging you heh... But I think getting closer to the campfire would warm you up better now wouldn't it?'", //5
+  //Pilz:
+  "'Sure! Thats sounds great! I havent seen a campfire in a long time. You see its kind fo hard for me to start fires on my own.'", //6
+  "'OoooOoOOOoooooOOO! You know what would be fun?'", //7 - Pilz Normal BG
+  "'Roasting marshmallows on the campfire! Oh darn I don't have ingredients for that though... Would you possibly the ingrediants?'",
+  //Player:
+  "'Oh uhmm, I do not. But I have another Idea of what we could roast.'", //9
+  //Pilz:
+  "'Oh my, oh good! I hope its something of your culture, my people used to love learning about other people's culture when we went on caravan runs.'", //10  - Pilz
+  //Player:
+  "'Uhmmm, yeah sure... Uh actually why don't you lean in a little closer to the campfire? I'm already cooking it, you just need to get closer to see thats all. Heh heh.'", //11
+  //Pilz:
+  "'Wait a minute...'", //12 - Pilz not amused BG
+  "'You're not trying to trick me so that you can eat me or something right?'", //13 Pilz cool BG  (More like suspicious)
+  //Player:
+  "'Pfffft...'", //14
+  "'No...'",
+  //Pilz:
+  "'Oh ok, well then I'm very excited to see what you're cooking up then!'", //16 - Pilz Normal BG
+  //No Name
+  "Pilz then leans in closer to the campfire. While Pilz is distracted looking into the campfire you give him a good shove into the fire.",
+  "Screams echo in the cave...", // 18 - Black BG
+  "Lets hope the flesh will satisfy you.",
+  "...",
+  "...",
+  "...",
+  "After you are fully satiated you then leave the caves having failed to get information from the mushroom person who was carrying his dying race's legacy, you head bakc to the Tavern.",
+  "After a couple days of travel, you arrive back at athe tavern." //24 -  tavern BG
 ];
 
 var forestCaveEscapeCounter = -1;
 var forestCaveEscapeText = [
-  "'Lorum Ipsum'"
+  //Pilz:
+  "'Oh thank you so much! My people will be able to live on their legacy and maybe reclaim their throne as wandering traders!'", //0 - Pilz Happy BG
+  "'You've saved my kin!'", //1 Pilz Content BG
+  //Player:
+  "'Damn, I didn't know the entire future of your people rested on this decision, but I'd be glad to help out'", //2
+  "'Right, so I'll lead the way back out. Hopefully I still remember the way out...'",
+  //No name
+  "Breaking camp you and your new found gang start on the journey out of the cave.",
+  "There are several "
 ];
 
 //************Pilz route ends here******************************************************************************************************************************************************************************************
@@ -834,7 +878,9 @@ function changeRightBar(color) {
       rightChoiceBox2.textContent = "Head towards the friendship door in the ruins up north."
       removeHidden(leftChoiceBox1);
       removeHidden(rightChoiceBox1);
-      removeHidden(leftChoiceBox2);
+      if(pilzRoute == 0) {
+        removeHidden(leftChoiceBox2);
+      }
       removeHidden(rightChoiceBox2);
       //tavernHubAgain = 0;
     }
@@ -1084,11 +1130,90 @@ function changeRightBar(color) {
       .start();
       textBoxClicked = 0;
       forestWoodsNightCounter = -2; //-2 means that this sequence has been done.
+      pilzRoute = 1;
       tavernHubCounter = 0;
       tavernHubAgain = 1;
       characterNameDisplay.textContent = '';
     }
+  }
 
+  function forestCaveEat1Sequence() {
+    if(forestCaveEat1Counter <= 24) {
+      if(forestCaveEat1Counter == 2) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveEat1Counter == 3) {
+        characterNameDisplay.textContent = "Pilz";
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzHappy.png');
+      }
+      if(forestCaveEat1Counter == 5) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveEat1Counter == 6) {
+        characterNameDisplay.textContent = "Pilz";
+      }
+      if(forestCaveEat1Counter == 7) {
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzNormal.png');
+      }
+      if(forestCaveEat1Counter == 9) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveEat1Counter == 10) {
+        characterNameDisplay.textContent = "Pilz";
+      }
+      if(forestCaveEat1Counter == 11) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveEat1Counter == 12) {
+        characterNameDisplay.textContent = "Pilz";
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzNotAmused.png');
+      }
+      if(forestCaveEat1Counter == 13) {
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzCool.png');
+      }
+      if(forestCaveEat1Counter == 14) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveEat1Counter == 16) {
+        characterNameDisplay.textContent = "Pilz";
+        changeDisplay('./Pictures/Backgrounds/CaveCampfirePilzNormal.png');
+      }
+      if(forestCaveEat1Counter == 17) {
+        characterNameDisplay.textContent = "";
+      }
+      if(forestCaveEat1Counter == 18) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+      }
+      if(forestCaveEat1Counter == 24) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveEat1Text[forestCaveEat1Counter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveEat1Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestCaveEat1Counter = -2; //-2 means that this sequence has been done.
+      pilzRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      characterNameDisplay.textContent = '';
+    }
   }
 
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
@@ -1115,64 +1240,68 @@ var typewriter = new Typewriter(textChat, {
 textBoxContainer.addEventListener('click', ()=> {
 //Intro handling:
   if (introCounter != -2) {
-    console.log('introSequence');
+    //console.log('introSequence');
     introSequence();
     return;
   }
   //Intro bad end handling
   if ( (introBadEndCounter != -1) && (introBadEndCounter != -2) ) {
-    console.log('introBadEndSequence');
+    //console.log('introBadEndSequence');
     introBadEndSequence();
   }
 //Sewer handling:
   //sewer intro handling
   if ( (sewerIntroCounter != -1) && (sewerIntroCounter != -2) ) {
-    console.log('sewerIntroSequence');
+    //console.log('sewerIntroSequence');
     sewerIntroSequence();
   }
   //sewer options handling after intro.
   if( (sewerGrob1Counter != -1) && (sewerGrob1Counter != -2) && (tavernHubCounter != -2) ) {
-    console.log('sewerGrob1');
+    //console.log('sewerGrob1');
     sewerGrob1();
   }
   if( (sewerGrob2Counter != -1) && (sewerGrob2Counter != -2) && (tavernHubCounter != -2) ) {
-    console.log('sewerGrob2');
+    //console.log('sewerGrob2');
     sewerGrob2();
   }
   if( (sewerGrob3Counter != -1) && (sewerGrob3Counter != -2)  && (tavernHubCounter != -2) ) {
-    console.log('sewerGrob3');
+    //console.log('sewerGrob3');
     sewerGrob3();
   }
 //Tavern stuff:
   if( (tavernIntroCounter != -1) && (tavernIntroCounter != -2) ) {
-    console.log('tavernIntroSequence');
+    //console.log('tavernIntroSequence');
     tavernIntroSequence();
   }
   //Tavern Hub:
   if( (tavernHubCounter != -1) && (tavernHubCounter !=-2) ) {
-    console.log('taverHubSequence');
+    //console.log('taverHubSequence');
     taverHubSequence();
   }
 //Pilz route stuff:
   if( (forestIntroCounter != -1) && (forestIntroCounter !=-2) ) {
-    console.log('forestIntroSequence');
+    //console.log('forestIntroSequence');
     forestIntroSequence();
   }
   if( (forestHillCounter != -1) && (forestHillCounter !=-2) ) {
-    console.log('forestHillSequence');
+    //console.log('forestHillSequence');
     forestHillSequence();
   }
   if( (forestCreekCounter != -1) && (forestCreekCounter !=-2) ) {
-    console.log('forestCreekSequence');
+    //console.log('forestCreekSequence');
     forestCreekSequence();
   }
   if( (forestCaveNightCounter != -1) && (forestCaveNightCounter !=-2) ) {
-    console.log('forestCaveNightSequence');
+    //console.log('forestCaveNightSequence');
     forestCaveNightSequence();
   }
   if( (forestWoodsNightCounter != -1) && (forestWoodsNightCounter !=-2) ) {
-    console.log('forestWoodsNightSequence');
+    //console.log('forestWoodsNightSequence');
     forestWoodsNightSequence();
+  }
+  if( (forestCaveEat1Counter != -1) && (forestCaveEat1Counter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveEat1Sequence();
   }
 });
 
