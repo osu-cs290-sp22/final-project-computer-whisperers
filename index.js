@@ -456,7 +456,19 @@ var forestCaveEat2Text = [
 
 var forestCaveAbandonCounter = -1;
 var forestCaveAbandonText = [
-  "'Lorum Ipsum'"
+  "Observing the snails from behind cover, it looks like the snails are spore hungry and would likely go away if Pilz was also gone.",
+  "Your survival instincts fill your mind...",
+  "With the killer snails slowly surrounding you and your party, you decide you have no choice but to sacrafice Pilz to get the snails to go away.",
+  "You quickly dive out of cover and grab Pilz.",
+  "Kicking Pilz into the the two killer snails, you quickly run away back to cover...",
+  "*Crunch* *Crunch* *Crunch*", //5 - black BG
+  "Screams echo the cave...",
+  "...",
+  "...",
+  "...",
+  "After the screaming stops, you look around to find that the snails have turned around to look else where...",
+  "Having failed to get information from the mushroom person who was carrying his dying race's legacy. You head back to the Tavern.",
+  "After a couple days of travel, you arrive back at athe tavern." //12 - tavern BG
 ];
 
 var forestCaveDistract1Counter = -1;
@@ -1346,6 +1358,44 @@ function changeRightBar(color) {
     }
   }
 
+  function forestCaveAbandonSequence() {
+    if(forestCaveAbandonCounter <= 12) {
+      if(forestCaveAbandonCounter == 5) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars('black');
+      }
+      if(forestCaveAbandonCounter == 12) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveAbandonText[forestCaveAbandonCounter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveAbandonCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestCaveAbandonCounter = -2; //-2 means that this sequence has been done.
+      pilzRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      characterNameDisplay.textContent = '';
+    }
+  }
+
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -1440,6 +1490,10 @@ textBoxContainer.addEventListener('click', ()=> {
   if( (forestCaveEat2Counter != -1) && (forestCaveEat2Counter !=-2) ) {
     //console.log('forestCaveEat1Counte');
     forestCaveEat2Sequence();
+  }
+  if( (forestCaveAbandonCounter != -1) && (forestCaveAbandonCounter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveAbandonSequence();
   }
 });
 
