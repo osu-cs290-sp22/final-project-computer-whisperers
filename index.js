@@ -473,7 +473,25 @@ var forestCaveAbandonText = [
 
 var forestCaveDistract1Counter = -1;
 var forestCaveDistract1Text = [
-  "'Lorum Ipsum'"
+  "Observing the snails from behind cover, it looks like the snails are spore hungry.",
+  "Maybe you could create a distraction and have Pilz sneak around them.",
+  "Having no one else in your party to distract the snails you volunteer yourself.",
+  "You dive out of cover and yell at the snails.",
+  //Player:
+  "'Hey, you guys look like some tasty escargot! Which is gross... But I am also very hungry.'", //4
+  "'I know you guys are hungry as well, but you're gonna have to put in some more effort if you want this meal.'",
+  //No names
+  "You succesfully distract the snails as Pilz is able to sneak around to the side.", //6
+  "Once Pilz gets to a safe place he violently shakes his head to signal that he is safe.",
+  "Knowing this you try to run around the snails.",
+  "Tripping on some rocks you fall to the ground.",
+  "You struggle to get back up on your feet.",
+  "Just as you got a good balance you feel something wet and slimey on your foot.",
+  "Before looking back at what the feeling is, you can no longer feel your foot.",
+  "You violently fall back to the ground.",
+  "Slowly the feelings of your body parts dissapear until you can only feel your head...", //14 - black BG
+  "...",
+  "[GAME OVER]" //16 - game over BG
 ];
 
 var forestCaveDistract2Counter = -1;
@@ -1396,6 +1414,47 @@ function changeRightBar(color) {
     }
   }
 
+  function forestCaveDistract1Sequence() {
+    if (forestCaveDistract1Counter <= 16) {
+      if(forestCaveDistract1Counter == 4) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveDistract1Counter == 6) {
+        characterNameDisplay.textContent = '';
+      }
+      if(forestCaveDistract1Counter == 14) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars('black');
+      }
+      if(forestCaveDistract1Counter == 16) {
+        changeDisplay('./Pictures/Backgrounds/GameOver.png');
+        changeBars('black');
+      }
+
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveDistract1Text[forestCaveDistract1Counter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveDistract1Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = '';
+    }
+  }
+
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -1494,6 +1553,10 @@ textBoxContainer.addEventListener('click', ()=> {
   if( (forestCaveAbandonCounter != -1) && (forestCaveAbandonCounter !=-2) ) {
     //console.log('forestCaveEat1Counte');
     forestCaveAbandonSequence();
+  }
+  if( (forestCaveDistract1Counter != -1) && (forestCaveDistract1Counter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveDistract1Sequence();
   }
 });
 
