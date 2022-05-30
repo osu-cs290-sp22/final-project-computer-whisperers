@@ -585,47 +585,34 @@ var seaIntroText = [
   //no name
   "'You get on the merryfellow, and go below deck to get some rest. As it turns out, you aren't much help when it comes to running a ship.'",
   //no name
-  "'After a couple of hours of restless rocking, you notice a long and slender shadow block sonme of the moonlight coming in the window.'"
+  "'After a couple of hours of restless rocking, you notice a long and slender shadow block sonme of the moonlight coming in the window. Suddenly, it knocks at your window.'"
 ];
 
 var belowDeckCounter = -1;
 var belowDeckText = [
   //no name
-  "'Deciding a boat ride sounds like fun, you walk up to the grizzled, scarred old man in the corner. '",
+  "'You rollback over, assuming that the sea is playing tricks on you. As you're about to fall back asleep, you hear yelling from the captain above.'",
   //Capn' Rufus
-  "'Gooday, laddy, what can I do for ye!'",
-  //player name 
-  "'I heard that you needed help dealing with a gang of pirates, and I figured I was the guy for the job.'",
+  "'All hands on deck! we got a kraken trying to pull us under!'",
+  //no name
+  "'You run up the stairs to the main landing, and see tenticles reaching over the railing, grabbing sailors left and right.'",
   //capn' Rufus
-  "'Ye heard right, and if ye thinks that ye has what it takes to take on that blood-thirsty group, then so be it. Follow along!'",
+  "'We gotta get this creature off of our boat if we want any chance at survival boys!'",
   //no name
-  "'You walk down to the docks with captain Rufus, until he stops in front of an old and worndown ship.'",
-  //Capn' Rufus
-  "'This be my pride and joy, the merryfellow! I named it after my cousin, Jacob, who was always complainin about something.'",
-  //no name
-  "'You get on the merryfellow, and go below deck to get some rest. As it turns out, you aren't much help when it comes to running a ship.'",
-  //no name
-  "'After a couple of hours of restless rocking, you notice a long and slender shadow block sonme of the moonlight coming in the window.'"
+  "'looking over the railing of your ship, you see the beaked mouth of the kraken, and its beady eyes looking up at you. Suddenly, the kraken shoots towards you.'"
+  //choice, stay calm, try to talk to it (get octo) or fire cannon at it
 ];
 
 var aboveDeckCounter = -1;
 var aboveDeckText = [
   //no name
-  "'dank memes '",
-  //Capn' Rufus
-  "'Gooday, laddy, what can I do for ye!'",
-  //player name 
-  "'I heard that you needed help dealing with a gang of pirates, and I figured I was the guy for the job.'",
-  //capn' Rufus
-  "'Ye heard right, and if ye thinks that ye has what it takes to take on that blood-thirsty group, then so be it. Follow along!'",
+  "'Curious at the sound, you open your port window. '",
+  //Kraken
+  "'Hello young man, you all look like the adventuring type. My son is out of school for the month and is being an absolute terror ion the house.'",
+  "'I was wondering if you and your crew would be willing to take him along with you? I know it's an odd ask but I want him to get some real life experience.'",
   //no name
-  "'You walk down to the docks with captain Rufus, until he stops in front of an old and worndown ship.'",
-  //Capn' Rufus
-  "'This be my pride and joy, the merryfellow! I named it after my cousin, Jacob, who was always complainin about something.'",
-  //no name
-  "'You get on the merryfellow, and go below deck to get some rest. As it turns out, you aren't much help when it comes to running a ship.'",
-  //no name
-  "'After a couple of hours of restless rocking, you notice a long and slender shadow block sonme of the moonlight coming in the window.'"
+  "'Perplexed, you concider your options.'"
+  //two choices, either bring him with or not.
 ];
 //************Octo route ends here******************************************************************************************************************************************************************************************
 
@@ -2138,7 +2125,7 @@ rightChoiceBox2.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
-})
+});
 //Choice boxes ende here
 
 extraButton.addEventListener('click', ()=> {
