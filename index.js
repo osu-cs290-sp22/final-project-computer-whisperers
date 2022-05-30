@@ -209,7 +209,7 @@ var tavernIntroText = [
   //No name
   "The bar keep suddenly changes to a serious expression. They stare at you waiting for confirmation that you understand the dangers about to be told. You nod at the keeper to proceed.", //13
   //Bar Keeper:
-  "'Right. So the first one I know about is this old sailor up in the northern sea. He ain't your average sailor so you'll probably recongize 'em when ya see 'em.'", //14
+  "'Right. So the first one I know about is that old sailor in the corner over there. I heard he had some history with a gang of pirates that deal with that sort of thing.'", //14
   "'The second contact I know is out on an expidition to the ancient city in the eastern mountains.'",
   "'Them are some dangerous mountains, not to mention the ruins that lay within.'",
   "'The ruins were left by the funny folk. Thousands of years ago they used to go all over the kingdoms to do their funnies. But now the ruins are all thats left of them.'",
@@ -354,7 +354,7 @@ var forestWoodsNightText = [
   "After a nice rest viewing the beautiful fauna and flora live its lives, you remember that you need to move on with your adventure.",
   "Continuing your hike back up the hill, you eventually reach the peak.", //12 - change to cave BG DAY
   "While you were taking time to catch your breath and get used to your surroundings, you notice a cave atop the peak.",
-  "Just as you were about to head towards the cave to check it out, two massive snails slither our of the cave entrance.",  //14
+  "Just as you were about to head towards the cave to check it out, two massive snails slither out of the cave entrance.",  //14
   "You quickly take cover behind some bushes nearby.",
   "Observering the snails, it looks like theres some weird pink stuff all over the snails' shells.",
   "Looks like they found something to prey on in the cave.",
@@ -1007,7 +1007,7 @@ function changeRightBar(color) {
       textBoxClicked = 0;
       tavernHubCounter = -2; //-2 means that this sequence has been done.
       characterNameDisplay.textContent = '';
-      leftChoiceBox1.textContent = "Head out to the northern sea for the sailor";
+      leftChoiceBox1.textContent = "Head out to the northern sea with the sailor";
       rightChoiceBox1.textContent = "Search the ruins of the mountains to the east";
       leftChoiceBox2.textContent = "Head to the Blue Forest in the south.";
       rightChoiceBox2.textContent = "Head towards the friendship door in the ruins up north."
@@ -1154,7 +1154,7 @@ function changeRightBar(color) {
       }
       if(forestCaveNightCounter == 15) {
         changeDisplay('./pictures/backgrounds/CaveCampfire.png');
-        changeDisplay('blue');
+        changeBars('blue');
       }
       if(forestCaveNightCounter == 21) {
         characterNameDisplay.textContent = '(Unkown)';
@@ -1217,23 +1217,23 @@ function changeRightBar(color) {
     if (forestWoodsNightCounter <= 34) {
       if(forestWoodsNightCounter == 1) {
         changeDisplay('./pictures/backgrounds/ForestCampfire.png');
-        changeDisplay('darkblue');
+        changeBars('darkblue');
       }
       if (forestWoodsNightCounter == 7) {
         changeDisplay('./pictures/backgrounds/BlueForestPath.png');
-        changeDisplay('blue');
+        changeBars('#2985cc');
       }
       if(forestWoodsNightCounter == 12) {
-        changeDisplay('./pictures/backgrounds/BFCaveEntrance.png');
-        changeDisplay('blue');
+        changeDisplay('./pictures/backgrounds/BFCaveEntranceDay.png');
+        changeBars('blue');
       }
       if(forestWoodsNightCounter == 18) {
-        changeDisplay('./pictures/backgrounds/BFCaveEntranceSnails.png');
-        changeDisplay('blue');
+        changeDisplay('./pictures/backgrounds/BFCaveEntranceDaySnailsSpores.png');
+        changeBars('blue');
       }
       if(forestWoodsNightCounter == 23) {
         changeDisplay('./pictures/backgrounds/CaveCave.png');
-        changeDisplay('darkblue');
+        changeBars('darkblue');
       }
       if(forestWoodsNightCounter == 28) {
         characterNameDisplay.textContent = playerName;
@@ -1527,20 +1527,20 @@ function changeRightBar(color) {
         changeBars('white');
       }
       if(forestCaveDistract2Counter == 10) {
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrance.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDay.png');
         changeBars('lightblue');
       }
       if(forestCaveDistract2Counter == 11) {
         characterNameDisplay.textContent = 'Pilz';
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzNormal.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDayPilzNormal.png');
       }
       if(forestCaveDistract2Counter == 12) {
         characterNameDisplay.textContent = 'Pilz';
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzContent.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDayPilzContent.png');
       }
       if(forestCaveDistract2Counter == 13) {
         characterNameDisplay.textContent = playerName;
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzNormal.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDayPilzNormal.png');
       }
       if(forestCaveDistract2Counter == 14) {
         characterNameDisplay.textContent = "Pilz";
@@ -1550,10 +1550,10 @@ function changeRightBar(color) {
       }
       if(forestCaveDistract2Counter == 18) {
         characterNameDisplay.textContent = "Pilz";
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzHappy.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDayPilzHappy.png');
       }
       if(forestCaveDistract2Counter == 19) {
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzNormal.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDayPilzNormal.png');
       }
       if(forestCaveDistract2Counter == 20) {
         characterNameDisplay.textContent = playerName;
@@ -1682,7 +1682,7 @@ function changeRightBar(color) {
         characterNameDisplay.textContent = '';
       }
       if(forestCaveFriendshipCounter == 4) {
-        changeDisplay('./Pictures/Backgrounds/BFCaveEntrance.png');
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDay.png');
         changeBars('lightblue');
         pilzItemContainer.src='./Pictures/Items/PilzItem.png';
         pilzItem = 1;
