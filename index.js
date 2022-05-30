@@ -30,6 +30,9 @@ var modalExit2 = document.getElementById('settings-close');
 var nameText = document.getElementById('name-text-input');
 var textSpeed = document.getElementById('text-speed-input');
 var grobItemContainer = document.getElementById('inv-item1');
+var octoItemContainer = document.getElementById('inv-item2');
+var wickItemContainer = document.getElementById('inv-item3');
+var pilzItemContainer = document.getElementById('inv-item4');
 
 var temporaryText = document.getElementById('text-Chat').textContent;
 
@@ -373,7 +376,7 @@ var forestWoodsNightText = [
   "Hours of searching the cave you find nothing buy rubble and darkness. Sadly it appears that what was once here has been lost to time.",
   "Not having any luck finding the mushroom people of the Blue Forest, its time to head back to the tavern and look some where else.",
   "So you begin your journey back to the tavern.",
-  "After a couple days of travel, you arrive back at athe tavern." //34
+  "After a couple days of travel, you arrive back at the tavern." //34
 ];
 
 var forestCaveEat1Counter  = -1;
@@ -413,7 +416,7 @@ var forestCaveEat1Text = [
   "...",
   "...",
   "After you are fully satiated you then leave the caves having failed to get information from the mushroom person who was carrying his dying race's legacy. You head back to the Tavern.",
-  "After a couple days of travel, you arrive back at athe tavern." //24 -  tavern BG
+  "After a couple days of travel, you arrive back at the tavern." //24 -  tavern BG
 ];
 
 var forestCaveEscapeCounter = -1;
@@ -423,14 +426,14 @@ var forestCaveEscapeText = [
   "'You've saved my kin!'", //1 Pilz Content BG
   //Player:
   "'Damn, I didn't know the entire future of your people rested on this decision, but I'd be glad to help out'", //2
-  "'Right, so I'll lead the way back out. Hopefully I still remember the way out...'",
+  "'Right, so I'll lead the way out of the cave. I hope I still remember the way...'",
   //No name
   "Breaking camp you and your new found gang start on the journey out of the cave.", //4 - CaveCave
   "After an hour of reorienting yourself, you remember the route back out.",
   "Walking through the ruins of the mushroom village fills you with some sadness realizing that all thats left is Pilz.",
   "But you are filled with hope and determination to help Pilz continue his legacy.",
   "As you were walking just outside of the ruined village you spot something in the distance moving toward you.",
-  "Upon a closer look it looks like two hungry looking killer snails heading directyl for you!", //9 - CaveCave Snails BG
+  "Upon a closer look it looks like two hungry looking killer snails heading directly for you!", //9 - CaveCave Snails BG
   "You quickly take cover behind a nearby stalagmite.",
   "What should you do?" //11
 ];
@@ -451,7 +454,7 @@ var forestCaveEat2Text = [
   "...",
   "After you complete your meal, you look around to find that the snails have turned around to look else where...",
   "Having failed to get information from the mushroom person who was carrying his dying race's legacy. You head back to the Tavern.",
-  "After a couple days of travel, you arrive back at athe tavern." //14 - tavern BG
+  "After a couple days of travel, you arrive back at the tavern." //14 - tavern BG
 ];
 
 var forestCaveAbandonCounter = -1;
@@ -468,7 +471,7 @@ var forestCaveAbandonText = [
   "...",
   "After the screaming stops, you look around to find that the snails have turned around to look else where...",
   "Having failed to get information from the mushroom person who was carrying his dying race's legacy. You head back to the Tavern.",
-  "After a couple days of travel, you arrive back at athe tavern." //12 - tavern BG
+  "After a couple days of travel, you arrive back at the tavern." //12 - tavern BG
 ];
 
 var forestCaveDistract1Counter = -1;
@@ -496,7 +499,68 @@ var forestCaveDistract1Text = [
 
 var forestCaveDistract2Counter = -1;
 var forestCaveDistract2Text = [
-  "'Lorum Ipsum'"
+  "Observing the snails from behind cover, it looks like the snails are spore hungry.",
+  "Maybe you could create a distraction and have Pilz sneak around them.",
+  "", //2 CHarcter specific dialogue
+  "", //3 CHarcter specific dialogue
+  "The snails were successfuly distracted as Pilz is able to sneak around to the side unnoticed.",
+  "Once Pilz gets to a safe place he violently shakes his head to signal that he is safe.",
+  "You and your gang eventually meet back up safely away from the snails.",
+  "You continue your journey out of the cave.",
+  "Eventually you are able to see light at the end of the cave.",
+  "You exit the cave to a blinding light.", // 9 - Outside1
+  "After half a minute  your eyes finally adjust to the light levels outdoors.", // 10 - Cave Entrance BG
+  //Pilz:
+  "'Wow that was close! Those snails were very eager to get their hands on some spores, but thankfully you were here to save me and my kind!'", //11 - Cave Entrance day w/ Pilz Normal
+  "'I am  forever in your debt.'", //12 - Cave Entrance day w/ Pilz content
+  //Player:
+  "'Now that we got you back to safety, what are your plans from here on out?'", // 13 - Cave Entrance day w/ Pilz Normal
+  //Pilz:
+  "'Well I'm not sure, but what I do know is that I need to find a safe place to release the spores so that my people can start again.'", //14
+  "'Actually my village elders once told me of a door that lead to the friendliest land they've seen. Almost out of this world.'",
+  //Player:
+  "'Huh, funnily enough we are also in search of the door. We came here in search of your kind to learn more about the door.'", //16
+  "'What else do you know about this door?'",
+  //Pilz:
+  "'Well the stories were more like fairy tales of long ago, but if you have heard rumors of it too then it has to be real!'", //18 - Cave Entrance day w/ Pilz Happy
+  "'Why are you in search of the door may I ask?'", //19 - Cave Entrance day w/ Pilz Normal
+  //Player:
+  "'Well you see I am in dire need of some friends, so I thought that the door would bring me to the best place to look for them.'", //20
+  //Pilz:
+  "'I see, it seems like our paths align, would you be alright if I join you on your search for the door?'", //21
+  //No names
+  "You would love for Pilz to join your party, but how insanely hungry you are suddenly hits.", //22
+  "What should I do?", //23
+];
+
+var forestCaveEat3Counter = -1;
+var forestCaveEat3Text = [
+  "Although you fully intended in helping out Pilz, your hunger was all that you could think about.",
+  "In front of the rest of your party, you grab a hold of Pilz.",
+  "*Crunch*", //2 - black BG
+  "Screams cause the nearby fauna to flee.",
+  "Lets hope the flesh will satisfy you.",
+  "...",
+  "...",
+  "...",
+  "After you complete your meal you come back to your senses. Or whats left of them.",
+  "Forgetting this moment is all you can think of.",
+  "Eventually you decide to head back to the tavern.",
+  "Will you ever really forget what you did?",
+  "After a couple days of travel, you arrive back at the tavern." //12 - tavern BG
+];
+
+var forestCaveFriendshipCounter = -1;
+var forestCaveFriendshipText = [
+  //Player:
+  "'Sure, I'd love for you to join us on our journey.'", //0
+  //NoName
+  "You reach out your arms towards Pilz. As your doing so, it almost appears as if Pilz shrinks in size.", //1
+  "Grabbing him in your arms you realize that Pilz is a lot smaller than you thought.",
+  "You then stuff him into your bag for safe keeping.",
+  "[Friend Aquired!]", //4  - CaveEntranceDayBG
+  "With your new found friend you head back home to the tavern to learn more about the door of friendship.",
+  "After a couple days of travel, you arrive back at the tavern." //6 - tavern BG
 ];
 
 
@@ -956,6 +1020,7 @@ function changeRightBar(color) {
       //tavernHubAgain = 0;
     }
   }
+
 //************Intro functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -1455,6 +1520,205 @@ function changeRightBar(color) {
     }
   }
 
+  function forestCaveDistract2Sequence() {
+    if(forestCaveDistract2Counter <= 23) {
+      if(forestCaveDistract2Counter == 9) {
+        changeDisplay('./Pictures/Backgrounds/Outside1.png');
+        changeBars('white');
+      }
+      if(forestCaveDistract2Counter == 10) {
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrance.png');
+        changeBars('lightblue');
+      }
+      if(forestCaveDistract2Counter == 11) {
+        characterNameDisplay.textContent = 'Pilz';
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzNormal.png');
+      }
+      if(forestCaveDistract2Counter == 12) {
+        characterNameDisplay.textContent = 'Pilz';
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzContent.png');
+      }
+      if(forestCaveDistract2Counter == 13) {
+        characterNameDisplay.textContent = playerName;
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzNormal.png');
+      }
+      if(forestCaveDistract2Counter == 14) {
+        characterNameDisplay.textContent = "Pilz";
+      }
+      if(forestCaveDistract2Counter == 16) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveDistract2Counter == 18) {
+        characterNameDisplay.textContent = "Pilz";
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzHappy.png');
+      }
+      if(forestCaveDistract2Counter == 19) {
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrancePilzNormal.png');
+      }
+      if(forestCaveDistract2Counter == 20) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveDistract2Counter == 21) {
+        characterNameDisplay.textContent = 'Pilz';
+      }
+      if(forestCaveDistract2Counter == 22) {
+        characterNameDisplay.textContent = '';
+      }
+
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveDistract2Text[forestCaveDistract2Counter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveDistract2Counter++;
+        //Special Dialogue
+        if( (forestCaveDistract2Counter == 2) || (forestCaveDistract2Counter == 3) ) {
+          if(grobItem == 1) {
+            if(forestCaveDistract2Counter == 2) {
+              typewriter
+              .changeDelay(customTextSpeed)
+              .typeString(" You decide to send Grob as a distraction since he will most likely grab the most attention.")
+              .start();
+            }
+            if(forestCaveDistract2Counter == 3) {
+              typewriter
+              .changeDelay(customTextSpeed)
+              .typeString(" Grob runs in screaming about how he just wants the people of his town to like him and have cool parties.")
+              .start();
+            }
+          } else
+          if(wickItem == 1) {
+            if(forestCaveDistract2Counter == 2) {
+              typewriter
+              .changeDelay(customTextSpeed)
+              .typeString(" You decide to send wick as a distraction since they will be most knowledgable about the snails.")
+              .start();
+            }
+            if(forestCaveDistract2Counter == 3) {
+              typewriter
+              .changeDelay(customTextSpeed)
+              .typeString(" Wick just walks around and kicks some rocks... Some how this works.")
+              .start();
+            }
+          } else
+          if(squidItem == 1) {
+            if(forestCaveDistract2Counter == 2) {
+              typewriter
+              .changeDelay(customTextSpeed)
+              .typeString(" You decide to send Octo as a distraction since they are the strongest.")
+              .start();
+            }
+            if(forestCaveDistract2Counter == 3) {
+              typewriter
+              .changeDelay(customTextSpeed)
+              .typeString(" Octo just slithers around and flexes, which puts the snails in a trance.")
+              .start();
+            }
+          }
+        }
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = '';
+      leftChoiceBox1.textContent = "Consume Pilz";
+      rightChoiceBox1.textContent = "Let Pilz join you on your journey";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+
+    }
+  }
+
+  function forestCaveEat3Sequence() {
+    if(forestCaveEat3Counter <= 12) {
+      if(forestCaveEat3Counter == 2) {
+        changeDisplay('./Pictures/Backgrounds/Black.png');
+        changeBars('black');
+      }
+      if(forestCaveEat3Counter == 12) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveEat3Text[forestCaveEat3Counter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveEat3Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = '';
+    }
+  }
+
+  function forestCaveFriendshipSequence() {
+    if(forestCaveFriendshipCounter <= 6) {
+      if(forestCaveFriendshipCounter == 0) {
+        characterNameDisplay.textContent = playerName;
+      }
+      if(forestCaveFriendshipCounter == 1) {
+        characterNameDisplay.textContent = '';
+      }
+      if(forestCaveFriendshipCounter == 4) {
+        changeDisplay('./Pictures/Backgrounds/BFCaveEntrance.png');
+        changeBars('lightblue');
+        pilzItemContainer.src='./Pictures/Items/PilzItem.png';
+        pilzItem = 1;
+      }
+      if(forestCaveEat3Counter == 6) {
+        changeDisplay('./Pictures/Backgrounds/Tavern.png');
+        changeBars("#5c4944");
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(forestCaveFriendshipText[forestCaveFriendshipCounter])
+        .start();
+        textBoxClicked = 1;
+        forestCaveFriendshipCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+    else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      forestCaveFriendshipCounter= -2; //-2 means that this sequence has been done.
+      pilzRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      characterNameDisplay.textContent = '';
+    }
+  }
+
 //************Pilz functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -1558,6 +1822,18 @@ textBoxContainer.addEventListener('click', ()=> {
     //console.log('forestCaveEat1Counte');
     forestCaveDistract1Sequence();
   }
+  if( (forestCaveDistract2Counter != -1) && (forestCaveDistract2Counter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveDistract2Sequence();
+  }
+  if( (forestCaveEat3Counter != -1) && (forestCaveEat3Counter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveEat3Sequence();
+  }
+  if( (forestCaveFriendshipCounter != -1) && (forestCaveFriendshipCounter !=-2) ) {
+    //console.log('forestCaveEat1Counte');
+    forestCaveFriendshipSequence();
+  }
 });
 
 //Choice boxes start here
@@ -1610,6 +1886,12 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if( (forestCaveDistract2Counter >= 23) ) {
+    forestCaveDistract2Counter= -2;
+    forestCaveEat3Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -1660,6 +1942,12 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
+  }
+  if( (forestCaveDistract2Counter >= 23) ) {
+    forestCaveDistract2Counter= -2;
+    forestCaveFriendshipCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
   }
 });
 
