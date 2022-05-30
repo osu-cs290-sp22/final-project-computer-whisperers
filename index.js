@@ -37,15 +37,6 @@ var pilzItemContainer = document.getElementById('inv-item4');
 var temporaryText = document.getElementById('text-Chat').textContent;
 
 //Story Variables
-var nameSelector = 1;
-var characterNames = [
-  "",
-  "Player",
-  "Grob",
-  "Wick",
-  "Pilz",
-  "Witch"
-];
 
 //*****************Intro stuff starts here*************************************************************************************************************************************************************************************
 var introCounter = -1; //-1 means that this sequence hasnt been started yet.
@@ -616,7 +607,7 @@ function changeRightBar(color) {
       changeBars('green');
     }
 
-    characterNameDisplay.textContent = characterNames[nameSelector];
+    characterNameDisplay.textContent = playerName;
     if(introCounter <= 15) {
       //Set Intro to 0 to start text if it isnt already.
 
@@ -777,7 +768,7 @@ function changeRightBar(color) {
       .start();
       textBoxClicked = 0;
       sewerIntroCounter = -2; //-2 means that this sequence has been done.
-      leftChoiceBox1.textContent = "Go along with Grub to the tavern";
+      leftChoiceBox1.textContent = "Go along with Grob to the tavern";
       rightChoiceBox1.textContent = "Tell Grob to wait until you come back with the information (Betrayal)";
       leftChoiceBox2.textContent = "Tell Grob that you would prefer if he didn't come along";
       removeHidden(leftChoiceBox1);
@@ -1074,7 +1065,7 @@ function changeRightBar(color) {
     if(forestHillCounter <= 9) {
       if(forestHillCounter == 7) {
         changeDisplay('./pictures/backgrounds/BFCaveEntranceDark.png');
-        changeBars('blue');
+        changeBars('#0f2c48');
       }
 
       if (textBoxClicked == 0) {
@@ -1144,7 +1135,7 @@ function changeRightBar(color) {
       //DO stuff here
       if(forestCaveNightCounter == 4) {
         changeDisplay('./pictures/backgrounds/CaveCave.png');
-        changeBars('darkblue');
+        changeBars('#0b1426');
       }
       if(forestCaveNightCounter == 10) {
         characterNameDisplay.textContent = playerName;
@@ -1154,7 +1145,7 @@ function changeRightBar(color) {
       }
       if(forestCaveNightCounter == 15) {
         changeDisplay('./pictures/backgrounds/CaveCampfire.png');
-        changeBars('blue');
+        changeBars('#132142');
       }
       if(forestCaveNightCounter == 21) {
         characterNameDisplay.textContent = '(Unkown)';
@@ -1217,7 +1208,7 @@ function changeRightBar(color) {
     if (forestWoodsNightCounter <= 34) {
       if(forestWoodsNightCounter == 1) {
         changeDisplay('./pictures/backgrounds/ForestCampfire.png');
-        changeBars('darkblue');
+        changeBars('#113550');
       }
       if (forestWoodsNightCounter == 7) {
         changeDisplay('./pictures/backgrounds/BlueForestPath.png');
@@ -1225,15 +1216,15 @@ function changeRightBar(color) {
       }
       if(forestWoodsNightCounter == 12) {
         changeDisplay('./pictures/backgrounds/BFCaveEntranceDay.png');
-        changeBars('blue');
+        changeBars('#2985cc');
       }
       if(forestWoodsNightCounter == 18) {
         changeDisplay('./pictures/backgrounds/BFCaveEntranceDaySnailsSpores.png');
-        changeBars('blue');
+        changeBars('#2985cc');
       }
       if(forestWoodsNightCounter == 23) {
         changeDisplay('./pictures/backgrounds/CaveCave.png');
-        changeBars('darkblue');
+        changeBars('#0b1426');
       }
       if(forestWoodsNightCounter == 28) {
         characterNameDisplay.textContent = playerName;
@@ -1528,7 +1519,7 @@ function changeRightBar(color) {
       }
       if(forestCaveDistract2Counter == 10) {
         changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDay.png');
-        changeBars('lightblue');
+        changeBars('#2985cc');
       }
       if(forestCaveDistract2Counter == 11) {
         characterNameDisplay.textContent = 'Pilz';
@@ -1683,7 +1674,7 @@ function changeRightBar(color) {
       }
       if(forestCaveFriendshipCounter == 4) {
         changeDisplay('./Pictures/Backgrounds/BFCaveEntranceDay.png');
-        changeBars('lightblue');
+        changeBars('#2985cc');
         pilzItemContainer.src='./Pictures/Items/PilzItem.png';
         pilzItem = 1;
       }
@@ -2023,7 +2014,7 @@ modalExit2.addEventListener('click', ()=> {
   addHidden(modalCreate);
   if( nameText.value != '' ) {
     playerName = nameText.value;
-    characterNames[1] = playerName;
+    //characterNames[1] = playerName;
     console.log('Player name set to: ', playerName);
   }
 
