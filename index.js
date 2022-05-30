@@ -266,7 +266,7 @@ var wickIntro = [
 // WICK ENCOUNTER //
 //****************//
 var wickBase1Counter = -1;
-var wichBase1 = [//Hike up anyway.
+var wickBase1 = [//Hike up anyway.
   //Out Loud
   "Well, it might look bad from here. But I'm sure blizzards lighten up the further in you go.",
   "I'll just start heading up and see what this advanced friendship society is all about.",
@@ -308,8 +308,9 @@ var wickBase2 = [//Look for shelter.
 //Huddle for warmth.
 var wickBase3Bad1Counter = -1;
 var wickBase3Bad1 = [//Zero Friends
-  //Thoughts
+  //Out Loud
   "Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.",
+  //Thoughts
   "You realize you don't have any companions, and decide to make due with just yourself.",
   "Wrapping your arms around yourself, you huddle for warmth and charge into the blizzard.",
   "As you continue running, the hug you give yourself begins to stir feelings...",
@@ -324,8 +325,9 @@ var wickBase3Bad1 = [//Zero Friends
 
 var wickBase3Bad2Counter = -1;
 var wickBase3Bad2 = [//One Friend
-  //Thoughts
+  //Out Loud
   "Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.",
+  //Thoughts
   "You may only have one companion, but decide to make do.",
   "Wrapping your arms around your one companion, you both charge into the blizzard.",
   "As you both continue running, the hug begins to to stir feelings...",
@@ -340,8 +342,9 @@ var wickBase3Bad2 = [//One Friend
 
 var wickBase3PassCounter = -1;
 var wickBase3Pass = [//More Than One Friend
-  //Thoughts
+  //Out Loud
   "Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.",
+  //Thoughts
   "Through the power of combined warmpth the cold was warded off from you and your companions!",
   "You all charge with immense speed through the blizzard, the momentum keeping your spirits high!",
   "After making astounding progress your company stumbles upon something in the snow...",
@@ -395,7 +398,7 @@ var wickSaved = [//Save
 //***********//
 // AVALANCHE //
 //***********//
-var avalancheResponseCounter = -1;
+var avalancheCounter = -1;
 var avalancheResponse = [
   //Wick
   "Well...",
@@ -1421,7 +1424,7 @@ function wickBase1Encounter()
         .typeString(wickBase1[wickBase1Counter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickBase1Counter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1437,6 +1440,8 @@ function wickBase1Encounter()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      avalancheCounter = 0;
+      //temp = 0;
     }
 }
 
@@ -1452,7 +1457,7 @@ function wickBase2Encounter()
         .typeString(wickBase2[wickBase2Counter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickBase2Counter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1468,6 +1473,7 @@ function wickBase2Encounter()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      avalancheCounter = 0;
     }
 }
 
@@ -1483,7 +1489,7 @@ function wickBase3Bad1End()
         .typeString(wickBase3Bad1[wickBase3Bad1Counter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickBase3Bad1Counter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1514,7 +1520,7 @@ function wickBase3Bad2End()
         .typeString(wickBase3Bad2[wickBase3Bad2Counter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickBase3Bad2Counter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1545,7 +1551,7 @@ function wickBase3PassEncounter()
         .typeString(wickBase3Pass[wickBase3PassCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickBase3PassCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1580,7 +1586,7 @@ function wickIgnoreEnd()
         .typeString(wickIgnored[wickIgnoredCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickIgnoredCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1611,7 +1617,7 @@ function wickSavedEncounter()
         .typeString(wickSaved[wickSavedCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickSavedCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1627,22 +1633,23 @@ function wickSavedEncounter()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      avalancheCounter = 0;
     }
 }
 
 function wickAvalancheResponse()
 {
-    if (avalancheResponseCounter <= 4)
+    if (avalancheCounter <= 4)
     {
      //VISUAL CHANGES
      //HERE
       if (textBoxClicked == 0) {
         typewriter
         .changeDelay(customTextSpeed)
-        .typeString(avalancheResponse[avalancheResponseCounter])
+        .typeString(avalancheResponse[avalancheCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        avalancheCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1677,7 +1684,7 @@ function wickAvalancheResponseDig()
         .typeString(avalancheDig[avalancheDigCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        avalancheDigCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1708,7 +1715,7 @@ function wickAvalancheResponseExplore()
         .typeString(exploreCaves[exploreCavesCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        exploreCavesCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1745,7 +1752,7 @@ function wickLightFire()
         .typeString(wickFire[wickFireCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickFireCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1776,7 +1783,7 @@ function wickTurnBack()
         .typeString(wickClownStab[wickClownStabCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickClownStabCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1807,7 +1814,7 @@ function wickHonkBack()
         .typeString(wickClownHorn[wickClownHornCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickClownHornCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1845,7 +1852,7 @@ function wickApproachClownEnd()
         .typeString(wickApproachClown[wickApproachClownCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickApproachClownCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1876,7 +1883,7 @@ function wickGiveHornWick()
         .typeString(wickGiveHornW[wickGiveHornWCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickGiveHornWCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1907,7 +1914,7 @@ function wickGiveHornClown()
         .typeString(wickGiveHornC[wickGiveHornCCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickGiveHornCCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1938,7 +1945,7 @@ function wickClownSatisfiedEvent()
         .typeString(wickClownSatisfied[wickClownSatisfiedCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickClownSatisfiedCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -1975,7 +1982,7 @@ function wickConversationKillerEnd()
         .typeString(wickConversationKiller[wickConversationKillerCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickConversationKillerCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2006,7 +2013,7 @@ function wickRudeEnd()
         .typeString((wickRudeDismissal)[wickRudeDismissalCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickRudeDismissalCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2037,7 +2044,7 @@ function wickExplainQuest()
         .typeString(wickExplainQuest[wickExplainQuestCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickExplainQuestCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2074,7 +2081,7 @@ function wickAcceptFriendEvent()
         .typeString((wickAcceptFriend)[wickAcceptFriendCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickAcceptFriendCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2105,7 +2112,7 @@ function wickSpookyEvent()
         .typeString((wickSpooky)[wickSpookyCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickSpookyCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2136,7 +2143,7 @@ function wickSplitEvent()
         .typeString((wickSplit)[wickSplitCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickSplitCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2167,7 +2174,7 @@ function wickGoBackEvent()
         .typeString(wickGoBack[wickGoBackCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickGoBackCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2204,7 +2211,7 @@ function wickHikeEnd()
         .typeString((wickGoDownNormal)[wickGoDownNormalCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickGoDownNormalCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2235,7 +2242,7 @@ function wickRollEnd()
         .typeString((wickRoll)[wickRollCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickRollCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2266,7 +2273,7 @@ function wickSnowboardEnd()
         .typeString((wickSnowBoard)[wickSnowBoardCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickSnowBoardCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2297,7 +2304,7 @@ function wickSnowBoardBadEnd()
         .typeString((wickSnowBoardBad)[wickSnowBoardBadCounter])
         .start();
         textBoxClicked = 1;
-        wickIntroCounter++;
+        wickSnowBoardBadCounter++;
       } else {
         typewriter
         .deleteAll(1)
@@ -2749,7 +2756,7 @@ textBoxContainer.addEventListener('click', ()=> {
   if( (wickSavedCounter != -1) && (wickSavedCounter != -2) ) {
     wickSavedEncounter();
   }
-  if( (avalancheResponseCounter != -1) && (avalancheResponseCounter != -2) ) {
+  if( (avalancheCounter != -1) && (avalancheCounter != -2) ) {
     wickAvalancheResponse();
   }
   if( (avalancheDigCounter != -1) && (avalancheDigCounter != -2) ) {
@@ -2812,7 +2819,7 @@ textBoxContainer.addEventListener('click', ()=> {
   if( (wickSnowBoardBadCounter != -1) && (wickSnowBoardBadCounter != -2) ) {
     wickSnowBoardBadEnd();
   }
- 
+
 });
 
 //Choice boxes start here
@@ -2879,11 +2886,12 @@ leftChoiceBox1.addEventListener('click', ()=> {
   }
 
   //Just dig out. Easy peasy.
-  if( (avalancheResponseCounter >= 4) ) {
-    avalancheResponseCounter = -2;
+  if( (avalancheCounter >= 4) ) {
+    avalancheCounter = -2;
     avalancheDigCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
+    avalancheCounter = -2;
   }
 
   //Turn back, return to camp.
@@ -2995,11 +3003,12 @@ rightChoiceBox1.addEventListener('click', ()=> {
   }
 
   //Exploring sounds good.
-  if( (avalancheResponseCounter >= 4) ) {
-    avalancheResponseCounter = -2;
+  if( (avalancheCounter >= 4) ) {
+    avalancheCounter = -2;
     exploreCavesCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
+    avalancheCounter = -2;
   }
 
   //Light Wick on fire.
@@ -3125,6 +3134,7 @@ leftChoiceBox2.addEventListener('click', ()=> {
   if( (wickGoBackCounter >= 1) ) {
     wickGoBackCounter = -2;
     wickSnowBoardCounter = 0;
+    //CHECK FOR FRIENDS
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
