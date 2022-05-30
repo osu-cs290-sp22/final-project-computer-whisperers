@@ -1854,7 +1854,7 @@ function aboveDeckSequence(){
     aboveDeckCounter = -2; //-2 means that this sequence has been done.
     //tavernHubAgain = 0;
   }
-}
+
 //************Octo functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -1969,8 +1969,8 @@ textBoxContainer.addEventListener('click', ()=> {
   if( (seaIntroCounter != -1) && (seaIntroCounter !=-2) ) {
     //console.log('forestCaveEat1Counte');
     oceanStartSequence();
-  }
-});
+
+};
 
 //Choice boxes start here
 leftChoiceBox1.addEventListener('click', ()=> {
