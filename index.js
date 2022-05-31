@@ -577,7 +577,7 @@ var seaIntroText = [
   //player name 
   "'I heard that you needed help dealing with a gang of pirates, and I figured I was the guy for the job.'",
   //capn' Rufus
-  "'Ye heard right, and if ye thinks that ye has what it takes to take on that blood-thirsty group, then so be it. Follow along!'",
+  "'Ye heard right, and if ye thinks that ye has what it takes to bring down that blood thirsty group, then follow along!'",
   //no name
   "'You walk down to the docks with captain Rufus, until he stops in front of an old and worndown ship.'",
   //Capn' Rufus
@@ -601,6 +601,40 @@ var belowDeckText = [
   //no name
   "'looking over the railing of your ship, you see the beaked mouth of the kraken, and its beady eyes looking up at you. Suddenly, the kraken shoots towards you.'"
   //choice, stay calm, try to talk to it (get octo) or fire cannon at it
+];
+
+var stayCalmCounter = -1;
+var stayCalmText = [
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+
+];
+
+var fireCannonCounter = -1;
+var fireCannonText = [
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+
 ];
 
 var aboveDeckCounter = -1;
@@ -638,6 +672,64 @@ var leaveOctoText = [
 
   //no name
   "'The kraken slips back into the water, content with a good conversation. You go back to bed, shuddering at the memory of her rubbery limbs.'"
+];
+
+var pirateStartCounter = -1;
+var pirateStartText = [
+  // no name
+  "'After surviving the kraken attack, you go back to bed, exhausted. You are awoken the next morning by the captian.'",
+  //capn' Rufus
+  "'Mornin, Laddie!'",
+  "'We have a siting of the pirate base, and we want to know how we should proceed with our approach!'",
+  "'We could either sail at them, cannons blazing, or we could wait a day, and you could sneek in under cover of night.'",
+  "''" //make avaliable party members way in on the situation 
+  //then make a choice. direct attack, or sneak
+];
+
+var directAttackCounter = -1
+var directAttackText = [
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+  //no name
+  "''",
+];
+
+var sneakInCounter = -1;
+var seakInText = [
+  //no name 
+  "'You decide to wait until night time, believing your chances at success to be much higher with a stealthy approach.'", 
+  "'Once the sun had set, you head out from the boat, swimming up to the perimeter of the pirate encampment.'", 
+  "'You get to the edge of the camp, and you can hear the hoot and hollers of a pirate party.'", 
+  "'As you sneak deeper into the camp, you notice several barrels of pirate alcohol, with a 'Happy birthday George!' sign above it. '",
+  //plaer name
+  "'I bet if I lit those barrels on fire, this whole party would go sky high! and what luck! one of the pirates left a torch out for us!'",
+  //no name 
+  "'Using the discarded torch, you set fire to one of the barrels, and proceed to run as fast as you can back to the water.'",
+  //no name 
+  "'By the time you reach the ship once again, you hear loud explosions from the shore.'",
+  //capn' Rufus
+  "'Look at that! The pirates even have fireworks! They sure know how to party.'",
+  //player name
+  "'That they do. Now lets get out of here before they sober up and aren't in the partying mood.'",
+  //no name 
+  "'Having blown up a pirates birthday party, you head back to town.'",
+
 ];
 //************Octo route ends here******************************************************************************************************************************************************************************************
 
