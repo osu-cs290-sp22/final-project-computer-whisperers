@@ -614,6 +614,31 @@ var aboveDeckText = [
   "'Perplexed, you concider your options.'"
   //two choices, either bring him with or not.
 ];
+
+var bringOctoCounter = -1;
+var bringOctoText = [
+  //player name
+  "'I am actually looking to add people to my party to go on adventures! I would love to let him join! '",
+  //Kraken
+  "'Incredible! Rubbo!!!!!'",
+  //no name
+  "' the kraken calls. Next thing you know, a small kraken in a school boy outfit plops through the window onto your floor.'",
+  //Rubbo
+  "'Hello mister! Thanks for taking me with you! My teacher said I can read at a college level and do basic algebra, so I should be helpful on your quest for world domination!'",
+  //no name
+  "'He's clearly a bit confused, but he has the right spirit.'"
+];
+
+var leaveOctoCounter = -1;
+var leaveOctoText = [
+  //player name
+  "'Sorry, but I have a major fear of ocean animals. If you would kindly get off the boat, I would really appreciate it. '",
+  //Kraken
+  "'Oh of course! I am so sorry about that! Have a nice evening.'",
+
+  //no name
+  "'The kraken slips back into the water, content with a good conversation. You go back to bed, shuddering at the memory of her rubbery limbs.'"
+];
 //************Octo route ends here******************************************************************************************************************************************************************************************
 
 
