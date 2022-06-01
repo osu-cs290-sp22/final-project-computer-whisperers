@@ -474,7 +474,7 @@ main {
       margin-bottom: 25px;
       color: white;
       box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
-      /*background-image: linear-gradient(red, white);*/
+      background-image: linear-gradient(red, #D64A4A);
 }
 
 textarea {
