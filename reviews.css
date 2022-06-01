@@ -378,8 +378,8 @@ main {
 
 /*NEW STUFFSSSSSSS */
 
-.review-container {
-  margin: 50px 10%;
+#review-container {
+  margin: 60px 10%;
   display: flex;
   flex-wrap: wrap;
 }
