@@ -5,6 +5,12 @@ function createReview(body, author) {
   let today = new Date();
   let date = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
   let time = today.getHours() + ":" + today.getMinutes();
+  if( (today.getHours() >= 0) && (today.getHours() < 12) ) {
+    time = time+" AM";
+  }
+  else {
+    time = time+" PM";
+  }
   console.log("Time of review creation: ", date, time);
 
   var newReview = Handlebars.templates.review( {
@@ -24,10 +30,19 @@ function createReview(body, author) {
 
 
 //code:
+/*
+//Time testing:
 let today = new Date();
 let date = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
 let time = today.getHours() + ":" + today.getMinutes();
+if( (today.getHours() >= 0) && (today.getHours() < 12) ) {
+  time = time+" AM";
+}
+else {
+  time = time+" PM";
+}
 console.log(date, time);
+*/
 
 
 var bodyTextInput = document.getElementById('body-text-input');
@@ -36,5 +51,12 @@ var createReviewButton = document.getElementById('review-post-button');
 
 createReviewButton.addEventListener('click', ()=> {
   //console.log('Button clicked!');
-  createReview(bodyTextInput.value, authorTextInput.value);
+  if ( (bodyTextInput.value != '') && (authorTextInput.value != '') ) {
+    createReview(bodyTextInput.value, authorTextInput.value);
+    bodyTextInput.value = '';
+    authorTextInput.value = '';
+  }
+  else {
+    alert("ERROR || Content needed in both Body and Author of your *Review*!!!");
+  }
 });
