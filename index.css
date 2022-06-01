@@ -78,6 +78,7 @@ main {
   background-color: #0d6137;
   /*background-color: #148b4f;*/
   /*padding-bottom: 20px;*/
+  background-image: linear-gradient(#0d6137, #26C676);
 }
 
 #options-title {
@@ -86,6 +87,7 @@ main {
   padding-top: 19.920px;
   padding-bottom: 19.920px;
   margin: 0;
+  background-image: linear-gradient(#6A4B1D, #C69C5E);
 }
 
 .options-item {
@@ -130,6 +132,7 @@ main {
   margin: 0px;
   text-shadow: 5px 5px 15px black;
   background-color: #6A4B1D;
+  background-image: linear-gradient(#6A4B1D, #C69C5E);
   /*background-color: white;*/
 }
 
