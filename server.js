@@ -15,6 +15,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
+app.use(express.json());
 
 
 //Code:
@@ -56,6 +57,35 @@ app.get('/', function (req, res, next) {
 
 });
 */
+
+
+app.post('/Friendventure/reviews/addReview', function (req, res, next) {
+
+  if(req.body && req.body.date && req.body.time && req.body.body && req.body.author) { //check if these all exits
+    console.log("--req.body: ", req.body);
+    reviewsData.push({
+      date: req.body.date,
+      time: req.body.time,
+      body: req.body.body,
+      author: req.body.author
+    })
+    console.log("--added data: ", reviewsData);
+    fs.writeFile("./reviewsData.json",
+     JSON.stringify(reviewsData, null, 2),
+     function(err) {
+       if(!err) {
+         res.status(200).send();
+       } else {
+         res.status(500).send("ERROR || Error saving review");
+       }
+     }
+    );
+  }
+  else {
+    //console.log("--req.body: ", req.body);
+    res.status(400).send("ERROR || Missing: date, time, body, and or author in request!!!");
+  }
+});
 
 
 app.get('*', function (req, res) {
