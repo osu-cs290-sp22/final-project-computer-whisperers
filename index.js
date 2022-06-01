@@ -606,36 +606,59 @@ var belowDeckText = [
 var stayCalmCounter = -1;
 var stayCalmText = [
   //no name
-  "''",
+  "'Never one to be frightened by a 10 ton mythical sea monster, you wait until the sea monster is essentially on top of you.'",
+  //kraken
+  "'Hello young adventurer, I have a somewhat odd request to you.'",
+  "'I have a young child, who has just been released on summer break. I was wondering if you would be willing to take him along for a bit to use up his energy.'",
   //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
+  "'Perplexed, you ponder your options.'"
+  //either take octo or don't 
 
+];
+
+var takeOcto1Counter = -1;
+var takeOcto1Text = [
+  //player
+  "'Sure! I have actually been looking for people to join my party!'",
+  //kraken
+  "'Incredible! Kraken Junior! Get up here right now!'",
+  // no name
+  "'A young kraken in a school boy's outfit plops down on deck'",
+  //Kraken Junior
+  "'Hello sir! It's a pleasure to join you in your quest for world domination!'",
+  //no name
+  "'He is slightly confused, but he has the right spirit.'"
+];
+
+var leaveOcto1Counter = -1;
+var leaveOcto1Text = [
+  //player name
+  "'I am sorry ma'am, but I don't feel comfortable babysitting your son like that. I'm barely an adult myself!'",
+  //kraken
+  "'No worries than young man, I understnad. Sorry to bother you folks, this kid is just driving me up the wall. Have a nice evening!'",
+  // no name
+  "And with that, the kraken sinks back into the sea."
+  //these two should go on to the pirate ones either way
 ];
 
 var fireCannonCounter = -1;
 var fireCannonText = [
   //no name
-  "''",
+  "'Panicking, you look to your left and see a cannon conveniently loaded and looking downwards. '",
+  //player name
+  "'Lightning symbol! Skull and crossbones! Bomb! Hashtag!'",
   //no name
-  "''",
+  "'you scream comic book cussword after comic book cussword as you rain a single cannon ball down on the monster'",
   //no name
-  "''",
+  "'Once hit, the kraken starts wrapping up your boat at an incredible speed'",
+  //kraken
+  "'I was just trying to ask you a question! and you shot me! who shoots someone for asking a question!'",
+  "'I have to make an example of you for my son so he can learn that people without manners must be reprimanded!'",
   //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
+  "'CRUNCH'",
+  "'The kraken crushes your ship into pieces. As you sink under teh ocean waves, you learn to never assume a kraken is a bad person and shoot it with a cannon.'"
 
-];
+]; //end game
 
 var aboveDeckCounter = -1;
 var aboveDeckText = [
@@ -654,10 +677,10 @@ var bringOctoText = [
   //player name
   "'I am actually looking to add people to my party to go on adventures! I would love to let him join! '",
   //Kraken
-  "'Incredible! Rubbo!!!!!'",
+  "'Incredible! Kraken Junior!!!!!'",
   //no name
   "' the kraken calls. Next thing you know, a small kraken in a school boy outfit plops through the window onto your floor.'",
-  //Rubbo
+  //Kraken Junior
   "'Hello mister! Thanks for taking me with you! My teacher said I can read at a college level and do basic algebra, so I should be helpful on your quest for world domination!'",
   //no name
   "'He's clearly a bit confused, but he has the right spirit.'"
@@ -677,7 +700,7 @@ var leaveOctoText = [
 var pirateStartCounter = -1;
 var pirateStartText = [
   // no name
-  "'After surviving the kraken attack, you go back to bed, exhausted. You are awoken the next morning by the captian.'",
+  "'After surviving the kraken attack, you doze off, exhausted. You are awoken the next morning by the captian.'",
   //capn' Rufus
   "'Mornin, Laddie!'",
   "'We have a siting of the pirate base, and we want to know how we should proceed with our approach!'",
@@ -689,25 +712,23 @@ var pirateStartText = [
 var directAttackCounter = -1
 var directAttackText = [
   //no name
-  "''",
+  "'You decide that a head on cannon barage would be best to take down these hooligans.'",
+  //Capn' Rufus
+  "'Fire the cannons!!'",
   //no name
-  "''",
+  "'your ship lights up with the sound of cannon fodder as you send wave after wave of cannon balls into the pirates base.'",
+  "'After what felt like an hour, (because it was) you have run out of cannon balls. There is silence in the pirate base.'",
+  "'as cheers ripple through your crew, you are struck by a cannon ball from your side.'",
+  "'Looking up, you see that you are surrounded by [irate ships. They tricked you.'",
+  //Capn' Rufus
+  "'Well Laddie, it has been a pleasure! '",
   //no name
-  "''",
+  "'captain Rufus pulls out some floaties, jumps in the water, and floats away, escaping ship.'",
+  "'As you sink under the waves, you have a realisation that could change the world'",
+  //player name
+  "'blub blub blub'",
   //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
-  //no name
-  "''",
+  "'Sadly, you don't know how to speak under water, and your message goes unheard.'",
 ];
 
 var sneakInCounter = -1;
