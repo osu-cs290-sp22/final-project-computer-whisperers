@@ -449,6 +449,24 @@ textarea {
   background-color: #F8F8F8;
 }
 
+.review-time-stamp {
+  display: inline-flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+.review-date {
+  padding-right: 10px;
+}
+
+.review-time {
+  padding-left: 10px;
+}
+
+.review-text {
+  padding-top: 15px;
+}
+
 /*
 @media (max-height: 600px) {
 
