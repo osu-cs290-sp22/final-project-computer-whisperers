@@ -3,6 +3,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+//var fs = require('fs');
 
 var reviewsData = require('./reviewsData.json');
 
@@ -14,7 +15,11 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
+
+
 //Code:
+//fs.
+
 
 app.get('/', function (req, res, next) {
   //console.log('shiz1');
@@ -24,8 +29,37 @@ app.get('/', function (req, res, next) {
 
 });
 
+app.get('/Friendventure', function (req, res, next) {
+  //console.log('shiz1');
+  //res.status(200).sendfile(path.join(__dirname,'public', 'index.html'));
+  //console.log(twitDataTemp);
+  res.status(200).render('gamePage');
+
+});
+
+app.get('/Friendventure/reviews', function (req, res, next) {
+  //console.log('shiz1');
+  //res.status(200).sendfile(path.join(__dirname,'public', 'index.html'));
+  //console.log(twitDataTemp);
+  res.status(200).render('reviewsPage', {
+    reviewsData: reviewsData
+  });
+
+});
+
+/*
+app.get('/', function (req, res, next) {
+  //console.log('shiz1');
+  //res.status(200).sendfile(path.join(__dirname,'public', 'index.html'));
+  //console.log(twitDataTemp);
+  res.status(200).;
+
+});
+*/
+
+
 app.get('*', function (req, res) {
-  res.status(404).render('./404.html')
+  res.status(404).render('404Page')
 });
 
 
