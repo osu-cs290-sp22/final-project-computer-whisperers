@@ -1989,7 +1989,7 @@ function belowDeckSequence(){
 }
 
 function stayCalmSequence(){
-  if (stayCalmCounter == 0){
+  if (stayCalmCounter <= 3){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2032,7 +2032,7 @@ function stayCalmSequence(){
 }
 
 function takeOcto1Sequence(){
-  if (takeOcto1Counter == 0){
+  if (takeOcto1Counter <= 4){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2075,7 +2075,7 @@ function takeOcto1Sequence(){
 }
 
 function leaveOcto1Sequence(){
-  if (leaveOcto1Counter == 0){
+  if (leaveOcto1Counter <= 2){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2114,7 +2114,7 @@ function leaveOcto1Sequence(){
 }
 
 function fireCannonSequence(){
-  if (fireCannonCounter == 0){
+  if (fireCannonCounter <= 6){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2200,7 +2200,7 @@ function aboveDeckSequence(){
 }
 
 function bringOctoSequence(){
-  if (bringOctoCounter == 0){
+  if (bringOctoCounter <= 4){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2242,7 +2242,7 @@ function bringOctoSequence(){
 }
 
 function leaveOctoSequence(){
-  if (leaveOctoCounter == 0){
+  if (leaveOctoCounter <= 2){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2280,7 +2280,7 @@ function leaveOctoSequence(){
 }
 
 function pirateStartSequence(){
-  if (pirateStartCounter == 0){
+  if (pirateStartCounter <= 3){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2322,7 +2322,7 @@ function pirateStartSequence(){
 }
 
 function directAttackSequence(){
-  if (directAttackCounter == 0){
+  if (directAttackCounter <= 10){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
@@ -2369,7 +2369,7 @@ function directAttackSequence(){
 }
 
 function sneakInSequence(){
-  if (sneakInCounter == 0){
+  if (sneakInCounter <= 9){
     changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
