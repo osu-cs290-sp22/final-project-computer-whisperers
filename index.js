@@ -1990,7 +1990,7 @@ function belowDeckSequence(){
 
 function stayCalmSequence(){
   if (stayCalmCounter <= 3){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/kraken.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
