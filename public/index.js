@@ -297,6 +297,42 @@ var doorGrobWinText = [ //Let grob eat the lollipop tree
   "How could I deal with this situation?"
 ];
 
+var doorArchersDieCounter = -1;
+var doorArchersDieText = [ //Make a run for it
+  "You try to make a run for the door.",
+  "You quickly pick up pace and the archers are missing their shots a lot.",
+  "It turns out that the crsytal archers arent good at tracking fast moving targets.",
+  "As you get to about the half way point of the massive room you trip on a small rock.",
+  "Why is there a small rock in the middle of a giant room?", //4 - black bg
+  "You fall to the ground whilst asking yourself this question as you are soon hit by the sugar poisioning inducing candy corn arrows.",
+  "[GAME OVER]" //6 - GAME OVER SCREEN
+];
+
+var doorArchersDistractCounter = -1;
+var doorArchersDistractText = [ //send someone as a distraction
+  "You need to distract the sugar cyrstal archers somehow.",
+  "Maybe you should send someone out to get their attention.",
+  "", //2 Display special text for which charcter is available, like: "Grob was sent out screaming in eternal pain." or something
+  "Some how this actually works.",
+  "You were able to make it safely to the other side and out through the door.",
+  "Although at the cost of your companion.", //5 - remove friend item and picture.
+  "Moarning the loss and paying respects you move forward as the fabled door must be near."
+];
+
+var doorArchersOctoCounter = -1;
+var doorArchersOctorText = [ //Have Octo create a blind spot (inks himself)
+  "You remember that Kraken Junior is indeed a karaken and can squirt ink.",
+  "You ask Octo if he is capable of deploying a smoke screen to cover you.",
+  //Octo:
+  "'Aye, it be something I can do fer yee.'", //2
+  //No name:
+  "Kraken Junior quickly disperses a large cloud of ink throughout the room ahead.", //3 - smokey room w/archers BG
+  "Which allows you to make it to the other side safely.",
+  "Opening the door you look back to make sure eveyone makes it out.",
+  "Successfully evading the archers you look forward to the fabled door, as it must be near."
+];
+
+
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
 
