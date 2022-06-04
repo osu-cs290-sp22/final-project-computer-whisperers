@@ -30,6 +30,9 @@ var modalExit2 = document.getElementById('settings-close');
 var nameText = document.getElementById('name-text-input');
 var textSpeed = document.getElementById('text-speed-input');
 var grobItemContainer = document.getElementById('inv-item1');
+var octoItemContainer = document.getElementById('inv-item2');
+var wickItemContainer = document.getElementById('inv-item3');
+var pilzItemContainer = document.getElementById('inv-item4');
 
 var temporaryText = document.getElementById('text-Chat').textContent;
 
@@ -241,7 +244,7 @@ var doorIntroText = [
 //*********************************//
 //       WICK ROUTE DIALOGUE       //
 //*********************************//
-
+var wickRoute = 0;
 //*******//
 // INTRO //
 //*******//
@@ -429,7 +432,7 @@ var avalancheDig = [//Dig out. Easy.
 var exploreCavesCounter = -1;
 var exploreCaves = [//Agree to explore.
   //Out Loud
-  "Likewise! I'm 'player', lets explore deeper into the cave shall we?",
+  "Likewise! I'm ",
   //Thoughts
   "You and your new acquaintance begin to head deeper and deeper into the caves.",//Dark hallway
   "Luckily it seems like you coming unprepared without a torch was not too big a mistake, as Wick happens to dimly glow, illuminating the way.",
@@ -476,7 +479,7 @@ var wickFire = [//Light Wick on fire.
   "Like a mime, it pulls some sort of invisible leaver, opening a trapdoor beneath you and Wick.",
   "The hole leads to a slide, which somehow, is making you slide upwards.",//Slide???
   "A short sliding session ensues, with you and Wick somehow ending up being spat out at the base of the mountain despite sliding upwards.",//Mountain
-  "Confetti also seems to surround you.",//Confetti
+  "Confetti also seems to surround your feet.",//Confetti
   //Out Loud
   "Well that seemed to work out. I'm sure glad we-",
   //Wick (Angry)
@@ -1354,9 +1357,12 @@ function changeRightBar(color) {
       leftChoiceBox2.textContent = "Head to the Blue Forest in the south.";
       rightChoiceBox2.textContent = "Head towards the friendship door in the ruins up north."
       removeHidden(leftChoiceBox1);
-      removeHidden(rightChoiceBox1);
       if(pilzRoute == 0) {
         removeHidden(leftChoiceBox2);
+      }
+      if (wickRoute == 0)
+      {
+        removeHidden(rightChoiceBox1);
       }
       removeHidden(rightChoiceBox2);
       //tavernHubAgain = 0;
@@ -1376,10 +1382,17 @@ function wickRouteIntro()
   if (wickIntroCounter <= 9)
   {
     //VISUAL CHANGES
+    if(wickIntroCounter == 5) 
+    {
+      characterNameDisplay.textContent = playerName;
+    }
+
     if (wickIntroCounter == 6)
     {
-      changeDisplay('./pictures/backrounds/FILENAME.PNG')
+      characterNameDisplay.textContent = ''
+      changeDisplay('./Pictures/Backgrounds/Mountain.png') //MOUNTAIN PIC!
     }
+    //VISUAL CHANGES
 
     if (textBoxClicked == 0) {
       typewriter
@@ -1417,6 +1430,32 @@ function wickBase1Encounter()
     if (wickBase1Counter <= 13)
     {
      //VISUAL CHANGES
+     if(wickBase1Counter == 0) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase1Counter == 2) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase1Counter == 4) 
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK SCREEN!
+     }
+     if(wickBase1Counter == 8) 
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCamp.png')//CAMP!
+     }
+     if(wickBase1Counter == 10) 
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickBase1Counter == 13) 
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1441,7 +1480,7 @@ function wickBase1Encounter()
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
       avalancheCounter = 0;
-      //temp = 0;
+      wickBase1Counter = -2;
     }
 }
 
@@ -1450,6 +1489,37 @@ function wickBase2Encounter()
     if (wickBase2Counter <= 9)
     {
      //VISUAL CHANGES
+     if(wickBase2Counter == 0) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase2Counter == 2) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase2Counter == 4) 
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCamp.png')//CAMP!
+     }
+     if(wickBase2Counter == 6) 
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickBase2Counter == 7) 
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCampWickBlush.png')//CAMP WITH WICK BLUSH!
+     }
+     if(wickBase2Counter == 8) 
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickBase2Counter == 9) 
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/AvalacheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1474,6 +1544,7 @@ function wickBase2Encounter()
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
       avalancheCounter = 0;
+      wickBase2Counter = -2;
     }
 }
 
@@ -1482,6 +1553,22 @@ function wickBase3Bad1End()
     if (wickBase3Bad1Counter <= 10)
     {
      //VISUAL CHANGES
+     if(wickBase3Bad1Counter == 0) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase3Bad1Counter == 1) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase3Bad1Counter == 6) 
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK!
+     }
+     if(wickBase3Bad1Counter == 6) 
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1513,6 +1600,22 @@ function wickBase3Bad2End()
     if (wickBase3Bad2Counter <= 10)
     {
      //VISUAL CHANGES
+     if(wickBase3Bad2Counter == 0) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase3Bad2Counter == 1) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase3Bad2Counter == 6) 
+     {
+      changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK!
+     }
+     if(wickBase3Bad2Counter == 10) 
+     {
+      changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1544,6 +1647,14 @@ function wickBase3PassEncounter()
     if (wickBase3PassCounter <= 4)
     {
      //VISUAL CHANGES
+     if(wickBase3PassCounter == 0) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase3PassCounter == 1) 
+     {
+       characterNameDisplay.textContent = '';
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1579,6 +1690,18 @@ function wickIgnoreEnd()
     if (wickIgnoredCounter <= 5)
     {
      //VISUAL CHANGES
+     if(wickIgnoredCounter == 0) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickIgnoredCounter == 1) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickIgnoredCounter == 2) 
+     {
+       characterNameDisplay.textContent = '';
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1602,6 +1725,10 @@ function wickIgnoreEnd()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickIgnoredCounter = -2;
     }
 }
 
@@ -1610,6 +1737,62 @@ function wickSavedEncounter()
     if (wickSavedCounter <= 16)
     {
      //VISUAL CHANGES
+     if(wickSavedCounter == 0) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickSavedCounter == 1) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickSavedCounter == 3) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickSavedCounter == 4) 
+     {
+       changeDisplay('./Pictures/Backgrounds/UnlitCamp.png')//UNLIT CAMP!
+     }
+     if(wickSavedCounter == 6) 
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCampWickZZZ.png')//CAMP WICK SLEEP
+     }
+     if(wickSavedCounter == 9) 
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickConfused.png')//CAMP WITH WICK CONFUSED!
+     }
+     if(wickSavedCounter == 10) 
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickSavedCounter == 11) 
+     {
+       characterNameDisplay.textContent = '???';
+     }
+     if(wickSavedCounter == 12) 
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickSavedCounter == 13) 
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickBlush.png')//CAMP WITH WICK BLUSH!
+     }
+     if(wickSavedCounter == 14) 
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickSavedCounter == 15) 
+     {
+       characterNameDisplay.textContent = '???';
+     }
+     if(wickSavedCounter == 16) 
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1634,6 +1817,7 @@ function wickSavedEncounter()
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
       avalancheCounter = 0;
+      wickSavedCounter = -2;
     }
 }
 
@@ -1642,6 +1826,16 @@ function wickAvalancheResponse()
     if (avalancheCounter <= 4)
     {
      //VISUAL CHANGES
+     if(avalancheCounter == 0)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
+     if(avalancheCounter == 4)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickBlush.png')//AVALANCHE CAMP WITH WICK BLUSH!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1677,6 +1871,28 @@ function wickAvalancheResponseDig()
     if (avalancheDigCounter <= 7)
     {
      //VISUAL CHANGES
+     if(avalancheDigCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickNormal.png')//AVALANCHE CAMP WITH WICK!
+     }
+     if(avalancheDigCounter == 2)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK CONFUSE!
+     }
+     if(avalancheDigCounter == 3)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(avalancheDigCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//Black!
+     }
+     if(avalancheDigCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER!
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1708,6 +1924,42 @@ function wickAvalancheResponseExplore()
     if (exploreCavesCounter <= 15)
     {
      //VISUAL CHANGES
+     if(exploreCavesCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(exploreCavesCounter == 1)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//DIM HALLWAY
+     }
+     if(exploreCavesCounter == 3)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE
+     }
+     if(exploreCavesCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CLOWN SUPPLIES
+     }
+     if(exploreCavesCounter == 8)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WITH WICK
+     }
+     if(exploreCavesCounter == 10)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE
+     }
+     if(exploreCavesCounter == 13)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WITH WORRIED WICK
+     }
+     if(exploreCavesCounter == 15)
+     {
+      characterNameDisplay.textContent = playerName;
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1716,6 +1968,13 @@ function wickAvalancheResponseExplore()
         .start();
         textBoxClicked = 1;
         exploreCavesCounter++;
+        if (exploreCavesCounter == 1)
+        {
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString(playerName + ", lets explore deeper into the cave shall we?")
+          .start();
+        }
       } else {
         typewriter
         .deleteAll(1)
@@ -1745,6 +2004,57 @@ function wickLightFire()
     if (wickFireCounter <= 19)
     {
      //VISUAL CHANGES
+     if (wickFireCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickFireCounter == 2)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickFireCounter == 3)
+     {
+       characterNameDisplay.textContent = 'Wick'
+     }
+     if (wickFireCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickFireCounter == 7)
+     {
+      changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //CRYSTAL CAVE CLOWN
+     }
+     if (wickFireCounter == 8)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //CRYSTAL CAVE FIRE
+     }
+     if (wickFireCounter == 9)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //CRYSTAL CAVE CLOWN
+     }
+     if (wickFireCounter == 11)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //SLIDE
+     }
+     if (wickFireCounter == 13)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //TRAIL
+     }
+     if (wickFireCounter == 14)
+     {
+       characterNameDisplay.textContent == playerName
+     }
+     if (wickFireCounter == 15)
+     {
+       characterNameDisplay.textContent == ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //TRAIL ANGRY WICK
+     }
+     if (wickFireCounter == 17)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //TRAIL
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1768,6 +2078,10 @@ function wickLightFire()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickFireCounter = -2;
     }
 }
 
@@ -1776,6 +2090,29 @@ function wickTurnBack()
     if (wickClownStabCounter <= 5)
     {
      //VISUAL CHANGES
+     if (wickClownStabCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickClownStabCounter == 1)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WICK
+     }
+     if (wickClownStabCounter == 2)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED SCREEN
+     }
+     if (wickClownStabCounter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK SCREEN
+     }
+     if (wickClownStabCounter == 5)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1807,6 +2144,18 @@ function wickHonkBack()
     if (wickClownHornCounter <= 7)
     {
      //VISUAL CHANGES
+     if (wickClownHornCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickClownHornCounter == 1)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickClownHornCounter == 5)
+     {
+      changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1845,6 +2194,36 @@ function wickApproachClownEnd()
     if (wickApproachClownCounter <= 7)
     {
      //VISUAL CHANGES
+     if (wickApproachClownCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickApproachClownCounter == 2)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WICK CONFUSED
+     }
+     if (wickApproachClownCounter == 3)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+     }
+     if (wickApproachClownCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickApproachClownCounter == 5)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED SCREEN
+     }
+     if (wickApproachClownCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK SCREEN
+     }
+     if (wickApproachClownCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1876,6 +2255,18 @@ function wickGiveHornWick()
     if (wickGiveHornWCounter <= 7)
     {
      //VISUAL CHANGES
+     if (wickGiveHornWCounter = 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickGiveHornWCounter = 1)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WICK NORMAL
+     }   
+     if (wickGiveHornWCounter = 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+     }     
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1899,6 +2290,8 @@ function wickGiveHornWick()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickGiveHornWCounter = -2;
+      wickClownSatisfiedCounter = 0;
     }
 }
 
@@ -1907,6 +2300,14 @@ function wickGiveHornClown()
     if (wickGiveHornCCounter <= 7)
     {
      //VISUAL CHANGES
+     if (wickGiveHornCCounter == 0)
+     {
+       characterNameDisplay.textContent == ''
+     }
+     if (wickGiveHornCCounter == 1)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1930,6 +2331,8 @@ function wickGiveHornClown()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickGiveHornCCounter = -2;
+      wickClownSatisfiedCounter = 0;
     }
 }
 
@@ -1938,6 +2341,32 @@ function wickClownSatisfiedEvent()
     if (wickClownSatisfiedCounter <= 10)
     {
      //VISUAL CHANGES
+     if (wickClownSatisfiedCounter == 0)
+     {
+       characterNameDisplay.textContent == ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+     }
+     if (wickClownSatisfiedCounter == 2)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//SLIDE
+     }
+     if (wickClownSatisfiedCounter == 3)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+     }
+     if (wickClownSatisfiedCounter == 5)
+     {
+       characterNameDisplay.textContent == 'Wick'       
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
+     if (wickClownSatisfiedCounter == 6)
+     {      
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickClownSatisfiedCounter == 10)
+     {      
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1975,6 +2404,30 @@ function wickConversationKillerEnd()
     if (wickConversationKillerCounter <= 7)
     {
      //VISUAL CHANGES
+     if (wickConversationKillerCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
+     if (wickConversationKillerCounter == 1)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickConversationKillerCounter == 3)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
+     if (wickConversationKillerCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickConversationKillerCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+     }       
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -1998,6 +2451,10 @@ function wickConversationKillerEnd()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickConversationKillerCounter = -2;
     }
 }
 
@@ -2006,6 +2463,33 @@ function wickRudeEnd()
     if (wickRudeDismissalCounter <= 8)
     {
      //VISUAL CHANGES
+     if (wickRudeDismissalCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickRudeDismissalCounter == 1)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
+     if (wickRudeDismissalCounter == 2)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickRudeDismissalCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK ANGRY
+     }
+     if (wickRudeDismissalCounter == 5)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+     }
+     if (wickRudeDismissalCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2029,14 +2513,41 @@ function wickRudeEnd()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickRudeDismissalCounter = -2;
     }
 }
 
-function wickExplainQuest()
+function wickExplainQuestEvent()
 {
     if (wickExplainQuestCounter <= 7)
     {
      //VISUAL CHANGES
+     if (wickExplainQuestCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickExplainQuestCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK BLUSH
+     }
+     if (wickExplainQuestCounter == 5)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickExplainQuestCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
+     if (wickExplainQuestCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK BLUSH
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2074,7 +2585,27 @@ function wickAcceptFriendEvent()
     if (wickAcceptFriendCounter <= 3)
     {
      //VISUAL CHANGES
+     if (wickAcceptFriendCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickAcceptFriendCounter == 1)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK BLUSH
+     }
+     if (wickAcceptFriendCounter == 3)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+     }
      //HERE
+      if (wickAcceptFriendCounter == 3) {
+        wickItemContainer.src = './Pictures/Items/PilzItem.png';
+        wickItem = 1;
+      }
+
       if (textBoxClicked == 0) {
         typewriter
         .changeDelay(customTextSpeed)
@@ -2097,6 +2628,8 @@ function wickAcceptFriendEvent()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickAcceptFriendCounter = -2;
+      wickGoBackCounter = 0;
     }
 }
 
@@ -2105,6 +2638,21 @@ function wickSpookyEvent()
     if (wickSpookyCounter <= 5)
     {
      //VISUAL CHANGES
+     if (wickSpookyCounter == 0)
+     {
+       characterNameDisplay = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickSpookyCounter == 3)
+     {
+       characterNameDisplay = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK ANGRY
+     }
+     if (wickSpookyCounter == 5)
+     {
+       characterNameDisplay = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2128,6 +2676,8 @@ function wickSpookyEvent()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickSpookyCounter = -2;
+      wickGoBackCounter = 0;
     }
 }
 
@@ -2136,6 +2686,25 @@ function wickSplitEvent()
     if (wickSplitCounter <= 6)
     {
      //VISUAL CHANGES
+     if (wickSplitCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+     }
+     if (wickSplitCounter == 2)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
+     if (wickSplitCounter == 4)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickSplitCounter == 5)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2159,6 +2728,8 @@ function wickSplitEvent()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickSplitCounter = -2;
+      wickGoBackCounter = 0;
     }
 }
 
@@ -2167,6 +2738,10 @@ function wickGoBackEvent()
     if (wickGoBackCounter <= 1)
     {
      //VISUAL CHANGES
+     if (wickGoBackCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2204,6 +2779,14 @@ function wickHikeEnd()
     if (wickGoDownNormalCounter <= 2)
     {
      //VISUAL CHANGES
+     if (wickGoDownNormalCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickGoDownNormalCounter == 1)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2227,6 +2810,10 @@ function wickHikeEnd()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickGoDownNormalCounter = -2;
     }
 }
 
@@ -2235,6 +2822,22 @@ function wickRollEnd()
     if (wickRollCounter <= 8)
     {
      //VISUAL CHANGES
+     if (wickRollCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickRollCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED
+     }
+     if (wickRollCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK
+     }
+     if (wickRollCounter == 8)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2266,6 +2869,14 @@ function wickSnowboardEnd()
     if (wickSnowBoardCounter <= 2)
     {
      //VISUAL CHANGES
+     if (wickSnowBoardCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickSnowBoardCounter == 2)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2289,6 +2900,10 @@ function wickSnowboardEnd()
       .start();
       textBoxClicked = 0;
       characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickSnowBoardBadCounter = -2;
     }
 }
 
@@ -2297,6 +2912,22 @@ function wickSnowBoardBadEnd()
     if (wickSnowBoardBadCounter <= 4)
     {
      //VISUAL CHANGES
+     if (wickSnowBoardBadCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickSnowBoardBadCounter == 2)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED
+     }
+     if (wickSnowBoardBadCounter == 3)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK
+     }
+     if (wickSnowBoardBadCounter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+     }
      //HERE
       if (textBoxClicked == 0) {
         typewriter
@@ -2793,7 +3424,7 @@ textBoxContainer.addEventListener('click', ()=> {
     wickRudeEnd();
   }
   if( (wickExplainQuestCounter != -1) && (wickExplainQuestCounter != -2) ) {
-    wickExplainQuest();
+    wickExplainQuestEvent();
   }
   if( (wickAcceptFriendCounter != -1) && (wickAcceptFriendCounter != -2) ) {
     wickAcceptFriendEvent();
@@ -3134,7 +3765,13 @@ leftChoiceBox2.addEventListener('click', ()=> {
   if( (wickGoBackCounter >= 1) ) {
     wickGoBackCounter = -2;
     wickSnowBoardCounter = 0;
-    //CHECK FOR FRIENDS
+    let friendCount = (grobItem + pilzItem + wickItem + squidItem)
+    if (friendCount == 0) {
+      wickSnowBoardBadCounter = 0;
+    }
+    else if (friendCount >= 1) {
+      wickSnowBoardCounter = 0;
+    }
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
