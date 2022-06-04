@@ -226,7 +226,37 @@ var tavernHubText = [
 //************Door shenanigans start here******************************************************************************************************************************************************************************************
 var doorIntroCounter = -1;
 var doorIntroText = [
-  "'Lorum Ipsum'"
+  "The door is the goal, so you decide to head over and search the ruins.",
+  "Several days of traveling the lands up north pass.",
+  "Eventually the terrain changes to something quite unique and interesting.", //2 - change BG to outside ruins surroundings
+  "It appears almost as if the land is made of candy.",
+  "You also notice what appear to be ruins of some sort of building... Also made of candy.",
+  //Player:
+  "'This must be the place, seems quite odd. How could a place like this exist?'", //5
+  //No name
+  "Standing outside the ruins you wonder if you are ready to brave whats beyond these broken walls.",
+  //Player:
+  "'Maybe I should gather more information about this place before I head in...'", //7
+  //Choices show up.
+
+];
+
+var doorReturnCounter = -1;
+var doorReturnText = [
+  "You decide that you are not prepared yet and start your journey back to te tavern.",
+  "After a couple days of travel, you arrive back at the tavern." //1 - tavernBG
+];
+
+var doorInsideCounter = -1;
+var doorInsideText = [
+  "You decide that you are ready to head into the ruins and reveal its secrets.",
+  "Moving aside some sugar fossilized logs that have fallen over the entrance to the ruins you walk in.",
+  "The environment inside is a mess with outside flora taking over parts of the buildings interior.", //2 - inside background
+  "Crouching and hopping over a couple of obsticle you make it further within the interior.",
+  "Looking around you observe that there is only one way to proceed from here.",
+  "There is what looks like a door that is blocked by a giant lollipop tree.",
+  "You attempt to move the fallen lollipop tree out of the way, but its too heavy to move.",
+  "How could you get to the door?" //7
 ];
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
