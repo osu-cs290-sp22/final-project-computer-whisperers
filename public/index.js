@@ -254,10 +254,49 @@ var doorInsideText = [
   "The environment inside is a mess with outside flora taking over parts of the buildings interior.", //2 - inside background
   "Crouching and hopping over a couple of obsticle you make it further within the interior.",
   "Looking around you observe that there is only one way to proceed from here.",
-  "There is what looks like a door that is blocked by a giant lollipop tree.",
+  "There is what looks like a door that is blocked by a giant lollipop tree.", //5 - lollipop bg
   "You attempt to move the fallen lollipop tree out of the way, but its too heavy to move.",
   "How could you get to the door?" //7
 ];
+
+var doorGrobFailCounter = -1;
+var doorGrobFailText = [ //Consume Giant Lollipop
+  "You attempt to consume the gaint lollipop.",
+  "It takes you a while since its so large, but eventually you carve a hole large enough to walk through.",
+  "You step through the hole, but you start to feel very ill.",
+  "Pain spreads from your stomache and you are left on the ground moaning.",
+  "It seems that you have gotten what is called sugar poisoning", //4 - black BG
+  "Soon the pain fades away as you can no longer feel or think anything.",
+  "[GAME OVER]" //6 - gamer over BG
+];
+
+var doorGrobWinCounter = -1;
+var doorGrobWinText = [ //Let grob eat the lollipop tree
+  "You decide to let grob attempt at consuming the lollipop tree.",
+  //Grob:
+  "'I'm so glad that you've chosen me to do this! This makes me feel so accepted!'", //1
+  "'Plus I'm hungry!",
+  //No name
+  "Grob seems super excited when he steps up to the tree and starts chomping away.", //3
+  //Grob:
+  "*Crunch* *Crunch* *Crunch*", //4
+  "Om Nom Nom",
+  //no name
+  "You stand back and watch. Although Grob is trying to eat the tree, you can clearly see the chunks falling through the other side of his mouth...", //6
+  "Wait... How does Grob eat anyways?",
+  "While your pondering the idea, Grob turns around to look at you.", //8 - eated lollipop bg
+  //Gorb:
+  "'Yum! For candy it surprisingly tastes a lot like air!'", //9
+  "'Any who, Jobs done buddy!'",
+  //No name:
+  "You head through the door thats been cleared.", //11
+  "On the other side of the door is a large and long room with a singular door far off at the end.",
+  "Taking a couple of steps into the room something hits the ground right next to you.",
+  "Looking at where the sound came from you see a candy corn arrow embedded in the ground.",
+  "Taking cover behind the door and peeking to see where the arrows are coming from you see some sugar crystal gaurds.", //15 - cryastal archers bg
+  "How could I deal with this situation?"
+];
+
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
 
