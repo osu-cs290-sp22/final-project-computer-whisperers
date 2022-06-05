@@ -337,9 +337,9 @@ var doorbridgeTrollText = [
   "Taking a look at your new surroundings it appears that you are in some sort of chocolate swamp.",//0 -change to chocolate swamp 2/bridge BG
   "There is a bridge in front of you made out of Charles Chewsters that looks to lead in the right direction.",
   "So you continue your adventure along the bridge.",
-  "As you were making your way half way across the bridge you notice a strange figure cliiming up from the side.",
+  "As you were making your way half way across the bridge you notice a strange figure climbing up from the side.",
   "They climb up right in front of you and stare at you with a big smile.", //4 - change to clown looking at you.
-  "It looks like they are wearing clown attire, but its entirely made out of candy.",
+  "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the funny folk",
   //Player:
   "'Hello there, how may I help you? I hope I'm not annoying you by being here, but I juest need to get over this bridge.", //6
   //Clown:
@@ -347,7 +347,7 @@ var doorbridgeTrollText = [
   "'I've been living off of it for sustenance for 300 years!!!'",
   "'I was having my meal here like any normal afternoon until I heard someone on my bridge!'",
   "'Hooo Heeee am I excited to get some visitors!'",
-  "'Okay now bucko, lets play a game.''",
+  "'Okay now bucko, lets play a game.'",
   "'How about if you can solve my riddle I allow you to cross my bridge?'",
   //Player:
   "'Uhh sure, but what happens if we fail to get it right?'", //13
@@ -361,18 +361,58 @@ var doorbridgeTrollText = [
 ];
 
 var doorBridgeDieCounter = -1;
-var doorBridgeDieText = [
-  "'Lorum Ipsum'"
+var doorBridgeDieText = [ //Try answering your self.
+  //Player:
+  "'Uhh, the answer is... twix are for kids?'", //0
+  //Clown:
+  "'Eeeeh Hee hee heeeeee!'", //1
+  //No names
+  "...",
+  //Player:
+  "'Uhh, does that mean I win?'", //2
+  //Clown:
+  "'Nope!'", //3
+  //No names
+  "The clown dashes at you with lightning speed and knowcking you to the ground.", //4
+  "You can then feel the clown picking you up by the legs.",
+  "You try to break free of his grasp, but your struggles were in vain.",
+  "The clown brings you to the bottom of the bridge and dips you in the chocolate swamp, covering your whole body.", //7 - Black BG
+  "...",
+  "You are then added to the bridge to solidify to.",
+  "You then feel the sugar poisioning setting in.",
+  "Soon you feel nothing.",
+  "[GAME OVER]" //12 - GAME OVER BG
 ];
 
 var doorBridgeSacrificeCounter = -1;
-var doorBridgeSacrificeText = [
-  "'Lorum Ipsum'"
+var doorBridgeSacrificeText = [ //have a buddy take a try.
+  "You decide to let someone else take a try on this one.",
+  //Character name:
+  "", //1 - Character specific dialogue
+  //Clown
+  "'What??? I don't understand. Hmmm, we must discuss this further.'", //2
+  //No names
+  "The clown gets distracted with the answer, which gives you enbough time to sneak around the clown while he doesnt notice.", //3
+  "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown.",
+  "Although you made it, you had to leave someone behind."
+  //Head to Pilz check.
 ];
 
 var doorBridgeWickCounter = -1;
 var doorBridgeWickText = [
-  "'Lorum Ipsum'"
+  "You remembered that Wick has knowledge of the funny folk, maybe he would have the best idea of what the answer is.",
+  //Wick:
+  "'I believe the answer to your sweet riddle is; What is a jolly Rancher?'", //1
+  //Clown:
+  "'HOOOOOOOOOOOO HEEEEEEEEEEE!!!!!'", //2
+  "'Now thats a stinker! It never gets old!'",
+  "'Feel free to pass through travelers! I hope you all have a twizzly of a day! Hoooo Heeee.'",
+  //No names
+  "Good thing Wick was here to give input. You thank the clown for safe passage and head across the bridge.", //5
+  //Clown:
+  "'Toodles!'", //6
+  //No names
+  "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown." //7
 ];
 
 
