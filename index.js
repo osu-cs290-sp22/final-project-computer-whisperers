@@ -443,16 +443,16 @@ var exploreCaves = [//Agree to explore.
   "...What seems to be circus supplies?", //Hallway with broken shit
   //Wick
   "The crystals are present throughout the entire mountain's cave system... They were used as lights for old travelers passing through!",
-  "Though mountains are still quite treacherous even if well lit...",
+  "Though mountains are still quite treacherous even if well lit... These seem to be remnants of the Funny Folk, people with very... Interesting culture!",
   //Thoughts
   "As you proceed further into the cave circus supplies becomes more frequent and you both begin to realize there is a distant... honking sound getting louder.",
   "...",
   "Or maybe its getting closer?",
   //Wick
-  "This is... making me uneasy.",
-  "Perhaps we should do something before we proceed?",
+  "This is... concerning. I'm not positive but it seems we may have some Funny Folk company.",
+  "Perhaps we should do something before we proceed further?",
   //Out Loud
-  "Agreed. Hmm... let me think..."
+  "...Agreed. Hmm... let me think..."
 ]
 
 //*****************//
@@ -471,20 +471,20 @@ var wickFire = [//Light Wick on fire.
   "You snag a match from Wick's backpack and light it, before promptly tossing it back in.",
   "This seems to almost instantaneously cause Wick to burst into flames, providing an excellent view deeper into the cave.",
   "Ignoring the screaming Wick seems to be partaking in, you notice a figure standing at the very end of the flames light...",
-  "A clown(?) seems to be standing there, silently observing the now frantic Wick rolling around on the floor.",//Clown
+  "A clown(?) seems to be standing there, silently observing the now frantic Wick rolling around on the floor. Must be one of the Funny Folk.",//Clown
   //Wick
-  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH",
+  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!",
   //Thoughts
   "It looks at you and gives a very slight nod. It seems satisfied somehow.",
   "Like a mime, it pulls some sort of invisible leaver, opening a trapdoor beneath you and Wick.",
   "The hole leads to a slide, which somehow, is making you slide upwards.",//Slide???
   "A short sliding session ensues, with you and Wick somehow ending up being spat out at the base of the mountain despite sliding upwards.",//Mountain
-  "Confetti also seems to surround your feet.",//Confetti
+  "The Funny Folk certainly have funny ideas concerning the concept of up and down.",//Confetti
   //Out Loud
   "Well that seemed to work out. I'm sure glad we-",
   //Wick (Angry)
   "Wick, seeming angry, throws a lit match at you.",
-  "Since you traveled light, the flame isn't too big, but you certainly end up on fire. Which hurts a lot.",
+  "Since you traveled light, the flame isn't too big, but you certainly end up on fire... which hurts a lot.",
   "Wick storms off without a word, letting you roll around in the snow to extinguish yourself.",
   "You make mental note that lighting people on fire unprompted does not feel good.",
   "Extinguished, you decide to not light any future potential companion on fire and head back to the Tavern."
@@ -496,7 +496,7 @@ var wickClownStab = [//Turn back, head to camp.
   //Out Loud
   "This seems sketchy... Maybe we should just turn back for now? We can come up with a new plan at camp.",
   //Wick
-  "Fine by me, I have enough supplies at camp to last a little while.",
+  "I have enough supplies at camp to last a little while, we can discuss Funny Folklore to pass some time!",
   //Thoughts
   "As you turn your backs, you suddenly feel a sharp pain come from behind, enough to make you fall to your knees.",
   "It's hard to say what happened next exactly, as all you could observe after this was a loud honk and your face coming into contact with the ground.",
@@ -514,8 +514,8 @@ var wickClownHorn = [//Honk back, embrace honkage.
   "(...if that makes any sense.)",
   "The approaching honking ceases. Instead, a figure slowly walks into view.",
   "What appears to be a clown(?) stands before you, seemingly intrigued by the honking you made.",//Clown
-  "Looking closer you realize the clown has a claw for a hand...",
-  "Realizing you are standing in a dark cave surrounded by abandoned circus supplies, in front of a silent clown(?), who has a claw hand, and who has essentially ambushed you, another decision must be made."
+  "Looking closer you notice that it has a claw for a hand...",
+  "Realizing you are standing in a dark cave surrounded by abandoned circus supplies, in front of a silent clown(?), who has a claw hand, who has essentially ambushed you, you decide another decision must be made."
 ]
 
 //*******************//
@@ -524,27 +524,27 @@ var wickClownHorn = [//Honk back, embrace honkage.
 var wickApproachClownCounter = -1;
 var wickApproachClown = [//Approach clown(?).
   //Out Loud
-  "Surely this clown(?) means no harm. They are meant to bring joy to people after all.",
-  "I'm going to approach the clown(?) and speak with it.",
+  "Surely this Funny Fellow means us no harm. They are meant to bring joy to people after all.",
+  "I'm going to approach and speak with it.",
   //Wick
-  "Are you sure you want to get clos-",
+  "Are you sure you want to get close? They usually have a riddl-",
   //Out Loud
   "Oh hello there! We were trapped in this cave and were wondering if-",
   //Thoughts
-  "As you got close enough to the clown(?), you learned very quickly that it's claw hand was not for show.",
+  "The moment you get close enough to the Funny Fellow, you learn very quickly that it's claw hand is not for show.",
   "You think you might have heard Wick scream, but you can't be sure. It was hard to tell over the sensation of rapidly bleeding out on the ground.", //Red Screen
-  "The honking sound grows more rapid, and you lose consciousness thinking about how unfunny that clown was.", //Black Screen
+  "The honking sound grows more rapid, and you lose consciousness thinking about how unfunny that Funny Fellow was.", //Black Screen
   "GAME OVER"
 ]
 
 var wickGiveHornWCounter = -1;
 var wickGiveHornW = [//Give another horn to Wick.
   //Thoughts
-  "Seeing as the clown(?) looks interested in the horn sounds, you decide to keep it's interest focused on the horns.",
+  "Seeing as the Funny Fellow looks interested in the horn sounds, you decide to keep it's interest focused on the horns.",
   "You toss an extra horn to Wick, who seems to understand the plan.",
   "In perfect unison, you and Wick make a beautiful melody of honking...",
   "HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK",
-  "The clown(?) does not move a lot, but is looking between you and Wick back and forth.",
+  "The Funny Fellow does not move a lot, but is looking between you and Wick back and forth.",
   "As the enchanting melody of soothing horn honking reaches it's end, the cave falls silent.",
   "There is a mask in the way, but you can imagine a tear of joy streaming beneath it.",
   "Who wouldn't shed a tear or two after such a preformance?"
@@ -553,12 +553,12 @@ var wickGiveHornW = [//Give another horn to Wick.
 var wickGiveHornCCounter = -1;
 var wickGiveHornC = [//Give your horn to clown(?).
   //Thoughts
-  "Seeing as the clown(?) took interest in the honking, you decide to let the clown upgrade it's honking privileges.",
-  "Taking a few steps closer, you lightly lob the horn over to the clown(?).",
+  "Seeing as the Funny Fellow took interest in the honking, you decide to let the clown upgrade it's honking privileges.",
+  "Taking a few steps closer, you lightly lob the horn over to the Funny Fellow.",
   "You may have just blinked weird, but it appeared as if it was able to instantly grab the horn without moving.",
   "It looks down into its non claw hand holding the horn, and honks it.",
   "It appears to honk again, despite not using the horn this time.",
-  "You realize the clown(?) was honking before actually possessing the horn.",
+  "You realize the Funny Fellow was somehow honking before actually possessing the horn.",
   "It begins to rapidly emit honking sounds out of itself and the horn simultaneously",
   "After a few moments it stops, and looks back up."
 ]
@@ -573,25 +573,25 @@ var wickClownSatisfied = [
   "Like a mime, it pulls some sort of invisible leaver, opening a trapdoor beneath you and Wick.",
   "The hole leads to a slide, making you slide down.",//Slide???
   "After sliding down a surprisingly long slide, you are spat out at the top of the mountain... despite sliding downwards?",
-  "Confetti rains on you and Wick.",
+  "The Funny Folk certainly have funny ideas concerning the concept of up and down.",
   //Wick
-  "Well. That was... something.",//Confuse
-  "But hey! We made it to the top of the mountain! (Somehow)",
+  "Well... That was exciting! I wonder why the rest of the Funny Folk seem to have vanished?",//Confuse
+  "But hey! We made it to the top of the mountain somehow!",
   "I came here in hopes of finding an amazing power said to be found here... Something so powerful it could trumph all other obtainable powers.",
-  "I had hoped I'd discover what that power was by reaching the top of this mountain...",
-  "But it seems like all thats here is a mountain peak.",//Sad
+  "I had hoped I'd discover what that power was by researching the Funny Folk, who are said to have mastered it.",
+  "But it seems like all thats here is a lone Funny Fellow and the mountain's peak.",//Sad
   "What about you? Now that you're here, what did you hope to find?"
 ]
 
 var wickConversationKillerCounter = -1;
 var wichConversationKiller = [//Keep your reasons secret.
   //Thoughts
-  "It would be kind of embarassing to admit you have no friends... You decide to keep it secret.",
+  "It would be kind of embarassing to admit you have no friends and wanted to find a mysterious magic friendship door with the help of Funny Folk... You decide to keep it secret.",
   //Out Loud
-  "Well... Uh... I wish you luck on your quest to find this power... but I cant tell you what Im looking for.",
-  "It's much to important and secretive to tell just anybody about. I hope you understand.",
+  "Well... Uh... I wish you luck on your quest to find this power... but I cannot tell you what I'm looking for.",
+  "It's much to important... and uh... secretive! I can't just tell anybody about it willy nilly. I hope you understand.",
   //Wick
-  "Oh. Uh. Okay, I suppose I shouldn't stick my buisness into somebody else's...",
+  "Oh. Uh... okay, I suppose I shouldn't stick my buisness into somebody else's...",
   //Thoughts
   "Wick does not pry further, but sadly this was a real conversation killer.",
   "It gets pretty awkward and you both start heading down the mountain in silence.",
@@ -603,7 +603,7 @@ var wichConversationKiller = [//Keep your reasons secret.
 var wickRudeDismissalCounter = -1;
 var wickRudeDismissal = [//Wick sounds dumb.
   //Out Loud
-  "That sounds so dumb. Who 'said' that an amazing power was to be found here?",
+  "That sounds so dumb. Why would a bunch of people dressed like clowns have unrivaled power?",
   //Wick
   "M... M-My ancestors had a legend tha-",
   //Out Loud
@@ -614,7 +614,7 @@ var wickRudeDismissal = [//Wick sounds dumb.
   "You think that was quite rude, as they had asked why you were here.",//Gone
   "It can't be helped I guess, some people just don't know how to be considerate to other people's feelings.",
   "You follow them down the mountain from behind, as they seem to know the mountain better than you.",
-  "Since you couldn't find any friendship door, you decide to go back to the Tavern empty handed..."
+  "Since you couldn't find anything outside a potentioally dangerous Funny Fellow, you decide to go back to the Tavern empty handed..."
   //ROUTE END (No Friend)
 ]
 
@@ -622,14 +622,14 @@ var wickExplainQuestCounter = -1;
 var wickExplainQuest = [//Explain your quest.
   //Out loud
   "I came here on a quest of my own...",
-  "I too seek a mysterous figure in the shape of a door.",
-  "This door supposedly uses it's mysterous power to bring you to a realm of infinite possibilities, a promised realm of friends and paradise.",
-  "The civilation of friends said to be here was a lead I followed in hopes of finding it, but we both seem to have come up empty handed on our quests...",
+  "I too seek an ancient civilization of Funny Folk.",
+  "There is supposedly a magical door with mysterious power said to bring you to a realm of infinite possibilities, a promised realm of friends and paradise.",
+  "The civilation of Funny Folk said to be here was a lead I followed in hopes of finding it, but we both seem to have come up empty handed on our quests...",
   //Thoughts
   "Wick seemed to be eagerly listening to your explanation.",
   //Wick
   "Oh! Well that sounds like a fine journey to find yourself on!",
-  "Hmm... given that we both came here looking for the source of mysterous power, is there a chance we are looking for the same thing?",
+  "Hmm... given that we both came here looking for the source of mysterious power, is there a chance we are looking for the same thing?",
   "Since we both seem to have hit a roadblock, why dont we travel together? Perhaps we can both find what we are looking for by working together!"
 ]
 
@@ -639,7 +639,7 @@ var wickAcceptFriend = [//Additional companionship couldn't hurt!
   "I dont see why not! Additional company couldn't hurt!",
   //Wick
   "I couldn't agree more! With an extra pair of eyes looking out, we're sure to find something eventually!",//Blush
-  "Now that everything has settled down, why don't we return to the tavern? I'll make it a little easier to travel.",
+  "Now that everything has settled down, why don't we return to the Tavern? I'll try to make it a little easier to travel.",
   //Thoughts
   "YOU HAVE AQUIRED 'WICK'!"
 ]
@@ -666,7 +666,7 @@ var wickSplit = [//We should split up.
   "O-oh. Y-yeah I guess that makes sense... In that case I suppose we can just sort of...",//Confuse
   "go our seperate ways?",
   //Out Loud
-  "Sounds like a solid plan, good luck.",
+  "Sounds like a solid plan, good luck out there.",
   //Thoughts
   "Wick walks off a little confused. You get the feeling if they're confused from that conversation they might not be very helpful looking for things.",
   "Well whatever, no time to waste, friends won't find themselves!"
