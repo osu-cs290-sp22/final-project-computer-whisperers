@@ -252,7 +252,7 @@ var doorInsideText = [
   "You decide that you are ready to head into the ruins and reveal its secrets.",
   "Moving aside some sugar fossilized logs that have fallen over the entrance to the ruins you walk in.",
   "The environment inside is a mess with outside flora taking over parts of the buildings interior.", //2 - inside background
-  "Crouching and hopping over a couple of obsticle you make it further within the interior.",
+  "Crouching and hopping over a couple of obsticles you make it further within the interior.",
   "Looking around you observe that there is only one way to proceed from here.",
   "There is what looks like a door that is blocked by a giant lollipop tree.", //5 - lollipop bg
   "You attempt to move the fallen lollipop tree out of the way, but its too heavy to move.",
@@ -272,7 +272,7 @@ var doorGrobFailText = [ //Consume Giant Lollipop
 
 var doorGrobWinCounter = -1;
 var doorGrobWinText = [ //Let grob eat the lollipop tree
-  "You decide to let grob attempt at consuming the lollipop tree.",
+  "You decide to let Grob have an attempt at consuming the lollipop tree.",
   //Grob:
   "'I'm so glad that you've chosen me to do this! This makes me feel so accepted!'", //1
   "'Plus I'm hungry!",
@@ -287,10 +287,10 @@ var doorGrobWinText = [ //Let grob eat the lollipop tree
   "While your pondering the idea, Grob turns around to look at you.", //8 - eated lollipop bg
   //Gorb:
   "'Yum! For candy it surprisingly tastes a lot like air!'", //9
-  "'Any who, Jobs done buddy!'",
+  "'Any who, jobs done buddy!'",
   //No name:
   "You head through the door thats been cleared.", //11
-  "On the other side of the door is a large and long room with a singular door far off at the end.",
+  "On the other side you see a long room with a singular door far off at the end.",
   "Taking a couple of steps into the room something hits the ground right next to you.",
   "Looking at where the sound came from you see a candy corn arrow embedded in the ground.",
   "Taking cover behind the door and peeking to see where the arrows are coming from you see some sugar crystal gaurds.", //15 - cryastal archers bg
@@ -302,28 +302,28 @@ var doorArchersDieText = [ //Make a run for it
   "You try to make a run for the door.",
   "You quickly pick up pace and the archers are missing their shots a lot.",
   "It turns out that the crsytal archers arent good at tracking fast moving targets.",
-  "As you get to about the half way point of the massive room you trip on a small rock.",
+  "As you approach the half way point of the massive room you trip on a small rock.",
   "Why is there a small rock in the middle of a giant room?", //4 - black bg
-  "You fall to the ground whilst asking yourself this question as you are soon hit by the sugar poisioning inducing candy corn arrows.",
+  "You fall to the ground whilst asking yourself this question. You are soon hit by multiple sugar poision inducing candy corn arrows.",
   "[GAME OVER]" //6 - GAME OVER SCREEN
 ];
 
 var doorArchersDistractCounter = -1;
 var doorArchersDistractText = [ //send someone as a distraction
   "You need to distract the sugar cyrstal archers somehow.",
-  "Maybe you should send someone out to get their attention.",
+  "Maybe you could send someone out to get their attention?",
   "", //2 Display special text for which charcter is available, like: "Grob was sent out screaming in eternal pain." or something
-  "Some how this actually works.",
+  "Somehow this actually works.",
   "You were able to make it safely to the other side and out through the door.",
   "Although at the cost of your companion.", //5 - remove friend item and picture.
-  "Moarning the loss and paying respects you move forward as the fabled door must be near."
+  "Mourning the loss and paying respects you move forward as the fabled door must be near."
 ];
 
 var doorArchersOctoCounter = -1;
 var doorArchersOctorText = [ //Have Octo create a blind spot (inks himself)
   "You remember that Kraken Junior is indeed a karaken and can squirt ink.",
-  "You ask Octo if he is capable of deploying a smoke screen to cover you.",
-  //Octo:
+  "You ask Kraken Junior if he is capable of deploying a smoke screen to cover you.",
+  //Kraken Junior:
   "'Aye, it be something I can do fer yee.'", //2
   //No name:
   "Kraken Junior quickly disperses a large cloud of ink throughout the room ahead.", //3 - smokey room w/archers BG
@@ -337,11 +337,11 @@ var doorbridgeTrollText = [
   "Taking a look at your new surroundings it appears that you are in some sort of chocolate swamp.",//0 -change to chocolate swamp 2/bridge BG
   "There is a bridge in front of you made out of Charles Chewsters that looks to lead in the right direction.",
   "So you continue your adventure along the bridge.",
-  "As you were making your way half way across the bridge you notice a strange figure climbing up from the side.",
+  "As you were making your way across the bridge you notice a strange figure climbing up from the side.",
   "They climb up right in front of you and stare at you with a big smile.", //4 - change to clown looking at you.
-  "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the funny folk",
+  "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the funny folk.",
   //Player:
-  "'Hello there, how may I help you? I hope I'm not annoying you by being here, but I juest need to get over this bridge.", //6
+  "'Hello there, how may I help you? I hope I'm not annoying you by being here, I just need to get over this bridge.", //6
   //Clown:
   "'Heyo bucko! This here is my delicious bridge!'", //7
   "'I've been living off of it for sustenance for 300 years!!!'",
@@ -352,7 +352,7 @@ var doorbridgeTrollText = [
   //Player:
   "'Uhh sure, but what happens if we fail to get it right?'", //13
   //Clown:
-  "'Well by gee golly! *Honk* *Honk* I would dip you with chocolate and add you to my bridge so that I won't have to worry this winter!'", //14
+  "'Well by gee golly! *Honk* *Honk* I would dip you with chocolate and add you to my bridge so that I won't have to worry about this winter!'", //14
   "'HOOOOOO HEEEEEE!!!! I'm Excited to play this game!'",
   "'Now scooch your boot, here comes the riddle!'",
   "'What do you call one who happily devotes himself to farming candy?'",
@@ -373,9 +373,9 @@ var doorBridgeDieText = [ //Try answering your self.
   //Clown:
   "'Nope!'", //3
   //No names
-  "The clown dashes at you with lightning speed and knowcking you to the ground.", //4
+  "The clown dashes at you with lightning speed and knocking you to the ground.", //4
   "You can then feel the clown picking you up by the legs.",
-  "You try to break free of his grasp, but your struggles were in vain.",
+  "You try to break free of his grasp, but your struggles are in vain.",
   "The clown brings you to the bottom of the bridge and dips you in the chocolate swamp, covering your whole body.", //7 - Black BG
   "...",
   "You are then added to the bridge to solidify to.",
@@ -392,7 +392,7 @@ var doorBridgeSacrificeText = [ //have a buddy take a try.
   //Clown
   "'What??? I don't understand. Hmmm, we must discuss this further.'", //2
   //No names
-  "The clown gets distracted with the answer, which gives you enbough time to sneak around the clown while he doesnt notice.", //3
+  "The clown gets distracted with the answer, which gives you enough time to sneak around the clown wihtout him noticing.", //3
   "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown.",
   "Although you made it, you had to leave someone behind."
   //Head to Pilz check.
