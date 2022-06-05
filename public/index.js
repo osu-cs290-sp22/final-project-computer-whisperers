@@ -332,6 +332,49 @@ var doorArchersOctorText = [ //Have Octo create a blind spot (inks himself)
   "Successfully evading the archers you look forward to the fabled door, as it must be near."
 ];
 
+var doorBirdgeTrollCounter = -1;
+var doorbridgeTrollText = [
+  "Taking a look at your new surroundings it appears that you are in some sort of chocolate swamp.",//0 -change to chocolate swamp 2/bridge BG
+  "There is a bridge in front of you made out of Charles Chewsters that looks to lead in the right direction.",
+  "So you continue your adventure along the bridge.",
+  "As you were making your way half way across the bridge you notice a strange figure cliiming up from the side.",
+  "They climb up right in front of you and stare at you with a big smile.", //4 - change to clown looking at you.
+  "It looks like they are wearing clown attire, but its entirely made out of candy.",
+  //Player:
+  "'Hello there, how may I help you? I hope I'm not annoying you by being here, but I juest need to get over this bridge.", //6
+  //Clown:
+  "'Heyo bucko! This here is my delicious bridge!'", //7
+  "'I've been living off of it for sustenance for 300 years!!!'",
+  "'I was having my meal here like any normal afternoon until I heard someone on my bridge!'",
+  "'Hooo Heeee am I excited to get some visitors!'",
+  "'Okay now bucko, lets play a game.''",
+  "'How about if you can solve my riddle I allow you to cross my bridge?'",
+  //Player:
+  "'Uhh sure, but what happens if we fail to get it right?'", //13
+  //Clown:
+  "'Well by gee golly! *Honk* *Honk* I would dip you with chocolate and add you to my bridge so that I won't have to worry this winter!'", //14
+  "'HOOOOOO HEEEEEE!!!! I'm Excited to play this game!'",
+  "'Now scooch your boot, here comes the riddle!'",
+  "'What do you call one who happily devotes himself to farming candy?'",
+  //Player:
+  "Hmmm, I should think about what I'm gonna do carefully..." //18
+];
+
+var doorBridgeDieCounter = -1;
+var doorBridgeDieText = [
+  "'Lorum Ipsum'"
+];
+
+var doorBridgeSacrificeCounter = -1;
+var doorBridgeSacrificeText = [
+  "'Lorum Ipsum'"
+];
+
+var doorBridgeWickCounter = -1;
+var doorBridgeWickText = [
+  "'Lorum Ipsum'"
+];
+
 
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
