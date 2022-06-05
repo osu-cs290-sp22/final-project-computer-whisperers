@@ -203,7 +203,7 @@ var tavernIntroText = [
   "'Right. So the first one I know about is that old sailor in the corner over there. I heard he had some history with a gang of pirates that deal with that sort of thing.'", //14
   "'The second contact I know is out on an expidition to the ancient city in the eastern mountains.'",
   "'Them are some dangerous mountains, not to mention the ruins that lay within.'",
-  "'The ruins were left by the funny folk. Thousands of years ago they used to go all over the kingdoms to do their funnies. But now the ruins are all thats left of them.'",
+  "'The ruins were left by the Funny Folk. Thousands of years ago they used to go all over the kingdoms to do their funnies. But now the ruins are all thats left of them.'",
   "'I would stay away from there if I were you.'",
   "'Last but not least is the mushroom people of the Blue Forest down south. Don't ask me why its blue. People won't shut up about it. Especially that Grob guy. Hmph.'",
   "'Ahem. Anyways the mushroom people there used to be wandering traders a few hundred back. But now they've settled in them forests.'",
@@ -339,7 +339,7 @@ var doorbridgeTrollText = [
   "So you continue your adventure along the bridge.",
   "As you were making your way across the bridge you notice a strange figure climbing up from the side.",
   "They climb up right in front of you and stare at you with a big smile.", //4 - change to clown looking at you.
-  "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the funny folk.",
+  "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the Funny Folk.",
   //Player:
   "'Hello there, how may I help you? I hope I'm not annoying you by being here, I just need to get over this bridge.", //6
   //Clown:
@@ -400,7 +400,7 @@ var doorBridgeSacrificeText = [ //have a buddy take a try.
 
 var doorBridgeWickCounter = -1;
 var doorBridgeWickText = [
-  "You remembered that Wick has knowledge of the funny folk, maybe he would have the best idea of what the answer is.",
+  "You remembered that Wick has knowledge of the Funny Folk, maybe he would have the best idea of what the answer is.",
   //Wick:
   "'I believe the answer to your sweet riddle is; What is a jolly Rancher?'", //1
   //Clown:
