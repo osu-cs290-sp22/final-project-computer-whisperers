@@ -1,38 +1,38 @@
-Trail to Mountain
--WickAngry
+Trail to Mountain(DONE)
+-WickAngry (DONE)
 
 Mountain View (DONE)
 
 Camp Lit (DONE)
--WickNormal
--WickBlush
--WickConfused
--WickZZZ
+-WickNormal (DONE)
+-WickBlush (DONE)
+-WickConfused (DONE)
+-WickZZZ (DONE)
 
 Camp Unlit (DONE)
 
 Camp Avalanche (DONE)
--WickConfused
--WickBlush
--WickNormal
+-WickConfused (DONE)
+-WickBlush (DONE)
+-WickNormal (DONE)
 
 Dim Hallway (DONE)
 
 ClownSupplies (DONE)
 
 Crystal Cave (DONE)
--WickNormal
--WickFire
--WickConfused
--Clown
+-WickNormal (DONE)
+-WickFire (DONE)
+-WickConfused (DONE)
+-Clown (DONE)
 
 Slide (DONE)
 
 Peak (DONE)
--WickConfused
--WickNormal
--WickBlush
--WickAngry
+-WickConfused (DONE)
+-WickNormal (DONE)
+-WickBlush (DONE)
+-WickAngry (DONE)
 
-Red Screen
-White Screen
+Red Screen (DONE)
+White Screen (DONE)

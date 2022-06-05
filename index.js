@@ -1390,7 +1390,12 @@ function wickRouteIntro()
     if (wickIntroCounter == 6)
     {
       characterNameDisplay.textContent = ''
-      changeDisplay('./Pictures/Backgrounds/Mountain.png') //MOUNTAIN PIC!
+      changeDisplay('./Pictures/Backgrounds/Trail.png') //TRAIL!
+    }
+    if (wickIntroCounter == 7)
+    {
+      characterNameDisplay.textContent = ''
+      changeDisplay('./Pictures/Backgrounds/Mountain.png') //MOUNTAIN!
     }
     //VISUAL CHANGES
 
@@ -1518,7 +1523,7 @@ function wickBase2Encounter()
      if(wickBase2Counter == 9) 
      {
        characterNameDisplay.textContent = '';
-       changeDisplay('./Pictures/Backgrounds/AvalacheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -1887,7 +1892,7 @@ function wickAvalancheResponseDig()
      }
      if(avalancheDigCounter == 6)
      {
-       changeDisplay('./Pictures/Backgrounds/Black.png')//Black!
+       changeDisplay('./Pictures/Backgrounds/Outside1.png')//WHITE SCREEN!
      }
      if(avalancheDigCounter == 7)
      {
@@ -1931,30 +1936,30 @@ function wickAvalancheResponseExplore()
      if(exploreCavesCounter == 1)
      {
        characterNameDisplay.textContent = '';
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//DIM HALLWAY
+       changeDisplay('./Pictures/Backgrounds/DarkHallway.png')//DARK HALLWAY!
      }
      if(exploreCavesCounter == 3)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE
+       changeDisplay('./Pictures/Backgrounds/CrystalCave.png')//CRYSTAL CAVE!
      }
      if(exploreCavesCounter == 7)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CLOWN SUPPLIES
+       changeDisplay('./Pictures/Backgrounds/Supplies.png')//CLOWN SUPPLIES!
      }
      if(exploreCavesCounter == 8)
      {
        characterNameDisplay.textContent = 'Wick';
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WITH WICK
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WITH WICK!
      }
      if(exploreCavesCounter == 10)
      {
        characterNameDisplay.textContent = '';
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE
+       changeDisplay('./Pictures/Backgrounds/CrystalCave.png')//CRYSTAL CAVE!
      }
      if(exploreCavesCounter == 13)
      {
        characterNameDisplay.textContent = 'Wick';
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WITH WORRIED WICK
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickConfused.png')//CRYSTAL CAVE WITH WORRIED WICK!
      }
      if(exploreCavesCounter == 15)
      {
@@ -2022,38 +2027,38 @@ function wickLightFire()
      }
      if (wickFireCounter == 7)
      {
-      changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //CRYSTAL CAVE CLOWN
+      changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png') //CRYSTAL CAVE CLOWN
      }
      if (wickFireCounter == 8)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //CRYSTAL CAVE FIRE
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickFire.png') //CRYSTAL CAVE FIRE
      }
      if (wickFireCounter == 9)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //CRYSTAL CAVE CLOWN
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png') //CRYSTAL CAVE CLOWN
      }
      if (wickFireCounter == 11)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //SLIDE
+       changeDisplay('./Pictures/Backgrounds/Slide.png') //SLIDE
      }
      if (wickFireCounter == 13)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //TRAIL
+       changeDisplay('./Pictures/Backgrounds/Trail.png') //TRAIL
      }
      if (wickFireCounter == 14)
      {
-       characterNameDisplay.textContent == playerName
+       characterNameDisplay.textContent = playerName
      }
      if (wickFireCounter == 15)
      {
-       characterNameDisplay.textContent == ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //TRAIL ANGRY WICK
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/TrailWickAngry.png') //TRAIL ANGRY WICK
      }
      if (wickFireCounter == 17)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG') //TRAIL
+       changeDisplay('./Pictures/Backgrounds/Trail.png') //TRAIL
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2097,21 +2102,21 @@ function wickTurnBack()
      if (wickClownStabCounter == 1)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WICK
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WICK
      }
      if (wickClownStabCounter == 2)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED SCREEN
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED SCREEN
      }
      if (wickClownStabCounter == 4)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK SCREEN
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK SCREEN
      }
      if (wickClownStabCounter == 5)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2154,7 +2159,7 @@ function wickHonkBack()
      }
      if (wickClownHornCounter == 5)
      {
-      changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+      changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2201,12 +2206,12 @@ function wickApproachClownEnd()
      if (wickApproachClownCounter == 2)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickConfused.png')//CRYSTAL CAVE WICK CONFUSED
      }
      if (wickApproachClownCounter == 3)
      {
        characterNameDisplay.textContent = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }
      if (wickApproachClownCounter == 4)
      {
@@ -2214,15 +2219,15 @@ function wickApproachClownEnd()
      }
      if (wickApproachClownCounter == 5)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED SCREEN
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED SCREEN
      }
      if (wickApproachClownCounter == 6)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK SCREEN
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK SCREEN
      }
      if (wickApproachClownCounter == 7)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2261,11 +2266,11 @@ function wickGiveHornWick()
      }
      if (wickGiveHornWCounter = 1)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WICK NORMAL
      }   
      if (wickGiveHornWCounter = 4)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }     
      //HERE
       if (textBoxClicked == 0) {
@@ -2302,11 +2307,11 @@ function wickGiveHornClown()
      //VISUAL CHANGES
      if (wickGiveHornCCounter == 0)
      {
-       characterNameDisplay.textContent == ''
+       characterNameDisplay.textContent = ''
      }
      if (wickGiveHornCCounter == 1)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2343,29 +2348,29 @@ function wickClownSatisfiedEvent()
      //VISUAL CHANGES
      if (wickClownSatisfiedCounter == 0)
      {
-       characterNameDisplay.textContent == ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//CRYSTAL CAVE CLOWN
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }
      if (wickClownSatisfiedCounter == 2)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//SLIDE
+       changeDisplay('./Pictures/Backgrounds/Slide.png')//SLIDE
      }
      if (wickClownSatisfiedCounter == 3)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
      }
      if (wickClownSatisfiedCounter == 5)
      {
-       characterNameDisplay.textContent == 'Wick'       
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       characterNameDisplay.textContent = 'Wick'       
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      if (wickClownSatisfiedCounter == 6)
      {      
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickClownSatisfiedCounter == 10)
      {      
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2407,26 +2412,26 @@ function wickConversationKillerEnd()
      if (wickConversationKillerCounter == 0)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      if (wickConversationKillerCounter == 1)
      {
        characterNameDisplay.textContent = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickConversationKillerCounter == 3)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      if (wickConversationKillerCounter == 4)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickConversationKillerCounter == 6)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
      }       
      //HERE
       if (textBoxClicked == 0) {
@@ -2466,12 +2471,12 @@ function wickRudeEnd()
      if (wickRudeDismissalCounter == 0)
      {
        characterNameDisplay.textContent = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickRudeDismissalCounter == 1)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      if (wickRudeDismissalCounter == 2)
      {
@@ -2480,15 +2485,15 @@ function wickRudeEnd()
      if (wickRudeDismissalCounter == 4)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK ANGRY
+       changeDisplay('./Pictures/Backgrounds/PeakWickAngry.png')//PEAK WICK ANGRY
      }
      if (wickRudeDismissalCounter == 5)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
      }
      if (wickRudeDismissalCounter == 7)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2528,25 +2533,25 @@ function wickExplainQuestEvent()
      if (wickExplainQuestCounter == 0)
      {
        characterNameDisplay.textContent = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickExplainQuestCounter == 4)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK BLUSH
+       changeDisplay('./Pictures/Backgrounds/PeakWickBlush.png')//PEAK WICK BLUSH
      }
      if (wickExplainQuestCounter == 5)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickExplainQuestCounter == 6)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      if (wickExplainQuestCounter == 7)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK BLUSH
+       changeDisplay('./Pictures/Backgrounds/PeakWickBlush.png')//PEAK WICK BLUSH
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2588,21 +2593,21 @@ function wickAcceptFriendEvent()
      if (wickAcceptFriendCounter == 0)
      {
        characterNameDisplay.textContent = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickAcceptFriendCounter == 1)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK BLUSH
+       changeDisplay('./Pictures/Backgrounds/PeakWickBlush.png')//PEAK WICK BLUSH
      }
      if (wickAcceptFriendCounter == 3)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
      }
      //HERE
       if (wickAcceptFriendCounter == 3) {
-        wickItemContainer.src = './Pictures/Items/PilzItem.png';
+        wickItemContainer.src = './Pictures/Items/WickItem.png';
         wickItem = 1;
       }
 
@@ -2641,17 +2646,17 @@ function wickSpookyEvent()
      if (wickSpookyCounter == 0)
      {
        characterNameDisplay = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickSpookyCounter == 3)
      {
        characterNameDisplay = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK ANGRY
+       changeDisplay('./Pictures/Backgrounds/PeakWickAngry.png')//PEAK WICK ANGRY
      }
      if (wickSpookyCounter == 5)
      {
        characterNameDisplay = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2689,12 +2694,12 @@ function wickSplitEvent()
      if (wickSplitCounter == 0)
      {
        characterNameDisplay.textContent = playerName
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK NORMAL
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
      }
      if (wickSplitCounter == 2)
      {
        characterNameDisplay.textContent = 'Wick'
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      if (wickSplitCounter == 4)
      {
@@ -2703,7 +2708,7 @@ function wickSplitEvent()
      if (wickSplitCounter == 5)
      {
        characterNameDisplay.textContent = ''
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//PEAK WICK CONFUSED
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2785,7 +2790,7 @@ function wickHikeEnd()
      }
      if (wickGoDownNormalCounter == 1)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2828,15 +2833,15 @@ function wickRollEnd()
      }
      if (wickRollCounter == 6)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED
      }
      if (wickRollCounter == 7)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK
      }
      if (wickRollCounter == 8)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2875,7 +2880,7 @@ function wickSnowboardEnd()
      }
      if (wickSnowBoardCounter == 2)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//TRAIL
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
      }
      //HERE
       if (textBoxClicked == 0) {
@@ -2918,15 +2923,15 @@ function wickSnowBoardBadEnd()
      }
      if (wickSnowBoardBadCounter == 2)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//RED
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED
      }
      if (wickSnowBoardBadCounter == 3)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//BLACK
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK
      }
      if (wickSnowBoardBadCounter == 4)
      {
-       changeDisplay('./Pictures/Backgrounds/GameOver.PNG')//GAME OVER
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
      }
      //HERE
       if (textBoxClicked == 0) {
