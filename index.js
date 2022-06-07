@@ -257,7 +257,7 @@ var wickIntro = [
   "...",
   "It also says they never ended up coming back afterwards.",
   //Out Loud
-  "Phht, the only thing stopping people from completing the journey is the hike, I trust my legs to get me there.",
+  "'Phht, the only thing stopping people from completing the journey is the hike, I trust my legs to get me there.'",
   //Thoughts
   "You see the mountain after a surprisingly short amount of time following a worn road out of town.", //Trail
   "As you get closer and closer, you begin to realize you didn't exactly prepare for the blizzard that seems to be taking place there.",//Mountain pic
@@ -271,8 +271,8 @@ var wickIntro = [
 var wickBase1Counter = -1;
 var wickBase1 = [//Hike up anyway.
   //Out Loud
-  "Well, it might look bad from here. But I'm sure blizzards lighten up the further in you go.",
-  "I'll just start heading up and see what this advanced friendship society is all about.",
+  "'Well, it might look bad from here. But I'm sure blizzards lighten up the further in you go.'",
+  "'I'll just start heading up and see what this advanced friendship society is all about.'",
   //Thoughts
   "As time passes, and you walk further and further into a literal blizzard. You realize that blizzards are actually quite large and not easily out walked.",
   "As your limbs start going numb and you start to lose all of your energy, you collapse into the snow wishing you brought a coat.",
@@ -283,9 +283,9 @@ var wickBase1 = [//Hike up anyway.
   "You don't seem to be dead however, as you find yourself waking up to the heat of a fire inside a cave!",//Cave with fire
   "Looking around you notice an individual vaguely resembling a ghost or fire is sitting accross from you.",//Wick appears
   //Wick
-  "Oh! You're awake! I found you collapsed outside while I was navigating up the mountain.",
-  "I brought you here since I was setting up camp nearby.",
-  "The blizzard is dying down, so we should be able to leave soon-",
+  "'Oh! You're awake! I found you collapsed outside while I was navigating up the mountain.'",
+  "'I brought you here since I was setting up camp nearby.'",
+  "'The blizzard is dying down, so we should be able to leave soon-'",
   //Thoughts
   "With amost perfect timing, a small avalanche blocks the cave's mouth, leaving a large wall of snow blocking you and your new acquaintance in.",
 ]
@@ -293,17 +293,17 @@ var wickBase1 = [//Hike up anyway.
 var wickBase2Counter = -1;
 var wickBase2 = [//Look for shelter.
   //Out Loud
-  "I seem to have made a severe and continuous lack in judgement.",
-  "I'm pretty sure blizzards are well known for freezing people to death if unprepared... I'll take it slow and keep an eye out for any suitable shelter.",
+  "'I seem to have made a severe and continuous lack in judgement.'",
+  "'I'm pretty sure blizzards are well known for freezing people to death if unprepared... I'll take it slow and keep an eye out for any suitable shelter.'",
   //Thoughts
   "Deciding to take it slow and seek shelter for now, you manage to spot light coming from a cliffside cave!",
   "Approaching the cave proves to be quite easy with your cunning decicion not to rush headfirst into certain peril.",
   "Upon entering the cave, you notice a small campfire has been lit.",//Cave with fire
   "And upon even closer inspection there seems to be a person vaguely resembling a ghost or fire sitting next to it!",//Wick appears
   //Wick
-  "Oh! A visitor! Are you also seeking shelter from the blizzard?",
-  "You're free to make use of my small camp if you wish, though it isnt much...",//Blush 
-  "I'm quite familiar with this mountain, so it shouldn't be long before the blizzard dies down and we can continue hiking-",
+  "'Oh! A visitor! Are you also seeking shelter from the blizzard?'",
+  "'You're free to make use of my small camp if you wish, though it isnt much...'",//Blush 
+  "'I'm quite familiar with this mountain, so it shouldn't be long before the blizzard dies down and we can continue hiking-'",
   //Thoughts
   "With amost perfect timing, a small avalanche blocks the cave's mouth, leaving a large wall of snow blocking you and your new acquaintance in.",
 ]
@@ -312,7 +312,7 @@ var wickBase2 = [//Look for shelter.
 var wickBase3Bad1Counter = -1;
 var wickBase3Bad1 = [//Zero Friends
   //Out Loud
-  "Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.",
+  "'Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.'",
   //Thoughts
   "You realize you don't have any companions, and decide to make due with just yourself.",
   "Wrapping your arms around yourself, you huddle for warmth and charge into the blizzard.",
@@ -323,13 +323,13 @@ var wickBase3Bad1 = [//Zero Friends
   "With this realization you hug yourself harder, relishing in your newfound self respect.",
   "While you realize that loving yourself is good, you also begin to realize it isn't enough to ward off deadly frostbite.",
   "Your movements slow, and you eventually turn into a self loving popsicle...",//Black Screen
-  "GAME OVER"//Game Over
+  "[GAME OVER]"//Game Over
 ]
 
 var wickBase3Bad2Counter = -1;
 var wickBase3Bad2 = [//One Friend
   //Out Loud
-  "Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.",
+  "'Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.'",
   //Thoughts
   "You may only have one companion, but decide to make do.",
   "Wrapping your arms around your one companion, you both charge into the blizzard.",
@@ -340,13 +340,13 @@ var wickBase3Bad2 = [//One Friend
   "Perhaps somebody so willing to help you find happiness can easily be called a friend.",
   "Realizing that the real freind was the friend you made along the way is good, but not enough to ward off deadly frostbite.",
   "You and your friend's movements slow, and with time you freeze into a friendship popsicle.",//Black Screen
-  "GAME OVER"//Game Over
+  "[GAME OVER]"//Game Over
 ]
 
 var wickBase3PassCounter = -1;
 var wickBase3Pass = [//More Than One Friend
   //Out Loud
-  "Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.",
+  "'Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.'",
   //Thoughts
   "Through the power of combined warmpth the cold was warded off from you and your companions!",
   "You all charge with immense speed through the blizzard, the momentum keeping your spirits high!",
@@ -359,7 +359,7 @@ var wickIgnored = [//Ignore
   //Thoughts
   "You have too much momentum to stop now!",
   //Out Loud
-  "We can't waste time, onwards!",
+  "'We can't waste time, onwards!'",
   //Thoughts
   "You ruthlessly decide that your time is not worth the potential loss of somebody else's life.",
   "As you said, we can't waste time, we're trying to make some friends here buddy.",
@@ -373,8 +373,8 @@ var wickSaved = [//Save
   //Thoughts
   "You decide to slow yourselves down and save this individual!",
   //Out Loud
-  "Ok team, we will carry this person to shelter!",
-  "Heave... HO!",
+  "'Ok team, we will carry this person to shelter!'",
+  "'Heave... HO!'",
   //Thoughts
   "Lifting the person onto your back, you scout around for shelter... and spot a cave!",
   "Once inside you see a camp was already being set up inside.",//Camp (unlit)
@@ -383,17 +383,17 @@ var wickSaved = [//Save
   "...",
   "but eventually wakes!",
   //Wick
-  "Oh? What's going on here? Where am I?",//Confuse
+  "'Oh? What's going on here? Where am I?'",//Confuse
   //Out Loud
-  "I found you passed out in the snow outside and decided to bring you to this small camp I found.",
+  "'I found you passed out in the snow outside and decided to bring you to this small camp I found.'",
   //Wick
-  "Oh...",
-  "huh.",
-  "In that case thank you! I was really cutting it close that time! Luckily I passed out pretty close to my camp!",//Blush
+  "'Oh...'",
+  "'huh.'",
+  "'In that case thank you! I was really cutting it close that time! Luckily I passed out pretty close to my camp!'",//Blush
   //Out Loud
-  "You were passed out for quite a while, it looks like the blizzard had time to die down, are you okay?",
+  "'You were passed out for quite a while, it looks like the blizzard had time to die down, are you okay?'",
   //Wick
-  "Ah, I'm fine! If the blizzard is dying down that means we can leave and-",
+  "'Ah, I'm fine! If the blizzard is dying down that means we can leave and-'",
   //Thoughts
   "With amost perfect timing, a small avalanche blocks the cave's mouth, leaving a large wall of snow blocking you and your new acquaintance in.", 
 ]
@@ -404,26 +404,26 @@ var wickSaved = [//Save
 var avalancheCounter = -1;
 var avalancheResponse = [
   //Wick
-  "Well...",
-  "Uhm...",
-  "I guess we'll need to figure something else out!",
-  "The caves in these mountains are ancient tunnleways, and typically have 2 enterences...",
-  "Perhaps we can explore deeper and find a way out together? My name is Wick, I hope we can get along!"//Blush
+  "'Well...'",
+  "'Uhm...'",
+  "'I guess we'll need to figure something else out!'",
+  "'The caves in these mountains are ancient tunnleways, and typically have 2 enterences...'",
+  "'Perhaps we can explore deeper and find a way out together? My name is Wick, I hope we can get along!'"//Blush
 ]
 
 var avalancheDigCounter = -1;
 var avalancheDig = [//Dig out. Easy.
   //Out Loud
-  "Phht, no need. The avalanche wasn't that big.",
-  "How about INSTEAD I just DIG us out? No need to be dumb and wonder into a potentially dangerous cave.",
+  "'Phht, no need. The avalanche wasn't that big.'",
+  "'How about INSTEAD I just DIG us out? No need to be dumb and wonder into a potentially dangerous cave.'",
   //Wick
-  "Wait I don't think you shou-",
+  "'Wait I don't think you shou-'",
   //Thoughts
   "You begin to use your bare hands to slowly scoop away at the snow, ignoring whatever Wick was about to say.",
   "But perhaps you should have heard them out, as your uneven removal of snow has resulted in poor structual stability.",
   "Even worse, it seems the avalanche was much bigger than you had imagined...",
   "You find yourself buried under a self made avalanche of mistakes...",//White Screen
-  "GAME OVER"
+  "[GAME OVER]"
 ]
 
 //**************//
@@ -432,7 +432,7 @@ var avalancheDig = [//Dig out. Easy.
 var exploreCavesCounter = -1;
 var exploreCaves = [//Agree to explore.
   //Out Loud
-  "Likewise! I'm ",
+  "'Likewise! I'm ",
   //Thoughts
   "You and your new acquaintance begin to head deeper and deeper into the caves.",//Dark hallway
   "Luckily it seems like you coming unprepared without a torch was not too big a mistake, as Wick happens to dimly glow, illuminating the way.",
@@ -442,17 +442,17 @@ var exploreCaves = [//Agree to explore.
   "...",
   "...What seems to be circus supplies?", //Hallway with broken shit
   //Wick
-  "The crystals are present throughout the entire mountain's cave system... They were used as lights for old travelers passing through!",
-  "Though mountains are still quite treacherous even if well lit... These seem to be remnants of the Funny Folk, people with very... Interesting culture!",
+  "'The crystals are present throughout the entire mountain's cave system... They were used as lights for old travelers passing through!'",
+  "'Though mountains are still quite treacherous even if well lit... These seem to be remnants of the Funny Folk, people with very... interesting culture!'",
   //Thoughts
   "As you proceed further into the cave circus supplies becomes more frequent and you both begin to realize there is a distant... honking sound getting louder.",
   "...",
   "Or maybe its getting closer?",
   //Wick
-  "This is... concerning. I'm not positive but it seems we may have some Funny Folk company.",
-  "Perhaps we should do something before we proceed further?",
+  "'This is... concerning. I'm not positive but it seems we may have some... questionable Funny Folk company.'",
+  "'Perhaps we should do something before we proceed further?'",
   //Out Loud
-  "...Agreed. Hmm... let me think..."
+  "'...Agreed. Hmm... let me think...'"
 ]
 
 //*****************//
@@ -464,16 +464,16 @@ var wickFire = [//Light Wick on fire.
   "Realizing that the crystals alongside Wick's natural glow isn't giving you an excellent view of the whole hallway, you decide to try something.",
   "Perhaps Wick's glowing potential can be enchanced?",
   //Out Loud
-  "Hold still for a second.",
+  "'Hold still for a second.'",
   //Wick
-  "Hmm? What for?",
+  "'Hmm? What for?'",
   //Thoughts
   "You snag a match from Wick's backpack and light it, before promptly tossing it back in.",
   "This seems to almost instantaneously cause Wick to burst into flames, providing an excellent view deeper into the cave.",
   "Ignoring the screaming Wick seems to be partaking in, you notice a figure standing at the very end of the flames light...",
   "A clown(?) seems to be standing there, silently observing the now frantic Wick rolling around on the floor. Must be one of the Funny Folk.",//Clown
   //Wick
-  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!",
+  "'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!'",
   //Thoughts
   "It looks at you and gives a very slight nod. It seems satisfied somehow.",
   "Like a mime, it pulls some sort of invisible leaver, opening a trapdoor beneath you and Wick.",
@@ -481,7 +481,7 @@ var wickFire = [//Light Wick on fire.
   "A short sliding session ensues, with you and Wick somehow ending up being spat out at the base of the mountain despite sliding upwards.",//Mountain
   "The Funny Folk certainly have funny ideas concerning the concept of up and down.",//Confetti
   //Out Loud
-  "Well that seemed to work out. I'm sure glad we-",
+  "'Well that seemed to work out. I'm sure glad we-'",
   //Wick (Angry)
   "Wick, seeming angry, throws a lit match at you.",
   "Since you traveled light, the flame isn't too big, but you certainly end up on fire... which hurts a lot.",
@@ -494,20 +494,20 @@ var wickFire = [//Light Wick on fire.
 var wickClownStabCounter = -1;
 var wickClownStab = [//Turn back, head to camp.
   //Out Loud
-  "This seems sketchy... Maybe we should just turn back for now? We can come up with a new plan at camp.",
+  "'This seems sketchy... Maybe we should just turn back for now? We can come up with a new plan at camp.'",
   //Wick
-  "I have enough supplies at camp to last a little while, we can discuss Funny Folklore to pass some time!",
+  "'I have enough supplies at camp to last a little while, we can discuss Funny Folklore to pass some time!'",
   //Thoughts
   "As you turn your backs, you suddenly feel a sharp pain come from behind, enough to make you fall to your knees.",
   "It's hard to say what happened next exactly, as all you could observe after this was a loud honk and your face coming into contact with the ground.",
   "It seems that your life has been ended... extremely quickly by something you could not fully observe.",
-  "GAME OVER"
+  "[GAME OVER]"
 ]
 
 var wickClownHornCounter = -1;
 var wickClownHorn = [//Honk back, embrace honkage.
   //Out Loud
-  "How about we... honk back?",
+  "'How about we... honk back?'",
   //Thoughts
   "You pick up a spare horn from the pile of disgarded circus supplies.",
   "Instead of turning back and returning to camp, you decide to honk back and return to honk.",
@@ -524,17 +524,17 @@ var wickClownHorn = [//Honk back, embrace honkage.
 var wickApproachClownCounter = -1;
 var wickApproachClown = [//Approach clown(?).
   //Out Loud
-  "Surely this Funny Fellow means us no harm. They are meant to bring joy to people after all.",
-  "I'm going to approach and speak with it.",
+  "'Surely this Funny Fellow means us no harm. They are meant to bring joy to people after all.'",
+  "'I'm going to approach and speak with it.'",
   //Wick
-  "Are you sure you want to get close? They usually have a riddl-",
+  "'Are you sure you want to get close? They usually have a riddl-'",
   //Out Loud
-  "Oh hello there! We were trapped in this cave and were wondering if-",
+  "'Oh hello there! We were trapped in this cave and were wondering if-'",
   //Thoughts
   "The moment you get close enough to the Funny Fellow, you learn very quickly that it's claw hand is not for show.",
   "You think you might have heard Wick scream, but you can't be sure. It was hard to tell over the sensation of rapidly bleeding out on the ground.", //Red Screen
   "The honking sound grows more rapid, and you lose consciousness thinking about how unfunny that Funny Fellow was.", //Black Screen
-  "GAME OVER"
+  "[GAME OVER]"
 ]
 
 var wickGiveHornWCounter = -1;
@@ -575,12 +575,12 @@ var wickClownSatisfied = [
   "After sliding down a surprisingly long slide, you are spat out at the top of the mountain... despite sliding downwards?",
   "The Funny Folk certainly have funny ideas concerning the concept of up and down.",
   //Wick
-  "Well... That was exciting! I wonder why the rest of the Funny Folk seem to have vanished?",//Confuse
-  "But hey! We made it to the top of the mountain somehow!",
-  "I came here in hopes of finding an amazing power said to be found here... Something so powerful it could trumph all other obtainable powers.",
-  "I had hoped I'd discover what that power was by researching the Funny Folk, who are said to have mastered it.",
-  "But it seems like all thats here is a lone Funny Fellow and the mountain's peak.",//Sad
-  "What about you? Now that you're here, what did you hope to find?"
+  "'Well... That was exciting! I wonder why the rest of the Funny Folk seem to have vanished?'",//Confuse
+  "'But hey! We made it to the top of the mountain somehow!'",
+  "'I came here in hopes of finding an amazing power said to be found here... Something so powerful it could trumph all other obtainable powers.'",
+  "'I had hoped I'd discover what that power was by researching the Funny Folk, who are said to have mastered it.'",
+  "'But it seems like all thats here is a lone Funny Fellow and the mountain's peak.'",//Sad
+  "'What about you? Now that you're here, what did you hope to find?'"
 ]
 
 var wickConversationKillerCounter = -1;
@@ -588,10 +588,10 @@ var wichConversationKiller = [//Keep your reasons secret.
   //Thoughts
   "It would be kind of embarassing to admit you have no friends and wanted to find a mysterious magic friendship door with the help of Funny Folk... You decide to keep it secret.",
   //Out Loud
-  "Well... Uh... I wish you luck on your quest to find this power... but I cannot tell you what I'm looking for.",
-  "It's much to important... and uh... secretive! I can't just tell anybody about it willy nilly. I hope you understand.",
+  "'Well... Uh... I wish you luck on your quest to find this power... but I cannot tell you what I'm looking for.'",
+  "'It's much to important... and uh... secretive! I can't just tell anybody about it willy nilly. I hope you understand.'",
   //Wick
-  "Oh. Uh... okay, I suppose I shouldn't stick my buisness into somebody else's...",
+  "'Oh. Uh... okay, I suppose I shouldn't stick my buisness into somebody else's...'",
   //Thoughts
   "Wick does not pry further, but sadly this was a real conversation killer.",
   "It gets pretty awkward and you both start heading down the mountain in silence.",
@@ -603,12 +603,12 @@ var wichConversationKiller = [//Keep your reasons secret.
 var wickRudeDismissalCounter = -1;
 var wickRudeDismissal = [//Wick sounds dumb.
   //Out Loud
-  "That sounds so dumb. Why would a bunch of people dressed like clowns have unrivaled power?",
+  "'That sounds so dumb. Why would a bunch of people dressed like clowns have unrivaled power?'",
   //Wick
-  "M... M-My ancestors had a legend tha-",
+  "'M... M-My ancestors had a legend tha-'",
   //Out Loud
-  "It was probably just some folklore meant to keep children on their best behavior or something.",
-  "Anyway sorry to hear that your adventure didn't turn out, I came here to-",
+  "'It was probably just some folklore meant to keep children on their best behavior or something.'",
+  "'Anyway sorry to hear that your adventure didn't turn out, I came here to-'",
   //Thoughts
   "Before you could explain your quest to find an ancient friendship civilization, Wick seems to walk away.",//Angry
   "You think that was quite rude, as they had asked why you were here.",//Gone
@@ -621,25 +621,25 @@ var wickRudeDismissal = [//Wick sounds dumb.
 var wickExplainQuestCounter = -1;
 var wickExplainQuest = [//Explain your quest.
   //Out loud
-  "I came here on a quest of my own...",
-  "I too seek an ancient civilization of Funny Folk.",
-  "There is supposedly a magical door with mysterious power said to bring you to a realm of infinite possibilities, a promised realm of friends and paradise.",
-  "The civilation of Funny Folk said to be here was a lead I followed in hopes of finding it, but we both seem to have come up empty handed on our quests...",
+  "'I came here on a quest of my own...'",
+  "'I too seek an ancient civilization of Funny Folk.'",
+  "'There is supposedly a magical door with mysterious power said to bring you to a realm of infinite possibilities, a promised realm of friends and paradise.'",
+  "'The civilation of Funny Folk said to be here was a lead I followed in hopes of finding it, but we both seem to have come up empty handed on our quests...'",
   //Thoughts
   "Wick seemed to be eagerly listening to your explanation.",
   //Wick
-  "Oh! Well that sounds like a fine journey to find yourself on!",
-  "Hmm... given that we both came here looking for the source of mysterious power, is there a chance we are looking for the same thing?",
-  "Since we both seem to have hit a roadblock, why dont we travel together? Perhaps we can both find what we are looking for by working together!"
+  "'Oh! Well that sounds like a fine journey to find yourself on!'",
+  "'Hmm... given that we both came here looking for the source of mysterious power, is there a chance we are looking for the same thing?'",
+  "'Since we both seem to have hit a roadblock, why dont we travel together? Perhaps we can both find what we are looking for by working together!'"
 ]
 
 var wickAcceptFriendCounter = -1;
 var wickAcceptFriend = [//Additional companionship couldn't hurt!
   //Out Loud
-  "I dont see why not! Additional company couldn't hurt!",
+  "'I dont see why not! Additional company couldn't hurt!'",
   //Wick
-  "I couldn't agree more! With an extra pair of eyes looking out, we're sure to find something eventually!",//Blush
-  "Now that everything has settled down, why don't we return to the Tavern? I'll try to make it a little easier to travel.",
+  "'I couldn't agree more! With an extra pair of eyes looking out, we're sure to find something eventually!'",//Blush
+  "'Now that everything has settled down, why don't we return to the Tavern? I'll try to make it a little easier to travel.'",
   //Thoughts
   "YOU HAVE AQUIRED 'WICK'!"
 ]
@@ -647,9 +647,9 @@ var wickAcceptFriend = [//Additional companionship couldn't hurt!
 var wickSpookyCounter = -1;
 var wickSpooky = [//You are too spooky...
   //Out Loud
-  "Erm... I would, but you are kind of...",
-  "...",
-  "...spooky. Like, are you a ghost? Fire person? Candle? Like, how does somebody just glow and have-",
+  "'Erm... I would, but you are kind of...'",
+  "'...'",
+  "'...spooky. Like, are you a ghost? Fire person? Candle? Like, how does somebody just glow and have-'",
   //Thoughts
   "Maybe not the best choice of words used there.", //Angry
   "Wick seems to have not liked what you had to say about them...",
@@ -660,13 +660,13 @@ var wickSpooky = [//You are too spooky...
 var wickSplitCounter = -1;
 var wickSplit = [//We should split up.
   //Out Loud
-  "I mean I guess? I think it would be a better idea if we split up though.",
-  "Our odds of finding things is much higher if we are looking in different locations after all.",
+  "'I mean I guess? I think it would be a better idea if we split up though.'",
+  "'Our odds of finding things is much higher if we are looking in different locations after all.'",
   //Wick
-  "O-oh. Y-yeah I guess that makes sense... In that case I suppose we can just sort of...",//Confuse
-  "go our seperate ways?",
+  "'O-oh. Y-yeah I guess that makes sense... In that case I suppose we can just sort of...'",//Confuse
+  "'go our seperate ways?'",
   //Out Loud
-  "Sounds like a solid plan, good luck out there.",
+  "'Sounds like a solid plan, good luck out there.'",
   //Thoughts
   "Wick walks off a little confused. You get the feeling if they're confused from that conversation they might not be very helpful looking for things.",
   "Well whatever, no time to waste, friends won't find themselves!"
@@ -702,7 +702,7 @@ var wickRoll = [//Roll down as a snowball.
   "However, this is also an issue, as when you reach the bottom, you still have a lot of built up speed.",
   "So much speed in fact, that your entire body is crushed the moment you reach non sloped ground.",
   "But sometimes it's the journey that matters, and you can say with certainty that it was fun up until that point.",
-  "GAME OVER"
+  "[GAME OVER]"
 ]
 
 var wickSnowBoardCounter = -1;
@@ -720,7 +720,7 @@ var wickSnowBoardBad = [//Use the power of your companions. (Zero Friends)
   "You believe in yourself instead, and attempt to manifest a snowboard midair as you jump over a steep slope.",
   "Sadly this effort in in vain, and ultimately you fumble over your own feet and fall into a ravine.",
   "The impact is responsable for instantly killing you, so at least you don't need to do something like amputate a limb.",
-  "GAME OVER"
+  "[GAME OVER]"
 ]
 //************Wick route ends ends here******************************************************************************************************************************************************************************************
 
