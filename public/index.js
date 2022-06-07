@@ -218,7 +218,7 @@ var tavernIntroText = [
 var tavernHubCounter = -1;
 var tavernHubAgain = 0;
 var tavernHubText = [
-  "'Now where should I go from the here?'" //0 - change to TaernBG
+  "'Now where should I go from here?'" //0 - change to TaernBG
 ];
 //************Intro stuff ends here******************************************************************************************************************************************************************************************
 
@@ -392,7 +392,7 @@ var doorBridgeSacrificeText = [ //have a buddy take a try.
   //Clown
   "'What??? I don't understand. Hmmm, we must discuss this further.'", //2
   //No names
-  "The clown gets distracted with the answer, which gives you enough time to sneak around the clown wihtout him noticing.", //3
+  "The clown gets distracted with the answer, which gives you enough time to sneak around the clown without him noticing.", //3
   "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown.",
   "Although you made it, you had to leave someone behind."
   //Head to Pilz check.
