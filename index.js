@@ -3251,7 +3251,7 @@ function wickSnowboardEnd()
       wickRoute = 1;
       tavernHubCounter = 0;
       tavernHubAgain = 1;
-      wickSnowBoardBadCounter = -2;
+      wickSnowBoardCounter = -2;
     }
 }
 
