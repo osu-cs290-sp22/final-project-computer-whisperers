@@ -415,6 +415,200 @@ var doorBridgeWickText = [
   "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown." //7
 ];
 
+var doorCakeCanyonCounter = -1;
+var doorCakeCanyon = [
+  "After a very eager jog, you silently celebrate your newfound distance from the nearest Funny Fellow.",
+  "Unfortunately this jog has led you to a sticky situation; A large cake canyon seems to be between you and forward progress.",
+  "There seems to be a drawbridge for getting across, but its not in the ideal position as of now.",
+  "If you squint you can see a lever on the other side, probably for letting down and pulling up the bridge you wish to cross.",
+  "As confident as you are in your long arms, you dont think you can reach it from here.",
+  "Looks like a different course of action will be required..."
+];
+
+var doorCakeCanyonSacrificeCounter = -1;
+var doorCakeCanyonSacrifice = [
+  //No name
+  "Well, there may be a DIFFERENT way to flip a lever from here...",
+  "You start to rummage through your currently carried ITEMS.",
+  //Character name:
+  "", //2 - character specific dialogue
+  //No name
+  "With your trusty arms, used for a multitude of things, you wind up, focus, and throw your companion as you would a frisbee.",//3
+  "They go flying over the canyon, flying with elegance. They manage to get to the opposite side and hit the lever!",
+  "However, your throw may have been too powerful, as the impact with the lever caused the frisbee like projectile to ricochet, and fall into the canyon.",//5 Bridge Down
+  "When the lever was hit the bridge fell into place allowing for safe passage.",
+  "Thanks to the honorable sacrifice of your faithful companion, a lever has been pulled, and a bridge has become crossable."
+]
+
+var doorCakeCanyonDieCounter = -1;
+var doorCakeCanyonDie = [
+  //No name
+  "You see no other choice.",
+  "In order to get across you must eat through the cake walls and make a tunnel around the canyon.",
+  "With a deep breath and some mental fortitude, you get to work.",
+  "The walls begins to hollow as it's layers are eaten through with speed and determination.",
+  "Considerable progress is made in a very short time, and with enough effort and time...",
+  "You find yourself in a perfect position.",
+  "Thanks to your master plan, you've found yourself an alternative means of getting to the other end.",
+  "You take one step onto the other side, before feeling a sharp pain in your gut.",
+  "Collapsing onto the floor you have a sudden realization.",
+  "You are very susceptible to deadly sugar poisoning.",
+  "With a bellyache, you start to lose consciousness...",//10 Black Screen
+  "[GAME OVER]"//11 Game Over
+]
+
+var doorCakeCanyonPilzCounter = -1;
+var doorCakeCanyonPilz = [
+  //No name
+  "You have a sudden moment of genius.",
+  "You are pretty sure that you have a certain... ally that could help.",
+  //Pilz
+  "'Oh hello! I see we are at an impasse... Have you brought me out so we can use our combined skills to get across?'",//2
+  //Player
+  "'Yes, I think I have a plan that can get the bridge lowered. How... bouncy are you?'",//3
+  //Pilz
+  "'Funny you should ask! Mushrooms are quite well known for their bouncing potential.'",//4
+  "'Sometimes we even act as bouncing platforms!'",
+  //Player
+  "'Perfect. In that case, I'm going to bounce across and pull that lever.'",//6
+  //No name
+  "Pilz readies themself for bouncy impact.",//7
+  "With a running start, you manage to land a jump directly on the center of Pilz's head.",
+  "The impact sends you high into the air, Pilz was right, mushrooms have crazy bounce potential.",
+  "Soaring through the air, you eventually land on the other side, crossing the entire canyon.",
+  "With the help of your trusty mushroom companion, you pull the lever, lowering the bridge so that safe passage is guarenteed."//11 Bridge Down
+]
+
+var doorCakeCanyonEatPilzCounter = -1;
+var doorCakeCanyonEatPilz = [
+  //No name
+  "Hmm... thinking up a plan is hard... esspecially with an empty stomach.",
+  "You'd eat the cake surrounding you, but having a potential bellyache sounds counter productive...",
+  "Suddenly you remember you have a very... scrumptious... resource with you.",
+  //Pilz
+  "'Oh hello! I see we are at an impasse... Have you brought me out so we can use our combined skills to get across?'",//3
+  //Player
+  "'Uhm... yes. Something like that.'",//4
+  //Pilz
+  "'Wonderful! I truly believe we can figure this out together with our combined wits.'",//5
+  //Player
+  "'Y-yeah. Together... How about you take a look over there and assess our situation?'",//6
+  //Pilz
+  "'Good idea, I can't be helpful if I don't know what I'm helping with!'",//7
+  //No name
+  "Pilz turns around and begins to enthusiastically examine the situation on the other end of the canyon.",//8
+  "As your stomach growls you lose control of yourself.",
+  "You grab Pilz with both hands and do what comes naturally.",//9 Black Screen?
+  "*Crunch* *Crunch* *Crunch*",
+  "You suddenly feel much more full...",//10 Pilz Gone
+  "But also empty.",
+  "Pilz is now gone, but the impasse is still here.",
+  "With your newfound full stomach, you leap towards the other end of the canyon.",
+  "Unexpectedly, it seems like you are... bigger? Taller?",
+  "Somehow you feel like you are making more distace across this canyon than you normally would.",
+  "With a sudden thud, you find yourself on the other end of the canyon. You pull the lever so you can get back easily."//16 Bridge Down
+]
+
+var doorGoodEndingCounter = -1;
+var doorGoodEnding = [
+  //No name
+  "After some additional walking... you think you are in the clear.",
+  "No additional obsticles appear. You simply keep walking and walking.",
+  "The quiet atmosphere is relaxing compared to the journey getting here.",
+  "Eventually...",
+  "You see it.",
+  "The Door.",//5 Empty door
+  //Player
+  "'At last... my journey's destination.'",//6
+  //No name
+  "You examine the shut door, tracing your fingers over the engravings... holes?",//7
+  "Realization hits... these shapes are familiar to you.",
+  "Carefully, you take out all your carried ITEMS.",
+  "The holes perfectly match them.",
+  "Each companion you've gathered looks to be tailor made to fit into the door's slots.",
+  "You delicately insert each of them into the corrosponding hole.",//12 Full Door
+  "The door looks complete.",
+  "It begins to open, revealing a bright light behind it.",
+  "Your eyes have not adjusted to the light, but you can hear familiar voices come across from the other side.",//15 White Screen
+  //Grob
+  "''",//16
+  //Kraken Junior
+  "'Now that we've passed our trials, its time to start my quest for world domination!'",//17
+  //Wick
+  "'Oh its so simple! The real power was the friendships we've forged along the way!'",//18
+  //Pilz
+  "'It's a perfect place to spread my spores with pals! Thanks for bringing me!'",//19
+  //Everyone
+  "Happy birthday friend!",//20
+  //No name
+  "[GOOD END]"//21
+]
+
+var doorNeutralEndingCounter = -1;
+var doorNeutralEnding = [
+  "After some additional walking... you think you are in the clear.",
+  "No additional obsticles appear. You simply keep walking and walking.",
+  "The quiet atmosphere is relaxing compared to the journey getting here.",
+  "Eventually...",
+  "You see it.",
+  "The Door.",//5
+  //Player
+  "'At last... my journey's destination.'",//6
+  //No name
+  "You examine the shut door, tracing your fingers over the engravings... holes?",//7
+  "Realization hits... these shapes are familiar to you.",
+  "Carefully, you take out all your carried ITEM(S).",
+  "The holes perfectly match them.",
+  "Each companion you've gathered looks to be tailor made to fit into one of the door's slots.",
+  "You insert the ITEM(S) into its corresponding hole.",//12 Not Full Door
+  "The door looks semi complete.",
+  "It begins to open, revealing a bright light behind it.",
+  "Your eyes have not adjusted to the light, but somehow... it feels a little empty on the other side.",//15 White Screen
+  "Despite finally being where you wanted to be, you can't help but feel there were aspects of the journey you wish had gone differently.",
+  "Perhaps there were choices made that resulted in loss, or maybe choices that left you without gain...",
+  "At the very least you made it. At least you can continue making choices as you venture into this new life.",
+  "You step into the door's bright light...",
+  "And find a face corresponding to each item inserted on the other side.",
+  "[NEUTRAL END]"//21
+]
+
+var doorBadEndingCounter = -1;
+var doorBadEndingText = [
+  "After some additional walking... you think you are in the clear.",
+  "No additional obsticles appear. You simply keep walking and walking.",
+  "The quiet atmosphere is relaxing compared to the journey getting here.",
+  "Eventually...",
+  "You see it.",
+  "The Door.",//5 Empty door
+  //Player
+  "'At last... my journey's destination.'",//6
+  //No name
+  "You examine the shut door, tracing your fingers over the engravings... holes?",//7
+  "Realization hits... these shapes are familiar to you.",
+  "Grob...",
+  "Kraken Junior...",
+  "Wick...",
+  "Pilz",
+  "Tears flood through your eyes...",
+  "Why did it have to end this way?",
+  "How could I let this happen to them?",
+  "All for what?",
+  "To get to this stupid door?",
+  "Was there not another way?",
+  "If only we were all here together...",
+  "Grob was annoying, but had his own charm.",
+  "Kraken junior was a mighty sailor and was adorable.",
+  "Wick was knowledgable and knew friendship well.",
+  "Pilz was... Yummy looking and naive, but he loved his people.",
+  "We could all go and make the best of friends together...",
+  "Wait...",
+  "Maybe...",
+  "I should've cherished the friends I made along the way.",
+  "Instead...",
+  "I'm here...",
+  "All alone...",
+  "[Game End]" //31
+];
 
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
