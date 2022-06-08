@@ -420,9 +420,487 @@ var doorBridgeWickText = [
 
 
 //************Wick starts Route here******************************************************************************************************************************************************************************************
-var mountainsIntroCounter = -1;
-var mountainsIntroText = [
-  "'Lorum Ipsum'"
+
+//*********************************//
+//       WICK ROUTE DIALOGUE       //
+//*********************************//
+var wickRoute = 0;
+//*******//
+// INTRO //
+//*******//
+var wickIntroCounter = -1;
+var wickIntro = [
+  //Thoughts
+  "You decide that the nearby mountain would be a good place to look.",
+  "Stories of a very advanced civilization of friends residing up there... Supposedly.",
+  "A poster on the tavern wall even mentions a circus was even set to travel through the mountain for a show...",
+  "...",
+  "It also says they never ended up coming back afterwards.",
+  //Out Loud
+  "'Phht, the only thing stopping people from completing the journey is the hike, I trust my legs to get me there.'",
+  //Thoughts
+  "You see the mountain after a surprisingly short amount of time following a worn road out of town.", //Trail
+  "As you get closer and closer, you begin to realize you didn't exactly prepare for the blizzard that seems to be taking place there.",//Mountain pic
+  "Buuuuuuuuuuuut you've already made it this far, so turning back isn't an option at this point.",
+  "You'd gotten this far, and going back and forth sounds like a hassle. It's the time sink fallacy."
+]
+
+//****************//
+// WICK ENCOUNTER //
+//****************//
+var wickBase1Counter = -1;
+var wickBase1 = [//Hike up anyway.
+  //Out Loud
+  "'Well, it might look bad from here. But I'm sure blizzards lighten up the further in you go.'",
+  "'I'll just start heading up and see what this advanced friendship society is all about.'",
+  //Thoughts
+  "As time passes, and you walk further and further into a literal blizzard. You realize that blizzards are actually quite large and not easily out walked.",
+  "As your limbs start going numb and you start to lose all of your energy, you collapse into the snow wishing you brought a coat.",
+  "Eventually, you lose consciousness...", //Black Screen
+  "...",
+  "...",
+  "...",
+  "You don't seem to be dead however, as you find yourself waking up to the heat of a fire inside a cave!",//Cave with fire
+  "Looking around you notice an individual vaguely resembling a ghost or fire is sitting accross from you.",//Wick appears
+  //Wick
+  "'Oh! You're awake! I found you collapsed outside while I was navigating up the mountain.'",
+  "'I brought you here since I was setting up camp nearby.'",
+  "'The blizzard is dying down, so we should be able to leave soon-'",
+  //Thoughts
+  "With amost perfect timing, a small avalanche blocks the cave's mouth, leaving a large wall of snow blocking you and your new acquaintance in.",
+]
+
+var wickBase2Counter = -1;
+var wickBase2 = [//Look for shelter.
+  //Out Loud
+  "'I seem to have made a severe and continuous lack in judgement.'",
+  "'I'm pretty sure blizzards are well known for freezing people to death if unprepared... I'll take it slow and keep an eye out for any suitable shelter.'",
+  //Thoughts
+  "Deciding to take it slow and seek shelter for now, you manage to spot light coming from a cliffside cave!",
+  "Approaching the cave proves to be quite easy with your cunning decicion not to rush headfirst into certain peril.",
+  "Upon entering the cave, you notice a small campfire has been lit.",//Cave with fire
+  "And upon even closer inspection there seems to be a person vaguely resembling a ghost or fire sitting next to it!",//Wick appears
+  //Wick
+  "'Oh! A visitor! Are you also seeking shelter from the blizzard?'",
+  "'You're free to make use of my small camp if you wish, though it isnt much...'",//Blush
+  "'I'm quite familiar with this mountain, so it shouldn't be long before the blizzard dies down and we can continue hiking-'",
+  //Thoughts
+  "With amost perfect timing, a small avalanche blocks the cave's mouth, leaving a large wall of snow blocking you and your new acquaintance in.",
+]
+
+//Huddle for warmth.
+var wickBase3Bad1Counter = -1;
+var wickBase3Bad1 = [//Zero Friends
+  //Out Loud
+  "'Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.'",
+  //Thoughts
+  "You realize you don't have any companions, and decide to make due with just yourself.",
+  "Wrapping your arms around yourself, you huddle for warmth and charge into the blizzard.",
+  "As you continue running, the hug you give yourself begins to stir feelings...",
+  "Feelings of self worth... feelings of pride.",
+  "During this short amount of time, you soul search, realizing that maybe the reasons you don't have friends to love is because...",
+  "you didn't even love yourself.",
+  "With this realization you hug yourself harder, relishing in your newfound self respect.",
+  "While you realize that loving yourself is good, you also begin to realize it isn't enough to ward off deadly frostbite.",
+  "Your movements slow, and you eventually turn into a self loving popsicle...",//Black Screen
+  "[GAME OVER]"//Game Over
+]
+
+var wickBase3Bad2Counter = -1;
+var wickBase3Bad2 = [//One Friend
+  //Out Loud
+  "'Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.'",
+  //Thoughts
+  "You may only have one companion, but decide to make do.",
+  "Wrapping your arms around your one companion, you both charge into the blizzard.",
+  "As you both continue running, the hug begins to to stir feelings...",
+  "Feelings of appreciation... feelings of compassion.",
+  "During this short amount of time, you come to make a realization...",
+  "Somebody willing to run into a blizzard into certain peril is maybe more than just a companion.",
+  "Perhaps somebody so willing to help you find happiness can easily be called a friend.",
+  "Realizing that the real freind was the friend you made along the way is good, but not enough to ward off deadly frostbite.",
+  "You and your friend's movements slow, and with time you freeze into a friendship popsicle.",//Black Screen
+  "[GAME OVER]"//Game Over
+]
+
+var wickBase3PassCounter = -1;
+var wickBase3Pass = [//More Than One Friend
+  //Out Loud
+  "'Heh, the warm blooded body has anywhere between 97 and 100 degrees of cold repelling heat, I can make this work.'",
+  //Thoughts
+  "Through the power of combined warmpth the cold was warded off from you and your companions!",
+  "You all charge with immense speed through the blizzard, the momentum keeping your spirits high!",
+  "After making astounding progress your company stumbles upon something in the snow...",
+  "Upon closer inspection it seems to be a person who has collapsed!"
+]
+
+var wickIgnoredCounter = -1;
+var wickIgnored = [//Ignore
+  //Thoughts
+  "You have too much momentum to stop now!",
+  //Out Loud
+  "'We can't waste time, onwards!'",
+  //Thoughts
+  "You ruthlessly decide that your time is not worth the potential loss of somebody else's life.",
+  "As you said, we can't waste time, we're trying to make some friends here buddy.",
+  "You continue barreling through the montain, but don't seem to find any other forms of life.",
+  "With an unfruitful adventure, you decide to go back to the tavern..."
+  //BACK TO TAVERN
+]
+
+var wickSavedCounter = -1;
+var wickSaved = [//Save
+  //Thoughts
+  "You decide to slow yourselves down and save this individual!",
+  //Out Loud
+  "'Ok team, we will carry this person to shelter!'",
+  "'Heave... HO!'",
+  //Thoughts
+  "Lifting the person onto your back, you scout around for shelter... and spot a cave!",
+  "Once inside you see a camp was already being set up inside.",//Camp (unlit)
+  "Your companions jump back into your invintory as you finish seting up the fire.",
+  "The individual on your back is uncouncious for a while...",//Camp (lit)
+  "...",
+  "but eventually wakes!",
+  //Wick
+  "'Oh? What's going on here? Where am I?'",//Confuse
+  //Out Loud
+  "'I found you passed out in the snow outside and decided to bring you to this small camp I found.'",
+  //Wick
+  "'Oh...'",
+  "'huh.'",
+  "'In that case thank you! I was really cutting it close that time! Luckily I passed out pretty close to my camp!'",//Blush
+  //Out Loud
+  "'You were passed out for quite a while, it looks like the blizzard had time to die down, are you okay?'",
+  //Wick
+  "'Ah, I'm fine! If the blizzard is dying down that means we can leave and-'",
+  //Thoughts
+  "With amost perfect timing, a small avalanche blocks the cave's mouth, leaving a large wall of snow blocking you and your new acquaintance in.",
+]
+
+//***********//
+// AVALANCHE //
+//***********//
+var avalancheCounter = -1;
+var avalancheResponse = [
+  //Wick
+  "'Well...'",
+  "'Uhm...'",
+  "'I guess we'll need to figure something else out!'",
+  "'The caves in these mountains are ancient tunnleways, and typically have 2 enterences...'",
+  "'Perhaps we can explore deeper and find a way out together? My name is Wick, I hope we can get along!'"//Blush
+]
+
+var avalancheDigCounter = -1;
+var avalancheDig = [//Dig out. Easy.
+  //Out Loud
+  "'Phht, no need. The avalanche wasn't that big.'",
+  "'How about INSTEAD I just DIG us out? No need to be dumb and wonder into a potentially dangerous cave.'",
+  //Wick
+  "'Wait I don't think you shou-'",
+  //Thoughts
+  "You begin to use your bare hands to slowly scoop away at the snow, ignoring whatever Wick was about to say.",
+  "But perhaps you should have heard them out, as your uneven removal of snow has resulted in poor structual stability.",
+  "Even worse, it seems the avalanche was much bigger than you had imagined...",
+  "You find yourself buried under a self made avalanche of mistakes...",//White Screen
+  "[GAME OVER]"
+]
+
+//**************//
+// CAVE EXPLORE //
+//**************//
+var exploreCavesCounter = -1;
+var exploreCaves = [//Agree to explore.
+  //Out Loud
+  "'Likewise! I'm ",
+  //Thoughts
+  "You and your new acquaintance begin to head deeper and deeper into the caves.",//Dark hallway
+  "Luckily it seems like you coming unprepared without a torch was not too big a mistake, as Wick happens to dimly glow, illuminating the way.",
+  "After a few minutes pass, light becomes even less of a concern, as glowing crystals seem to line the walls as you go further.", //Glowing Crystals
+  "It's quite a pretty sight... albeit a little strange. You've never seen glowing rocks... or people.",
+  "However, even more strange is the increasing amount of...",
+  "...",
+  "...What seems to be circus supplies?", //Hallway with broken shit
+  //Wick
+  "'The crystals are present throughout the entire mountain's cave system... They were used as lights for old travelers passing through!'",
+  "'Though mountains are still quite treacherous even if well lit... These seem to be remnants of the Funny Folk, people with very... interesting culture!'",
+  //Thoughts
+  "As you proceed further into the cave circus supplies becomes more frequent and you both begin to realize there is a distant... honking sound getting louder.",
+  "...",
+  "Or maybe its getting closer?",
+  //Wick
+  "'This is... concerning. I'm not positive but it seems we may have some... questionable Funny Folk company.'",
+  "'Perhaps we should do something before we proceed further?'",
+  //Out Loud
+  "'...Agreed. Hmm... let me think...'"
+]
+
+//*****************//
+// CLOWN ENCOUNTER //
+//*****************//
+var wickFireCounter = -1;
+var wickFire = [//Light Wick on fire.
+  //Thoughts
+  "Realizing that the crystals alongside Wick's natural glow isn't giving you an excellent view of the whole hallway, you decide to try something.",
+  "Perhaps Wick's glowing potential can be enchanced?",
+  //Out Loud
+  "'Hold still for a second.'",
+  //Wick
+  "'Hmm? What for?'",
+  //Thoughts
+  "You snag a match from Wick's backpack and light it, before promptly tossing it back in.",
+  "This seems to almost instantaneously cause Wick to burst into flames, providing an excellent view deeper into the cave.",
+  "Ignoring the screaming Wick seems to be partaking in, you notice a figure standing at the very end of the flames light...",
+  "A clown(?) seems to be standing there, silently observing the now frantic Wick rolling around on the floor. Must be one of the Funny Folk.",//Clown
+  //Wick
+  "'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!'",
+  //Thoughts
+  "It looks at you and gives a very slight nod. It seems satisfied somehow.",
+  "Like a mime, it pulls some sort of invisible leaver, opening a trapdoor beneath you and Wick.",
+  "The hole leads to a slide, which somehow, is making you slide upwards.",//Slide???
+  "A short sliding session ensues, with you and Wick somehow ending up being spat out at the base of the mountain despite sliding upwards.",//Mountain
+  "The Funny Folk certainly have funny ideas concerning the concept of up and down.",//Confetti
+  //Out Loud
+  "'Well that seemed to work out. I'm sure glad we-'",
+  //Wick (Angry)
+  "Wick, seeming angry, throws a lit match at you.",
+  "Since you traveled light, the flame isn't too big, but you certainly end up on fire... which hurts a lot.",
+  "Wick storms off without a word, letting you roll around in the snow to extinguish yourself.",
+  "You make mental note that lighting people on fire unprompted does not feel good.",
+  "Extinguished, you decide to not light any future potential companion on fire and head back to the Tavern."
+  //ROUTE END  (No Friend)
+]
+
+var wickClownStabCounter = -1;
+var wickClownStab = [//Turn back, head to camp.
+  //Out Loud
+  "'This seems sketchy... Maybe we should just turn back for now? We can come up with a new plan at camp.'",
+  //Wick
+  "'I have enough supplies at camp to last a little while, we can discuss Funny Folklore to pass some time!'",
+  //Thoughts
+  "As you turn your backs, you suddenly feel a sharp pain come from behind, enough to make you fall to your knees.",
+  "It's hard to say what happened next exactly, as all you could observe after this was a loud honk and your face coming into contact with the ground.",
+  "It seems that your life has been ended... extremely quickly by something you could not fully observe.",
+  "[GAME OVER]"
+]
+
+var wickClownHornCounter = -1;
+var wickClownHorn = [//Honk back, embrace honkage.
+  //Out Loud
+  "'How about we... honk back?'",
+  //Thoughts
+  "You pick up a spare horn from the pile of disgarded circus supplies.",
+  "Instead of turning back and returning to camp, you decide to honk back and return to honk.",
+  "(...if that makes any sense.)",
+  "The approaching honking ceases. Instead, a figure slowly walks into view.",
+  "What appears to be a clown(?) stands before you, seemingly intrigued by the honking you made.",//Clown
+  "Looking closer you notice that it has a claw for a hand...",
+  "Realizing you are standing in a dark cave surrounded by abandoned circus supplies, in front of a silent clown(?), who has a claw hand, who has essentially ambushed you, you decide another decision must be made."
+]
+
+//*******************//
+// CLOWN INTERACTION //
+//*******************//
+var wickApproachClownCounter = -1;
+var wickApproachClown = [//Approach clown(?).
+  //Out Loud
+  "'Surely this Funny Fellow means us no harm. They are meant to bring joy to people after all.'",
+  "'I'm going to approach and speak with it.'",
+  //Wick
+  "'Are you sure you want to get close? They usually have a riddl-'",
+  //Out Loud
+  "'Oh hello there! We were trapped in this cave and were wondering if-'",
+  //Thoughts
+  "The moment you get close enough to the Funny Fellow, you learn very quickly that it's claw hand is not for show.",
+  "You think you might have heard Wick scream, but you can't be sure. It was hard to tell over the sensation of rapidly bleeding out on the ground.", //Red Screen
+  "The honking sound grows more rapid, and you lose consciousness thinking about how unfunny that Funny Fellow was.", //Black Screen
+  "[GAME OVER]"
+]
+
+var wickGiveHornWCounter = -1;
+var wickGiveHornW = [//Give another horn to Wick.
+  //Thoughts
+  "Seeing as the Funny Fellow looks interested in the horn sounds, you decide to keep it's interest focused on the horns.",
+  "You toss an extra horn to Wick, who seems to understand the plan.",
+  "In perfect unison, you and Wick make a beautiful melody of honking...",
+  "HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK ~ HONK",
+  "The Funny Fellow does not move a lot, but is looking between you and Wick back and forth.",
+  "As the enchanting melody of soothing horn honking reaches it's end, the cave falls silent.",
+  "There is a mask in the way, but you can imagine a tear of joy streaming beneath it.",
+  "Who wouldn't shed a tear or two after such a preformance?"
+]
+
+var wickGiveHornCCounter = -1;
+var wickGiveHornC = [//Give your horn to clown(?).
+  //Thoughts
+  "Seeing as the Funny Fellow took interest in the honking, you decide to let the clown upgrade it's honking privileges.",
+  "Taking a few steps closer, you lightly lob the horn over to the Funny Fellow.",
+  "You may have just blinked weird, but it appeared as if it was able to instantly grab the horn without moving.",
+  "It looks down into its non claw hand holding the horn, and honks it.",
+  "It appears to honk again, despite not using the horn this time.",
+  "You realize the Funny Fellow was somehow honking before actually possessing the horn.",
+  "It begins to rapidly emit honking sounds out of itself and the horn simultaneously",
+  "After a few moments it stops, and looks back up."
+]
+
+//******************//
+// WICK RECRUITMENT //
+//******************//
+var wickClownSatisfiedCounter = -1;
+var wickClownSatisfied = [
+  //Thoughts
+  "It looks at you and gives a very slight nod. It seems satisfied somehow.",
+  "Like a mime, it pulls some sort of invisible leaver, opening a trapdoor beneath you and Wick.",
+  "The hole leads to a slide, making you slide down.",//Slide???
+  "After sliding down a surprisingly long slide, you are spat out at the top of the mountain... despite sliding downwards?",
+  "The Funny Folk certainly have funny ideas concerning the concept of up and down.",
+  //Wick
+  "'Well... That was exciting! I wonder why the rest of the Funny Folk seem to have vanished?'",//Confuse
+  "'But hey! We made it to the top of the mountain somehow!'",
+  "'I came here in hopes of finding an amazing power said to be found here... Something so powerful it could trumph all other obtainable powers.'",
+  "'I had hoped I'd discover what that power was by researching the Funny Folk, who are said to have mastered it.'",
+  "'But it seems like all thats here is a lone Funny Fellow and the mountain's peak.'",//Sad
+  "'What about you? Now that you're here, what did you hope to find?'"
+]
+
+var wickConversationKillerCounter = -1;
+var wichConversationKiller = [//Keep your reasons secret.
+  //Thoughts
+  "It would be kind of embarassing to admit you have no friends and wanted to find a mysterious magic friendship door with the help of Funny Folk... You decide to keep it secret.",
+  //Out Loud
+  "'Well... Uh... I wish you luck on your quest to find this power... but I cannot tell you what I'm looking for.'",
+  "'It's much to important... and uh... secretive! I can't just tell anybody about it willy nilly. I hope you understand.'",
+  //Wick
+  "'Oh. Uh... okay, I suppose I shouldn't stick my buisness into somebody else's...'",
+  //Thoughts
+  "Wick does not pry further, but sadly this was a real conversation killer.",
+  "It gets pretty awkward and you both start heading down the mountain in silence.",
+  "Your conversational skills could use some work it seems, you and Wick polietly part ways once you've reached the base of the mountain.",
+  "Alls well that ends well I suppose?"
+  //ROUTE END (No Friend)
+]
+
+var wickRudeDismissalCounter = -1;
+var wickRudeDismissal = [//Wick sounds dumb.
+  //Out Loud
+  "'That sounds so dumb. Why would a bunch of people dressed like clowns have unrivaled power?'",
+  //Wick
+  "'M... M-My ancestors had a legend tha-'",
+  //Out Loud
+  "'It was probably just some folklore meant to keep children on their best behavior or something.'",
+  "'Anyway sorry to hear that your adventure didn't turn out, I came here to-'",
+  //Thoughts
+  "Before you could explain your quest to find an ancient friendship civilization, Wick seems to walk away.",//Angry
+  "You think that was quite rude, as they had asked why you were here.",//Gone
+  "It can't be helped I guess, some people just don't know how to be considerate to other people's feelings.",
+  "You follow them down the mountain from behind, as they seem to know the mountain better than you.",
+  "Since you couldn't find anything outside a potentioally dangerous Funny Fellow, you decide to go back to the Tavern empty handed..."
+  //ROUTE END (No Friend)
+]
+
+var wickExplainQuestCounter = -1;
+var wickExplainQuest = [//Explain your quest.
+  //Out loud
+  "'I came here on a quest of my own...'",
+  "'I too seek an ancient civilization of Funny Folk.'",
+  "'There is supposedly a magical door with mysterious power said to bring you to a realm of infinite possibilities, a promised realm of friends and paradise.'",
+  "'The civilation of Funny Folk said to be here was a lead I followed in hopes of finding it, but we both seem to have come up empty handed on our quests...'",
+  //Thoughts
+  "Wick seemed to be eagerly listening to your explanation.",
+  //Wick
+  "'Oh! Well that sounds like a fine journey to find yourself on!'",
+  "'Hmm... given that we both came here looking for the source of mysterious power, is there a chance we are looking for the same thing?'",
+  "'Since we both seem to have hit a roadblock, why dont we travel together? Perhaps we can both find what we are looking for by working together!'"
+]
+
+var wickAcceptFriendCounter = -1;
+var wickAcceptFriend = [//Additional companionship couldn't hurt!
+  //Out Loud
+  "'I dont see why not! Additional company couldn't hurt!'",
+  //Wick
+  "'I couldn't agree more! With an extra pair of eyes looking out, we're sure to find something eventually!'",//Blush
+  "'Now that everything has settled down, why don't we return to the Tavern? I'll try to make it a little easier to travel.'",
+  //Thoughts
+  "YOU HAVE AQUIRED 'WICK'!"
+]
+
+var wickSpookyCounter = -1;
+var wickSpooky = [//You are too spooky...
+  //Out Loud
+  "'Erm... I would, but you are kind of...'",
+  "'...'",
+  "'...spooky. Like, are you a ghost? Fire person? Candle? Like, how does somebody just glow and have-'",
+  //Thoughts
+  "Maybe not the best choice of words used there.", //Angry
+  "Wick seems to have not liked what you had to say about them...",
+  "Before you could say anything else, Wick storms off without a word."
+  //Friend miss, but continue.
+]
+
+var wickSplitCounter = -1;
+var wickSplit = [//We should split up.
+  //Out Loud
+  "'I mean I guess? I think it would be a better idea if we split up though.'",
+  "'Our odds of finding things is much higher if we are looking in different locations after all.'",
+  //Wick
+  "'O-oh. Y-yeah I guess that makes sense... In that case I suppose we can just sort of...'",//Confuse
+  "'go our seperate ways?'",
+  //Out Loud
+  "'Sounds like a solid plan, good luck out there.'",
+  //Thoughts
+  "Wick walks off a little confused. You get the feeling if they're confused from that conversation they might not be very helpful looking for things.",
+  "Well whatever, no time to waste, friends won't find themselves!"
+  //Friend miss, but continue.
+]
+
+//***************//
+// TAVERN RETURN //
+//***************//
+var wickGoBackCounter = -1;
+var wickGoBack = [
+  //Thoughts
+  "It's time to head back! Going up the mountain was pretty hard... but getting down should be much easier.",
+  "Question is... how?"
+]
+
+var wickGoDownNormalCounter = -1;
+var wickGoDownNormal = [//Go down normally (hike).
+  //Thoughts
+  "Just hiking down is an option you figure, no need for fancy tricks or wild action.",
+  "You casually make your way down the mountain and eventually find yourself at it's base.",
+  "Sometimes the simple solution is the most effective. You walk back to the tavern to persue a different lead."
+]
+
+var wickRollCounter = -1;
+var wickRoll = [//Roll down as a snowball.
+  //Thoughts
+  "You just had the best idea.",
+  "So like, wheels and balls roll down slopes right?",
+  "Solution: Become a ball and roll.",
+  "As you toss yourself down a steep slope and begin to roll up a bunch of snow, your speed increases greatly.",
+  "You go flying down the mountain, getting down much more effeciently than any other method.",
+  "However, this is also an issue, as when you reach the bottom, you still have a lot of built up speed.",
+  "So much speed in fact, that your entire body is crushed the moment you reach non sloped ground.",
+  "But sometimes it's the journey that matters, and you can say with certainty that it was fun up until that point.",
+  "[GAME OVER]"
+]
+
+var wickSnowBoardCounter = -1;
+var wickSnowBoard = [//Use the power of your companions. (One Friend)
+  //Thoughts
+  "You pull out a trusty companion and kickflip them in item form.",
+  "They are sturdy enough to support your weight and you begin snowboarding down with elegence and grace.",
+  "Through the power of combined utility anything is possible. You walk back to the tavern to persue a different lead."
+]
+
+var wickSnowBoardBadCounter = -1;
+var wickSnowBoardBad = [//Use the power of your companions. (Zero Friends)
+  //Thoughts
+  "You realize you don't have any companions to make use of... No matter.",
+  "You believe in yourself instead, and attempt to manifest a snowboard midair as you jump over a steep slope.",
+  "Sadly this effort in in vain, and ultimately you fumble over your own feet and fall into a ravine.",
+  "The impact is responsable for instantly killing you, so at least you don't need to do something like amputate a limb.",
+  "[GAME OVER]"
 ];
 //************Wick route ends ends here******************************************************************************************************************************************************************************************
 
@@ -1191,7 +1669,9 @@ function changeRightBar(color) {
       leftChoiceBox2.textContent = "Head to the Blue Forest in the south.";
       rightChoiceBox2.textContent = "Head towards the friendship door in the ruins up north."
       removeHidden(leftChoiceBox1);
-      removeHidden(rightChoiceBox1);
+      if(wickRoute == 0) {
+        removeHidden(rightChoiceBox1);
+      }
       if(pilzRoute == 0) {
         removeHidden(leftChoiceBox2);
       }
@@ -1209,6 +1689,1588 @@ function changeRightBar(color) {
 
 
 //************Wick functions start here******************************************************************************************************************************************************************************************
+
+function wickRouteIntro()
+{
+  if (wickIntroCounter <= 9)
+  {
+    //VISUAL CHANGES
+    if(wickIntroCounter == 5)
+    {
+      characterNameDisplay.textContent = playerName;
+    }
+
+    if (wickIntroCounter == 6)
+    {
+      characterNameDisplay.textContent = ''
+      changeDisplay('./Pictures/Backgrounds/Trail.png') //TRAIL!
+    }
+    if (wickIntroCounter == 7)
+    {
+      characterNameDisplay.textContent = ''
+      changeDisplay('./Pictures/Backgrounds/Mountain.png') //MOUNTAIN!
+    }
+    //VISUAL CHANGES
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(wickIntro[wickIntroCounter])
+      .start();
+      textBoxClicked = 1;
+      wickIntroCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+
+  else
+  {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    leftChoiceBox1.textContent = "Hike up anyway.";
+    rightChoiceBox1.textContent = "Look for shelter.";
+    leftChoiceBox2.textContent = "Huddle for warmth.";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+    removeHidden(leftChoiceBox2);
+    characterNameDisplay.textContent = " ";
+  }
+};
+
+function wickBase1Encounter()
+{
+    if (wickBase1Counter <= 13)
+    {
+     //VISUAL CHANGES
+     if(wickBase1Counter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase1Counter == 2)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase1Counter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK SCREEN!
+     }
+     if(wickBase1Counter == 8)
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCamp.png')//CAMP!
+     }
+     if(wickBase1Counter == 10)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickBase1Counter == 13)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickBase1[wickBase1Counter])
+        .start();
+        textBoxClicked = 1;
+        wickBase1Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      avalancheCounter = 0;
+      wickBase1Counter = -2;
+    }
+}
+
+function wickBase2Encounter()
+{
+    if (wickBase2Counter <= 9)
+    {
+     //VISUAL CHANGES
+     if(wickBase2Counter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase2Counter == 2)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase2Counter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCamp.png')//CAMP!
+     }
+     if(wickBase2Counter == 6)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickBase2Counter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCampWickBlush.png')//CAMP WITH WICK BLUSH!
+     }
+     if(wickBase2Counter == 8)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickBase2Counter == 9)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickBase2[wickBase2Counter])
+        .start();
+        textBoxClicked = 1;
+        wickBase2Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      avalancheCounter = 0;
+      wickBase2Counter = -2;
+    }
+}
+
+function wickBase3Bad1End()
+{
+    if (wickBase3Bad1Counter <= 10)
+    {
+     //VISUAL CHANGES
+     if(wickBase3Bad1Counter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase3Bad1Counter == 1)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase3Bad1Counter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK!
+     }
+     if(wickBase3Bad1Counter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickBase3Bad1[wickBase3Bad1Counter])
+        .start();
+        textBoxClicked = 1;
+        wickBase3Bad1Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickBase3Bad2End()
+{
+    if (wickBase3Bad2Counter <= 10)
+    {
+     //VISUAL CHANGES
+     if(wickBase3Bad2Counter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase3Bad2Counter == 1)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickBase3Bad2Counter == 6)
+     {
+      changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK!
+     }
+     if(wickBase3Bad2Counter == 10)
+     {
+      changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickBase3Bad2[wickBase3Bad2Counter])
+        .start();
+        textBoxClicked = 1;
+        wickBase3Bad2Counter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickBase3PassEncounter()
+{
+    if (wickBase3PassCounter <= 4)
+    {
+     //VISUAL CHANGES
+     if(wickBase3PassCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickBase3PassCounter == 1)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickBase3Pass[wickBase3PassCounter])
+        .start();
+        textBoxClicked = 1;
+        wickBase3PassCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      leftChoiceBox1.textContent = "Ignore, no time.";
+      rightChoiceBox1.textContent = "Rescue, make time.";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickIgnoreEnd()
+{
+    if (wickIgnoredCounter <= 5)
+    {
+     //VISUAL CHANGES
+     if(wickIgnoredCounter == 0)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickIgnoredCounter == 1)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickIgnoredCounter == 2)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickIgnored[wickIgnoredCounter])
+        .start();
+        textBoxClicked = 1;
+        wickIgnoredCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickIgnoredCounter = -2;
+    }
+}
+
+function wickSavedEncounter()
+{
+    if (wickSavedCounter <= 16)
+    {
+     //VISUAL CHANGES
+     if(wickSavedCounter == 0)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickSavedCounter == 1)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickSavedCounter == 3)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickSavedCounter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/UnlitCamp.png')//UNLIT CAMP!
+     }
+     if(wickSavedCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/LitCampWickZZZ.png')//CAMP WICK SLEEP
+     }
+     if(wickSavedCounter == 9)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickConfused.png')//CAMP WITH WICK CONFUSED!
+     }
+     if(wickSavedCounter == 10)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(wickSavedCounter == 11)
+     {
+       characterNameDisplay.textContent = '???';
+     }
+     if(wickSavedCounter == 12)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickNormal.png')//CAMP WITH WICK!
+     }
+     if(wickSavedCounter == 13)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/LitCampWickBlush.png')//CAMP WITH WICK BLUSH!
+     }
+     if(wickSavedCounter == 14)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(wickSavedCounter == 15)
+     {
+       characterNameDisplay.textContent = '???';
+     }
+     if(wickSavedCounter == 16)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickSaved[wickSavedCounter])
+        .start();
+        textBoxClicked = 1;
+        wickSavedCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      avalancheCounter = 0;
+      wickSavedCounter = -2;
+    }
+}
+
+function wickAvalancheResponse()
+{
+    if (avalancheCounter <= 4)
+    {
+     //VISUAL CHANGES
+     if(avalancheCounter == 0)
+     {
+       characterNameDisplay.textContent = '???';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK!
+     }
+     if(avalancheCounter == 4)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickBlush.png')//AVALANCHE CAMP WITH WICK BLUSH!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(avalancheResponse[avalancheCounter])
+        .start();
+        textBoxClicked = 1;
+        avalancheCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      leftChoiceBox1.textContent = "Just dig out. Easy peasy.";
+      rightChoiceBox1.textContent = "Exploring sounds good.";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickAvalancheResponseDig()
+{
+    if (avalancheDigCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if(avalancheDigCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickNormal.png')//AVALANCHE CAMP WITH WICK!
+     }
+     if(avalancheDigCounter == 2)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/AvalancheCampWickConfused.png')//AVALANCHE CAMP WITH WICK CONFUSE!
+     }
+     if(avalancheDigCounter == 3)
+     {
+       characterNameDisplay.textContent = '';
+     }
+     if(avalancheDigCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/Outside1.png')//WHITE SCREEN!
+     }
+     if(avalancheDigCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER!
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(avalancheDig[avalancheDigCounter])
+        .start();
+        textBoxClicked = 1;
+        avalancheDigCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickAvalancheResponseExplore()
+{
+    if (exploreCavesCounter <= 15)
+    {
+     //VISUAL CHANGES
+     if(exploreCavesCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName;
+     }
+     if(exploreCavesCounter == 1)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/DarkHallway.png')//DARK HALLWAY!
+     }
+     if(exploreCavesCounter == 3)
+     {
+       changeDisplay('./Pictures/Backgrounds/CrystalCave.png')//CRYSTAL CAVE!
+     }
+     if(exploreCavesCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/Supplies.png')//CLOWN SUPPLIES!
+     }
+     if(exploreCavesCounter == 8)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WITH WICK!
+     }
+     if(exploreCavesCounter == 10)
+     {
+       characterNameDisplay.textContent = '';
+       changeDisplay('./Pictures/Backgrounds/CrystalCave.png')//CRYSTAL CAVE!
+     }
+     if(exploreCavesCounter == 13)
+     {
+       characterNameDisplay.textContent = 'Wick';
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickConfused.png')//CRYSTAL CAVE WITH WORRIED WICK!
+     }
+     if(exploreCavesCounter == 15)
+     {
+      characterNameDisplay.textContent = playerName;
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(exploreCaves[exploreCavesCounter])
+        .start();
+        textBoxClicked = 1;
+        exploreCavesCounter++;
+        if (exploreCavesCounter == 1)
+        {
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString(playerName + ", lets explore deeper into the cave shall we?")
+          .start();
+        }
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      leftChoiceBox1.textContent = "Turn back, return to camp.";
+      rightChoiceBox1.textContent = "Light Wick on fire.";
+      leftChoiceBox2.textContent = "Honk back, return to honk.";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickLightFire()
+{
+    if (wickFireCounter <= 19)
+    {
+     //VISUAL CHANGES
+     if (wickFireCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickFireCounter == 2)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickFireCounter == 3)
+     {
+       characterNameDisplay.textContent = 'Wick'
+     }
+     if (wickFireCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickFireCounter == 7)
+     {
+      changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png') //CRYSTAL CAVE CLOWN
+     }
+     if (wickFireCounter == 8)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickFire.png') //CRYSTAL CAVE FIRE
+     }
+     if (wickFireCounter == 9)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png') //CRYSTAL CAVE CLOWN
+     }
+     if (wickFireCounter == 11)
+     {
+       changeDisplay('./Pictures/Backgrounds/Slide.png') //SLIDE
+     }
+     if (wickFireCounter == 13)
+     {
+       changeDisplay('./Pictures/Backgrounds/Trail.png') //TRAIL
+     }
+     if (wickFireCounter == 14)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickFireCounter == 15)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/TrailWickAngry.png') //TRAIL ANGRY WICK
+     }
+     if (wickFireCounter == 17)
+     {
+       changeDisplay('./Pictures/Backgrounds/Trail.png') //TRAIL
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickFire[wickFireCounter])
+        .start();
+        textBoxClicked = 1;
+        wickFireCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickFireCounter = -2;
+    }
+}
+
+function wickTurnBack()
+{
+    if (wickClownStabCounter <= 5)
+    {
+     //VISUAL CHANGES
+     if (wickClownStabCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickClownStabCounter == 1)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WICK
+     }
+     if (wickClownStabCounter == 2)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED SCREEN
+     }
+     if (wickClownStabCounter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK SCREEN
+     }
+     if (wickClownStabCounter == 5)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickClownStab[wickClownStabCounter])
+        .start();
+        textBoxClicked = 1;
+        wickClownStabCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickHonkBack()
+{
+    if (wickClownHornCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if (wickClownHornCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickClownHornCounter == 1)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickClownHornCounter == 5)
+     {
+      changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickClownHorn[wickClownHornCounter])
+        .start();
+        textBoxClicked = 1;
+        wickClownHornCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      //introCounter = -2;
+      leftChoiceBox1.textContent = "Approach the clown(?).";
+      rightChoiceBox1.textContent = "Give Wick another horn.";
+      leftChoiceBox2.textContent = "Give clown(?) your horn.";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickApproachClownEnd()
+{
+    if (wickApproachClownCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if (wickApproachClownCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickApproachClownCounter == 2)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickConfused.png')//CRYSTAL CAVE WICK CONFUSED
+     }
+     if (wickApproachClownCounter == 3)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
+     }
+     if (wickApproachClownCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickApproachClownCounter == 5)
+     {
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED SCREEN
+     }
+     if (wickApproachClownCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK SCREEN
+     }
+     if (wickApproachClownCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickApproachClown[wickApproachClownCounter])
+        .start();
+        textBoxClicked = 1;
+        wickApproachClownCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickGiveHornWick()
+{
+    if (wickGiveHornWCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if (wickGiveHornWCounter = 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickGiveHornWCounter = 1)
+     {
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WICK NORMAL
+     }
+     if (wickGiveHornWCounter = 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickGiveHornW[wickGiveHornWCounter])
+        .start();
+        textBoxClicked = 1;
+        wickGiveHornWCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickGiveHornWCounter = -2;
+      wickClownSatisfiedCounter = 0;
+    }
+}
+
+function wickGiveHornClown()
+{
+    if (wickGiveHornCCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if (wickGiveHornCCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickGiveHornCCounter == 1)
+     {
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickGiveHornC[wickGiveHornCCounter])
+        .start();
+        textBoxClicked = 1;
+        wickGiveHornCCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickGiveHornCCounter = -2;
+      wickClownSatisfiedCounter = 0;
+    }
+}
+
+function wickClownSatisfiedEvent()
+{
+    if (wickClownSatisfiedCounter <= 10)
+    {
+     //VISUAL CHANGES
+     if (wickClownSatisfiedCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
+     }
+     if (wickClownSatisfiedCounter == 2)
+     {
+       changeDisplay('./Pictures/Backgrounds/Slide.png')//SLIDE
+     }
+     if (wickClownSatisfiedCounter == 3)
+     {
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
+     }
+     if (wickClownSatisfiedCounter == 5)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     if (wickClownSatisfiedCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickClownSatisfiedCounter == 10)
+     {
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickClownSatisfied[wickClownSatisfiedCounter])
+        .start();
+        textBoxClicked = 1;
+        wickClownSatisfiedCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      leftChoiceBox1.textContent = "Wow Wick sounds dumb.";
+      rightChoiceBox1.textContent = "Explain your noble quest.";
+      leftChoiceBox2.textContent = "Keep your reasons secret...";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickConversationKillerEnd()
+{
+    if (wickConversationKillerCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if (wickConversationKillerCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     if (wickConversationKillerCounter == 1)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickConversationKillerCounter == 3)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     if (wickConversationKillerCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickConversationKillerCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickConversationKiller[wickConversationKillerCounter])
+        .start();
+        textBoxClicked = 1;
+        wickConversationKillerCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickConversationKillerCounter = -2;
+    }
+}
+
+function wickRudeEnd()
+{
+    if (wickRudeDismissalCounter <= 8)
+    {
+     //VISUAL CHANGES
+     if (wickRudeDismissalCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickRudeDismissalCounter == 1)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     if (wickRudeDismissalCounter == 2)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickRudeDismissalCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/PeakWickAngry.png')//PEAK WICK ANGRY
+     }
+     if (wickRudeDismissalCounter == 5)
+     {
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
+     }
+     if (wickRudeDismissalCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickRudeDismissal)[wickRudeDismissalCounter])
+        .start();
+        textBoxClicked = 1;
+        wickRudeDismissalCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickRudeDismissalCounter = -2;
+    }
+}
+
+function wickExplainQuestEvent()
+{
+    if (wickExplainQuestCounter <= 7)
+    {
+     //VISUAL CHANGES
+     if (wickExplainQuestCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickExplainQuestCounter == 4)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/PeakWickBlush.png')//PEAK WICK BLUSH
+     }
+     if (wickExplainQuestCounter == 5)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickExplainQuestCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     if (wickExplainQuestCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/PeakWickBlush.png')//PEAK WICK BLUSH
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickExplainQuest[wickExplainQuestCounter])
+        .start();
+        textBoxClicked = 1;
+        wickExplainQuestCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      leftChoiceBox1.textContent = "Additional companionship!";
+      rightChoiceBox1.textContent = "You're too spooky...";
+      leftChoiceBox2.textContent = "We should split up.";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickAcceptFriendEvent()
+{
+    if (wickAcceptFriendCounter <= 3)
+    {
+     //VISUAL CHANGES
+     if (wickAcceptFriendCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickAcceptFriendCounter == 1)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/PeakWickBlush.png')//PEAK WICK BLUSH
+     }
+     if (wickAcceptFriendCounter == 3)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
+     }
+     //HERE
+      if (wickAcceptFriendCounter == 3) {
+        wickItemContainer.src = './Pictures/Items/WickItem.png';
+        wickItem = 1;
+      }
+
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickAcceptFriend)[wickAcceptFriendCounter])
+        .start();
+        textBoxClicked = 1;
+        wickAcceptFriendCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickAcceptFriendCounter = -2;
+      wickGoBackCounter = 0;
+    }
+}
+
+function wickSpookyEvent()
+{
+    if (wickSpookyCounter <= 5)
+    {
+     //VISUAL CHANGES
+     if (wickSpookyCounter == 0)
+     {
+       characterNameDisplay = playerName
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickSpookyCounter == 3)
+     {
+       characterNameDisplay = ''
+       changeDisplay('./Pictures/Backgrounds/PeakWickAngry.png')//PEAK WICK ANGRY
+     }
+     if (wickSpookyCounter == 5)
+     {
+       characterNameDisplay = ''
+       changeDisplay('./Pictures/Backgrounds/Peak.png')//PEAK
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickSpooky)[wickSpookyCounter])
+        .start();
+        textBoxClicked = 1;
+        wickSpookyCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickSpookyCounter = -2;
+      wickGoBackCounter = 0;
+    }
+}
+
+function wickSplitEvent()
+{
+    if (wickSplitCounter <= 6)
+    {
+     //VISUAL CHANGES
+     if (wickSplitCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+       changeDisplay('./Pictures/Backgrounds/PeakWickNormal.png')//PEAK WICK NORMAL
+     }
+     if (wickSplitCounter == 2)
+     {
+       characterNameDisplay.textContent = 'Wick'
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     if (wickSplitCounter == 4)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickSplitCounter == 5)
+     {
+       characterNameDisplay.textContent = ''
+       changeDisplay('./Pictures/Backgrounds/PeakWickConfused.png')//PEAK WICK CONFUSED
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickSplit)[wickSplitCounter])
+        .start();
+        textBoxClicked = 1;
+        wickSplitCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickSplitCounter = -2;
+      wickGoBackCounter = 0;
+    }
+}
+
+function wickGoBackEvent()
+{
+    if (wickGoBackCounter <= 1)
+    {
+     //VISUAL CHANGES
+     if (wickGoBackCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString(wickGoBack[wickGoBackCounter])
+        .start();
+        textBoxClicked = 1;
+        wickGoBackCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      leftChoiceBox1.textContent = "Go down normally and hike.";
+      rightChoiceBox1.textContent = "Roll down as a snowball.";
+      leftChoiceBox2.textContent = "Use the power of your companions.";
+      removeHidden(leftChoiceBox1);
+      removeHidden(rightChoiceBox1);
+      removeHidden(leftChoiceBox2);
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickHikeEnd()
+{
+    if (wickGoDownNormalCounter <= 2)
+    {
+     //VISUAL CHANGES
+     if (wickGoDownNormalCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickGoDownNormalCounter == 1)
+     {
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickGoDownNormal)[wickGoDownNormalCounter])
+        .start();
+        textBoxClicked = 1;
+        wickGoDownNormalCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickGoDownNormalCounter = -2;
+    }
+}
+
+function wickRollEnd()
+{
+    if (wickRollCounter <= 8)
+    {
+     //VISUAL CHANGES
+     if (wickRollCounter == 0)
+     {
+       characterNameDisplay.textContent = playerName
+     }
+     if (wickRollCounter == 6)
+     {
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED
+     }
+     if (wickRollCounter == 7)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK
+     }
+     if (wickRollCounter == 8)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickRoll)[wickRollCounter])
+        .start();
+        textBoxClicked = 1;
+        wickRollCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
+
+function wickSnowboardEnd()
+{
+    if (wickSnowBoardCounter <= 2)
+    {
+     //VISUAL CHANGES
+     if (wickSnowBoardCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickSnowBoardCounter == 2)
+     {
+       changeDisplay('./Pictures/Backgrounds/Trail.png')//TRAIL
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickSnowBoard)[wickSnowBoardCounter])
+        .start();
+        textBoxClicked = 1;
+        wickSnowBoardCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+      wickRoute = 1;
+      tavernHubCounter = 0;
+      tavernHubAgain = 1;
+      wickSnowBoardBadCounter = -2;
+    }
+}
+
+function wickSnowBoardBadEnd()
+{
+    if (wickSnowBoardBadCounter <= 4)
+    {
+     //VISUAL CHANGES
+     if (wickSnowBoardBadCounter == 0)
+     {
+       characterNameDisplay.textContent = ''
+     }
+     if (wickSnowBoardBadCounter == 2)
+     {
+       changeDisplay('./Pictures/Backgrounds/Red.png')//RED
+     }
+     if (wickSnowBoardBadCounter == 3)
+     {
+       changeDisplay('./Pictures/Backgrounds/Black.png')//BLACK
+     }
+     if (wickSnowBoardBadCounter == 4)
+     {
+       changeDisplay('./Pictures/Backgrounds/GameOver.png')//GAME OVER
+     }
+     //HERE
+      if (textBoxClicked == 0) {
+        typewriter
+        .changeDelay(customTextSpeed)
+        .typeString((wickSnowBoardBad)[wickSnowBoardBadCounter])
+        .start();
+        textBoxClicked = 1;
+        wickSnowBoardBadCounter++;
+      } else {
+        typewriter
+        .deleteAll(1)
+        .start();
+        textBoxClicked = 0;
+      }
+    }
+
+    else
+    {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+      characterNameDisplay.textContent = " ";
+    }
+}
 
 //************Wick functions end here******************************************************************************************************************************************************************************************
 
@@ -1960,6 +4022,7 @@ textBoxContainer.addEventListener('click', ()=> {
     //console.log('taverHubSequence');
     taverHubSequence();
   }
+
 //Pilz route stuff:
   if( (forestIntroCounter != -1) && (forestIntroCounter !=-2) ) {
     //console.log('forestIntroSequence');
@@ -2013,6 +4076,96 @@ textBoxContainer.addEventListener('click', ()=> {
     //console.log('forestCaveEat1Counte');
     forestCaveFriendshipSequence();
   }
+
+//Wick route stuff here
+  if( (wickIntroCounter != -1) && (wickIntroCounter != -2) ) {
+    wickRouteIntro();
+  }
+  if( (wickBase1Counter != -1) && (wickBase1Counter != -2) ) {
+    wickBase1Encounter();
+  }
+  if( (wickBase2Counter != -1) && (wickBase2Counter != -2) ) {
+    wickBase2Encounter();
+  }
+  if( (wickBase3Bad1Counter != -1) && (wickBase3Bad1Counter != -2) ) {
+    wickBase3Bad1End();
+  }
+  if( (wickBase3Bad2Counter != -1) && (wickBase3Bad2Counter != -2) ) {
+    wickBase3Bad2End();
+  }
+  if( (wickBase3PassCounter != -1) && (wickBase3PassCounter != -2) ) {
+    wickBase3PassEncounter();
+  }
+  if( (wickIgnoredCounter != -1) && (wickIgnoredCounter != -2) ) {
+    wickIgnoreEnd();
+  }
+  if( (wickSavedCounter != -1) && (wickSavedCounter != -2) ) {
+    wickSavedEncounter();
+  }
+  if( (avalancheCounter != -1) && (avalancheCounter != -2) ) {
+    wickAvalancheResponse();
+  }
+  if( (avalancheDigCounter != -1) && (avalancheDigCounter != -2) ) {
+    wickAvalancheResponseDig();
+  }
+  if( (exploreCavesCounter != -1) && (exploreCavesCounter != -2) ) {
+    wickAvalancheResponseExplore();
+  }
+  if( (wickFireCounter != -1) && (wickFireCounter != -2) ) {
+    wickLightFire();
+  }
+  if( (wickClownStabCounter != -1) && (wickClownStabCounter != -2) ) {
+    wickTurnBack();
+  }
+  if( (wickClownHornCounter != -1) && (wickClownHornCounter != -2) ) {
+    wickHonkBack();
+  }
+  if( (wickApproachClownCounter != -1) && (wickApproachClownCounter != -2) ) {
+    wickApproachClownEnd();
+  }
+  if( (wickGiveHornWCounter != -1) && (wickGiveHornWCounter != -2) ) {
+    wickGiveHornWick();
+  }
+  if( (wickGiveHornCCounter != -1) && (wickGiveHornCCounter != -2) ) {
+    wickGiveHornClown();
+  }
+  if( (wickClownSatisfiedCounter != -1) && (wickClownSatisfiedCounter != -2) ) {
+    wickClownSatisfiedEvent();
+  }
+  if( (wickConversationKillerCounter != -1) && (wickConversationKillerCounter != -2) ) {
+    wickConversationKillerEnd();
+  }
+  if( (wickRudeDismissalCounter != -1) && (wickRudeDismissalCounter != -2) ) {
+    wickRudeEnd();
+  }
+  if( (wickExplainQuestCounter != -1) && (wickExplainQuestCounter != -2) ) {
+    wickExplainQuestEvent();
+  }
+  if( (wickAcceptFriendCounter != -1) && (wickAcceptFriendCounter != -2) ) {
+    wickAcceptFriendEvent();
+  }
+  if( (wickSpookyCounter != -1) && (wickSpookyCounter != -2) ) {
+    wickSpookyEvent();
+  }
+  if( (wickSplitCounter != -1) && (wickSplitCounter != -2) ) {
+    wickSplitEvent();
+  }
+  if( (wickGoBackCounter != -1) && (wickGoBackCounter != -2) ) {
+    wickGoBackEvent();
+  }
+  if( (wickGoDownNormalCounter != -1) && (wickGoDownNormalCounter != -2) ) {
+    wickHikeEnd();
+  }
+  if( (wickRollCounter != -1) && (wickRollCounter != -2) ) {
+    wickRollEnd();
+  }
+  if( (wickSnowBoardCounter != -1) && (wickSnowBoardCounter != -2) ) {
+    wickSnowboardEnd();
+  }
+  if( (wickSnowBoardBadCounter != -1) && (wickSnowBoardBadCounter != -2) ) {
+    wickSnowBoardBadEnd();
+  }
+
 });
 
 //Choice boxes start here
@@ -2071,6 +4224,80 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
+
+//Wick route starts here
+  //Hike up anyway.
+  if( (wickIntroCounter >= 9) ) {
+    wickIntroCounter = -2;
+    wickBase1Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+
+  }
+
+  //Ignore, no time.
+  if( (wickBase3PassCounter >= 4) ) {
+    wickBase3PassCounter = -2;
+    wickIgnoredCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+
+  //Just dig out. Easy peasy.
+  if( (avalancheCounter >= 4) ) {
+    avalancheCounter = -2;
+    avalancheDigCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    avalancheCounter = -2;
+  }
+
+  //Turn back, return to camp.
+  if( (exploreCavesCounter >= 15) ) {
+    exploreCavesCounter = -2;
+    wickClownStabCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Approach the clown(?).
+  if( (wickClownHornCounter >= 7) ) {
+    wickClownHornCounter = -2;
+    wickApproachClownCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Wow Wick sounds dumb.
+  if( (wickClownSatisfiedCounter >= 10) ) {
+    wickClownSatisfiedCounter = -2;
+    wickRudeDismissalCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Additional compantionship!
+  if( (wickExplainQuestCounter >= 7) ) {
+    wickExplainQuestCounter = -2;
+    wickAcceptFriendCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Go down normally and hike.
+  if( (wickGoBackCounter >= 1) ) {
+    wickGoBackCounter = -2;
+    wickGoDownNormalCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+  //Wick route ends here
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -2089,7 +4316,7 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
   }
   if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
-    mountainsIntroCounter = 0;
+    wickIntroCounter = 0;
     tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
@@ -2128,6 +4355,79 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
+
+//Wick route starts here
+  //Look for shelter
+  if( (wickIntroCounter >= 9) ) {
+    wickIntroCounter = -2;
+    wickBase2Counter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Rescue, make time.
+  if( (wickBase3PassCounter >= 4) ) {
+    wickBase3PassCounter = -2;
+    wickSavedCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+
+  //Exploring sounds good.
+  if( (avalancheCounter >= 4) ) {
+    avalancheCounter = -2;
+    exploreCavesCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    avalancheCounter = -2;
+  }
+
+  //Light Wick on fire.
+  if( (exploreCavesCounter >= 15) ) {
+    exploreCavesCounter = -2;
+    wickFireCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Give Wick another horn.
+  if( (wickClownHornCounter >= 7) ) {
+    wickClownHornCounter = -2;
+    wickGiveHornWCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Explain your noble quest.
+  if( (wickClownSatisfiedCounter >= 10) ) {
+    wickClownSatisfiedCounter = -2;
+    wickExplainQuestCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //You're too spooky...
+  if( (wickExplainQuestCounter >= 7) ) {
+    wickExplainQuestCounter = -2;
+    wickSpookyCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Roll down as a snowball.
+  if( (wickGoBackCounter >= 1) ) {
+    wickGoBackCounter = -2;
+    wickRollCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+  //Wick route ends here
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -2171,6 +4471,79 @@ rightChoiceBox2.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
+
+  //Wick route starts here
+  //Huddle for warmth.
+  if( (wickIntroCounter >= 9) ) {
+    wickIntroCounter = -2;
+    let friendCount = (grobItem + pilzItem + wickItem + squidItem)
+    if (friendCount == 0) {
+      wickBase3Bad1Counter = 0;
+    }
+    else if (friendCount == 1) {
+      wickBase3Bad2Counter = 0;
+    }
+    else if (friendCount >= 2) {
+      wickBase3PassCounter = 0;
+    }
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Honk back, return to honk.
+  if( (exploreCavesCounter >= 15) ) {
+    exploreCavesCounter = -2;
+    wickClownHornCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Give clown(?) your horn.
+  if( (wickClownHornCounter >= 7) ) {
+    wickClownHornCounter = -2;
+    wickGiveHornCCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Keep your reasons secret...
+  if( (wickClownSatisfiedCounter >= 10) ) {
+    wickClownSatisfiedCounter = -2;
+    wickConversationKillerCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //We should split up.
+  if( (wickExplainQuestCounter >= 7) ) {
+    wickExplainQuestCounter = -2;
+    wickSplitCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+
+  //Use the power of your companions.
+  if( (wickGoBackCounter >= 1) ) {
+    wickGoBackCounter = -2;
+    wickSnowBoardCounter = 0;
+    let friendCount = (grobItem + pilzItem + wickItem + squidItem)
+    if (friendCount == 0) {
+      wickSnowBoardBadCounter = 0;
+    }
+    else if (friendCount >= 1) {
+      wickSnowBoardCounter = 0;
+    }
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+  //Wick route ends here
+
 })
 //Choice boxes ende here
 
