@@ -333,11 +333,11 @@ var doorArchersOctoText = [ //Have Octo create a blind spot (inks himself)
 ];
 
 var doorBridgeTrollCounter = -1;
-var doorbridgeTrollText = [
+var doorBridgeTrollText = [
   "Taking a look at your new surroundings it appears that you are in some sort of chocolate swamp.",//0 -change to chocolate swamp 2/bridge BG
   "There is a bridge in front of you made out of Charles Chewsters that looks to lead in the right direction.",
-  "So you continue your adventure along the bridge.",
-  "As you were making your way across the bridge you notice a strange figure climbing up from the side.",
+  "So you continue your adventure across the bridge.",
+  "As you were making your way across the bridge you notice a strange figure climbing up from the side.", //3
   "They climb up right in front of you and stare at you with a big smile.", //4 - change to clown looking at you.
   "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the Funny Folk.",
   //Player:
@@ -353,7 +353,7 @@ var doorbridgeTrollText = [
   "'Uhh sure, but what happens if we fail to get it right?'", //13
   //Clown:
   "'Well by gee golly! *Honk* *Honk* I would dip you with chocolate and add you to my bridge so that I won't have to worry about this winter!'", //14
-  "'HOOOOOO HEEEEEE!!!! I'm Excited to play this game!'",
+  "'HOOOOOO HEEEEEE!!!! I'm Excited to play this game!'", //15
   "'Now scooch your boot, here comes the riddle!'",
   "'What do you call one who happily devotes himself to farming candy?'",
   //Player:
@@ -367,21 +367,21 @@ var doorBridgeDieText = [ //Try answering your self.
   //Clown:
   "'Eeeeh Hee hee heeeeee!'", //1
   //No names
-  "...",
+  "...", //2
   //Player:
-  "'Uhh, does that mean I win?'", //2
+  "'Uhh, does that mean I win?'", //3
   //Clown:
-  "'Nope!'", //3
+  "'Nope! EEEEEHHH HEEEEE HEEEEE!!!! You lads need some better education!'", //4
   //No names
-  "The clown dashes at you with lightning speed and knocking you to the ground.", //4
+  "The clown dashes at you with lightning speed and knocking you to the ground.", //5
   "You can then feel the clown picking you up by the legs.",
   "You try to break free of his grasp, but your struggles are in vain.",
-  "The clown brings you to the bottom of the bridge and dips you in the chocolate swamp, covering your whole body.", //7 - Black BG
+  "The clown brings you to the bottom of the bridge and dips you in the chocolate swamp, covering your whole body.", //8 - Black BG
   "...",
   "You are then added to the bridge to solidify to.",
   "You then feel the sugar poisioning setting in.",
   "Soon you feel nothing.",
-  "[GAME OVER]" //12 - GAME OVER BG
+  "[GAME OVER]" //13 - GAME OVER BG
 ];
 
 var doorBridgeSacrificeCounter = -1;
@@ -2303,21 +2303,6 @@ function doorArchersDieSequence() {
 
 function doorArchersDistractSequence() {
   if (doorArchersDistractCounter <= 6) {
-    if(doorArchersDistractCounter == 5) {
-      //remove character item from inventory
-      if(grobItem == 1) { //grob
-        grobItemContainer.src = '';
-        grobIem = 0;
-
-      } else if (wickItem == 1) { //wick
-        wickItemContainer.src = '';
-        wickItem = 0;
-
-      } else if (pilzItem == 1) { //pilz
-        pilzItemContainer.src = '';
-        pilzItem = 0;
-      }
-    }
 
     if (textBoxClicked == 0) {
       typewriter
@@ -2348,6 +2333,21 @@ function doorArchersDistractSequence() {
           .start();
         }
       }
+      if(doorArchersDistractCounter == 6) {
+        //remove character item from inventory
+        if(grobItem == 1) { //grob
+          grobItemContainer.src = '';
+          grobItem = 0;
+
+        } else if (wickItem == 1) { //wick
+          wickItemContainer.src = '';
+          wickItem = 0;
+
+        } else if (pilzItem == 1) { //pilz
+          pilzItemContainer.src = '';
+          pilzItem = 0;
+        }
+      }
 
     } else {
       typewriter
@@ -2362,7 +2362,7 @@ function doorArchersDistractSequence() {
     .start();
     textBoxClicked = 0;
     characterNameDisplay.textContent = "";
-    doorBridgeTrollCounter - 0;
+    doorBridgeTrollCounter = 0;
     doorArchersDistractCounter = -2;
   }
 }
@@ -2401,6 +2401,244 @@ function doorArchersOctoSequence() {
     doorArchersOctoCounter = -2;
   }
 }
+
+function doorBridgeTrollSequence() {
+  if (doorBridgeTrollCounter <= 18) {
+    if(doorBridgeTrollCounter == 0) {
+      changeDisplay("./Pictures/Backgrounds/DoorBridge.png");
+    }
+    if(doorBridgeTrollCounter == 3) {
+      characterNameDisplay.textContent = "";
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeCreep.png");
+    }
+    if(doorBridgeTrollCounter == 4) {
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeClown.png");
+    }
+    if(doorBridgeTrollCounter == 6) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if(doorBridgeTrollCounter == 7) {
+      characterNameDisplay.textContent = "Candy Clown";
+    }
+    if(doorBridgeTrollCounter == 13) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if(doorBridgeTrollCounter == 14) {
+      characterNameDisplay.textContent = "Candy Clown";
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeClownMenacing.png");
+    }
+    if(doorBridgeTrollCounter == 15) {
+      characterNameDisplay.textContent = "Candy Clown";
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeClown.png");
+    }
+    if(doorBridgeTrollCounter == 18) {
+      characterNameDisplay.textContent = playerName;
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorBridgeTrollText[doorBridgeTrollCounter])
+      .start();
+      textBoxClicked = 1;
+      doorBridgeTrollCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+
+    leftChoiceBox1.textContent = "Try to answer the riddle yourself";
+    rightChoiceBox1.textContent = "Send someone as a distraction";
+    leftChoiceBox2.textContent = "Have Wick attempt to answer the riddle...";
+
+    removeHidden(leftChoiceBox1);
+    if(grobItem == 1 || squidItem == 1  || pilzItem == 1) {
+      removeHidden(rightChoiceBox1);
+    }
+    if(wickItem == 1) {
+      removeHidden(leftChoiceBox2);
+    }
+  }
+}
+
+function doorBridgeDieSequence() {
+  if (doorBridgeDieCounter <= 13) {
+    if(doorBridgeDieCounter == 0) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if(doorBridgeDieCounter == 1) {
+      characterNameDisplay.textContent = "Candy Clown";
+    }
+    if(doorBridgeDieCounter == 2) {
+      characterNameDisplay.textContent = "";
+    }
+    if(doorBridgeDieCounter == 3) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if(doorBridgeDieCounter == 4) {
+      characterNameDisplay.textContent = 'Candy Clown';
+    }
+    if(doorBridgeDieCounter == 5) {
+      characterNameDisplay.textContent = "";
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeClownMenacing.png");
+    }
+    if(doorBridgeDieCounter == 8) {
+      changeDisplay("./Pictures/Backgrounds/Black.png");
+    }
+    if(doorBridgeDieCounter == 13) {
+      changeDisplay("./Pictures/Backgrounds/GameOver.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorBridgeDieText[doorBridgeDieCounter])
+      .start();
+      textBoxClicked = 1;
+      doorBridgeDieCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+  }
+}
+
+function doorBridgeSacrificeSequence() {
+  if (doorBridgeSacrificeCounter <= 5) {
+    if (doorBridgeSacrificeCounter == 2) {
+      characterNameDisplay.textContent = "Candy Clown";
+    }
+    if (doorBridgeSacrificeCounter == 3) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorBridgeSacrificeText[doorBridgeSacrificeCounter])
+      .start();
+      textBoxClicked = 1;
+      doorBridgeSacrificeCounter++;
+
+      if(doorBridgeSacrificeCounter == 2) {
+        //Display Unique text based on charcaters available.
+        if(grobItem == 1) { //grob
+          characterNameDisplay.textContent = "Grob";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Grob answers the clown, 'How about a lollipop? I ate one of those not too long ago!'")
+          .start();
+
+        } else if (squidItem == 1) { //octo
+          characterNameDisplay.textContent = "Kraken Junior";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Kraken Junior steps up and answers the clown, 'Uhhhh, wanna take over the world with me?'")
+          .start();
+
+        } else if (pilzItem == 1) { //pilz
+          characterNameDisplay.textContent = "Pilz";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Pilz waddles out saying, 'Do you find this place to be a friendlt neighbor hood? Could I spread my spores safely here?'")
+          .start();
+        }
+      }
+      if(doorBridgeSacrificeCounter == 6) {
+        //remove character item from inventory
+        if(grobItem == 1) { //grob
+          grobItemContainer.src = '';
+          grobItem = 0;
+
+        } else if (squidItem == 1) { //octo
+          octoItemContainer.src = '';
+          squidItem = 0;
+
+        } else if (pilzItem == 1) { //pilz
+          pilzItemContainer.src = '';
+          pilzItem = 0;
+        }
+      }
+
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorCakeCanyonCounter = 0;
+    doorBridgeSacrificeCounter = -2;
+  }
+}
+
+function doorBridgeWickSequence() {
+  if (doorBridgeWickCounter <= 7) {
+    if(doorBridgeWickCounter == 1) {
+      characterNameDisplay.textContent = "Wick";
+    }
+    if(doorBridgeWickCounter == 2) {
+      characterNameDisplay.textContent = "Candy Clown";
+    }
+    if(doorBridgeWickCounter == 5) {
+      characterNameDisplay.textContent = "";
+    }
+    if(doorBridgeWickCounter == 6) {
+      characterNameDisplay.textContent = "Candy Clown";
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeCreep.png");
+    }
+    if(doorBridgeWickCounter == 7) {
+      characterNameDisplay.textContent = "";
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorBridgeWickText[doorBridgeWickCounter])
+      .start();
+      textBoxClicked = 1;
+      doorBridgeWickCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorCakeCanyonCounter = 0;
+    doorBridgeWickCounter = -2;
+  }
+}
+
 
 //************Door functions end here******************************************************************************************************************************************************************************************
 
@@ -5471,6 +5709,22 @@ if( (doorArchersDistractCounter != -1) && (doorArchersDistractCounter !=-2) ) {
 if( (doorArchersOctoCounter != -1) && (doorArchersOctoCounter !=-2) ) {
   doorArchersOctoSequence();
 }
+if( (doorBridgeTrollCounter != -1) && (doorBridgeTrollCounter !=-2) ) {
+  doorBridgeTrollSequence();
+}
+if( (doorBridgeDieCounter != -1) && (doorBridgeDieCounter !=-2) ) {
+  doorBridgeDieSequence();
+}
+if( (doorBridgeSacrificeCounter != -1) && (doorBridgeSacrificeCounter !=-2) ) {
+  doorBridgeSacrificeSequence();
+}
+if( (doorBridgeWickCounter != -1) && (doorBridgeWickCounter !=-2) ) {
+  doorBridgeWickSequence();
+}
+if( (doorCakeCanyonCounter != -1) && (doorCakeCanyonCounter !=-2) ) {
+  doorCakeCanyonSequence();
+}
+
 });
 
 //Choice boxes start here
@@ -5667,6 +5921,13 @@ leftChoiceBox1.addEventListener('click', ()=> {
   if ( (doorGrobWinCounter >= 16) ) {
     doorArchersDieCounter = 0;
     doorGrobWinCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+  if ( (doorBridgeTrollCounter >= 18) ) {
+    doorBridgeDieCounter = 0;
+    doorBridgeTrollCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
@@ -5869,6 +6130,13 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if ( (doorBridgeTrollCounter >= 18) ) {
+    doorBridgeSacrificeCounter = 0;
+    doorBridgeTrollCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -5980,6 +6248,13 @@ leftChoiceBox2.addEventListener('click', ()=> {
   if ( (doorGrobWinCounter >= 16) ) {
     doorArchersOctoCounter = 0;
     doorGrobWinCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
+  if ( (doorBridgeTrollCounter >= 18) ) {
+    doorBridgeWickCounter = 0;
+    doorBridgeTrollCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
