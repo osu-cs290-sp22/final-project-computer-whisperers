@@ -320,7 +320,7 @@ var doorArchersDistractText = [ //send someone as a distraction
 ];
 
 var doorArchersOctoCounter = -1;
-var doorArchersOctorText = [ //Have Octo create a blind spot (inks himself)
+var doorArchersOctoText = [ //Have Octo create a blind spot (inks himself)
   "You remember that Kraken Junior is indeed a karaken and can squirt ink.",
   "You ask Kraken Junior if he is capable of deploying a smoke screen to cover you.",
   //Kraken Junior:
@@ -332,7 +332,7 @@ var doorArchersOctorText = [ //Have Octo create a blind spot (inks himself)
   "Successfully evading the archers you look forward to the fabled door, as it must be near."
 ];
 
-var doorBirdgeTrollCounter = -1;
+var doorBridgeTrollCounter = -1;
 var doorbridgeTrollText = [
   "Taking a look at your new surroundings it appears that you are in some sort of chocolate swamp.",//0 -change to chocolate swamp 2/bridge BG
   "There is a bridge in front of you made out of Charles Chewsters that looks to lead in the right direction.",
@@ -2231,7 +2231,7 @@ function doorGrobWinSequence() {
       characterNameDisplay.textContent = "";
     }
     if(doorGrobWinCounter == 15) {
-      changeDisplay("./Pictures/Backgrounds/CrystalArchers.png");
+      changeDisplay("./Pictures/Backgrounds/DoorArchers.png");
     }
 
     if (textBoxClicked == 0) {
@@ -2254,6 +2254,151 @@ function doorGrobWinSequence() {
     .start();
     textBoxClicked = 0;
     characterNameDisplay.textContent = " ";
+
+    leftChoiceBox1.textContent = "Make a run for it!";
+    rightChoiceBox1.textContent = "Send someone as a distraction";
+    leftChoiceBox2.textContent = "Have Kraken Junior create a blindspot...";
+
+    removeHidden(leftChoiceBox1);
+    if(grobItem == 1 || wickItem == 1 || pilzItem == 1) {
+      removeHidden(rightChoiceBox1);
+    }
+    if(squidItem == 1 ) {
+      removeHidden(leftChoiceBox2);
+    }
+  }
+}
+
+function doorArchersDieSequence() {
+  if (doorArchersDieCounter <= 6) {
+    if(doorArchersDieCounter == 4) {
+      changeDisplay("./Pictures/Backgrounds/Black.png");
+    }
+    if(doorArchersDieCounter == 6) {
+      changeDisplay("./Pictures/Backgrounds/GameOver.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorArchersDieText[doorArchersDieCounter])
+      .start();
+      textBoxClicked = 1;
+      doorArchersDieCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+  }
+}
+
+function doorArchersDistractSequence() {
+  if (doorArchersDistractCounter <= 6) {
+    if(doorArchersDistractCounter == 5) {
+      //remove character item from inventory
+      if(grobItem == 1) { //grob
+        grobItemContainer.src = '';
+        grobIem = 0;
+
+      } else if (wickItem == 1) { //wick
+        wickItemContainer.src = '';
+        wickItem = 0;
+
+      } else if (pilzItem == 1) { //pilz
+        pilzItemContainer.src = '';
+        pilzItem = 0;
+      }
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorArchersDistractText[doorArchersDistractCounter])
+      .start();
+      textBoxClicked = 1;
+      doorArchersDistractCounter++;
+
+      if(doorArchersDistractCounter == 3) {
+        //Display Unique text based on charcaters available.
+        if(grobItem == 1) { //grob
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Grob runs out shouting about how he loves candy and wants it directly in his mouth!")
+          .start();
+
+        } else if (wickItem == 1) { //wick
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Wick walks out and asks if we could diplomatically come to a settlement of our disputes.")
+          .start();
+
+        } else if (pilzItem == 1) { //pilz
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("Pilz waddles out saying that he spotted some hungry snails nearby and that the archers should keep an eye out!")
+          .start();
+        }
+      }
+
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorBridgeTrollCounter - 0;
+    doorArchersDistractCounter = -2;
+  }
+}
+
+function doorArchersOctoSequence() {
+  if (doorArchersOctoCounter <= 6) {
+    if(doorArchersOctoCounter == 2) {
+      characterNameDisplay.textContent = "Kraken Junior";
+    }
+    if(doorArchersOctoCounter == 3) {
+      characterNameDisplay.textContent = "";
+      changeDisplay("./Pictures/Backgrounds/DoorArchersSmoke.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorArchersOctoText[doorArchersOctoCounter])
+      .start();
+      textBoxClicked = 1;
+      doorArchersOctoCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorBridgeTrollCounter = 0;
+    doorArchersOctoCounter = -2;
   }
 }
 
@@ -5317,6 +5462,15 @@ if( (doorGrobFailCounter != -1) && (doorGrobFailCounter !=-2) ) {
 if( (doorGrobWinCounter != -1) && (doorGrobWinCounter !=-2) ) {
   doorGrobWinSequence();
 }
+if( (doorArchersDieCounter != -1) && (doorArchersDieCounter !=-2) ) {
+  doorArchersDieSequence();
+}
+if( (doorArchersDistractCounter != -1) && (doorArchersDistractCounter !=-2) ) {
+  doorArchersDistractSequence();
+}
+if( (doorArchersOctoCounter != -1) && (doorArchersOctoCounter !=-2) ) {
+  doorArchersOctoSequence();
+}
 });
 
 //Choice boxes start here
@@ -5498,17 +5652,24 @@ leftChoiceBox1.addEventListener('click', ()=> {
   }
 
   //Door Stuff *******************************************************
-  if ( (doorIntroCounter >= 7) /*&& (directAttackCounter == -1)*/) {
+  if ( (doorIntroCounter >= 7) ) {
     doorInsideCounter = 0;
     doorIntroCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
-  if ( (doorInsideCounter >= 7) /*&& (directAttackCounter == -1)*/) {
+  if ( (doorInsideCounter >= 7) ) {
     doorGrobFailCounter = 0;
     doorInsideCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
+  }
+  if ( (doorGrobWinCounter >= 16) ) {
+    doorArchersDieCounter = 0;
+    doorGrobWinCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
   }
 });
 
@@ -5701,6 +5862,13 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
   }
+  if ( (doorGrobWinCounter >= 16) ) {
+    doorArchersDistractCounter = 0;
+    doorGrobWinCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -5807,6 +5975,15 @@ leftChoiceBox2.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
   }
   //Wick route ends here
+
+  //Door Stuff *****************************************************************
+  if ( (doorGrobWinCounter >= 16) ) {
+    doorArchersOctoCounter = 0;
+    doorGrobWinCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+  }
 });
 
 rightChoiceBox2.addEventListener('click', ()=> {
