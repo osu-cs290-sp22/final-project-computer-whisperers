@@ -235,8 +235,351 @@ var tavernHubText = [
 //************Door shenanigans start here******************************************************************************************************************************************************************************************
 var doorIntroCounter = -1;
 var doorIntroText = [
-  "'Lorum Ipsum'"
+  "The door is the goal, so you decide to head over and search the ruins.",
+  "Several days of traveling the lands up north pass.",
+  "Eventually the terrain changes to something quite unique and interesting.", //2 - change BG to outside ruins surroundings
+  "It appears almost as if the land is made of candy.",
+  "You also notice what appear to be ruins of some sort of building... Also made of candy.",
+  //Player:
+  "'This must be the place, seems quite odd. How could a place like this exist?'", //5
+  //No name
+  "Standing outside the ruins you wonder if you are ready to brave whats beyond these broken walls.",
+  //Player:
+  "'Maybe I should gather more information about this place before I head in...'", //7
+  //Choices show up.
+
 ];
+
+var doorReturnCounter = -1;
+var doorReturnText = [
+  "You decide that you are not prepared yet and start your journey back to te tavern.",
+  "After a couple days of travel, you arrive back at the tavern." //1 - tavernBG
+];
+
+var doorInsideCounter = -1;
+var doorInsideText = [
+  "You decide that you are ready to head into the ruins and reveal its secrets.",
+  "Moving aside some sugar fossilized logs that have fallen over the entrance to the ruins you walk in.",
+  "The environment inside is a mess with outside flora taking over parts of the buildings interior.", //2 - inside background
+  "Crouching and hopping over a couple of obsticles you make it further within the interior.",
+  "Looking around you observe that there is only one way to proceed from here.",
+  "There is what looks like a door that is blocked by a giant lollipop tree.", //5 - lollipop bg
+  "You attempt to move the fallen lollipop tree out of the way, but its too heavy to move.",
+  "How could you get to the door?" //7
+];
+
+var doorGrobFailCounter = -1;
+var doorGrobFailText = [ //Consume Giant Lollipop
+  "You attempt to consume the gaint lollipop.",
+  "It takes you a while since its so large, but eventually you carve a hole large enough to walk through.",
+  "You step through the hole, but you start to feel very ill.",
+  "Pain spreads from your stomache and you are left on the ground moaning.",
+  "It seems that you have gotten what is called sugar poisoning", //4 - black BG
+  "Soon the pain fades away as you can no longer feel or think anything.",
+  "[GAME OVER]" //6 - gamer over BG
+];
+
+var doorGrobWinCounter = -1;
+var doorGrobWinText = [ //Let grob eat the lollipop tree
+  "You decide to let Grob have an attempt at consuming the lollipop tree.",
+  //Grob:
+  "'I'm so glad that you've chosen me to do this! This makes me feel so accepted!'", //1
+  "'Plus I'm hungry!",
+  //No name
+  "Grob seems super excited when he steps up to the tree and starts chomping away.", //3
+  //Grob:
+  "*Crunch* *Crunch* *Crunch*", //4
+  "Om Nom Nom",
+  //no name
+  "You stand back and watch. Although Grob is trying to eat the tree, you can clearly see the chunks falling through the other side of his mouth...", //6
+  "Wait... How does Grob eat anyways?",
+  "While your pondering the idea, Grob turns around to look at you.", //8 - eated lollipop bg
+  //Gorb:
+  "'Yum! For candy it surprisingly tastes a lot like air!'", //9
+  "'Any who, jobs done buddy!'",
+  //No name:
+  "You head through the door thats been cleared.", //11
+  "On the other side you see a long room with a singular door far off at the end.",
+  "Taking a couple of steps into the room something hits the ground right next to you.",
+  "Looking at where the sound came from you see a candy corn arrow embedded in the ground.",
+  "Taking cover behind the door and peeking to see where the arrows are coming from you see some sugar crystal gaurds.", //15 - cryastal archers bg
+  "How could I deal with this situation?"
+];
+
+var doorArchersDieCounter = -1;
+var doorArchersDieText = [ //Make a run for it
+  "You try to make a run for the door.",
+  "You quickly pick up pace and the archers are missing their shots a lot.",
+  "It turns out that the crsytal archers arent good at tracking fast moving targets.",
+  "As you approach the half way point of the massive room you trip on a small rock.",
+  "Why is there a small rock in the middle of a giant room?", //4 - black bg
+  "You fall to the ground whilst asking yourself this question. You are soon hit by multiple sugar poision inducing candy corn arrows.",
+  "[GAME OVER]" //6 - GAME OVER SCREEN
+];
+
+var doorArchersDistractCounter = -1;
+var doorArchersDistractText = [ //send someone as a distraction
+  "You need to distract the sugar cyrstal archers somehow.",
+  "Maybe you could send someone out to get their attention?",
+  "", //2 Display special text for which charcter is available, like: "Grob was sent out screaming in eternal pain." or something
+  "Somehow this actually works.",
+  "You were able to make it safely to the other side and out through the door.",
+  "Although at the cost of your companion.", //5 - remove friend item and picture.
+  "Mourning the loss and paying respects you move forward as the fabled door must be near."
+];
+
+var doorArchersOctoCounter = -1;
+var doorArchersOctorText = [ //Have Octo create a blind spot (inks himself)
+  "You remember that Kraken Junior is indeed a karaken and can squirt ink.",
+  "You ask Kraken Junior if he is capable of deploying a smoke screen to cover you.",
+  //Kraken Junior:
+  "'Aye, it be something I can do fer yee.'", //2
+  //No name:
+  "Kraken Junior quickly disperses a large cloud of ink throughout the room ahead.", //3 - smokey room w/archers BG
+  "Which allows you to make it to the other side safely.",
+  "Opening the door you look back to make sure eveyone makes it out.",
+  "Successfully evading the archers you look forward to the fabled door, as it must be near."
+];
+
+var doorBirdgeTrollCounter = -1;
+var doorbridgeTrollText = [
+  "Taking a look at your new surroundings it appears that you are in some sort of chocolate swamp.",//0 -change to chocolate swamp 2/bridge BG
+  "There is a bridge in front of you made out of Charles Chewsters that looks to lead in the right direction.",
+  "So you continue your adventure along the bridge.",
+  "As you were making your way across the bridge you notice a strange figure climbing up from the side.",
+  "They climb up right in front of you and stare at you with a big smile.", //4 - change to clown looking at you.
+  "It looks like they are wearing clown attire, but its entirely made out of candy. Must be one of the Funny Folk.",
+  //Player:
+  "'Hello there, how may I help you? I hope I'm not annoying you by being here, I just need to get over this bridge.", //6
+  //Clown:
+  "'Heyo bucko! This here is my delicious bridge!'", //7
+  "'I've been living off of it for sustenance for 300 years!!!'",
+  "'I was having my meal here like any normal afternoon until I heard someone on my bridge!'",
+  "'Hooo Heeee am I excited to get some visitors!'",
+  "'Okay now bucko, lets play a game.'",
+  "'How about if you can solve my riddle I allow you to cross my bridge?'",
+  //Player:
+  "'Uhh sure, but what happens if we fail to get it right?'", //13
+  //Clown:
+  "'Well by gee golly! *Honk* *Honk* I would dip you with chocolate and add you to my bridge so that I won't have to worry about this winter!'", //14
+  "'HOOOOOO HEEEEEE!!!! I'm Excited to play this game!'",
+  "'Now scooch your boot, here comes the riddle!'",
+  "'What do you call one who happily devotes himself to farming candy?'",
+  //Player:
+  "Hmmm, I should think about what I'm gonna do carefully..." //18
+];
+
+var doorBridgeDieCounter = -1;
+var doorBridgeDieText = [ //Try answering your self.
+  //Player:
+  "'Uhh, the answer is... twix are for kids?'", //0
+  //Clown:
+  "'Eeeeh Hee hee heeeeee!'", //1
+  //No names
+  "...",
+  //Player:
+  "'Uhh, does that mean I win?'", //2
+  //Clown:
+  "'Nope!'", //3
+  //No names
+  "The clown dashes at you with lightning speed and knocking you to the ground.", //4
+  "You can then feel the clown picking you up by the legs.",
+  "You try to break free of his grasp, but your struggles are in vain.",
+  "The clown brings you to the bottom of the bridge and dips you in the chocolate swamp, covering your whole body.", //7 - Black BG
+  "...",
+  "You are then added to the bridge to solidify to.",
+  "You then feel the sugar poisioning setting in.",
+  "Soon you feel nothing.",
+  "[GAME OVER]" //12 - GAME OVER BG
+];
+
+var doorBridgeSacrificeCounter = -1;
+var doorBridgeSacrificeText = [ //have a buddy take a try.
+  "You decide to let someone else take a try on this one.",
+  //Character name:
+  "", //1 - Character specific dialogue
+  //Clown
+  "'What??? I don't understand. Hmmm, we must discuss this further.'", //2
+  //No names
+  "The clown gets distracted with the answer, which gives you enough time to sneak around the clown without him noticing.", //3
+  "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown.",
+  "Although you made it, you had to leave someone behind."
+  //Head to Pilz check.
+];
+
+var doorBridgeWickCounter = -1;
+var doorBridgeWickText = [
+  "You remembered that Wick has knowledge of the Funny Folk, maybe they would have the best idea of what the answer is?",
+  //Wick:
+  "'I believe the answer to your sweet riddle is; What is a jolly Rancher?'", //1
+  //Clown:
+  "'HOOOOOOOOOOOO HEEEEEEEEEEE!!!!!'", //2
+  "'Now thats a stinker! It never gets old!'",
+  "'Feel free to pass through travelers! I hope you all have a twizzly of a day! Hoooo Heeee.'",
+  //No names
+  "Good thing Wick was here to give input. You thank the clown for safe passage and head across the bridge.", //5
+  //Clown:
+  "'Toodles!'", //6
+  //No names
+  "Once fully across the bridge you run as fast as you can to get far away from this crazy candy clown." //7
+];
+
+var doorCakeCanyonCounter = -1;
+var doorCakeCanyon = [
+  "After a very eager jog, you silently celebrate your newfound distance from the nearest Funny Fellow.",
+  "Unfortunately this jog has led you to a sticky situation; A large cake canyon seems to be between you and forward progress.",
+  "There seems to be a drawbridge for getting across, but its not in the ideal position as of now.",
+  "If you squint you can see a lever on the other side, probably for letting down and pulling up the bridge you wish to cross.",
+  "As confident as you are in your long arms, you dont think you can reach it from here.",
+  "Looks like a different course of action will be required..."
+];
+
+var doorCakeCanyonSacrificeCounter = -1;
+var doorCakeCanyonSacrifice = [
+  //No name
+  "Well, there may be a DIFFERENT way to flip a lever from here...",
+  "You start to rummage through your currently carried ITEMS.",
+  //Character name:
+  "", //2 - character specific dialogue
+  //No name
+  "With your trusty arms, used for a multitude of things, you wind up, focus, and throw your companion as you would a frisbee.",//3
+  "They go flying over the canyon, flying with elegance. They manage to get to the opposite side and hit the lever!",
+  "However, your throw may have been too powerful, as the impact with the lever caused the frisbee like projectile to ricochet, and fall into the canyon.",//5 Bridge Down
+  "When the lever was hit the bridge fell into place allowing for safe passage.",
+  "Thanks to the honorable sacrifice of your faithful companion, a lever has been pulled, and a bridge has become crossable."
+]
+
+var doorCakeCanyonDieCounter = -1;
+var doorCakeCanyonDie = [
+  //No name
+  "You see no other choice.",
+  "In order to get across you must eat through the cake walls and make a tunnel around the canyon.",
+  "With a deep breath and some mental fortitude, you get to work.",
+  "The walls begins to hollow as it's layers are eaten through with speed and determination.",
+  "Considerable progress is made in a very short time, and with enough effort and time...",
+  "You find yourself in a perfect position.",
+  "Thanks to your master plan, you've found yourself an alternative means of getting to the other end.",
+  "You take one step onto the other side, before feeling a sharp pain in your gut.",
+  "Collapsing onto the floor you have a sudden realization.",
+  "You are very susceptible to deadly sugar poisoning.",
+  "With a bellyache, you start to lose consciousness...",//10 Black Screen
+  "[GAME OVER]"//11 Game Over
+]
+
+var doorCakeCanyonPilzCounter = -1;
+var doorCakeCanyonPilz = [
+  //No name
+  "You have a sudden moment of genius.",
+  "You are pretty sure that you have a certain... ally that could help.",
+  //Pilz
+  "'Oh hello! I see we are at an impasse... Have you brought me out so we can use our combined skills to get across?'",//2
+  //Player
+  "'Yes, I think I have a plan that can get the bridge lowered. How... bouncy are you?'",//3
+  //Pilz
+  "'Funny you should ask! Mushrooms are quite well known for their bouncing potential.'",//4
+  "'Sometimes we even act as bouncing platforms!'",
+  //Player
+  "'Perfect. In that case, I'm going to bounce across and pull that lever.'",//6
+  //No name
+  "Pilz readies themself for bouncy impact.",//7
+  "With a running start, you manage to land a jump directly on the center of Pilz's head.",
+  "The impact sends you high into the air, Pilz was right, mushrooms have crazy bounce potential.",
+  "Soaring through the air, you eventually land on the other side, crossing the entire canyon.",
+  "With the help of your trusty mushroom companion, you pull the lever, lowering the bridge so that safe passage is guarenteed."//11 Bridge Down
+]
+
+var doorCakeCanyonEatPilzCounter = -1;
+var doorCakeCanyonEatPilz = [
+  //No name
+  "Hmm... thinking up a plan is hard... esspecially with an empty stomach.",
+  "You'd eat the cake surrounding you, but having a potential bellyache sounds counter productive...",
+  "Suddenly you remember you have a very... scrumptious... resource with you.",
+  //Pilz
+  "'Oh hello! I see we are at an impasse... Have you brought me out so we can use our combined skills to get across?'",//3
+  //Player
+  "'Uhm... yes. Something like that.'",//4
+  //Pilz
+  "'Wonderful! I truly believe we can figure this out together with our combined wits.'",//5
+  //Player
+  "'Y-yeah. Together... How about you take a look over there and assess our situation?'",//6
+  //Pilz
+  "'Good idea, I can't be helpful if I don't know what I'm helping with!'",//7
+  //No name
+  "Pilz turns around and begins to enthusiastically examine the situation on the other end of the canyon.",//8
+  "As your stomach growls you lose control of yourself.",
+  "You grab Pilz with both hands and do what comes naturally.",//9 Black Screen?
+  "*Crunch* *Crunch* *Crunch*",
+  "You suddenly feel much more full...",//10 Pilz Gone
+  "But also empty.",
+  "Pilz is now gone, but the impasse is still here.",
+  "With your newfound full stomach, you leap towards the other end of the canyon.",
+  "Unexpectedly, it seems like you are... bigger? Taller?",
+  "Somehow you feel like you are making more distace across this canyon than you normally would.",
+  "With a sudden thud, you find yourself on the other end of the canyon. You pull the lever so you can get back easily."//16 Bridge Down
+]
+
+var doorGoodEndingCounter = -1;
+var doorGoodEnding = [
+  //No name
+  "After some additional walking... you think you are in the clear.",
+  "No additional obsticles appear. You simply keep walking and walking.",
+  "The quiet atmosphere is relaxing compared to the journey getting here.",
+  "Eventually...",
+  "You see it.",
+  "The Door.",//5 Empty door
+  //Player
+  "'At last... my journey's destination.'",//6
+  //No name
+  "You examine the shut door, tracing your fingers over the engravings... holes?",//7
+  "Realization hits... these shapes are familiar to you.",
+  "Carefully, you take out all your carried ITEMS.",
+  "The holes perfectly match them.",
+  "Each companion you've gathered looks to be tailor made to fit into the door's slots.",
+  "You delicately insert each of them into the corrosponding hole.",//12 Full Door
+  "The door looks complete.",
+  "It begins to open, revealing a bright light behind it.",
+  "Your eyes have not adjusted to the light, but you can hear familiar voices come across from the other side.",//15 White Screen
+  //Grob
+  "''",//16
+  //Kraken Junior
+  "'Now that we've passed our trials, its time to start my quest for world domination!'",//17
+  //Wick
+  "'Oh its so simple! The real power was the friendships we've forged along the way!'",//18
+  //Pilz
+  "'It's a perfect place to spread my spores with pals! Thanks for bringing me!'",//19
+  //Everyone
+  "Happy birthday friend!",//20
+  //No name
+  "[GOOD END]"//21
+]
+
+var doorNeutralEndingCounter = -1;
+var doorNeutralEnding = [
+  "After some additional walking... you think you are in the clear.",
+  "No additional obsticles appear. You simply keep walking and walking.",
+  "The quiet atmosphere is relaxing compared to the journey getting here.",
+  "Eventually...",
+  "You see it.",
+  "The Door.",//5
+  //Player
+  "'At last... my journey's destination.'",//6
+  //No name
+  "You examine the shut door, tracing your fingers over the engravings... holes?",//7
+  "Realization hits... these shapes are familiar to you.",
+  "Carefully, you take out all your carried ITEM(S).",
+  "The holes perfectly match them.",
+  "Each companion you've gathered looks to be tailor made to fit into one of the door's slots.",
+  "You insert the ITEM(S) into its corresponding hole.",//12 Not Full Door
+  "The door looks semi complete.",
+  "It begins to open, revealing a bright light behind it.",
+  "Your eyes have not adjusted to the light, but somehow... it feels a little empty on the other side.",//15 White Screen
+  "Despite finally being where you wanted to be, you can't help but feel there were aspects of the journey you wish had gone differently.",
+  "Perhaps there were choices made that resulted in loss, or maybe choices that left you without gain...",
+  "At the very least you made it. At least you can continue making choices as you venture into this new life.",
+  "You step into the door's bright light...",
+  "And find a face corresponding to each item inserted on the other side.",
+  "[NEUTRAL END]"//21
+]
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
 
