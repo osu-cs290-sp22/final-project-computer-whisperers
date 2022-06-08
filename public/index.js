@@ -251,7 +251,7 @@ var doorInsideCounter = -1;
 var doorInsideText = [
   "You decide that you are ready to head into the ruins and reveal its secrets.",
   "Moving aside some sugar fossilized logs that have fallen over the entrance to the ruins you walk in.",
-  "The environment inside is a mess with outside flora taking over parts of the buildings interior.", //2 - inside background
+  "The environment inside is a mess with outside flora taking over parts of the building's interior.", //2 - inside background
   "Crouching and hopping over a couple of obsticles you make it further within the interior.",
   "Looking around you observe that there is only one way to proceed from here.",
   "There is what looks like a door that is blocked by a giant lollipop tree.", //5 - lollipop bg
