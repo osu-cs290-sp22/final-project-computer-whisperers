@@ -1897,7 +1897,6 @@ function changeRightBar(color) {
 //************Octo functions starts here******************************************************************************************************************************************************************************************
 function oceanStartSequence(){
   if (seaIntroCounter <= 7){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
     if (seaIntroCounter == 1) {
@@ -1907,6 +1906,7 @@ function oceanStartSequence(){
     } else if (seaIntroCounter == 3) {
       characterNameDisplay.textContent = "Capn' Rufus";
     } else if (seaIntroCounter == 4) {
+      changeDisplay('./Pictures/Backgrounds/dock.png');
       characterNameDisplay.textContent = "";
     } else if (seaIntroCounter == 5) {
       characterNameDisplay.textContent = "Capn' Rufus";
@@ -1933,7 +1933,7 @@ function oceanStartSequence(){
     .deleteAll(1)
     .start();
     textBoxClicked = 0;
-    seaIntroCounter = -2; //-2 means that this sequence has been done.
+    //seaIntroCounter = -2; //-2 means that this sequence has been done.
     characterNameDisplay.textContent = '';
     leftChoiceBox1.textContent = "Open your window, you aren't a coward.";
     rightChoiceBox1.textContent = "Stay asleep: This isn't your boat";
@@ -1944,7 +1944,7 @@ function oceanStartSequence(){
 
 function belowDeckSequence(){
   if (belowDeckCounter <= 4){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/krakenship.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -1979,7 +1979,7 @@ function belowDeckSequence(){
     .deleteAll(1)
     .start();
     textBoxClicked = 0;
-    belowDeckCounter = -2; //-2 means that this sequence has been done.
+    //belowDeckCounter = -2; //-2 means that this sequence has been done.
     characterNameDisplay.textContent = '';
     leftChoiceBox1.textContent = "Stay calm, you are ok";
     rightChoiceBox1.textContent = "Fire a cannon at it";
@@ -2022,7 +2022,7 @@ function stayCalmSequence(){
     .deleteAll(1)
     .start();
     textBoxClicked = 0;
-    stayCalmCounter = -2; //-2 means that this sequence has been done.
+    //stayCalmCounter = -2; //-2 means that this sequence has been done.
     characterNameDisplay.textContent = '';
     leftChoiceBox1.textContent = "Take the kraken with you";
     rightChoiceBox1.textContent = "Leave the kraken, you hate sea animals";
@@ -2033,7 +2033,7 @@ function stayCalmSequence(){
 
 function takeOcto1Sequence(){
   if (takeOcto1Counter <= 4){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/kraken.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2068,6 +2068,8 @@ function takeOcto1Sequence(){
     typewriter
     .deleteAll(1)
     .start();
+    squidItem = 1;
+    octoItemContainer.src = './Pictures/items/OctoItem.png';
     textBoxClicked = 0;
     takeOcto1Counter = -2; //-2 means that this sequence has been done.
     pirateStartCounter = 0;
@@ -2076,7 +2078,7 @@ function takeOcto1Sequence(){
 
 function leaveOcto1Sequence(){
   if (leaveOcto1Counter <= 2){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/kraken.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2115,7 +2117,7 @@ function leaveOcto1Sequence(){
 
 function fireCannonSequence(){
   if (fireCannonCounter <= 6){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/KrakenAttack.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2127,6 +2129,7 @@ function fireCannonSequence(){
       characterNameDisplay.textContent = "";
     } else if (fireCannonCounter == 4) {
       characterNameDisplay.textContent = "kraken";
+      changeDisplay('./Pictures/Backgrounds/crushedship.png');
     } else if (fireCannonCounter == 6) {
       characterNameDisplay.textContent = "";
     } 
@@ -2159,7 +2162,7 @@ function fireCannonSequence(){
 
 function aboveDeckSequence(){
   if (aboveDeckCounter <= 3){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/bedroom.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2190,7 +2193,7 @@ function aboveDeckSequence(){
     .deleteAll(1)
     .start();
     textBoxClicked = 0;
-    aboveDeckCounter = -2; //-2 means that this sequence has been done.
+    //aboveDeckCounter = -2; //-2 means that this sequence has been done.
     characterNameDisplay.textContent = '';
     leftChoiceBox1.textContent = "Take the kraken with you";
     rightChoiceBox1.textContent = "Leave the kraken";
@@ -2201,7 +2204,7 @@ function aboveDeckSequence(){
 
 function bringOctoSequence(){
   if (bringOctoCounter <= 4){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/bedroom.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2235,6 +2238,8 @@ function bringOctoSequence(){
     typewriter
     .deleteAll(1)
     .start();
+    squidItem = 1;
+    octoItemContainer.src = './Pictures/items/OctoItem.png';
     textBoxClicked = 0;
     bringOctoCounter = -2; //-2 means that this sequence has been done.
     pirateStartCounter = 0;
@@ -2243,7 +2248,7 @@ function bringOctoSequence(){
 
 function leaveOctoSequence(){
   if (leaveOctoCounter <= 2){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/bedroom.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2281,7 +2286,7 @@ function leaveOctoSequence(){
 
 function pirateStartSequence(){
   if (pirateStartCounter <= 3){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
+    changeDisplay('./Pictures/Backgrounds/piratebase.png');
     changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
@@ -2312,7 +2317,7 @@ function pirateStartSequence(){
     .deleteAll(1)
     .start();
     textBoxClicked = 0;
-    pirateStartCounter = -2; //-2 means that this sequence has been done.
+    //pirateStartCounter = -2; //-2 means that this sequence has been done.
     characterNameDisplay.textContent = '';
     leftChoiceBox1.textContent = "Enough waiting. Attack!";
     rightChoiceBox1.textContent = "Sneak in at nightfall";
@@ -2323,8 +2328,6 @@ function pirateStartSequence(){
 
 function directAttackSequence(){
   if (directAttackCounter <= 10){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
-    changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
     if (directAttackCounter == 0) {
@@ -2332,6 +2335,7 @@ function directAttackSequence(){
     } else if (directAttackCounter == 1) {
       characterNameDisplay.textContent = "Capn' Rufus";
     } else if (directAttackCounter == 2) {
+      changeDisplay('./Pictures/Backgrounds/cannonballs.png');
       characterNameDisplay.textContent = "";
     } else if (directAttackCounter == 6) {
       characterNameDisplay.textContent = "Capn' Rufus";
@@ -2370,8 +2374,6 @@ function directAttackSequence(){
 
 function sneakInSequence(){
   if (sneakInCounter <= 9){
-    changeDisplay('./Pictures/Backgrounds/Tavern.png');
-    changeBars("#5c4944");
     characterNameDisplay.textContent = "";   
 
     if (sneakInCounter == 0) {
@@ -2380,6 +2382,9 @@ function sneakInSequence(){
       characterNameDisplay.textContent = playerName;
     } else if (sneakInCounter == 5) {
       characterNameDisplay.textContent = "";
+    }else if (sneakInCounter == 6) {
+      characterNameDisplay.textContent = "";
+      changeDisplay('./Pictures/Backgrounds/fireworks.png');
     } else if (sneakInCounter == 7) {
       characterNameDisplay.textContent = "Capn' Rufus";
     } else if (sneakInCounter == 8) {
@@ -2622,24 +2627,45 @@ leftChoiceBox1.addEventListener('click', ()=> {
   }
 
   //************************************* seastuff *************************************//
-  if ( (seaIntroCounter == -2) && (aboveDeckCounter == -1)) {
+  if ( (seaIntroCounter >= 7) /*&& (aboveDeckCounter == -1)*/) {
     aboveDeckCounter = 0;
+    seaIntroCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
 
-  if ( (aboveDeckCounter == -2) && (bringOctoCounter == -1)) {
+  if ( (aboveDeckCounter >= 3) /*&& (bringOctoCounter == -1)*/) {
     bringOctoCounter = 0;
+    aboveDeckCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
 
-  if ( (pirateStartCounter == -2) && (directAttackCounter == -1)) {
+  if ( (belowDeckCounter >= 4) /*&& (fireCannonCounter == -1)*/) {
+    stayCalmCounter = 0;
+    belowDeckCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (stayCalmCounter >= 3) /*&& (fireCannonCounter == -1)*/) {
+    takeOcto1Counter = 0;
+    stayCalmCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (pirateStartCounter >= 3) /*&& (directAttackCounter == -1)*/) {
     directAttackCounter = 0;
+    pirateStartCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
@@ -2705,7 +2731,8 @@ rightChoiceBox1.addEventListener('click', ()=> {
   }
 
   //************************************* seastuff *************************************//
-  if ( (seaIntroCounter == -2) && (belowDeckCounter == -1)) {
+  if ( (seaIntroCounter >=7) /*&& (belowDeckCounter == -1)*/) {
+    seaIntroCounter = -2;
     belowDeckCounter = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
@@ -2713,16 +2740,37 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox2);
   }
 
-  if ( (belowDeckCounter == -2) && (fireCannonCounter == -1)) {
+  if ( (belowDeckCounter >= 4) /*&& (fireCannonCounter == -1)*/) {
     fireCannonCounter = 0;
+    belowDeckCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
     addHidden(rightChoiceBox2);
   }
 
-  if ( (pirateStartCounter == -2) && (sneakInCounter == -1)) {
+  if ( (aboveDeckCounter >= 3) /*&& (bringOctoCounter == -1)*/) {
+    leaveOctoCounter = 0;
+    aboveDeckCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (stayCalmCounter >= 3) /*&& (fireCannonCounter == -1)*/) {
+    leaveOcto1Counter = 0;
+    stayCalmCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+
+  if ( (pirateStartCounter >= 3) /*&& (sneakInCounter == -1)*/) {
     sneakInCounter = 0;
+    pirateStartCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
