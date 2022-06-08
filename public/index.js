@@ -1419,9 +1419,190 @@ var forestCaveFriendshipText = [
 
 
 //************Octo route starts here******************************************************************************************************************************************************************************************
+var octoRoute = 0;
 var seaIntroCounter = -1;
 var seaIntroText = [
-  "'Lorum Ipsum'"
+  //no name
+  "'Deciding a boat ride sounds like fun, you walk up to the grizzled, scarred old man in the corner. '",
+  //Capn' Rufus
+  "'Gooday, laddy, what can I do for ye!'",
+  //player name
+  "'I heard that you needed help dealing with a gang of pirates, and I figured I was the guy for the job.'",
+  //capn' Rufus
+  "'Ye heard right, and if ye thinks that ye has what it takes to bring down that blood thirsty group, then follow along!'",
+  //no name
+  "'You walk down to the docks with captain Rufus, until he stops in front of an old and worndown ship.'",
+  //Capn' Rufus
+  "'This be my pride and joy, the merryfellow! I named it after my cousin, Jacob, who was always complainin about something.'",
+  //no name
+  "'You get on the merryfellow, and go below deck to get some rest. As it turns out, you aren't much help when it comes to running a ship.'",
+  //no name
+  "'After a couple of hours of restless rocking, you notice a long and slender shadow block sonme of the moonlight coming in the window. Suddenly, it knocks at your window.'"
+];
+
+var belowDeckCounter = -1;
+var belowDeckText = [
+  //no name
+  "'You rollback over, assuming that the sea is playing tricks on you. As you're about to fall back asleep, you hear yelling from the captain above.'",
+  //Capn' Rufus
+  "'All hands on deck! we got a kraken trying to pull us under!'",
+  //no name
+  "'You run up the stairs to the main landing, and see tenticles reaching over the railing, grabbing sailors left and right.'",
+  //capn' Rufus
+  "'We gotta get this creature off of our boat if we want any chance at survival boys!'",
+  //no name
+  "'looking over the railing of your ship, you see the beaked mouth of the kraken, and its beady eyes looking up at you. Suddenly, the kraken shoots towards you.'"
+  //choice, stay calm, try to talk to it (get octo) or fire cannon at it
+];
+
+var stayCalmCounter = -1;
+var stayCalmText = [
+  //no name
+  "'Never one to be frightened by a 10 ton mythical sea monster, you wait until the sea monster is essentially on top of you.'",
+  //kraken
+  "'Hello young adventurer, I have a somewhat odd request to you.'",
+  "'I have a young child, who has just been released on summer break. I was wondering if you would be willing to take him along for a bit to use up his energy.'",
+  //no name
+  "'Perplexed, you ponder your options.'"
+  //either take octo or don't
+
+];
+
+var takeOcto1Counter = -1;
+var takeOcto1Text = [
+  //player
+  "'Sure! I have actually been looking for people to join my party!'",
+  //kraken
+  "'Incredible! Kraken Junior! Get up here right now!'",
+  // no name
+  "'A young kraken in a school boy's outfit plops down on deck'",
+  //Kraken Junior
+  "'Hello sir! It's a pleasure to join you in your quest for world domination!'",
+  //no name
+  "'He is slightly confused, but he has the right spirit.'"
+];
+
+var leaveOcto1Counter = -1;
+var leaveOcto1Text = [
+  //player name
+  "'I am sorry ma'am, but I don't feel comfortable babysitting your son like that. I'm barely an adult myself!'",
+  //kraken
+  "'No worries than young man, I understnad. Sorry to bother you folks, this kid is just driving me up the wall. Have a nice evening!'",
+  // no name
+  "And with that, the kraken sinks back into the sea."
+  //these two should go on to the pirate ones either way
+];
+
+var fireCannonCounter = -1;
+var fireCannonText = [
+  //no name
+  "'Panicking, you look to your left and see a cannon conveniently loaded and looking downwards. '",
+  //player name
+  "'Lightning symbol! Skull and crossbones! Bomb! Hashtag!'",
+  //no name
+  "'you scream comic book cussword after comic book cussword as you rain a single cannon ball down on the monster'",
+  //no name
+  "'Once hit, the kraken starts wrapping up your boat at an incredible speed'",
+  //kraken
+  "'I was just trying to ask you a question! and you shot me! who shoots someone for asking a question!'",
+  "'I have to make an example of you for my son so he can learn that people without manners must be reprimanded!'",
+  //no name
+  "'CRUNCH'",
+  "'The kraken crushes your ship into pieces. As you sink under teh ocean waves, you learn to never assume a kraken is a bad person and shoot it with a cannon.'"
+
+]; //end game
+
+var aboveDeckCounter = -1;
+var aboveDeckText = [
+  //no name
+  "'Curious at the sound, you open your port window. '",
+  //Kraken
+  "'Hello young man, you all look like the adventuring type. My son is out of school for the month and is being an absolute terror ion the house.'",
+  "'I was wondering if you and your crew would be willing to take him along with you? I know it's an odd ask but I want him to get some real life experience.'",
+  //no name
+  "'Perplexed, you concider your options.'"
+  //two choices, either bring him with or not.
+];
+
+var bringOctoCounter = -1;
+var bringOctoText = [
+  //player name
+  "'I am actually looking to add people to my party to go on adventures! I would love to let him join! '",
+  //Kraken
+  "'Incredible! Kraken Junior!!!!!'",
+  //no name
+  "' the kraken calls. Next thing you know, a small kraken in a school boy outfit plops through the window onto your floor.'",
+  //Kraken Junior
+  "'Hello mister! Thanks for taking me with you! My teacher said I can read at a college level and do basic algebra, so I should be helpful on your quest for world domination!'",
+  //no name
+  "'He's clearly a bit confused, but he has the right spirit.'"
+];
+
+var leaveOctoCounter = -1;
+var leaveOctoText = [
+  //player name
+  "'Sorry, but I have a major fear of ocean animals. If you would kindly get off the boat, I would really appreciate it. '",
+  //Kraken
+  "'Oh of course! I am so sorry about that! Have a nice evening.'",
+
+  //no name
+  "'The kraken slips back into the water, content with a good conversation. You go back to bed, shuddering at the memory of her rubbery limbs.'"
+];
+
+var pirateStartCounter = -1;
+var pirateStartText = [
+  // no name
+  "'After surviving the kraken attack, you doze off, exhausted. You are awoken the next morning by the captian.'",
+  //capn' Rufus
+  "'Mornin, Laddie!'",
+  "'We have a siting of the pirate base, and we want to know how we should proceed with our approach!'",
+  "'We could either sail at them, cannons blazing, or we could wait a day, and you could sneek in under cover of night.'",
+  "''" //make avaliable party members way in on the situation
+  //then make a choice. direct attack, or sneak
+];
+
+var directAttackCounter = -1
+var directAttackText = [
+  //no name
+  "'You decide that a head on cannon barage would be best to take down these hooligans.'",
+  //Capn' Rufus
+  "'Fire the cannons!!'",
+  //no name
+  "'your ship lights up with the sound of cannon fodder as you send wave after wave of cannon balls into the pirates base.'",
+  "'After what felt like an hour, (because it was) you have run out of cannon balls. There is silence in the pirate base.'",
+  "'as cheers ripple through your crew, you are struck by a cannon ball from your side.'",
+  "'Looking up, you see that you are surrounded by [irate ships. They tricked you.'",
+  //Capn' Rufus
+  "'Well Laddie, it has been a pleasure! '",
+  //no name
+  "'captain Rufus pulls out some floaties, jumps in the water, and floats away, escaping ship.'",
+  "'As you sink under the waves, you have a realisation that could change the world'",
+  //player name
+  "'blub blub blub'",
+  //no name
+  "'Sadly, you don't know how to speak under water, and your message goes unheard.'"
+];
+
+var sneakInCounter = -1;
+var sneakInText = [
+  //no name
+  "'You decide to wait until night time, believing your chances at success to be much higher with a stealthy approach.'",
+  "'Once the sun had set, you head out from the boat, swimming up to the perimeter of the pirate encampment.'",
+  "'You get to the edge of the camp, and you can hear the hoot and hollers of a pirate party.'",
+  "'As you sneak deeper into the camp, you notice several barrels of pirate alcohol, with a 'Happy birthday George!' sign above it. '",
+  //plaer name
+  "'I bet if I lit those barrels on fire, this whole party would go sky high! and what luck! one of the pirates left a torch out for us!'",
+  //no name
+  "'Using the discarded torch, you set fire to one of the barrels, and proceed to run as fast as you can back to the water.'",
+  //no name
+  "'By the time you reach the ship once again, you hear loud explosions from the shore.'",
+  //capn' Rufus
+  "'Look at that! The pirates even have fireworks! They sure know how to party.'",
+  //player name
+  "'That they do. Now lets get out of here before they sober up and aren't in the partying mood.'",
+  //no name
+  "'Having blown up a pirates birthday party, you head back to town.'"
+
 ];
 //************Octo route ends here******************************************************************************************************************************************************************************************
 
@@ -1862,13 +2043,16 @@ function changeRightBar(color) {
       rightChoiceBox1.textContent = "Search the ruins of the mountains to the east";
       leftChoiceBox2.textContent = "Head to the Blue Forest in the south.";
       rightChoiceBox2.textContent = "Head towards the friendship door in the ruins up north."
-      removeHidden(leftChoiceBox1);
+      if(octoRoute == 0) {
+        removeHidden(leftChoiceBox1);
+      }
       if(wickRoute == 0) {
         removeHidden(rightChoiceBox1);
       }
       if(pilzRoute == 0) {
         removeHidden(leftChoiceBox2);
       }
+
       removeHidden(rightChoiceBox2);
       //tavernHubAgain = 0;
     }
@@ -4159,6 +4343,530 @@ function wickSnowBoardBadEnd()
 
 //************Octo functions starts here******************************************************************************************************************************************************************************************
 
+function oceanStartSequence(){
+  if (seaIntroCounter <= 7){
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+    if (seaIntroCounter == 1) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (seaIntroCounter == 2) {
+      characterNameDisplay.textContent = playerName;
+    } else if (seaIntroCounter == 3) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (seaIntroCounter == 4) {
+      changeDisplay('./Pictures/Backgrounds/dock.png');
+      characterNameDisplay.textContent = "";
+    } else if (seaIntroCounter == 5) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    }else if (seaIntroCounter == 6) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(seaIntroText[seaIntroCounter])
+      .start();
+      textBoxClicked = 1;
+      seaIntroCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    //seaIntroCounter = -2; //-2 means that this sequence has been done.
+    characterNameDisplay.textContent = '';
+    leftChoiceBox1.textContent = "Open your window, you aren't a coward.";
+    rightChoiceBox1.textContent = "Stay asleep: This isn't your boat";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+  }
+}
+
+function belowDeckSequence(){
+  if (belowDeckCounter <= 4){
+    changeDisplay('./Pictures/Backgrounds/krakenship.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (belowDeckCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (belowDeckCounter == 1) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (belowDeckCounter == 2) {
+      characterNameDisplay.textContent = "";
+    } else if (belowDeckCounter == 3) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (belowDeckCounter == 4) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(belowDeckText[belowDeckCounter])
+      .start();
+      textBoxClicked = 1;
+      belowDeckCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    //belowDeckCounter = -2; //-2 means that this sequence has been done.
+    characterNameDisplay.textContent = '';
+    leftChoiceBox1.textContent = "Stay calm, you are ok";
+    rightChoiceBox1.textContent = "Fire a cannon at it";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+  }
+}
+
+function stayCalmSequence(){
+  if (stayCalmCounter <= 3){
+    changeDisplay('./Pictures/Backgrounds/kraken.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (stayCalmCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (stayCalmCounter == 1) {
+      characterNameDisplay.textContent = "Kraken";
+    } else if (stayCalmCounter == 3) {
+      characterNameDisplay.textContent = "";
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(stayCalmText[stayCalmCounter])
+      .start();
+      textBoxClicked = 1;
+      stayCalmCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    //stayCalmCounter = -2; //-2 means that this sequence has been done.
+    characterNameDisplay.textContent = '';
+    leftChoiceBox1.textContent = "Take the kraken with you";
+    rightChoiceBox1.textContent = "Leave the kraken, you hate sea animals";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+  }
+}
+
+function takeOcto1Sequence(){
+  if (takeOcto1Counter <= 4){
+    changeDisplay('./Pictures/Backgrounds/kraken.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (takeOcto1Counter == 0) {
+      characterNameDisplay.textContent = playerName;
+    } else if (takeOcto1Counter == 1) {
+      characterNameDisplay.textContent = "Kraken";
+    } else if (takeOcto1Counter == 2) {
+      characterNameDisplay.textContent = "";
+    } else if (takeOcto1Counter == 3) {
+      characterNameDisplay.textContent = "kraken Junior";
+    } else if (takeOcto1Counter == 4) {
+      characterNameDisplay.textContent = "";
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(takeOcto1Text[takeOcto1Counter])
+      .start();
+      textBoxClicked = 1;
+      takeOcto1Counter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    squidItem = 1;
+    octoItemContainer.src = './Pictures/items/OctoItem.png';
+    textBoxClicked = 0;
+    takeOcto1Counter = -2; //-2 means that this sequence has been done.
+    pirateStartCounter = 0;
+  }
+}
+
+function leaveOcto1Sequence(){
+  if (leaveOcto1Counter <= 2){
+    changeDisplay('./Pictures/Backgrounds/kraken.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (leaveOcto1Counter == 0) {
+      characterNameDisplay.textContent = playerName;
+    } else if (leaveOcto1Counter == 1) {
+      characterNameDisplay.textContent = "Kraken";
+    } else if (leaveOcto1Counter == 2) {
+      characterNameDisplay.textContent = "";
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(leaveOcto1Text[leaveOcto1Counter])
+      .start();
+      textBoxClicked = 1;
+      leaveOcto1Counter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    leaveOcto1Counter = -2; //-2 means that this sequence has been done.
+    pirateStartCounter = 0;
+  }
+}
+
+function fireCannonSequence(){
+  if (fireCannonCounter <= 6){
+    changeDisplay('./Pictures/Backgrounds/KrakenAttack.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (fireCannonCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (fireCannonCounter == 1) {
+      characterNameDisplay.textContent = playerName;
+    } else if (fireCannonCounter == 2) {
+      characterNameDisplay.textContent = "";
+    } else if (fireCannonCounter == 4) {
+      characterNameDisplay.textContent = "kraken";
+      changeDisplay('./Pictures/Backgrounds/crushedship.png');
+    } else if (fireCannonCounter == 6) {
+      characterNameDisplay.textContent = "";
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(fireCannonText[fireCannonCounter])
+      .start();
+      textBoxClicked = 1;
+      fireCannonCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    fireCannonCounter = -2; //-2 means that this sequence has been done.
+    changeDisplay('./Pictures/Backgrounds/GameOver.png');
+    changeBars("#5c4944");
+  }
+} //end the game
+
+function aboveDeckSequence(){
+  if (aboveDeckCounter <= 3){
+    changeDisplay('./Pictures/Backgrounds/bedroom.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (aboveDeckCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (aboveDeckCounter == 1) {
+      characterNameDisplay.textContent = "kraken";
+    } else if (aboveDeckCounter == 2) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(aboveDeckText[aboveDeckCounter])
+      .start();
+      textBoxClicked = 1;
+      aboveDeckCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    //aboveDeckCounter = -2; //-2 means that this sequence has been done.
+    characterNameDisplay.textContent = '';
+    leftChoiceBox1.textContent = "Take the kraken with you";
+    rightChoiceBox1.textContent = "Leave the kraken";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+  }
+}
+
+function bringOctoSequence(){
+  if (bringOctoCounter <= 4){
+    changeDisplay('./Pictures/Backgrounds/bedroom.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (bringOctoCounter == 0) {
+      characterNameDisplay.textContent = playerName;
+    } else if (bringOctoCounter == 1) {
+      characterNameDisplay.textContent = "kraken";
+    } else if (bringOctoCounter == 2) {
+      characterNameDisplay.textContent = "";
+    } else if (bringOctoCounter == 3) {
+      characterNameDisplay.textContent = "Kraken Junior";
+    } else if (bringOctoCounter == 4) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(bringOctoText[bringOctoCounter])
+      .start();
+      textBoxClicked = 1;
+      bringOctoCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    squidItem = 1;
+    octoItemContainer.src = './Pictures/items/OctoItem.png';
+    textBoxClicked = 0;
+    bringOctoCounter = -2; //-2 means that this sequence has been done.
+    pirateStartCounter = 0;
+  }
+}
+
+function leaveOctoSequence(){
+  if (leaveOctoCounter <= 2){
+    changeDisplay('./Pictures/Backgrounds/bedroom.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (leaveOctoCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (leaveOctoCounter == 1) {
+      characterNameDisplay.textContent = "kraken";
+    } else if (leaveOctoCounter == 2) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(leaveOctoText[leaveOctoCounter])
+      .start();
+      textBoxClicked = 1;
+      leaveOctoCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    leaveOctoCounter = -2; //-2 means that this sequence has been done.
+    pirateStartCounter = 0;
+  }
+}
+
+function pirateStartSequence(){
+  if (pirateStartCounter <= 3){
+    changeDisplay('./Pictures/Backgrounds/piratebase.png');
+    changeBars("#5c4944");
+    characterNameDisplay.textContent = "";
+
+    if (pirateStartCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (pirateStartCounter == 1) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (pirateStartCounter == 2) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(pirateStartText[pirateStartCounter])
+      .start();
+      textBoxClicked = 1;
+      pirateStartCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    //pirateStartCounter = -2; //-2 means that this sequence has been done.
+    characterNameDisplay.textContent = '';
+    leftChoiceBox1.textContent = "Enough waiting. Attack!";
+    rightChoiceBox1.textContent = "Sneak in at nightfall";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+  }
+}
+
+function directAttackSequence(){
+  if (directAttackCounter <= 10){
+    characterNameDisplay.textContent = "";
+
+    if (directAttackCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (directAttackCounter == 1) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (directAttackCounter == 2) {
+      changeDisplay('./Pictures/Backgrounds/cannonballs.png');
+      characterNameDisplay.textContent = "";
+    } else if (directAttackCounter == 6) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (directAttackCounter == 7) {
+      characterNameDisplay.textContent = "";
+    } else if (directAttackCounter == 9) {
+      characterNameDisplay.textContent = playerName;
+    } else if (directAttackCounter == 10) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(directAttackText[directAttackCounter])
+      .start();
+      textBoxClicked = 1;
+      directAttackCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    directAttackCounter = -2; //-2 means that this sequence has been done.
+    changeDisplay('./Pictures/Backgrounds/GameOver.png');
+    changeBars("#5c4944");
+  }
+}
+
+function sneakInSequence(){
+  if (sneakInCounter <= 9){
+    characterNameDisplay.textContent = "";
+
+    if (sneakInCounter == 0) {
+      characterNameDisplay.textContent = "";
+    } else if (sneakInCounter == 4) {
+      characterNameDisplay.textContent = playerName;
+    } else if (sneakInCounter == 5) {
+      characterNameDisplay.textContent = "";
+    }else if (sneakInCounter == 6) {
+      characterNameDisplay.textContent = "";
+      changeDisplay('./Pictures/Backgrounds/fireworks.png');
+    } else if (sneakInCounter == 7) {
+      characterNameDisplay.textContent = "Capn' Rufus";
+    } else if (sneakInCounter == 8) {
+      characterNameDisplay.textContent = playerName;
+    } else if (sneakInCounter == 9) {
+      characterNameDisplay.textContent = "";
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(sneakInText[sneakInCounter])
+      .start();
+      textBoxClicked = 1;
+      sneakInCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    sneakInCounter = -2; //-2 means that this sequence has been done.
+    tavernHubCounter = 0;
+    tavernHubAgain = 1;
+    octoRoute = 1;
+  }
+}
+
 //************Octo functions ends here******************************************************************************************************************************************************************************************
 
 
@@ -4360,6 +5068,45 @@ textBoxContainer.addEventListener('click', ()=> {
     wickSnowBoardBadEnd();
   }
 
+
+  //************************************* seastuff *************************************//
+if( (seaIntroCounter != -1) && (seaIntroCounter !=-2) ) {
+  oceanStartSequence();
+}
+if( (belowDeckCounter != -1) && (belowDeckCounter !=-2) ) {
+  belowDeckSequence();
+}
+if( (stayCalmCounter != -1) && (stayCalmCounter !=-2) ) {
+  stayCalmSequence();
+}
+if( (takeOcto1Counter != -1) && (takeOcto1Counter !=-2) ) {
+  takeOcto1Sequence();
+}
+if( (leaveOcto1Counter != -1) && (leaveOcto1Counter !=-2) ) {
+  leaveOcto1Sequence();
+}
+if( (fireCannonCounter != -1) && (fireCannonCounter !=-2) ) {
+  fireCannonSequence();
+}
+if( (aboveDeckCounter != -1) && (aboveDeckCounter !=-2) ) {
+  aboveDeckSequence();
+}
+if( (bringOctoCounter != -1) && (bringOctoCounter !=-2) ) {
+  bringOctoSequence();
+}
+if( (leaveOctoCounter != -1) && (leaveOctoCounter !=-2) ) {
+  leaveOctoSequence();
+}
+if( (pirateStartCounter != -1) && (pirateStartCounter !=-2) ) {
+  pirateStartSequence();
+}
+if( (directAttackCounter != -1) && (directAttackCounter !=-2) ) {
+  directAttackSequence();
+}
+if( (sneakInCounter != -1) && (sneakInCounter !=-2) ) {
+  sneakInSequence();
+}
+
 });
 
 //Choice boxes start here
@@ -4380,7 +5127,7 @@ leftChoiceBox1.addEventListener('click', ()=> {
 
   }
   if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
-    doorIntroCounter = 0;
+    seaIntroCounter = 0;
     tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
@@ -4492,6 +5239,55 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
   }
   //Wick route ends here
+
+
+  //************************************* seastuff *************************************//
+  if ( (seaIntroCounter >= 7) /*&& (aboveDeckCounter == -1)*/) {
+    aboveDeckCounter = 0;
+    seaIntroCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (aboveDeckCounter >= 3) /*&& (bringOctoCounter == -1)*/) {
+    bringOctoCounter = 0;
+    aboveDeckCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (belowDeckCounter >= 4) /*&& (fireCannonCounter == -1)*/) {
+    stayCalmCounter = 0;
+    belowDeckCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (stayCalmCounter >= 3) /*&& (fireCannonCounter == -1)*/) {
+    takeOcto1Counter = 0;
+    stayCalmCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (pirateStartCounter >= 3) /*&& (directAttackCounter == -1)*/) {
+    directAttackCounter = 0;
+    pirateStartCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -4622,6 +5418,55 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
   }
   //Wick route ends here
+
+  //************************************* seastuff *************************************//
+  if ( (seaIntroCounter >=7) /*&& (belowDeckCounter == -1)*/) {
+    seaIntroCounter = -2;
+    belowDeckCounter = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (belowDeckCounter >= 4) /*&& (fireCannonCounter == -1)*/) {
+    fireCannonCounter = 0;
+    belowDeckCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (aboveDeckCounter >= 3) /*&& (bringOctoCounter == -1)*/) {
+    leaveOctoCounter = 0;
+    aboveDeckCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+  if ( (stayCalmCounter >= 3) /*&& (fireCannonCounter == -1)*/) {
+    leaveOcto1Counter = 0;
+    stayCalmCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+
+  if ( (pirateStartCounter >= 3) /*&& (sneakInCounter == -1)*/) {
+    sneakInCounter = 0;
+    pirateStartCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+
+
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -4732,7 +5577,7 @@ leftChoiceBox2.addEventListener('click', ()=> {
 
 rightChoiceBox2.addEventListener('click', ()=> {
   if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
-    seaIntroCounter = 0;
+    doorIntroCounter = 0;
     tavernHubAgain = 0;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
