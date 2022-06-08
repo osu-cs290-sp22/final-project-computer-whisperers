@@ -416,7 +416,7 @@ var doorBridgeWickText = [
 ];
 
 var doorCakeCanyonCounter = -1;
-var doorCakeCanyon = [
+var doorCakeCanyonText = [
   "After a very eager jog, you silently celebrate your newfound distance from the nearest Funny Fellow.",
   "Unfortunately this jog has led you to a sticky situation; A large cake canyon seems to be between you and forward progress.",
   "There seems to be a drawbridge for getting across, but its not in the ideal position as of now.",
@@ -426,7 +426,7 @@ var doorCakeCanyon = [
 ];
 
 var doorCakeCanyonSacrificeCounter = -1;
-var doorCakeCanyonSacrifice = [
+var doorCakeCanyonSacrificeText = [
   //No name
   "Well, there may be a DIFFERENT way to flip a lever from here...",
   "You start to rummage through your currently carried ITEMS.",
@@ -441,7 +441,7 @@ var doorCakeCanyonSacrifice = [
 ]
 
 var doorCakeCanyonDieCounter = -1;
-var doorCakeCanyonDie = [
+var doorCakeCanyonDieText = [
   //No name
   "You see no other choice.",
   "In order to get across you must eat through the cake walls and make a tunnel around the canyon.",
@@ -458,7 +458,7 @@ var doorCakeCanyonDie = [
 ]
 
 var doorCakeCanyonPilzCounter = -1;
-var doorCakeCanyonPilz = [
+var doorCakeCanyonPilzText = [
   //No name
   "You have a sudden moment of genius.",
   "You are pretty sure that you have a certain... ally that could help.",
@@ -480,7 +480,7 @@ var doorCakeCanyonPilz = [
 ]
 
 var doorCakeCanyonEatPilzCounter = -1;
-var doorCakeCanyonEatPilz = [
+var doorCakeCanyonEatPilzText = [
   //No name
   "Hmm... thinking up a plan is hard... esspecially with an empty stomach.",
   "You'd eat the cake surrounding you, but having a potential bellyache sounds counter productive...",
@@ -510,7 +510,7 @@ var doorCakeCanyonEatPilz = [
 ]
 
 var doorGoodEndingCounter = -1;
-var doorGoodEnding = [
+var doorGoodEndingText = [
   //No name
   "After some additional walking... you think you are in the clear.",
   "No additional obsticles appear. You simply keep walking and walking.",
@@ -545,7 +545,7 @@ var doorGoodEnding = [
 ]
 
 var doorNeutralEndingCounter = -1;
-var doorNeutralEnding = [
+var doorNeutralEndingText = [
   "After some additional walking... you think you are in the clear.",
   "No additional obsticles appear. You simply keep walking and walking.",
   "The quiet atmosphere is relaxing compared to the journey getting here.",
@@ -2639,6 +2639,53 @@ function doorBridgeWickSequence() {
   }
 }
 
+function doorCakeCanyonSequence() {
+  if (doorCakeCanyonCounter <= 5) {
+    if(doorCakeCanyonCounter == 0) {
+      changeDisplay("./Pictures/Backgrounds/DoorBridge.png");
+    }
+    if(doorCakeCanyonCounter == 3) {
+      characterNameDisplay.textContent = "";
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeCreep.png");
+    }
+    if(doorCakeCanyonCounter == 4) {
+      changeDisplay("./Pictures/Backgrounds/DoorBridgeClown.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorCakeCanyonText[doorCakeCanyonCounter])
+      .start();
+      textBoxClicked = 1;
+      doorCakeCanyonCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+
+    leftChoiceBox1.textContent = "How deep can this canyon be?";
+    rightChoiceBox1.textContent = "Use someone for help.";
+    leftChoiceBox2.textContent = "Have Pilz help to get over...";
+
+    removeHidden(leftChoiceBox1);
+    if(grobItem == 1 || squidItem == 1  || wickItem == 1) {
+      removeHidden(rightChoiceBox1);
+    }
+    if(pilzItem == 1) {
+      removeHidden(leftChoiceBox2);
+    }
+  }
+}
 
 //************Door functions end here******************************************************************************************************************************************************************************************
 
