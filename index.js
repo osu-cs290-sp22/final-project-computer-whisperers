@@ -2603,15 +2603,15 @@ function wickGiveHornWick()
     if (wickGiveHornWCounter <= 7)
     {
      //VISUAL CHANGES
-     if (wickGiveHornWCounter = 0)
+     if (wickGiveHornWCounter == 0)
      {
        characterNameDisplay.textContent = ''
      }
-     if (wickGiveHornWCounter = 1)
+     if (wickGiveHornWCounter == 1)
      {
        changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WICK NORMAL
      }   
-     if (wickGiveHornWCounter = 4)
+     if (wickGiveHornWCounter == 4)
      {
        changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }     
