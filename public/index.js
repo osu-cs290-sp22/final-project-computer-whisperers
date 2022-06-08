@@ -2063,6 +2063,200 @@ function changeRightBar(color) {
 
 //************Door functions start here******************************************************************************************************************************************************************************************
 
+function doorIntroSequence() {
+  if (doorIntroCounter <= 7) {
+    if(doorIntroCounter == 2) {
+      changeDisplay("./Pictures/Backgrounds/DoorRuinsOutdoors.png");
+    }
+    if(doorIntroCounter == 5) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if(doorIntroCounter == 6) {
+      characterNameDisplay.textContent = '';
+    }
+    if(doorIntroCounter == 7) {
+      characterNameDisplay.textContent = playerName;
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorIntroText[doorIntroCounter])
+      .start();
+      textBoxClicked = 1;
+      doorIntroCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    leftChoiceBox1.textContent = "Be a Chad and continue! (Cannot Return)";
+    rightChoiceBox1.textContent = "Be friendless and flee (Return to Tavern)";
+    removeHidden(leftChoiceBox1);
+    removeHidden(rightChoiceBox1);
+    characterNameDisplay.textContent = " ";
+  }
+}
+
+function doorReturnSequence() {
+  if (doorReturnCounter <= 1) {
+    if(doorReturnCounter == 2) {
+      changeDisplay("./Pictures/Backgrounds/Tavern.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorReturnText[doorReturnCounter])
+      .start();
+      textBoxClicked = 1;
+      doorReturnCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    tavernHubCounter = 0;
+    tavernHubAgain = 1;
+    doorReturnCounter = -2;
+    characterNameDisplay.textContent = " ";
+  }
+}
+
+function doorInsideSequence() {
+  if (doorInsideCounter <= 7) {
+    if(doorInsideCounter == 2) {
+      changeDisplay("./Pictures/Backgrounds/DoorRuinsInside.png");
+    }
+    if(doorInsideCounter == 5) {
+      changeDisplay("./Pictures/Backgrounds/RuinsDoorBlocked.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorInsideText[doorInsideCounter])
+      .start();
+      textBoxClicked = 1;
+      doorInsideCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    leftChoiceBox1.textContent = "Consume Giant lolipop";
+    rightChoiceBox1.textContent = "Let grob eat the lollipop tree";
+    removeHidden(leftChoiceBox1);
+    if(grobItem == 1) {
+      removeHidden(rightChoiceBox1);
+    }
+    characterNameDisplay.textContent = " ";
+  }
+}
+
+function doorGrobFailSequence() {
+  if (doorGrobFailCounter <= 6) {
+    if(doorGrobFailCounter == 4) {
+      changeDisplay("./Pictures/Backgrounds/Black.png");
+    }
+    if(doorGrobFailCounter == 6) {
+      changeDisplay("./Pictures/Backgrounds/GameOver.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorGrobFailText[doorGrobFailCounter])
+      .start();
+      textBoxClicked = 1;
+      doorGrobFailCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = " ";
+  }
+}
+
+function doorGrobWinSequence() {
+  if (doorGrobWinCounter <= 16) {
+    if(doorGrobWinCounter == 1) {
+      characterNameDisplay.textContent = "Grob";
+    }
+    if(doorGrobWinCounter == 3) {
+      characterNameDisplay.textContent = "";
+    }
+    if(doorGrobWinCounter == 5) {
+      characterNameDisplay.textContent = "Grob";
+    }
+    if(doorGrobWinCounter == 6) {
+      characterNameDisplay.textContent = "";
+    }
+    if(doorGrobWinCounter == 8) {
+      changeDisplay("./Pictures/Backgrounds/RuinsDoorEated.png");
+    }
+    if(doorGrobWinCounter == 9) {
+      characterNameDisplay.textContent = "Grob";
+    }
+    if(doorGrobWinCounter == 11) {
+      characterNameDisplay.textContent = "";
+    }
+    if(doorGrobWinCounter == 15) {
+      changeDisplay("./Pictures/Backgrounds/CrystalArchers.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorGrobWinText[doorGrobWinCounter])
+      .start();
+      textBoxClicked = 1;
+      doorGrobWinCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = " ";
+  }
+}
+
 //************Door functions end here******************************************************************************************************************************************************************************************
 
 
@@ -5107,6 +5301,22 @@ if( (sneakInCounter != -1) && (sneakInCounter !=-2) ) {
   sneakInSequence();
 }
 
+//DOOR STUFF ******************************************************************
+if( (doorIntroCounter != -1) && (doorIntroCounter !=-2) ) {
+  doorIntroSequence();
+}
+if( (doorReturnCounter != -1) && (doorReturnCounter !=-2) ) {
+  doorReturnSequence();
+}
+if( (doorInsideCounter != -1) && (doorInsideCounter !=-2) ) {
+  doorInsideSequence();
+}
+if( (doorGrobFailCounter != -1) && (doorGrobFailCounter !=-2) ) {
+  doorGrobFailSequence();
+}
+if( (doorGrobWinCounter != -1) && (doorGrobWinCounter !=-2) ) {
+  doorGrobWinSequence();
+}
 });
 
 //Choice boxes start here
@@ -5287,7 +5497,19 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox2);
   }
 
-
+  //Door Stuff *******************************************************
+  if ( (doorIntroCounter >= 7) /*&& (directAttackCounter == -1)*/) {
+    doorInsideCounter = 0;
+    doorIntroCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+  if ( (doorInsideCounter >= 7) /*&& (directAttackCounter == -1)*/) {
+    doorGrobFailCounter = 0;
+    doorInsideCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -5466,7 +5688,19 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox2);
   }
 
-
+  //Door Stuff *******************************************************
+  if ( (doorIntroCounter >= 1) /*&& (directAttackCounter == -1)*/) {
+    doorReturnCounter = 0;
+    doorIntroCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
+  if ( (doorInsideCounter >= 7) /*&& (directAttackCounter == -1)*/) {
+    doorGrobWinCounter = 0;
+    doorInsideCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+  }
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
