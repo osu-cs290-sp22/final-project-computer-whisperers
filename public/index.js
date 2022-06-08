@@ -2767,15 +2767,15 @@ function wickGiveHornWick()
     if (wickGiveHornWCounter <= 7)
     {
      //VISUAL CHANGES
-     if (wickGiveHornWCounter = 0)
+     if (wickGiveHornWCounter == 0)
      {
        characterNameDisplay.textContent = ''
      }
-     if (wickGiveHornWCounter = 1)
+     if (wickGiveHornWCounter == 1)
      {
        changeDisplay('./Pictures/Backgrounds/CrystalCaveWickNormal.png')//CRYSTAL CAVE WICK NORMAL
      }
-     if (wickGiveHornWCounter = 4)
+     if (wickGiveHornWCounter == 4)
      {
        changeDisplay('./Pictures/Backgrounds/CrystalCaveClown.png')//CRYSTAL CAVE CLOWN
      }
@@ -3415,7 +3415,7 @@ function wickSnowboardEnd()
       wickRoute = 1;
       tavernHubCounter = 0;
       tavernHubAgain = 1;
-      wickSnowBoardBadCounter = -2;
+      wickSnowBoardCounter = -2;
     }
 }
 
@@ -4654,17 +4654,8 @@ leftChoiceBox2.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
-});
 
-rightChoiceBox2.addEventListener('click', ()=> {
-  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
-    seaIntroCounter = 0;
-    tavernHubAgain = 0;
-    addHidden(leftChoiceBox1);
-    addHidden(rightChoiceBox1);
-    addHidden(leftChoiceBox2);
-    addHidden(rightChoiceBox2);
-  }
+
 
   //Wick route starts here
   //Huddle for warmth.
@@ -4737,6 +4728,17 @@ rightChoiceBox2.addEventListener('click', ()=> {
     addHidden(leftChoiceBox2);
   }
   //Wick route ends here
+});
+
+rightChoiceBox2.addEventListener('click', ()=> {
+  if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
+    seaIntroCounter = 0;
+    tavernHubAgain = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
 
 })
 //Choice boxes ende here
