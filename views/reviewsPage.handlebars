@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Friendventure Final Project CS290</title>
+    <link rel="stylesheet" href="../reviews.css" media="screen">
+    <script src="../reviews.js" charset="utf-8" defer></script>
+    <script src="../reviewTemplate.js" charset="utf-8" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.runtime.js" integrity="sha512-0bRnmqp8jww8h5q9khSJSMF7kUFVuzAiVpbwCr1+kot0yAwtVukdBQGznIvytgpFzy6wEgFbjbNSO2xcSBHTWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script> <!-- Cool type Writer Package from: https://github.com/tameemsafi/typewriterjs/blob/master/readme.md -->
+  </head>
+
+  <body>
+    <!-- Stuff here -->
+
+    <header id= "head-Bar">
+      <!-- <h1 id= "title"> <a href="/Friendventure">Friendventure!</a> </h1> -->
+       <a href="/Friendventure"> <img id="title" src="../Title.png"/> </a>
+      <div id= "top-Bar">
+        <!--Detail stuff-->
+        <!-- <img src=""/> -->
+        <img id= "top-Bar-Decor" src= "../top-Bar-Reviews.png"/>
+        <!--<h1 id="title-suffix">-~Reviews~-</h1>-->
+        <!-- <img src=""/> -->
+      </div>
+    </header>
+
+  <main>
+    <div id= "menu-Bar">
+      <h2 id="options-title">Review Body:</h2>
+      <textarea placeholder="Type Your Review Body Here..." id="body-text-input" textarea style="resize: none;"></textarea>
+      <h2 id= "inventory-Title">Review Author:</h2>
+      <textarea placeholder="Type Your Name Here..." id="author-text-input" textarea style="resize: none;"></textarea>
+      <button id="review-post-button">Post Review</button>
+    </div>
+
+<div id="review-container">
+  {{#each reviewsData}}
+    {{>review}}
+  {{/each}}
+</div>
+  </main>
+
+  </body>
+
+</html>

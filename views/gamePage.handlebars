@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Friendventure Final Project CS290</title>
+    <link rel="stylesheet" href="index.css" media="screen">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="index.js" charset="utf-8" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script> <!-- Cool type Writer Package from: https://github.com/tameemsafi/typewriterjs/blob/master/readme.md -->
+  </head>
+
+  <body>
+    <!-- Stuff here -->
+
+    <header id= "head-Bar">
+      <!-- <h1 id= "title"> Friendventure! </h1> -->
+      <a href="/Friendventure"> <img id="title" src="Title.png"/> </a>
+      <div id= "top-Bar">
+        <!--Detail stuff-->
+        <img id= "top-Bar-Decor" src= "top-Bar-Detail.png"/>
+      </div>
+    </header>
+
+  <main>
+    <div id= "menu-Bar">
+      <h2 id="options-title">Menu</h2>
+      <div id= "options-Container">
+        <button class= "options-item"id= "save-Button">DLC 1 - Save</button>
+        <button class= "options-item" id= "load-Button">DLC 2 - Load</button>
+        <button class= "options-item" id= "settings-Button">Settings</button>
+        <button class= "options-item" id= "extras-Button">Extras</button>
+      </div>
+      <h2 id= "inventory-Title">Inventory:</h2>
+      <div id= "inventory-container">
+        <article class= "inventory-Item">
+          <img class= "item-Picture" id="inv-item1"  src = ""/>
+        </article>
+        <article class= "inventory-Item">
+          <img class= "item-Picture" id="inv-item2" src = ""/>
+        </article>
+        <article class= "inventory-Item">
+          <img class= "item-Picture" id="inv-item3"  src = ""/>
+        </article>
+        <article class= "inventory-Item">
+          <img class= "item-Picture" id="inv-item4"  src = ""/>
+        </article>
+        <article class= "inventory-Item">
+          <img class= "item-Picture" id="inv-item5"  src = "./Pictures/Items/DLC.png"/>
+        </article>
+        <article class= "inventory-Item">
+          <img class= "item-Picture" id="inv-item6"  src = "./Pictures/Items/DLC.png"/>
+        </article>
+      </div>
+    </div>
+
+    <div class= "game-Display-Container">
+      <div class= "option-Bar" id= "left-Option-Bar">
+          <p id="left-Option-Box1" class="hidden">Go left 1</p>
+          <p id="left-Option-Box2" class="hidden">Go left 2</p>
+      </div>
+      <div id="graphics-Box">
+        <img id="graphics-Pane" src= "./Pictures/Backgrounds/Start.png"/>
+      </div>
+      <div class= "option-Bar" id= "right-Option-Bar">
+        <p id="right-Option-Box1" class="hidden">Go right 1</p>
+        <p id="right-Option-Box2" class="hidden">Go right 2</p>
+      </div>
+      <div id= "text-Box">
+        <p id="text-Focus-Container"><b><em id="text-Focus"><!--(Character Name)--></em></b></p>
+        <p id='text-Chat'>Actual descriptive text that describes what is happening like how I am
+          describing this prototype of a text-box that describes what is happening
+          or what a character is saying etc...</p>
+      </div>
+    </div>
+  </main>
+  <div id="modal-backdrop" class="hidden"></div>
+  <div id="modal-container" class="hidden">
+    <div class="modal-dialog">
+
+    <div id="extras-content">
+      <div class="modal-header">
+        <h1 class="modal-title">Extras!</h1>
+        <button type="button" class="modal-close-button" id="extras-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+          <hr/>
+          <h2>
+            Leave a review of the game:
+            <a href="/Friendventure/reviews" id="page-link">Friendventure Reviews Page</a>
+          </h2>
+          <hr/>
+
+        <div class="stats-element">
+            <h2>Credits:</h2>
+            <p>Stanley Hale - Art, Writing, HTML, CSS, JS </p>
+            <p>Ezra - Art, Writing, JS</p>
+            <p>Iain -  Art, Writing, JS</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings-content">
+        <div class="modal-header">
+          <h1 class="modal-title">Settings:</h1>
+          <button type="button" class="modal-close-button" id="settings-close">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-input-element">
+            <h2> PlayerName: </h2>
+            <textarea id="name-text-input"></textarea>
+          </div>
+          <div class="modal-input-element">
+            <h2> Text Speed: </h2>
+            <input type="number" step="1" placeholder="25" id="text-speed-input"></input>
+          </div>
+        </div>
+    </div>
+
+
+    </div>
+  </div>
+  </body>
+
+</html>

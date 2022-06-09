@@ -1,5 +1,19 @@
 {
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "handlebars views/partials/review.handlebars -f public/reviewTemplate.js",
+    "prestart": "npm run build",
+    "predev": "run build"
+  },
   "dependencies": {
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7",
     "typewriter-effect": "^2.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
