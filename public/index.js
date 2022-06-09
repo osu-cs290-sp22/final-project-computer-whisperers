@@ -498,9 +498,9 @@ var doorCakeCanyonEatPilzText = [
   //No name
   "Pilz turns around and begins to enthusiastically examine the situation on the other end of the canyon.",//8
   "As your stomach growls you lose control of yourself.",
-  "You grab Pilz with both hands and do what comes naturally.",//9 Black Screen?
+  "You grab Pilz with both hands and do what comes naturally.",//10 Black Screen?
   "*Crunch* *Crunch* *Crunch*",
-  "You suddenly feel much more full...",//10 Pilz Gone
+  "You suddenly feel much more full...",//12 Pilz Gone
   "But also empty.",
   "Pilz is now gone, but the impasse is still here.",
   "With your newfound full stomach, you leap towards the other end of the canyon.",
@@ -610,6 +610,7 @@ var doorBadEndingText = [
   "[Game End]" //31
 ];
 
+var doorJudgement = 0;
 //************Door shenanigans end here******************************************************************************************************************************************************************************************
 
 
@@ -2418,17 +2419,17 @@ function doorBridgeTrollSequence() {
       characterNameDisplay.textContent = playerName;
     }
     if(doorBridgeTrollCounter == 7) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
     }
     if(doorBridgeTrollCounter == 13) {
       characterNameDisplay.textContent = playerName;
     }
     if(doorBridgeTrollCounter == 14) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
       changeDisplay("./Pictures/Backgrounds/DoorBridgeClownMenacing.png");
     }
     if(doorBridgeTrollCounter == 15) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
       changeDisplay("./Pictures/Backgrounds/DoorBridgeClown.png");
     }
     if(doorBridgeTrollCounter == 18) {
@@ -2476,7 +2477,7 @@ function doorBridgeDieSequence() {
       characterNameDisplay.textContent = playerName;
     }
     if(doorBridgeDieCounter == 1) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
     }
     if(doorBridgeDieCounter == 2) {
       characterNameDisplay.textContent = "";
@@ -2485,7 +2486,7 @@ function doorBridgeDieSequence() {
       characterNameDisplay.textContent = playerName;
     }
     if(doorBridgeDieCounter == 4) {
-      characterNameDisplay.textContent = 'Candy Clown';
+      characterNameDisplay.textContent = 'Sprinkles the Clown';
     }
     if(doorBridgeDieCounter == 5) {
       characterNameDisplay.textContent = "";
@@ -2524,7 +2525,7 @@ function doorBridgeDieSequence() {
 function doorBridgeSacrificeSequence() {
   if (doorBridgeSacrificeCounter <= 5) {
     if (doorBridgeSacrificeCounter == 2) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
     }
     if (doorBridgeSacrificeCounter == 3) {
       characterNameDisplay.textContent = "";
@@ -2601,13 +2602,13 @@ function doorBridgeWickSequence() {
       characterNameDisplay.textContent = "Wick";
     }
     if(doorBridgeWickCounter == 2) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
     }
     if(doorBridgeWickCounter == 5) {
       characterNameDisplay.textContent = "";
     }
     if(doorBridgeWickCounter == 6) {
-      characterNameDisplay.textContent = "Candy Clown";
+      characterNameDisplay.textContent = "Sprinkles the Clown";
       changeDisplay("./Pictures/Backgrounds/DoorBridgeCreep.png");
     }
     if(doorBridgeWickCounter == 7) {
@@ -2641,15 +2642,8 @@ function doorBridgeWickSequence() {
 
 function doorCakeCanyonSequence() {
   if (doorCakeCanyonCounter <= 5) {
-    if(doorCakeCanyonCounter == 0) {
-      changeDisplay("./Pictures/Backgrounds/DoorBridge.png");
-    }
-    if(doorCakeCanyonCounter == 3) {
-      characterNameDisplay.textContent = "";
-      changeDisplay("./Pictures/Backgrounds/DoorBridgeCreep.png");
-    }
-    if(doorCakeCanyonCounter == 4) {
-      changeDisplay("./Pictures/Backgrounds/DoorBridgeClown.png");
+    if(doorCakeCanyonCounter == 1) {
+      changeDisplay("./Pictures/Backgrounds/CakeCanyonUp.png");
     }
 
     if (textBoxClicked == 0) {
@@ -2676,6 +2670,7 @@ function doorCakeCanyonSequence() {
     leftChoiceBox1.textContent = "How deep can this canyon be?";
     rightChoiceBox1.textContent = "Use someone for help.";
     leftChoiceBox2.textContent = "Have Pilz help to get over...";
+    rightChoiceBox2.textContent = "Consume Pilz";
 
     removeHidden(leftChoiceBox1);
     if(grobItem == 1 || squidItem == 1  || wickItem == 1) {
@@ -2684,8 +2679,223 @@ function doorCakeCanyonSequence() {
     if(pilzItem == 1) {
       removeHidden(leftChoiceBox2);
     }
+    removeHidden(rightChoiceBox2);
   }
 }
+
+
+function doorCakeCanyonDieSequence() {
+  if (doorCakeCanyonDieCounter <= 11) {
+    if (doorCakeCanyonDieCounter == 10) {
+      changeDisplay("./Pictures/Backgrounds/Black.png");
+    }
+    if (doorCakeCanyonDieCounter == 11) {
+        changeDisplay("./Pictures/Backgrounds/GameOver.png");
+    }
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorCakeCanyonDieText[doorCakeCanyonDieCounter])
+      .start();
+      textBoxClicked = 1;
+      doorCakeCanyonDieCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+  }
+}
+
+function doorCakeCanyonSacrificeSequence() {
+  if (doorCakeCanyonSacrificeCounter <= 7) {
+    if (doorCakeCanyonSacrificeCounter == 3) {
+      characterNameDisplay.textContent = "";
+    }
+    if (doorCakeCanyonSacrificeCounter == 5) {
+      changeDisplay("./Pictures/Backgrounds/CakeCanyonDown.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorCakeCanyonSacrificeText[doorCakeCanyonSacrificeCounter])
+      .start();
+      textBoxClicked = 1;
+      doorCakeCanyonSacrificeCounter++;
+
+      if(doorCakeCanyonSacrificeCounter == 3) {
+        //Display Unique text based on charcaters available.
+        if(grobItem == 1) { //grob
+          characterNameDisplay.textContent = "Grob";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("'Sir yes sir! For king and country!")
+          .start();
+
+        } else if (squidItem == 1) { //octo
+          characterNameDisplay.textContent = "Kraken Junior";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("'One step closer to taking over the world!'")
+          .start();
+
+        } else if (wickItem == 1) { //pilz
+          characterNameDisplay.textContent = "Wick";
+          typewriter
+          .changeDelay(customTextSpeed)
+          .typeString("'I wonder whats out there...'")
+          .start();
+        }
+      }
+      if(doorCakeCanyonSacrificeCounter == 8) {
+        //remove character item from inventory
+        if(grobItem == 1) { //grob
+          grobItemContainer.src = '';
+          grobItem = 0;
+
+        } else if (squidItem == 1) { //octo
+          octoItemContainer.src = '';
+          squidItem = 0;
+
+        } else if (wickItem == 1) { //pilz
+          wickItemContainer.src = '';
+          wickItem = 0;
+        }
+      }
+
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorJudgement = 1;
+    doorCakeCanyonSacrificeCounter = -2;
+  }
+}
+
+function doorCakeCanyonPilzSequence() {
+  if (doorCakeCanyonPilzCounter <= 11) {
+    if (doorCakeCanyonPilzCounter == 2) {
+      characterNameDisplay.textContent = "Pilz";
+    }
+    if (doorCakeCanyonPilzCounter == 3) {
+        characterNameDisplay.textContent = playerName;
+    }
+    if (doorCakeCanyonPilzCounter == 4) {
+        characterNameDisplay.textContent = "Pilz";
+    }
+    if (doorCakeCanyonPilzCounter == 6) {
+        characterNameDisplay.textContent = playerName;
+    }
+    if (doorCakeCanyonPilzCounter == 7) {
+        characterNameDisplay.textContent = '';
+    }
+    if (doorCakeCanyonPilzCounter == 11) {
+        changeDisplay("./Pictures/Backgrounds/CakeCanyonDown.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorCakeCanyonPilzText[doorCakeCanyonPilzCounter])
+      .start();
+      textBoxClicked = 1;
+      doorCakeCanyonPilzCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorJudgement = 1;
+    doorCakeCanyonPilzCounter = -2;
+  }
+}
+
+function doorCakeCanyonEatPilzSequence() {
+  if (doorCakeCanyonEatPilzCounter <= 18) {
+    if (doorCakeCanyonEatPilzCounter == 3) {
+      characterNameDisplay.textContent = "Pilz";
+      changeDisplay("./Pictures/Backgrounds/CakeCanyonPilz.png");
+    }
+    if (doorCakeCanyonEatPilzCounter == 4) {
+        characterNameDisplay.textContent = playerName;
+    }
+    if (doorCakeCanyonEatPilzCounter == 5) {
+        characterNameDisplay.textContent = "Pilz";
+    }
+    if (doorCakeCanyonEatPilzCounter == 6) {
+        characterNameDisplay.textContent = playerName;
+    }
+    if (doorCakeCanyonEatPilzCounter == 7) {
+        characterNameDisplay.textContent = 'Pilz';
+    }
+    if (doorCakeCanyonEatPilzCounter == 8) {
+        characterNameDisplay.textContent = '';
+    }
+    if (doorCakeCanyonEatPilzCounter == 10) {
+        changeDisplay("./Pictures/Backgrounds/Black.png");
+    }
+    if (doorCakeCanyonEatPilzCounter == 12) {
+        changeDisplay("./Pictures/Backgrounds/CakeCanyonUp.png");
+        pilzItem = 0;
+        pilzItemContainer.src = '';
+    }
+    if (doorCakeCanyonEatPilzCounter == 18) {
+        changeDisplay("./Pictures/Backgrounds/CakeCanyonDown.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorCakeCanyonEatPilzText[doorCakeCanyonEatPilzCounter])
+      .start();
+      textBoxClicked = 1;
+      doorCakeCanyonEatPilzCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+    doorJudgement = 1;
+    doorCakeCanyonEatPilzCounter = -2;
+  }
+}
+
+
+
 
 //************Door functions end here******************************************************************************************************************************************************************************************
 
@@ -5771,6 +5981,18 @@ if( (doorBridgeWickCounter != -1) && (doorBridgeWickCounter !=-2) ) {
 if( (doorCakeCanyonCounter != -1) && (doorCakeCanyonCounter !=-2) ) {
   doorCakeCanyonSequence();
 }
+if( (doorCakeCanyonDieCounter != -1) && (doorCakeCanyonDieCounter !=-2) ) {
+  doorCakeCanyonDieSequence();
+}
+if( (doorCakeCanyonSacrificeCounter != -1) && (doorCakeCanyonSacrificeCounter !=-2) ) {
+  doorCakeCanyonSacrificeSequence();
+}
+if( (doorCakeCanyonPilzCounter != -1) && (doorCakeCanyonPilzCounter !=-2) ) {
+  doorCakeCanyonPilzSequence();
+}
+if( (doorCakeCanyonEatPilzCounter != -1) && (doorCakeCanyonEatPilzCounter !=-2) ) {
+  doorCakeCanyonEatPilzSequence();
+}
 
 });
 
@@ -5979,6 +6201,14 @@ leftChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if ( (doorCakeCanyonCounter >= 5) ) {
+    doorCakeCanyonDieCounter = 0;
+    doorCakeCanyonCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
 });
 
 rightChoiceBox1.addEventListener('click', ()=> {
@@ -6184,6 +6414,14 @@ rightChoiceBox1.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if ( (doorCakeCanyonCounter >= 5) ) {
+    doorCakeCanyonSacrificeCounter = 0;
+    doorCakeCanyonCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
 });
 
 leftChoiceBox2.addEventListener('click', ()=> {
@@ -6306,12 +6544,28 @@ leftChoiceBox2.addEventListener('click', ()=> {
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
   }
+  if ( (doorCakeCanyonCounter >= 5) ) {
+    doorCakeCanyonPilzCounter = 0;
+    doorCakeCanyonCounter = -2;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
 });
 
 rightChoiceBox2.addEventListener('click', ()=> {
   if ( (tavernHubCounter == -2) && (tavernHubAgain == 1) ) {
     doorIntroCounter = 0;
     tavernHubAgain = 0;
+    addHidden(leftChoiceBox1);
+    addHidden(rightChoiceBox1);
+    addHidden(leftChoiceBox2);
+    addHidden(rightChoiceBox2);
+  }
+  if ( (doorCakeCanyonCounter >= 5) ) {
+    doorCakeCanyonEatPilzCounter = 0;
+    doorCakeCanyonCounter = -2;
     addHidden(leftChoiceBox1);
     addHidden(rightChoiceBox1);
     addHidden(leftChoiceBox2);
