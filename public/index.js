@@ -531,7 +531,7 @@ var doorGoodEndingText = [
   "It begins to open, revealing a bright light behind it.",
   "Your eyes have not adjusted to the light, but you can hear familiar voices come across from the other side.",//15 White Screen
   //Grob
-  "''",//16
+  "'Don't be a party pooper, you've made me the party scooper! Heh heh just kidding, we are buds.",//16
   //Kraken Junior
   "'Now that we've passed our trials, its time to start my quest for world domination!'",//17
   //Wick
@@ -2894,8 +2894,202 @@ function doorCakeCanyonEatPilzSequence() {
   }
 }
 
+function doorJudgementPicker() {
+  let friendShip = grobItem + squidItem + wickItem + pilzItem;
+  if(friendShip == 0) {
+    //Your a bad person
+    doorBadEndingCounter = 0;
+    doorJudgement = -2;
+  } else if (friendShip == 4) {
+    //Oh my grob I love you. Also get a life. Make some real friends.
+    doorGoodEndingCounter = 0;
+    doorJudgement = -2;
+  } else {
+    //Your mediocre person
+    doorNeutralEndingCounter = 0;
+    doorJudgement = -2;
+  }
+}
 
+function doorGoodEndingSequence() {
+  if (doorGoodEndingCounter <= 21) {
+    if (doorGoodEndingCounter == 5) {
+      changeDisplay("./Pictures/Backgrounds/EmptyDoor.png");
+    }
+    if (doorGoodEndingCounter == 6) {
+        characterNameDisplay.textContent = playerName;
+    }
+    if (doorGoodEndingCounter == 7) {
+        characterNameDisplay.textContent = "";
+    }
+    if (doorGoodEndingCounter == 12) {
+        changeDisplay("./Pictures/Backgrounds/FullDoor.png");
+    }
+    if (doorGoodEndingCounter == 15) {
+        changeDisplay("./Pictures/Backgrounds/Outside1.png");
+    }
+    if (doorGoodEndingCounter == 16) {
+        characterNameDisplay.textContent = "Grob";
+    }
+    if (doorGoodEndingCounter == 17) {
+        characterNameDisplay.textContent = "Kraken Junior";
+    }
+    if (doorGoodEndingCounter == 18) {
+        characterNameDisplay.textContent = "Wick";
+    }
+    if (doorGoodEndingCounter == 19) {
+        characterNameDisplay.textContent = "Pilz";
+    }
+    if (doorGoodEndingCounter == 20) {
+        characterNameDisplay.textContent = "Your Pals";
+        changeDisplay("./Pictures/Backgrounds/GoodEnding.png");
+    }
 
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorGoodEndingText[doorGoodEndingCounter])
+      .start();
+      textBoxClicked = 1;
+      doorGoodEndingCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+  }
+}
+
+function doorBadEndingSequence() {
+  if (doorBadEndingCounter <= 31) {
+    if (doorBadEndingCounter == 5) {
+      changeDisplay("./Pictures/Backgrounds/EmptyDoor.png");
+    }
+    if (doorBadEndingCounter == 6) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if (doorBadEndingCounter == 7) {
+      characterNameDisplay.textContent = '';
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorBadEndingText[doorBadEndingCounter])
+      .start();
+      textBoxClicked = 1;
+      doorBadEndingCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "Hope Your Satisfied...";
+  }
+}
+
+function doorNeutralEndingSequence() {
+  if (doorNeutralEndingCounter <= 21) {
+    if (doorNeutralEndingCounter == 5) {
+      changeDisplay("./Pictures/Backgrounds/EmptyDoor.png");
+    }
+    if (doorNeutralEndingCounter == 6) {
+      characterNameDisplay.textContent = playerName;
+    }
+    if (doorNeutralEndingCounter == 7) {
+      characterNameDisplay.textContent = '';
+    }
+
+    if (doorNeutralEndingCounter == 12) {
+      let friendShip = grobItem + squidItem + wickItem + pilzItem;
+      //Checck start
+      if(friendShip == 1) {
+        if(grobItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-1-G.png");
+        }
+        if(squidItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-1-O.png");
+        }
+        if(wickItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-1-W.png");
+        }
+        if(pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-1-P.png");
+        }
+      } else if (friendShip == 2) {
+
+        if(grobItem == 1 && squidItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-2-GO.png");
+        } else if(grobItem == 1 && pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-2-GP.png");
+        } else if(grobItem == 1 && wickItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-2-GW.png");
+        } else if(squidItem == 1 && pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-2-OP.png");
+        } else if(squidItem == 1 && wickItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-2-OW.png");
+        } else if(wickItem == 1 && pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-2-WP.png");
+        }
+
+      } else if (friendShip == 3) {
+        if(grobItem == 1 && squidItem == 1 && wickItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-3-GOW.png");
+        } else if(grobItem == 1 && squidItem == 1 && pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-3-GOP.png");
+        } else if(grobItem == 1 && wickItem == 1 && pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-3-GWP.png");
+        } else if(wickItem == 1 && squidItem == 1 && pilzItem == 1) {
+          changeDisplay("./Pictures/Backgrounds/Door-3-OWP.png");
+        }
+      }
+      //Check end
+    }
+
+    if(doorNeutralEndingCounter == 15) {
+      changeDisplay("./Pictures/Backgrounds/Outside1.png");
+    }
+    if(doorNeutralEndingCounter == 20) {
+      changeDisplay("./Pictures/Backgrounds/NeutralEnding.png");
+    }
+
+    if (textBoxClicked == 0) {
+      typewriter
+      .changeDelay(customTextSpeed)
+      .typeString(doorNeutralEndingText[doorNeutralEndingCounter])
+      .start();
+      textBoxClicked = 1;
+      doorNeutralEndingCounter++;
+    } else {
+      typewriter
+      .deleteAll(1)
+      .start();
+      textBoxClicked = 0;
+    }
+  }
+  else {
+    typewriter
+    .deleteAll(1)
+    .start();
+    textBoxClicked = 0;
+    characterNameDisplay.textContent = "";
+  }
+}
 
 //************Door functions end here******************************************************************************************************************************************************************************************
 
@@ -5992,6 +6186,20 @@ if( (doorCakeCanyonPilzCounter != -1) && (doorCakeCanyonPilzCounter !=-2) ) {
 }
 if( (doorCakeCanyonEatPilzCounter != -1) && (doorCakeCanyonEatPilzCounter !=-2) ) {
   doorCakeCanyonEatPilzSequence();
+}
+
+if(doorJudgement == 1) {
+  doorJudgementPicker();
+}
+
+if( (doorGoodEndingCounter != -1) && (doorGoodEndingCounter !=-2) ) {
+  doorGoodEndingSequence();
+}
+if( (doorNeutralEndingCounter != -1) && (doorNeutralEndingCounter !=-2) ) {
+  doorNeutralEndingSequence();
+}
+if( (doorBadEndingCounter != -1) && (doorBadEndingCounter !=-2) ) {
+  doorBadEndingSequence();
 }
 
 });
